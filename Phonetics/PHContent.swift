@@ -80,6 +80,19 @@ struct Sound {
     let displayString: String
     let words: [Word]
     
+    func audioName(withWords withWords: Bool) -> String {
+        return "\(withWords ? "words" : "sound")-\(pronunciation)"
+    }
+    
+    func playAudio(withWords withWords: Bool) {
+        let name = audioName(withWords: withWords)
+        PHPlayer.play(name, ofType: "mp3")
+    }
+    
+    func lengthForAudio(withWords withWords: Bool) -> NSTimeInterval {
+        return UALengthOfFile(audioName(withWords: withWords), ofType: "mp3")
+    }
+    
 }
 
 struct Word {

@@ -104,11 +104,12 @@ class LetterViewController : UIViewController {
             imageView.image = word.image
         }
         
+        delay(0.4) {
+            //self.letter.sounds[0].playAudio(withWords: true)
+            PHPlayer.play("words-\(self.letter.text)", ofType: "mp3")
+        }
+        
         if animate {
-            delay(0.4) {
-                let audio = "letter-\(self.letter.text)"
-                PHPlayer.play(audio, ofType: "mp3")
-            }
             
             let views = [letterLabel, wordsView]
             for view in views {
