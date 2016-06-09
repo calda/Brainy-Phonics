@@ -41,6 +41,13 @@ class PHContentManager {
             
             for line in lines.map({ $0.componentsSeparatedByString(",") }) {
                 let words = [Word(text: line[2]), Word(text: line[3]), Word(text: line[4])]
+                
+                for word in words {
+                    if word.image == nil && word.text != "" {
+                        print("MISSING IMAGE FOR \(word.text).jpg")
+                    }
+                }
+                
                 let sound = Sound(pronunciation: line[1], displayString: line[5], words: words)
                 sounds.append(sound)
             }
