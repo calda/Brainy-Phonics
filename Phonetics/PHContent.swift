@@ -66,14 +66,51 @@ class PHContentManager {
         let audioFile = try! AVAudioFile(forReading: url!)
         let format = AVAudioFormat(commonFormat: .PCMFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
         
-        let buf = AVAudioPCMBuffer(PCMFormat: format, frameCapacity: 1024)
+        let buf = AVAudioPCMBuffer(PCMFormat: format, frameCapacity: 900000)
         try! audioFile.readIntoBuffer(buf)
         
         // this makes a copy, you might not want that
         let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData[0], count:Int(buf.frameLength)))
-        print("floatArray \(floatArray)\n")
         
+        var bucketArray = [Float]()
+        for i in 0..<(floatArray.count / 100) {
+            let start = i * 100;
+            let end = start + 100;
+            var sum: Float = 0.0
+            
+            for j in start..<end {
+                sum += abs(floatArray[j])
+            }
+            
+            bucketArray.append(sum / 100.0)
+        }
         
+        var ranges = [(start: Double, duration: Double)]()
+        var currentStart: Int?
+        
+        for i in 0..<bucketArray.count {
+            
+            if bucketArray[i] > 0.1 && currentStart == nil {
+                currentStart = i * 100
+            }
+            
+            else if bucketArray[i] < 0.005 && currentStart != nil {
+                let currentEnd = i * 100
+                ranges.append((Double(currentStart!) / audioFile.fileFormat.sampleRate, Double(currentEnd - currentStart!) / audioFile.fileFormat.sampleRate))
+                currentStart = nil
+            }
+            
+        }
+        
+        let texts = ["A", "ay", "ape", "tail", "jay"]
+        for i in 0...4 {
+            let current = ("\(ranges[i].0)" as NSString).substringToIndex(5)
+            let duration = ("\(ranges[i].1)" as NSString).substringToIndex(5)
+            print("\"\(texts[i])\" starts at \(current) seconds and lasts for \(duration) seconds.")
+        }
+        
+        //bucketArray.forEach{ print($0) }
+        //bucketArray.forEach{ _ in print("\(i++)") }
     }
     
     subscript(string: String) -> Letter? {
@@ -81,6 +118,7 @@ class PHContentManager {
     }
     
 }
+
 
 
 //MARK: - Data Models
