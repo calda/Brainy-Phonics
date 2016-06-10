@@ -42,7 +42,6 @@ H,huh,hug,hard hat,greyhound,Hh
 H,CH,chipmunk,chimney,catch,ch
 H,SH,shoes,shovel,fish,sh
 H,TH,three,throne,moth,th
-H,TH,father,mother,feather,th
 H,WH,whistle,wheelchair,whale,wh
 I,I,ice,tie,life jacket,Ii
 I,ih,hit,mittens,fish,Ii
@@ -86,7 +85,7 @@ O,OW,rainbow,snow,bow and arrow,ow
 O,ah,ostrich,pot,trolley,Oo
 O,OT,pot,hot,robot,ot
 O,OU,mouth,cloud,mouse,ou
-O,OW,owl,cow,town,ow
+O,OWW,owl,cow,town,ow
 O,OR,fork,storm,corn,or
 O,uh,onion,oven,wagon,Oo
 O,OV,oven,love,glove,ov
@@ -96,7 +95,7 @@ P,PL,plug,playground,airplane,pl
 P,PR,proud,pretzel,present,pr
 P,SP,spider,spoon,spill,sp
 Q,qwuh,queen,question,squirrel,Qq
-R,ruh,raccoon,robot,grapes,Rr
+R,rrr,car,chair,horse,Rr
 R,RD,hard hat,skateboard,lizard,rd
 R,RK,fork,dark,work,rk
 R,RL,girl,pearl,curl,rl
@@ -127,7 +126,7 @@ S,zz,dogs,skis,poison,Ss
 S,SH,shoes,shovel,fish,sh
 T,tttt,toe,traffic light,hat,Tt
 T,TH,three,throne,moth,th
-T,TH,father,mother,feather,th
+T,THE,father,mother,feather,th
 T,TR,tricycle,tree,firetruck,tr
 T,AT,cat,hat,bat,at
 T,ET,net,pet,rocket,et
@@ -152,7 +151,7 @@ W,wuh,wagon,wolf,window,Ww
 W,WH,whistle,wheelchair,whale,wh
 W,aw,saw,hawk,draw,aw
 W,OW,rainbow,snow,bow and arrow,ow
-W,OW,owl,cow,town,ow
+W,OWW,owl,cow,town,ow
 W,SW,sweet,swing,swan,sw
 X,ks,fox,taxi,axe,Xx
 X,zz,xylophone,,,Xx

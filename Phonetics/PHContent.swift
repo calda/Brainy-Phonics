@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 let PHLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 let PHContent = PHContentManager()
@@ -48,7 +49,7 @@ class PHContentManager {
                     }
                 }
                 
-                let sound = Sound(pronunciation: line[1], displayString: line[5], words: words)
+                let sound = Sound(sourceLetter: letter, pronunciation: line[1], displayString: line[5], words: words)
                 sounds.append(sound)
             }
             
@@ -56,6 +57,23 @@ class PHContentManager {
         }
         
         self.letters = letters
+        
+        //MARK: - LETS DO SOME AUDIO FUCK EYAH
+        
+        
+        // ...
+        let url = NSBundle.mainBundle().URLForResource(letters["A"]!.sounds[0].audioName(withWords: true), withExtension: "mp3")
+        let audioFile = try! AVAudioFile(forReading: url!)
+        let format = AVAudioFormat(commonFormat: .PCMFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
+        
+        let buf = AVAudioPCMBuffer(PCMFormat: format, frameCapacity: 1024)
+        try! audioFile.readIntoBuffer(buf)
+        
+        // this makes a copy, you might not want that
+        let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData[0], count:Int(buf.frameLength)))
+        print("floatArray \(floatArray)\n")
+        
+        
     }
     
     subscript(string: String) -> Letter? {
@@ -76,12 +94,13 @@ struct Letter {
 
 struct Sound {
     
+    let sourceLetter: String
     let pronunciation: String
     let displayString: String
     let words: [Word]
     
     func audioName(withWords withWords: Bool) -> String {
-        return "\(withWords ? "words" : "sound")-\(pronunciation)"
+        return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(pronunciation)"
     }
     
     func playAudio(withWords withWords: Bool) {

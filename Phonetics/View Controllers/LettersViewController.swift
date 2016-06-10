@@ -14,6 +14,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     //MARK: - Collection View Data Source
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("LOADED PHCONTENT \(PHContent)")
         return PHLetters.count
     }
     
