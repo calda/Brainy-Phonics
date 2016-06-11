@@ -12,12 +12,45 @@ import AVFoundation
 let PHLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 let PHContent = PHContentManager()
 
+typealias FileName = String
+typealias WordName = String
+typealias AudioInfo = (fileName: String, wordStart: Double, wordDuration: Double)
+
 class PHContentManager {
     
     let letters: [String : Letter]
     
     init() {
         
+        //***
+        //parse audio timings
+        //***
+        let audioFile = NSBundle.mainBundle().pathForResource("Audio Timings", ofType: "csv")!
+        let audioText = try! NSString(contentsOfFile: audioFile, encoding: NSUTF8StringEncoding)
+        let audioLines = audioText.componentsSeparatedByString("\r\n")
+        
+        var audioTimings = [FileName : [WordName : AudioInfo]]()
+        
+        for line in audioLines {
+            let cols = line.componentsSeparatedByString(",")
+            let fileName = cols[0]
+            var wordsDict = [WordName : AudioInfo]()
+            
+            for i in 1 ..< cols.count {
+                let splitSet = NSCharacterSet(charactersInString: "=/")
+                let parts = cols[i].componentsSeparatedByCharactersInSet(splitSet)
+                let value = (fileName: fileName,
+                             wordStart: parts[1].asDouble()!,
+                             wordDuration: parts[2].asDouble()!)
+                wordsDict[parts[0]] = value
+            }
+            
+            audioTimings[fileName] = wordsDict
+        }
+        
+        //**
+        //now parse the actual content
+        //**
         let file = NSBundle.mainBundle().pathForResource("Phonics Map", ofType: "csv")!
         let text = try! NSString(contentsOfFile: file, encoding: NSUTF8StringEncoding)
         let lines = text.componentsSeparatedByString("\r\n")
@@ -41,15 +74,21 @@ class PHContentManager {
             var sounds = [Sound]()
             
             for line in lines.map({ $0.componentsSeparatedByString(",") }) {
-                let words = [Word(text: line[2]), Word(text: line[3]), Word(text: line[4])]
+                let pronunciation = line[1]
+                let displayString = line[5]
+                let soundInfo = audioTimings["words-\(letter)-\(pronunciation)"] ?? [:]
                 
-                for word in words {
-                    if word.image == nil && word.text != "" {
-                        print("MISSING IMAGE FOR \(word.text).jpg")
-                    }
-                }
+                let words = [
+                    Word(text: line[2], audioInfo: soundInfo[line[2].lowercaseString]),
+                    Word(text: line[3], audioInfo: soundInfo[line[3].lowercaseString]),
+                    Word(text: line[4], audioInfo: soundInfo[line[4].lowercaseString])]
+                .flatMap{ $0 }
                 
-                let sound = Sound(sourceLetter: letter, pronunciation: line[1], displayString: line[5], words: words)
+                let sound = Sound(sourceLetter: letter,
+                                  pronunciation: pronunciation,
+                                  displayString: displayString,
+                                  words: words)
+                
                 sounds.append(sound)
             }
             
@@ -58,59 +97,12 @@ class PHContentManager {
         
         self.letters = letters
         
-        //MARK: - LETS DO SOME AUDIO FUCK EYAH
-        
-        
-        // ...
-        let url = NSBundle.mainBundle().URLForResource(letters["A"]!.sounds[0].audioName(withWords: true), withExtension: "mp3")
-        let audioFile = try! AVAudioFile(forReading: url!)
-        let format = AVAudioFormat(commonFormat: .PCMFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
-        
-        let buf = AVAudioPCMBuffer(PCMFormat: format, frameCapacity: 900000)
-        try! audioFile.readIntoBuffer(buf)
-        
-        // this makes a copy, you might not want that
-        let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData[0], count:Int(buf.frameLength)))
-        
-        var bucketArray = [Float]()
-        for i in 0..<(floatArray.count / 100) {
-            let start = i * 100;
-            let end = start + 100;
-            var sum: Float = 0.0
-            
-            for j in start..<end {
-                sum += abs(floatArray[j])
+        //print all audio timings
+        /*for letter in self.letters.values {
+            for sound in letter.sounds {
+                sound.printAudioTimings()
             }
-            
-            bucketArray.append(sum / 100.0)
-        }
-        
-        var ranges = [(start: Double, duration: Double)]()
-        var currentStart: Int?
-        
-        for i in 0..<bucketArray.count {
-            
-            if bucketArray[i] > 0.1 && currentStart == nil {
-                currentStart = i * 100
-            }
-            
-            else if bucketArray[i] < 0.005 && currentStart != nil {
-                let currentEnd = i * 100
-                ranges.append((Double(currentStart!) / audioFile.fileFormat.sampleRate, Double(currentEnd - currentStart!) / audioFile.fileFormat.sampleRate))
-                currentStart = nil
-            }
-            
-        }
-        
-        let texts = ["A", "ay", "ape", "tail", "jay"]
-        for i in 0...4 {
-            let current = ("\(ranges[i].0)" as NSString).substringToIndex(5)
-            let duration = ("\(ranges[i].1)" as NSString).substringToIndex(5)
-            print("\"\(texts[i])\" starts at \(current) seconds and lasts for \(duration) seconds.")
-        }
-        
-        //bucketArray.forEach{ print($0) }
-        //bucketArray.forEach{ _ in print("\(i++)") }
+        }*/
     }
     
     subscript(string: String) -> Letter? {
@@ -150,16 +142,91 @@ struct Sound {
         return UALengthOfFile(audioName(withWords: withWords), ofType: "mp3")
     }
     
+    func printAudioTimings() {
+        let url = NSBundle.mainBundle().URLForResource(self.audioName(withWords: true), withExtension: "mp3")
+        
+        let audioFile = try! AVAudioFile(forReading: url!)
+        let format = AVAudioFormat(commonFormat: .PCMFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
+        
+        //get raw data for sounds
+        let buf = AVAudioPCMBuffer(PCMFormat: format, frameCapacity: 900000)
+        try! audioFile.readIntoBuffer(buf)
+        let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData[0], count:Int(buf.frameLength)))
+        
+        //average together 100 audio frames in little buckets
+        var bucketArray = [Float]()
+        for i in 0..<(floatArray.count / 100) {
+            let start = i * 100;
+            let end = start + 100;
+            var sum: Float = 0.0
+            
+            for j in start..<end {
+                sum += abs(floatArray[j])
+            }
+            
+            bucketArray.append(sum / 100.0)
+        }
+        
+        var ranges = [(start: Double, duration: Double)]()
+        var currentStart: Int?
+        
+        //convert buckets to ranges using volume thresholds
+        for i in 0..<bucketArray.count {
+            
+            if bucketArray[i] > 0.1 && currentStart == nil {
+                currentStart = i * 100
+            }
+                
+            else if bucketArray[i] < 0.005 && currentStart != nil {
+                let currentEnd = i * 100
+                ranges.append((Double(currentStart!) / audioFile.fileFormat.sampleRate, Double(currentEnd - currentStart!) / audioFile.fileFormat.sampleRate))
+                currentStart = nil
+            }
+            
+        }
+        
+        var spokenWords = [self.pronunciation]
+        spokenWords.appendContentsOf(words.map({ $0.text }))
+        //5 is format "A ah bat cat hat"
+        if (ranges.count == 5) {
+            spokenWords.insert(self.sourceLetter, atIndex: 0)
+        }
+        
+        var csvLine = "\(self.audioName(withWords: true)),"
+        
+        for i in 0..<spokenWords.count {
+            let current = ("\(ranges[i].start)" as NSString).substringToIndex(min(6, "\(ranges[i].start)".length))
+            let duration = ("\(ranges[i].duration)" as NSString).substringToIndex(min(6, "\(ranges[i].duration)".length))
+            csvLine += "\(spokenWords[i])=\(current)/\(duration),"
+        }
+        
+        //print without the last ", "
+        print(csvLine.substringToIndex(csvLine.endIndex.predecessor().predecessor()))
+    }
+    
 }
 
 struct Word {
     
     let text: String
-    var image: UIImage? {
-        return UIImage(named: "\(text).jpg")
+    let audioName: String
+    let audioStartTime: Double
+    let audioDuration: Double
+    
+    var image: UIImage {
+        return UIImage(named: "\(text).jpg")!
     }
     
-    init(text wordText: String) {
+    init?(text wordText: String, audioInfo: AudioInfo?) {
+        if wordText == "" {
+            return nil
+        }
+        
+        guard let audioInfo = audioInfo else {
+            print("COULD NOT CREATE \(wordText)")
+            return nil
+        }
+        
         var text = wordText.lowercaseString
         
         //remove padding spaces, if exist
@@ -172,6 +239,10 @@ struct Word {
         }
         
         self.text = text
+        
+        self.audioName = audioInfo.fileName
+        self.audioStartTime = audioInfo.wordStart
+        self.audioDuration = audioInfo.wordDuration
     }
     
 }
