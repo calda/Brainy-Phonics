@@ -63,7 +63,23 @@ class LetterViewController : UIViewController {
         decorateForCurrentLetter()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        UAHaltPlayback()
+    }
+    
     func decorateForCurrentLetter(withAnimation animate: Bool = false, animationSubtype: String? = nil) {
+        if UAIsAudioPlaying() {
+            //cancel audio playback and view animations to avoid overlap
+            UAHaltPlayback()
+            delay(0.1) {
+                (1...3).map{ self.labelAndImageForWord($0).0.superview }
+                    .forEach{ $0?.layer.removeAllAnimations() }
+                self.decorateForCurrentLetter(withAnimation: animate, animationSubtype: animationSubtype)
+            }
+            return
+        }
+        
+        //set up view
         self.letterLabel.text = "\(letter.text)\(letter.text.lowercaseString)"
         self.previousLetterButton.enabled = previousLetter != nil
         self.nextLetterButton.enabled = nextLetter != nil
@@ -71,6 +87,7 @@ class LetterViewController : UIViewController {
         for wordNumber in (1...3) {
             
             let (label, imageView) = labelAndImageForWord(wordNumber)
+            label.superview?.alpha = 0.0
             
             if sound.words.count < wordNumber {
                 label.text = nil
@@ -104,9 +121,23 @@ class LetterViewController : UIViewController {
             imageView.image = word.image
         }
         
+        //cplay audio, cue animations
         delay(0.4) {
-            //self.letter.sounds[0].playAudio(withWords: true)
-            PHPlayer.play("words-\(self.letter.text)", ofType: "mp3")
+            PHPlayer.play(self.sound.audioName(withWords: true), ofType: "mp3")
+            
+            for i in 0 ..< self.sound.words.count {
+                let word = self.sound.words[i]
+                let wordView = self.labelAndImageForWord(i + 1).0.superview!
+                
+                UIView.animateWithDuration(0.4, delay: word.audioStartTime, usingSpringWithDamping: 0.8, animations: {
+                    wordView.transform = CGAffineTransformMakeScale(1.15, 1.15)
+                    wordView.alpha = 1.0
+                })
+                
+                UIView.animateWithDuration(0.5, delay: word.audioStartTime + word.audioDuration, usingSpringWithDamping: 1.0, animations: {
+                    wordView.transform = CGAffineTransformIdentity
+                })
+            }
         }
         
         if animate {

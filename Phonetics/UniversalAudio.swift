@@ -10,7 +10,9 @@ import UIKit
 import AVKit
 import AVFoundation
 
-let PHPlayer = UAPlayer()
+var PHPlayer: UAPlayer {
+    return UAPlayer()
+}
 
 private let UAAudioQueue = dispatch_queue_create("com.hearatale.phonetics.audio", DISPATCH_QUEUE_SERIAL)
 private var UAAudioIsPlaying = false
