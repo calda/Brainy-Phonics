@@ -169,18 +169,24 @@ struct Sound {
         
         var ranges = [(start: Double, duration: Double)]()
         var currentStart: Int?
+        var belowThresholdCount = 0
         
         //convert buckets to ranges using volume thresholds
         for i in 0..<bucketArray.count {
             
             if bucketArray[i] > 0.1 && currentStart == nil {
                 currentStart = i * 100
+                belowThresholdCount = 0
             }
                 
             else if bucketArray[i] < 0.005 && currentStart != nil {
-                let currentEnd = i * 100
-                ranges.append((Double(currentStart!) / audioFile.fileFormat.sampleRate, Double(currentEnd - currentStart!) / audioFile.fileFormat.sampleRate))
-                currentStart = nil
+                belowThresholdCount += 1
+                
+                if belowThresholdCount == 350 || i == (bucketArray.count - 1) {
+                    let currentEnd = (i - belowThresholdCount) * 100
+                    ranges.append((Double(currentStart!) / audioFile.fileFormat.sampleRate, Double(currentEnd - currentStart!) / audioFile.fileFormat.sampleRate))
+                    currentStart = nil
+                }
             }
             
         }

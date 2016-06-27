@@ -59,7 +59,7 @@ class UAPlayer {
     func play(name: String, ofType type: String, ifConcurrent mode: UAConcurrentAudioMode = .Interrupt ) -> Bool {
         
         self.name = name
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: [])
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: [])
         
         if let path = NSBundle.mainBundle().pathForResource(name, ofType: type) {
             let data = NSData(contentsOfFile: path)!
