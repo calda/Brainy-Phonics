@@ -87,10 +87,23 @@ class PHContentManager {
                 let sound = Sound(sourceLetter: letter,
                                   pronunciation: pronunciation,
                                   displayString: displayString,
-                                  words: words)
+                                  words: words,
+                                  sourceLetterTiming: soundInfo[letter],
+                                  pronunciationTiming: soundInfo[pronunciation]!)
                 
                 sounds.append(sound)
             }
+            
+            sounds.sortInPlace({ (sound1, sound2) in
+                if sound1.sourceLetterTiming != nil { return true }
+                if sound2.sourceLetterTiming != nil { return false }
+                
+                let AaFormatted = "\(letter.uppercaseString)\(letter.lowercaseString)"
+                if sound1.displayString == AaFormatted { return true }
+                if sound2.displayString == AaFormatted { return false }
+                
+                return true
+            })
             
             letters[letter] = Letter(text: letter, sounds: sounds)
         }
@@ -115,19 +128,22 @@ class PHContentManager {
 
 //MARK: - Data Models
 
-struct Letter {
+struct Letter: Equatable {
     
     let text: String
     let sounds: [Sound]
     
 }
 
-struct Sound {
+struct Sound: Equatable {
     
     let sourceLetter: String
     let pronunciation: String
     let displayString: String
     let words: [Word]
+    
+    var sourceLetterTiming: AudioInfo?
+    var pronunciationTiming: AudioInfo
     
     func audioName(withWords withWords: Bool) -> String {
         return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(pronunciation)"
@@ -212,7 +228,7 @@ struct Sound {
     
 }
 
-struct Word {
+struct Word: Equatable {
     
     let text: String
     let audioName: String
@@ -221,6 +237,31 @@ struct Word {
     
     var image: UIImage {
         return UIImage(named: "\(text).jpg")!
+    }
+    
+    func attributedText(forSound sound: Sound, ofLetter letter: Letter) -> NSAttributedString {
+        
+        var soundText = sound.displayString
+        if soundText == "\(letter.text)\(letter.text.lowercaseString)" {
+            soundText = letter.text
+        }
+        
+        soundText = soundText.lowercaseString
+        
+        let wordText = self.text.lowercaseString
+        var mutableWord = wordText
+        let attributedWord = NSMutableAttributedString(string: wordText, attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
+        let matchColor = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
+        
+        while mutableWord.containsString(soundText) {
+            let range = (mutableWord as NSString).rangeOfString(soundText)
+            attributedWord.addAttributes([NSForegroundColorAttributeName : matchColor], range: range)
+            
+            let replacement = String(count: soundText.length, repeatedValue: Character("_"))
+            mutableWord = (mutableWord as NSString).stringByReplacingCharactersInRange(range, withString: replacement)
+        }
+        
+        return attributedWord
     }
     
     init?(text wordText: String, audioInfo: AudioInfo?) {
@@ -251,4 +292,19 @@ struct Word {
         self.audioDuration = audioInfo.wordDuration
     }
     
+}
+
+
+//MARK: - Equatable conformance
+
+func ==(left: Letter, right: Letter) -> Bool {
+    return left.text == right.text
+}
+
+func ==(left: Sound, right: Sound) -> Bool {
+    return left.pronunciation == right.pronunciation && left.sourceLetter == right.sourceLetter
+}
+
+func ==(left: Word, right: Word) -> Bool {
+    return left.text == right.text
 }

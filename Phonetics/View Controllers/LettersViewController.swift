@@ -42,6 +42,8 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         
+        self.view.userInteractionEnabled = false
+        
         //animate selection
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
@@ -64,6 +66,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
                 cell?.transform = CGAffineTransformIdentity
                 
                 LetterViewController.presentForLetter(letter, inController: self)
+                self.view.userInteractionEnabled = true
                 
             }, completion: nil)
         }

@@ -11,8 +11,8 @@ import UIKit
 class LetterViewController : UIViewController {
     
     @IBOutlet weak var letterLabel: UILabel!
-    @IBOutlet weak var previousLetterButton: UIButton!
-    @IBOutlet weak var nextLetterButton: UIButton!
+    @IBOutlet weak var previousSoundButton: UIButton!
+    @IBOutlet weak var nextSoundButton: UIButton!
     @IBOutlet weak var wordsView: UIView!
     
     @IBOutlet weak var word1Label: UILabel!
@@ -30,21 +30,18 @@ class LetterViewController : UIViewController {
     }
     
     var letter: Letter!
+    var sound: Sound!
     
-    var sound: Sound {
-        return letter.sounds[0]
-    }
-    
-    var previousLetter: Letter? {
-        let prev = PHLetters.indexOf(letter.text)!.predecessor()
+    var previousSound: Sound? {
+        let prev = letter.sounds.indexOf(sound)!.predecessor()
         if prev < 0 { return nil }
-        return PHContent[PHLetters[prev]]
+        return letter.sounds[prev]
     }
     
-    var nextLetter: Letter? {
-        let next = PHLetters.indexOf(letter.text)!.successor()
-        if next >= PHLetters.count { return nil }
-        return PHContent[PHLetters[next]]
+    var nextSound: Sound? {
+        let next = letter.sounds.indexOf(sound)!.successor()
+        if next >= letter.sounds.count { return nil }
+        return letter.sounds[next]
     }
     
     
@@ -53,6 +50,7 @@ class LetterViewController : UIViewController {
     static func presentForLetter(letter: String, inController other: UIViewController) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("letter") as! LetterViewController
         controller.letter = PHContent[letter]!
+        controller.sound = controller.letter.sounds.first
         other.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -60,29 +58,28 @@ class LetterViewController : UIViewController {
     //MARK: - Set up
     
     override func viewWillAppear(animated: Bool) {
-        decorateForCurrentLetter()
+        decorateForCurrentSound()
     }
     
     override func viewWillDisappear(animated: Bool) {
         UAHaltPlayback()
     }
     
-    func decorateForCurrentLetter(withAnimation animate: Bool = false, animationSubtype: String? = nil) {
+    func decorateForCurrentSound(withAnimation animate: Bool = false, animationSubtype: String? = nil) {
         if UAIsAudioPlaying() {
             //cancel audio playback and view animations to avoid overlap
             UAHaltPlayback()
             delay(0.1) {
-                (1...3).map{ self.labelAndImageForWord($0).0.superview }
-                    .forEach{ $0?.layer.removeAllAnimations() }
-                self.decorateForCurrentLetter(withAnimation: animate, animationSubtype: animationSubtype)
+                (1...3).map{ self.labelAndImageForWord($0).0.superview }.forEach{ $0?.layer.removeAllAnimations() }
+                self.decorateForCurrentSound(withAnimation: animate, animationSubtype: animationSubtype)
             }
             return
         }
         
         //set up view
-        self.letterLabel.text = "\(letter.text)\(letter.text.lowercaseString)"
-        self.previousLetterButton.enabled = previousLetter != nil
-        self.nextLetterButton.enabled = nextLetter != nil
+        self.letterLabel.text = sound.displayString
+        self.previousSoundButton.enabled = previousSound != nil
+        self.nextSoundButton.enabled = nextSound != nil
         
         for wordNumber in (1...3) {
             
@@ -96,34 +93,17 @@ class LetterViewController : UIViewController {
             }
             
             let word = sound.words[wordNumber - 1]
-            
-            var soundText = sound.displayString
-            if soundText == "\(letter.text)\(letter.text.lowercaseString)" {
-                soundText = letter.text.lowercaseString
-            }
-            
-            let wordText = word.text.lowercaseString
-            let attributedWord = NSMutableAttributedString(string: wordText, attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
-            
-            var range = (wordText as NSString).rangeOfString(soundText)
-            let doubleRange = (wordText as NSString).rangeOfString("\(soundText)\(soundText)")
-            if doubleRange.location != NSNotFound {
-                range = doubleRange
-            }
-            
-            let color = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
-            
-            if range.location != NSNotFound {
-                attributedWord.addAttributes([NSForegroundColorAttributeName : color], range: range)
-            }
-            
-            label.attributedText = attributedWord
+            label.attributedText = word.attributedText(forSound: sound, ofLetter: letter)
             imageView.image = word.image
         }
         
         //cplay audio, cue animations
         delay(0.4) {
             PHPlayer.play(self.sound.audioName(withWords: true), ofType: "mp3")
+            
+            delay(self.sound.pronunciationTiming.wordStart - 0.3) {
+                shakeView(self.letterLabel)
+            }
             
             for i in 0 ..< self.sound.words.count {
                 let word = self.sound.words[i]
@@ -158,13 +138,13 @@ class LetterViewController : UIViewController {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func previousLetterPressed(sender: AnyObject) {
-        letter = previousLetter ?? letter
-        decorateForCurrentLetter(withAnimation: true, animationSubtype: kCATransitionFromLeft)
+    @IBAction func previousSoundPressed(sender: AnyObject) {
+        sound = previousSound ?? sound
+        decorateForCurrentSound(withAnimation: true, animationSubtype: kCATransitionFromLeft)
     }
     
-    @IBAction func nextLetterPressed(sender: AnyObject) {
-        letter = nextLetter ?? letter
-        decorateForCurrentLetter(withAnimation: true, animationSubtype: kCATransitionFromRight)
+    @IBAction func nextSoundPressed(sender: AnyObject) {
+        sound = nextSound ?? sound
+        decorateForCurrentSound(withAnimation: true, animationSubtype: kCATransitionFromRight)
     }
 }
