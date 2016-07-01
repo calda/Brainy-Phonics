@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E403DBB1D261F91002CCC2C /* Audio Timings.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E403DB81D261F91002CCC2C /* Audio Timings.csv */; };
+		2E403DBC1D261F91002CCC2C /* PHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DB91D261F91002CCC2C /* PHContent.swift */; };
+		2E403DBD1D261F91002CCC2C /* Phonics Map.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E403DBA1D261F91002CCC2C /* Phonics Map.csv */; };
+		2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */; };
+		2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */; };
+		2E403DC41D261FF8002CCC2C /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC31D261FF8002CCC2C /* Letter.swift */; };
+		2E403DC61D262003002CCC2C /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC51D262003002CCC2C /* Sound.swift */; };
+		2E403DC81D26200A002CCC2C /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC71D26200A002CCC2C /* Word.swift */; };
 		2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584C061D04E79C003E3C87 /* AppDelegate.swift */; };
 		2E584C0C1D04E79C003E3C87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0A1D04E79C003E3C87 /* Main.storyboard */; };
 		2E584C0E1D04E79C003E3C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0D1D04E79C003E3C87 /* Assets.xcassets */; };
 		2E584C111D04E79C003E3C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0F1D04E79C003E3C87 /* LaunchScreen.storyboard */; };
-		2E584C191D050727003E3C87 /* UniversalAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584C181D050727003E3C87 /* UniversalAudio.swift */; };
-		2E584D0F1D050842003E3C87 /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584D0E1D050842003E3C87 /* CoreSwift.swift */; };
 		2E92BF011D091E5600514F5C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB971D091E5100514F5C /* 1.jpg */; };
 		2E92BF021D091E5600514F5C /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB981D091E5100514F5C /* 2.jpg */; };
 		2E92BF031D091E5600514F5C /* 3 and 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB991D091E5100514F5C /* 3 and 6.jpg */; };
@@ -1182,10 +1188,8 @@
 		2E92C5841D0A597800514F5C /* words-Y-LY.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E92C45C1D0A597800514F5C /* words-Y-LY.mp3 */; };
 		2E92C5851D0A597800514F5C /* words-Y-yuh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E92C45D1D0A597800514F5C /* words-Y-yuh.mp3 */; };
 		2E92C5861D0A597800514F5C /* words-Z-zzz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E92C45E1D0A597800514F5C /* words-Z-zzz.mp3 */; };
-		2EAD22051D07962000FFD7AD /* PHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD22041D07962000FFD7AD /* PHContent.swift */; };
 		2EAD22091D07966500FFD7AD /* LettersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD22071D07966500FFD7AD /* LettersViewController.swift */; };
 		2EAD220A1D07966500FFD7AD /* LetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD22081D07966500FFD7AD /* LetterViewController.swift */; };
-		2EAD220E1D079F2E00FFD7AD /* Phonics Map.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2EAD220D1D079F2E00FFD7AD /* Phonics Map.csv */; };
 		2ED987851D0BB95300D2225D /* words-I-uh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987841D0BB95300D2225D /* words-I-uh.mp3 */; };
 		2ED987871D0BB9B500D2225D /* words-A-ahh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987861D0BB9B500D2225D /* words-A-ahh.mp3 */; };
 		2ED987891D0BB9DE00D2225D /* words-E-uh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987881D0BB9DE00D2225D /* words-E-uh.mp3 */; };
@@ -1193,18 +1197,23 @@
 		2ED9878D1D0BBAE100D2225D /* words-L-LD.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED9878C1D0BBAE100D2225D /* words-L-LD.mp3 */; };
 		2ED9878F1D0BBAFA00D2225D /* words-L-LE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED9878E1D0BBAFA00D2225D /* words-L-LE.mp3 */; };
 		2ED987911D0BBB4100D2225D /* words-B-BR.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987901D0BBB4100D2225D /* words-B-BR.mp3 */; };
-		2ED987931D0BC0FF00D2225D /* Audio Timings.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987921D0BC0FF00D2225D /* Audio Timings.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E403DB81D261F91002CCC2C /* Audio Timings.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Audio Timings.csv"; path = "Model/Audio Timings.csv"; sourceTree = "<group>"; };
+		2E403DB91D261F91002CCC2C /* PHContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHContent.swift; path = Model/PHContent.swift; sourceTree = "<group>"; };
+		2E403DBA1D261F91002CCC2C /* Phonics Map.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Phonics Map.csv"; path = "Model/Phonics Map.csv"; sourceTree = "<group>"; };
+		2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreSwift.swift; path = "Shared Code/CoreSwift.swift"; sourceTree = "<group>"; };
+		2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversalAudio.swift; path = "Shared Code/UniversalAudio.swift"; sourceTree = "<group>"; };
+		2E403DC31D261FF8002CCC2C /* Letter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Letter.swift; path = Model/Letter.swift; sourceTree = "<group>"; };
+		2E403DC51D262003002CCC2C /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		2E403DC71D26200A002CCC2C /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E584C061D04E79C003E3C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E584C0B1D04E79C003E3C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E584C0D1D04E79C003E3C87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E584C101D04E79C003E3C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E584C121D04E79C003E3C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E584C181D050727003E3C87 /* UniversalAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalAudio.swift; sourceTree = "<group>"; };
-		2E584D0E1D050842003E3C87 /* CoreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSwift.swift; sourceTree = "<group>"; };
 		2E92BB971D091E5100514F5C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		2E92BB981D091E5100514F5C /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		2E92BB991D091E5100514F5C /* 3 and 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3 and 6.jpg"; sourceTree = "<group>"; };
@@ -2374,10 +2383,8 @@
 		2E92C45C1D0A597800514F5C /* words-Y-LY.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-Y-LY.mp3"; path = "Audio/words-Y-LY.mp3"; sourceTree = "<group>"; };
 		2E92C45D1D0A597800514F5C /* words-Y-yuh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-Y-yuh.mp3"; path = "Audio/words-Y-yuh.mp3"; sourceTree = "<group>"; };
 		2E92C45E1D0A597800514F5C /* words-Z-zzz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-Z-zzz.mp3"; path = "Audio/words-Z-zzz.mp3"; sourceTree = "<group>"; };
-		2EAD22041D07962000FFD7AD /* PHContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHContent.swift; sourceTree = "<group>"; };
 		2EAD22071D07966500FFD7AD /* LettersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LettersViewController.swift; path = "View Controllers/LettersViewController.swift"; sourceTree = "<group>"; };
 		2EAD22081D07966500FFD7AD /* LetterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LetterViewController.swift; path = "View Controllers/LetterViewController.swift"; sourceTree = "<group>"; };
-		2EAD220D1D079F2E00FFD7AD /* Phonics Map.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Phonics Map.csv"; sourceTree = "<group>"; };
 		2ED987841D0BB95300D2225D /* words-I-uh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-I-uh.mp3"; path = "Audio/words-I-uh.mp3"; sourceTree = "<group>"; };
 		2ED987861D0BB9B500D2225D /* words-A-ahh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-A-ahh.mp3"; path = "Audio/words-A-ahh.mp3"; sourceTree = "<group>"; };
 		2ED987881D0BB9DE00D2225D /* words-E-uh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-E-uh.mp3"; path = "Audio/words-E-uh.mp3"; sourceTree = "<group>"; };
@@ -2385,7 +2392,6 @@
 		2ED9878C1D0BBAE100D2225D /* words-L-LD.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-L-LD.mp3"; path = "Audio/words-L-LD.mp3"; sourceTree = "<group>"; };
 		2ED9878E1D0BBAFA00D2225D /* words-L-LE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-L-LE.mp3"; path = "Audio/words-L-LE.mp3"; sourceTree = "<group>"; };
 		2ED987901D0BBB4100D2225D /* words-B-BR.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-B-BR.mp3"; path = "Audio/words-B-BR.mp3"; sourceTree = "<group>"; };
-		2ED987921D0BC0FF00D2225D /* Audio Timings.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Audio Timings.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2399,6 +2405,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E403DB71D261F80002CCC2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E403DB81D261F91002CCC2C /* Audio Timings.csv */,
+				2E403DBA1D261F91002CCC2C /* Phonics Map.csv */,
+				2E403DB91D261F91002CCC2C /* PHContent.swift */,
+				2E403DC31D261FF8002CCC2C /* Letter.swift */,
+				2E403DC51D262003002CCC2C /* Sound.swift */,
+				2E403DC71D26200A002CCC2C /* Word.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2E403DBE1D261FA6002CCC2C /* Shared Code */ = {
+			isa = PBXGroup;
+			children = (
+				2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */,
+				2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */,
+			);
+			name = "Shared Code";
+			sourceTree = "<group>";
+		};
 		2E584BFA1D04E79C003E3C87 = {
 			isa = PBXGroup;
 			children = (
@@ -2418,15 +2446,12 @@
 		2E584C051D04E79C003E3C87 /* Phonetics */ = {
 			isa = PBXGroup;
 			children = (
-				2EAD22041D07962000FFD7AD /* PHContent.swift */,
-				2EAD220D1D079F2E00FFD7AD /* Phonics Map.csv */,
-				2ED987921D0BC0FF00D2225D /* Audio Timings.csv */,
+				2E403DB71D261F80002CCC2C /* Model */,
 				2EAD22061D07962700FFD7AD /* View Controllers */,
+				2E403DBE1D261FA6002CCC2C /* Shared Code */,
 				2E584D121D050CEE003E3C87 /* Audio */,
 				2EAD220F1D07AF3600FFD7AD /* Images */,
 				2E584C061D04E79C003E3C87 /* AppDelegate.swift */,
-				2E584C181D050727003E3C87 /* UniversalAudio.swift */,
-				2E584D0E1D050842003E3C87 /* CoreSwift.swift */,
 				2E584C0A1D04E79C003E3C87 /* Main.storyboard */,
 				2E584C0D1D04E79C003E3C87 /* Assets.xcassets */,
 				2E584C0F1D04E79C003E3C87 /* LaunchScreen.storyboard */,
@@ -3780,6 +3805,7 @@
 				2E92C5671D0A597800514F5C /* words-T-ST.mp3 in Resources */,
 				2E92BF451D091E5600514F5C /* bananas.jpg in Resources */,
 				2E92C4D21D0A597800514F5C /* sound-ST.mp3 in Resources */,
+				2E403DBD1D261F91002CCC2C /* Phonics Map.csv in Resources */,
 				2E92C00F1D091E5600514F5C /* eagle.jpg in Resources */,
 				2E92C0F81D091E5600514F5C /* music.jpg in Resources */,
 				2E92C1071D091E5600514F5C /* nuts.jpg in Resources */,
@@ -3803,7 +3829,6 @@
 				2E92BF621D091E5600514F5C /* Black.jpg in Resources */,
 				2E92BFE41D091E5600514F5C /* curl.jpg in Resources */,
 				2E92C5801D0A597800514F5C /* words-X-ks.mp3 in Resources */,
-				2ED987931D0BC0FF00D2225D /* Audio Timings.csv in Resources */,
 				2E92BF8E1D091E5600514F5C /* burn.jpg in Resources */,
 				2E92C0B81D091E5600514F5C /* king.jpg in Resources */,
 				2E92BF0A1D091E5600514F5C /* 7.jpg in Resources */,
@@ -4390,6 +4415,7 @@
 				2E92BF091D091E5600514F5C /* 6.jpg in Resources */,
 				2E92C1D41D091E5600514F5C /* stool.jpg in Resources */,
 				2E92C4961D0A597800514F5C /* sound-F.mp3 in Resources */,
+				2E403DBB1D261F91002CCC2C /* Audio Timings.csv in Resources */,
 				2E92C4C91D0A597800514F5C /* sound-S.mp3 in Resources */,
 				2E92C4821D0A597800514F5C /* sound-C-soft.mp3 in Resources */,
 				2E92C0B61D091E5600514F5C /* kayak.jpg in Resources */,
@@ -4443,7 +4469,6 @@
 				2E92BFF51D091E5600514F5C /* dig.jpg in Resources */,
 				2E92C4861D0A597800514F5C /* sound-CR.mp3 in Resources */,
 				2E92BF071D091E5600514F5C /* 5 and 10.jpg in Resources */,
-				2EAD220E1D079F2E00FFD7AD /* Phonics Map.csv in Resources */,
 				2E92C4C81D0A597800514F5C /* sound-S-z.mp3 in Resources */,
 				2E92BFB81D091E5600514F5C /* clam.jpg in Resources */,
 				2E92C4F51D0A597800514F5C /* words-C-CH.mp3 in Resources */,
@@ -4884,12 +4909,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E584D0F1D050842003E3C87 /* CoreSwift.swift in Sources */,
-				2EAD22051D07962000FFD7AD /* PHContent.swift in Sources */,
+				2E403DC41D261FF8002CCC2C /* Letter.swift in Sources */,
+				2E403DBC1D261F91002CCC2C /* PHContent.swift in Sources */,
+				2E403DC81D26200A002CCC2C /* Word.swift in Sources */,
+				2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */,
+				2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */,
 				2EAD22091D07966500FFD7AD /* LettersViewController.swift in Sources */,
 				2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */,
 				2EAD220A1D07966500FFD7AD /* LetterViewController.swift in Sources */,
-				2E584C191D050727003E3C87 /* UniversalAudio.swift in Sources */,
+				2E403DC61D262003002CCC2C /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5007,7 +5035,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Phonetics/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.Phonics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5023,7 +5051,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Phonetics/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.Phonics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
