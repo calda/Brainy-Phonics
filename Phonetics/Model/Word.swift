@@ -12,6 +12,7 @@ import UIKit
 struct Word: Equatable {
     
     let text: String
+    let pronunciation: String
     let audioName: String
     let audioStartTime: Double
     let audioDuration: Double
@@ -20,7 +21,12 @@ struct Word: Equatable {
         return UIImage(named: "\(text).jpg")!
     }
     
-    init?(text wordText: String, audioInfo: AudioInfo!) {
+    init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo!) {
+        
+        guard let wordText = wordText, pronunciation = pronunciation else {
+            return nil
+        }
+        
         if wordText == "" {
             return nil
         }
@@ -42,6 +48,7 @@ struct Word: Equatable {
         }
         
         self.text = text
+        self.pronunciation = pronunciation
         
         self.audioName = audioInfo.fileName
         self.audioStartTime = audioInfo.wordStart
@@ -82,6 +89,39 @@ struct Word: Equatable {
         }
         
         return attributedWord
+    }
+    
+    //use wordsapi.com to fetch an IPA pronunciation of the word
+    //requires an API key & a freemium payment plan
+    func fetchPronunciation(withKey key: String, completion: (String?) -> ()) {
+        let method = "https://wordsapiv1.p.mashape.com/words/\(self.text.preparedForURL())/pronunciation"
+        let request = NSMutableURLRequest(URL: NSURL(string: method)!)
+        request.setValue(key, forHTTPHeaderField: "X-Mashape-Key")
+        
+        NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+                if let subdict = dict["pronunciation"] as? NSDictionary {
+                    if let pronunciation = subdict["all"] as? String {
+                        completion(pronunciation)
+                        return
+                    }
+                }
+                
+                completion(nil)
+            }
+            
+            catch {
+                completion(nil)
+            }
+            
+        }.resume()
     }
     
 }

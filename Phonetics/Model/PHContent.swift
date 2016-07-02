@@ -14,6 +14,7 @@ let PHContent = PHContentManager()
 
 typealias FileName = String
 typealias WordName = String
+typealias Pronunciation = String
 typealias AudioInfo = (fileName: String, wordStart: Double, wordDuration: Double)
 
 class PHContentManager {
@@ -48,6 +49,26 @@ class PHContentManager {
             audioTimings[fileName] = wordsDict
         }
         
+        
+        //***
+        //parse audio timings
+        //***
+        let pronunciationFile = NSBundle.mainBundle().pathForResource("Pronunciations", ofType: "txt")!
+        let pronunciationText = try! NSString(contentsOfFile: pronunciationFile, encoding: NSUTF8StringEncoding)
+        let pronunciationLines = pronunciationText.componentsSeparatedByString("\n")
+        
+        var pronunciations = [WordName : Pronunciation]()
+        
+        for line in pronunciationLines {
+            if line.isEmpty || line.isWhitespace() { continue }
+            let components = line.componentsSeparatedByString("=")
+            
+            let word = components[0]
+            let pronunciation = components[1]
+            pronunciations[word] = pronunciation
+        }
+        
+        
         //**
         //now parse the actual content
         //**
@@ -55,7 +76,7 @@ class PHContentManager {
         let text = try! NSString(contentsOfFile: file, encoding: NSUTF8StringEncoding)
         let lines = text.componentsSeparatedByString("\r\n")
         
-        //give each line to a letter
+        //put each line in a bucket for its letter
         var linesPerLetter = [String : [String]]()
         
         for line in lines {
@@ -79,9 +100,9 @@ class PHContentManager {
                 let soundInfo = audioTimings["words-\(letter)-\(pronunciation)"] ?? [:]
                 
                 let words = [
-                    Word(text: line[2], audioInfo: soundInfo[line[2].lowercaseString]),
-                    Word(text: line[3], audioInfo: soundInfo[line[3].lowercaseString]),
-                    Word(text: line[4], audioInfo: soundInfo[line[4].lowercaseString])]
+                    Word(text: line[2], pronunciation: pronunciations[line[2].lowercaseString], audioInfo: soundInfo[line[2].lowercaseString]),
+                    Word(text: line[3], pronunciation: pronunciations[line[3].lowercaseString], audioInfo: soundInfo[line[3].lowercaseString]),
+                    Word(text: line[4], pronunciation: pronunciations[line[4].lowercaseString], audioInfo: soundInfo[line[4].lowercaseString])]
                 .flatMap{ $0 }
                 
                 let sound = Sound(sourceLetter: letter,
@@ -138,8 +159,45 @@ class PHContentManager {
         //self.letters.values.forEach{ $0.sounds.forEach { $0.printAudioTimings() } }
     }
     
+    
     subscript(string: String) -> Letter! {
         return letters[string]
+    }
+    
+    var allSounds: [Sound] {
+        var sounds = [Sound]()
+        
+        for letter in letters.values {
+            for sound in letter.sounds {
+                sounds.append(sound)
+            }
+        }
+        
+        return sounds
+    }
+    
+    var allWords: [Word] {
+        var words = [Word]()
+        
+        for sound in allSounds {
+            for word in sound.words {
+                words.append(word)
+            }
+        }
+        
+        return words
+    }
+    
+    var allWordsNoDuplicates: [Word] {
+        var noDuplicates = [Word]()
+        
+        for word in allWords {
+            if !noDuplicates.contains(word) {
+                noDuplicates.append(word)
+            }
+        }
+        
+        return noDuplicates
     }
     
 }
