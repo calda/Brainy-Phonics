@@ -16,6 +16,7 @@
 		2E403DCB1D2624A9002CCC2C /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC91D2624A9002CCC2C /* Sound.swift */; };
 		2E403DCC1D2624A9002CCC2C /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DCA1D2624A9002CCC2C /* Word.swift */; };
 		2E403DCE1D2868A6002CCC2C /* Pronunciations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E403DCD1D2868A6002CCC2C /* Pronunciations.txt */; };
+		2E403DD01D2897CE002CCC2C /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DCF1D2897CE002CCC2C /* LongestCommonSubsequence.swift */; };
 		2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584C061D04E79C003E3C87 /* AppDelegate.swift */; };
 		2E584C0C1D04E79C003E3C87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0A1D04E79C003E3C87 /* Main.storyboard */; };
 		2E584C0E1D04E79C003E3C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0D1D04E79C003E3C87 /* Assets.xcassets */; };
@@ -1210,6 +1211,7 @@
 		2E403DC91D2624A9002CCC2C /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = Model/Sound.swift; sourceTree = "<group>"; };
 		2E403DCA1D2624A9002CCC2C /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = Model/Word.swift; sourceTree = "<group>"; };
 		2E403DCD1D2868A6002CCC2C /* Pronunciations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pronunciations.txt; path = Model/Pronunciations.txt; sourceTree = "<group>"; };
+		2E403DCF1D2897CE002CCC2C /* LongestCommonSubsequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongestCommonSubsequence.swift; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E584C061D04E79C003E3C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E584C0B1D04E79C003E3C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -2426,6 +2428,7 @@
 			children = (
 				2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */,
 				2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */,
+				2E403DCF1D2897CE002CCC2C /* LongestCommonSubsequence.swift */,
 			);
 			name = "Shared Code";
 			sourceTree = "<group>";
@@ -4920,6 +4923,7 @@
 				2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */,
 				2EAD22091D07966500FFD7AD /* LettersViewController.swift in Sources */,
 				2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */,
+				2E403DD01D2897CE002CCC2C /* LongestCommonSubsequence.swift in Sources */,
 				2EAD220A1D07966500FFD7AD /* LetterViewController.swift in Sources */,
 				2E403DCB1D2624A9002CCC2C /* Sound.swift in Sources */,
 			);

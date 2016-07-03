@@ -13,7 +13,8 @@ import AVFoundation
 struct Sound: Equatable {
     
     let sourceLetter: String
-    let pronunciation: String
+    let alphabetPronunciation: String
+    let ipaPronunciation: String
     let displayString: String
     let words: [Word]
     
@@ -21,7 +22,7 @@ struct Sound: Equatable {
     var pronunciationTiming: AudioInfo!
     
     func audioName(withWords withWords: Bool) -> String {
-        return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(pronunciation)"
+        return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(alphabetPronunciation)"
     }
     
     func playAudio(withWords withWords: Bool) {
@@ -82,7 +83,7 @@ struct Sound: Equatable {
             
         }
         
-        var spokenWords = [self.pronunciation]
+        var spokenWords = [self.alphabetPronunciation]
         spokenWords.appendContentsOf(words.map({ $0.text }))
         //5 is format "A ah bat cat hat"
         if (ranges.count == 5) {
@@ -101,9 +102,26 @@ struct Sound: Equatable {
         print(csvLine.substringToIndex(csvLine.endIndex.predecessor().predecessor()))
     }
     
+    //finds the longest common substring of the sound's words' IPA spellings
+    //which should be the IPA representation of this sound
+    //unfortunately our words are not precise enough to be 100%
+    //IPA is hard
+    func generatePronunciation() -> String {
+        
+        let pronunciations = self.words.map{ $0.pronunciation }
+        
+        var common = pronunciations[0]
+        for pronunciation in pronunciations {
+            common = lComSubStr(common, pronunciation)
+        }
+        
+        return common
+        
+    }
+    
 }
 
 func ==(left: Sound, right: Sound) -> Bool {
-    return left.pronunciation == right.pronunciation && left.sourceLetter == right.sourceLetter
+    return left.alphabetPronunciation == right.alphabetPronunciation && left.sourceLetter == right.sourceLetter
 }
 

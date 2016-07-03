@@ -51,7 +51,7 @@ class PHContentManager {
         
         
         //***
-        //parse audio timings
+        //parse pronunciations
         //***
         let pronunciationFile = NSBundle.mainBundle().pathForResource("Pronunciations", ofType: "txt")!
         let pronunciationText = try! NSString(contentsOfFile: pronunciationFile, encoding: NSUTF8StringEncoding)
@@ -74,7 +74,7 @@ class PHContentManager {
         //**
         let file = NSBundle.mainBundle().pathForResource("Phonics Map", ofType: "csv")!
         let text = try! NSString(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-        let lines = text.componentsSeparatedByString("\r\n")
+        let lines = text.componentsSeparatedByString("\n")
         
         //put each line in a bucket for its letter
         var linesPerLetter = [String : [String]]()
@@ -95,22 +95,28 @@ class PHContentManager {
             var sounds = [Sound]()
             
             for line in lines.map({ $0.componentsSeparatedByString(",") }) {
-                let pronunciation = line[1]
+                let alphabetPronunciation = line[1]
                 let displayString = line[5]
-                let soundInfo = audioTimings["words-\(letter)-\(pronunciation)"] ?? [:]
+                let ipaPronunciation = line[6]
+                let soundInfo = audioTimings["words-\(letter)-\(alphabetPronunciation)"] ?? [:]
+                
+                func wordForString(text: String) -> Word? {
+                    return Word(text:text, pronunciation: pronunciations[text], audioInfo: soundInfo[text])
+                }
                 
                 let words = [
-                    Word(text: line[2], pronunciation: pronunciations[line[2].lowercaseString], audioInfo: soundInfo[line[2].lowercaseString]),
-                    Word(text: line[3], pronunciation: pronunciations[line[3].lowercaseString], audioInfo: soundInfo[line[3].lowercaseString]),
-                    Word(text: line[4], pronunciation: pronunciations[line[4].lowercaseString], audioInfo: soundInfo[line[4].lowercaseString])]
-                .flatMap{ $0 }
+                    wordForString(line[2]),
+                    wordForString(line[3]),
+                    wordForString(line[4])
+                ].flatMap{ $0 }
                 
                 let sound = Sound(sourceLetter: letter,
-                                  pronunciation: pronunciation,
+                                  alphabetPronunciation: alphabetPronunciation,
+                                  ipaPronunciation: ipaPronunciation,
                                   displayString: displayString,
                                   words: words,
                                   sourceLetterTiming: soundInfo[letter],
-                                  pronunciationTiming: soundInfo[pronunciation])
+                                  pronunciationTiming: soundInfo[alphabetPronunciation])
                 
                 sounds.append(sound)
             }
