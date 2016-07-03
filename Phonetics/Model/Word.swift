@@ -13,15 +13,13 @@ struct Word: Equatable {
     
     let text: String
     let pronunciation: String
-    let audioName: String
-    let audioStartTime: Double
-    let audioDuration: Double
+    let audioInfo: AudioInfo?
     
     var image: UIImage {
         return UIImage(named: "\(text).jpg")!
     }
     
-    init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo!) {
+    init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo?) {
         
         guard let wordText = wordText, pronunciation = pronunciation else {
             return nil
@@ -49,10 +47,7 @@ struct Word: Equatable {
         
         self.text = text
         self.pronunciation = pronunciation
-        
-        self.audioName = audioInfo.fileName
-        self.audioStartTime = audioInfo.wordStart
-        self.audioDuration = audioInfo.wordDuration
+        self.audioInfo = audioInfo
     }
     
     
@@ -90,6 +85,14 @@ struct Word: Equatable {
         
         return attributedWord
     }
+    
+    
+    func playAudio() {
+        if let audioInfo = audioInfo {
+            PHContent.playAudioForInfo(audioInfo)
+        }
+    }
+    
     
     //use wordsapi.com to fetch an IPA pronunciation of the word
     //requires an API key & a freemium payment plan

@@ -423,3 +423,17 @@ extension NSDateFormatter {
     }
     
 }
+
+extension NSTimer {
+    
+    class func scheduleAfter(delay: NSTimeInterval, inout addToArray array: [NSTimer], handler: (NSTimer!) -> ()) -> NSTimer {
+        let fireDate = delay + CFAbsoluteTimeGetCurrent()
+        let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, 0, 0, 0, handler)
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
+        
+        array.append(timer)
+        
+        return timer
+    }
+    
+}

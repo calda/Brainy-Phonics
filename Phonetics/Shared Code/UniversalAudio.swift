@@ -55,10 +55,15 @@ class UAPlayer {
     var player: AVAudioPlayer?
     var name: String?
     var shouldHalt = false
+    var startTime: NSTimeInterval?
+    var endAfter: NSTimeInterval?
     
-    func play(name: String, ofType type: String, ifConcurrent mode: UAConcurrentAudioMode = .Interrupt ) -> Bool {
+    func play(name: String, ofType type: String,
+              ifConcurrent mode: UAConcurrentAudioMode = .Interrupt, startTime: NSTimeInterval = 0.0, endAfter: NSTimeInterval? = nil) -> Bool {
         
         self.name = name
+        self.startTime = startTime
+        self.endAfter = endAfter
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: [])
         
         if let path = NSBundle.mainBundle().pathForResource(name, ofType: type) {
@@ -97,7 +102,19 @@ class UAPlayer {
     func startPlayback() {
         if let player = player {
             UAAudioIsPlaying = true
+            
             player.play()
+            
+            if let startTime = startTime where startTime != 0.0 {
+                player.currentTime = startTime
+            }
+            
+            if let endAfter = endAfter {
+                delay(endAfter) {
+                    player.stop()
+                    UAAudioIsPlaying = false
+                }
+            }
             
             dispatch_async(UAAudioQueue, {
                 while(player.playing) {

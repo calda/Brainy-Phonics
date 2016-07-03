@@ -12,7 +12,7 @@ struct Letter: Equatable {
     let sounds: [Sound]
     
     subscript(sound: String) -> Sound! {
-        return sounds.filter{ $0.pronunciation == sound }.first
+        return sounds.filter{ $0.alphabetPronunciation == sound }.first
     }
     
 }

@@ -12,6 +12,9 @@ import AVFoundation
 
 struct Sound: Equatable {
     
+    
+    //MARK: - Properties
+    
     let sourceLetter: String
     let alphabetPronunciation: String
     let ipaPronunciation: String
@@ -20,6 +23,9 @@ struct Sound: Equatable {
     
     var sourceLetterTiming: AudioInfo?
     var pronunciationTiming: AudioInfo!
+    
+    
+    //MARK: - Helper Methods
     
     func audioName(withWords withWords: Bool) -> String {
         return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(alphabetPronunciation)"
@@ -33,6 +39,9 @@ struct Sound: Equatable {
     func lengthForAudio(withWords withWords: Bool) -> NSTimeInterval {
         return UALengthOfFile(audioName(withWords: withWords), ofType: "mp3")
     }
+    
+    
+    //MARK: - Data Generation
     
     func printAudioTimings() {
         let url = NSBundle.mainBundle().URLForResource(self.audioName(withWords: true), withExtension: "mp3")

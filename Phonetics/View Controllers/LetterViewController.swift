@@ -23,7 +23,7 @@ class LetterViewController : UIViewController {
     @IBOutlet weak var word2Image: UIImageView!
     @IBOutlet weak var word3Image: UIImageView!
     
-    func labelAndImageForWord(word: Int) -> (UILabel, UIImageView) {
+    func labelAndImageForWord(word: Int) -> (label: UILabel, imageView: UIImageView) {
         if word == 1 { return (word1Label, word1Image) }
         else if word == 2 { return (word2Label, word2Image) }
         else { return (word3Label, word3Image) }
@@ -31,6 +31,8 @@ class LetterViewController : UIViewController {
     
     var letter: Letter!
     var sound: Sound!
+    var timers = [NSTimer]()
+    var currentlyPlaying = false
     
     var previousSound: Sound? {
         let prev = letter.sounds.indexOf(sound)!.predecessor()
@@ -65,15 +67,13 @@ class LetterViewController : UIViewController {
         UAHaltPlayback()
     }
     
-    func decorateForCurrentSound(withAnimation animate: Bool = false, animationSubtype: String? = nil) {
-        if UAIsAudioPlaying() {
-            //cancel audio playback and view animations to avoid overlap
-            UAHaltPlayback()
-            delay(0.1) {
-                (1...3).map{ self.labelAndImageForWord($0).0.superview }.forEach{ $0?.layer.removeAllAnimations() }
-                self.decorateForCurrentSound(withAnimation: animate, animationSubtype: animationSubtype)
-            }
-            return
+    func decorateForCurrentSound(withTransition transition: Bool = false, withAnimationDelay: Bool = true, animationSubtype: String? = nil) {
+        if currentlyPlaying {
+            //cancel view animations to avoid overlap
+            (1...3).map{ self.labelAndImageForWord($0).0.superview }.forEach{ $0?.layer.removeAllAnimations() }
+            self.letterLabel.layer.removeAllAnimations()
+            self.timers.forEach { $0.invalidate() }
+            self.timers = []
         }
         
         //set up view
@@ -84,7 +84,7 @@ class LetterViewController : UIViewController {
         for wordNumber in (1...3) {
             
             let (label, imageView) = labelAndImageForWord(wordNumber)
-            label.superview?.alpha = 0.0
+            label.superview?.alpha = withAnimationDelay ? 0.0 : 1.0
             
             if sound.words.count < wordNumber {
                 label.text = nil
@@ -97,38 +97,78 @@ class LetterViewController : UIViewController {
             imageView.image = word.image
         }
         
-        //cplay audio, cue animations
-        delay(0.4) {
-            PHPlayer.play(self.sound.audioName(withWords: true), ofType: "mp3")
-            
-            delay(self.sound.pronunciationTiming.wordStart - 0.3) {
-                shakeView(self.letterLabel)
-            }
-            
-            for i in 0 ..< self.sound.words.count {
-                let word = self.sound.words[i]
-                let wordView = self.labelAndImageForWord(i + 1).0.superview!
-                
-                UIView.animateWithDuration(0.4, delay: word.audioStartTime, usingSpringWithDamping: 0.8, animations: {
-                    wordView.transform = CGAffineTransformMakeScale(1.15, 1.15)
-                    wordView.alpha = 1.0
-                })
-                
-                UIView.animateWithDuration(0.5, delay: word.audioStartTime + word.audioDuration, usingSpringWithDamping: 1.0, animations: {
-                    wordView.transform = CGAffineTransformIdentity
-                })
+        //play audio, cue animations
+        if !withAnimationDelay {
+            self.playSoundAnimation()
+        } else {
+            NSTimer.scheduleAfter(0.4, addToArray: &self.timers) { _ in
+                self.playSoundAnimation()
             }
         }
         
-        if animate {
-            
+        if transition {
             let views = [letterLabel, wordsView]
             for view in views {
                 playTransitionForView(view, duration: 0.5, transition: kCATransitionPush, subtype: animationSubtype,
                                       timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
             }
         }
+    }
+    
+    
+    func playSoundAnimation() {
         
+        self.currentlyPlaying = true
+        var startTime: NSTimeInterval = 0.0
+        let timeBetween = 0.85
+        
+        if let sourceLetterInfo = self.sound.sourceLetterTiming {
+            PHContent.playAudioForInfo(sourceLetterInfo)
+            startTime += sourceLetterInfo.wordDuration + timeBetween
+        }
+        
+        NSTimer.scheduleAfter(startTime, addToArray: &timers) { _ in
+            shakeView(self.letterLabel)
+        }
+        
+        NSTimer.scheduleAfter(startTime - 0.3, addToArray: &timers) { _ in
+            PHContent.playAudioForInfo(self.sound.pronunciationTiming)
+        }
+        
+        startTime += self.sound.pronunciationTiming.wordDuration + timeBetween
+        
+        for (index, word) in self.sound.words.enumerate() {
+            
+            
+            NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
+                self.playSoundAnimationForWord(index, delayAnimationBy: 0.3)
+            }
+            
+            startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
+            
+            if (word == self.sound.words.last) {
+                NSTimer.scheduleAfter(startTime - timeBetween, addToArray: &self.timers) { _ in
+                    self.currentlyPlaying = false
+                }
+            }
+        }
+    }
+    
+    func playSoundAnimationForWord(index: Int, delayAnimationBy delay: NSTimeInterval = 0.0, extendAnimationBy extend: NSTimeInterval = 0.0) {
+        if index >= self.sound.words.count { return }
+        
+        let word = self.sound.words[index]
+        let wordView = self.labelAndImageForWord(index + 1).label.superview!
+        word.playAudio()
+        
+        UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
+            wordView.transform = CGAffineTransformMakeScale(1.15, 1.15)
+            wordView.alpha = 1.0
+        })
+        
+        UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+            wordView.transform = CGAffineTransformIdentity
+        })
     }
     
     
@@ -138,13 +178,35 @@ class LetterViewController : UIViewController {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func repeatPressed(sender: UIButton) {
+        if self.currentlyPlaying { return }
+        
+        sender.userInteractionEnabled = false
+        delay(1.0) {
+            sender.userInteractionEnabled = true
+        }
+        
+        //sender.tag = 0  >> repeat Sound Animation
+        //sender.tag = (1 - 3) >> repeat animation for word (0 - 2)
+        //sender.tag = 4 >> repeat pronunciation
+        
+        if (sender.tag == 0) {
+            decorateForCurrentSound(withTransition: false, withAnimationDelay: false, animationSubtype: kCATransitionFade)
+        } else if sender.tag == 4 {
+            PHContent.playAudioForInfo(sound.pronunciationTiming)
+            shakeView(self.letterLabel)
+        } else {
+            playSoundAnimationForWord(sender.tag - 1, extendAnimationBy: 0.3)
+        }
+    }
+    
     @IBAction func previousSoundPressed(sender: AnyObject) {
         sound = previousSound ?? sound
-        decorateForCurrentSound(withAnimation: true, animationSubtype: kCATransitionFromLeft)
+        decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromLeft)
     }
     
     @IBAction func nextSoundPressed(sender: AnyObject) {
         sound = nextSound ?? sound
-        decorateForCurrentSound(withAnimation: true, animationSubtype: kCATransitionFromRight)
+        decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromRight)
     }
 }

@@ -157,6 +157,12 @@
                                             <action selector="nextSoundPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="9kj-bz-5Gi"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8r-Su-Km7" userLabel="repeat overlay button">
+                                        <rect key="frame" x="124" y="20" width="250" height="130"/>
+                                        <connections>
+                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="kdu-41-feK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -167,7 +173,11 @@
                                     <constraint firstAttribute="bottom" secondItem="PjD-fb-loW" secondAttribute="bottom" constant="10" id="6qd-5l-kUU"/>
                                     <constraint firstItem="PjD-fb-loW" firstAttribute="leading" secondItem="eBR-3a-Z52" secondAttribute="trailing" constant="20" id="Dd8-6h-Mps"/>
                                     <constraint firstItem="eBR-3a-Z52" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K0K-M8-WIl" secondAttribute="leading" constant="20" id="JHb-6u-nXS"/>
+                                    <constraint firstItem="T8r-Su-Km7" firstAttribute="top" secondItem="PjD-fb-loW" secondAttribute="top" id="KW6-rv-oHP"/>
                                     <constraint firstItem="Ztf-VD-TDV" firstAttribute="leading" secondItem="PjD-fb-loW" secondAttribute="trailing" constant="20" id="LVg-xl-axf"/>
+                                    <constraint firstItem="T8r-Su-Km7" firstAttribute="trailing" secondItem="PjD-fb-loW" secondAttribute="trailing" id="LZ5-0g-drp"/>
+                                    <constraint firstItem="T8r-Su-Km7" firstAttribute="bottom" secondItem="PjD-fb-loW" secondAttribute="bottom" id="R1w-js-XFC"/>
+                                    <constraint firstItem="T8r-Su-Km7" firstAttribute="leading" secondItem="PjD-fb-loW" secondAttribute="leading" id="fxn-AF-dIa"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ztf-VD-TDV" secondAttribute="trailing" constant="20" id="sqX-dG-Js6"/>
                                     <constraint firstItem="PjD-fb-loW" firstAttribute="centerX" secondItem="K0K-M8-WIl" secondAttribute="centerX" id="u1X-YQ-BNn"/>
                                     <constraint firstItem="PjD-fb-loW" firstAttribute="top" secondItem="K0K-M8-WIl" secondAttribute="top" priority="950" constant="20" id="xaN-Rz-PKB"/>
@@ -213,17 +223,27 @@
                                                             <constraint firstAttribute="width" secondItem="XJs-Uw-ADj" secondAttribute="height" multiplier="1:1" id="rhi-8m-U16"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCj-ns-cMm" userLabel="overlay button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <connections>
+                                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="D9I-UH-Gw9"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="29f-Q5-efK" firstAttribute="top" secondItem="XJs-Uw-ADj" secondAttribute="bottom" id="4LV-LJ-6BC"/>
                                                     <constraint firstItem="29f-Q5-efK" firstAttribute="width" secondItem="GW3-dr-Xgc" secondAttribute="width" id="4XF-r6-IBY"/>
+                                                    <constraint firstItem="ZCj-ns-cMm" firstAttribute="top" secondItem="GW3-dr-Xgc" secondAttribute="top" id="KpQ-Se-bqn"/>
                                                     <constraint firstAttribute="trailing" secondItem="XJs-Uw-ADj" secondAttribute="trailing" id="PW4-2R-i0f"/>
                                                     <constraint firstItem="29f-Q5-efK" firstAttribute="centerX" secondItem="GW3-dr-Xgc" secondAttribute="centerX" id="UXo-Or-Tu4"/>
                                                     <constraint firstItem="XJs-Uw-ADj" firstAttribute="centerX" secondItem="GW3-dr-Xgc" secondAttribute="centerX" id="Ukr-uP-3uk"/>
                                                     <constraint firstAttribute="bottom" secondItem="29f-Q5-efK" secondAttribute="bottom" id="iDf-gP-Fiw"/>
                                                     <constraint firstItem="XJs-Uw-ADj" firstAttribute="top" secondItem="GW3-dr-Xgc" secondAttribute="top" id="jIj-5Q-Vps"/>
                                                     <constraint firstItem="XJs-Uw-ADj" firstAttribute="leading" secondItem="GW3-dr-Xgc" secondAttribute="leading" id="oPc-8X-LwS"/>
+                                                    <constraint firstItem="ZCj-ns-cMm" firstAttribute="leading" secondItem="GW3-dr-Xgc" secondAttribute="leading" id="pQe-8b-YDd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ZCj-ns-cMm" secondAttribute="trailing" id="tEv-IC-T0B"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ZCj-ns-cMm" secondAttribute="bottom" id="wGE-5D-hfj"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -261,17 +281,27 @@
                                                             <constraint firstAttribute="width" secondItem="UK3-sr-Gea" secondAttribute="height" multiplier="1:1" id="PAa-Dr-7UX"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxG-fC-7gm" userLabel="overlay button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <connections>
+                                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="iq3-BF-fT6"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="V3k-IV-kQP" firstAttribute="top" secondItem="UK3-sr-Gea" secondAttribute="bottom" id="6Sv-Gi-hE2"/>
                                                     <constraint firstItem="V3k-IV-kQP" firstAttribute="width" secondItem="PLb-Of-bOa" secondAttribute="width" id="7mk-jX-Mr4"/>
                                                     <constraint firstAttribute="bottom" secondItem="V3k-IV-kQP" secondAttribute="bottom" id="EZW-HV-caa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zxG-fC-7gm" secondAttribute="trailing" id="HzF-hf-Yy1"/>
                                                     <constraint firstItem="UK3-sr-Gea" firstAttribute="leading" secondItem="PLb-Of-bOa" secondAttribute="leading" id="Ib0-Ih-eGR"/>
+                                                    <constraint firstItem="zxG-fC-7gm" firstAttribute="top" secondItem="PLb-Of-bOa" secondAttribute="top" id="TEE-gM-DZX"/>
                                                     <constraint firstAttribute="trailing" secondItem="UK3-sr-Gea" secondAttribute="trailing" id="X4J-Xs-v4N"/>
                                                     <constraint firstItem="UK3-sr-Gea" firstAttribute="centerX" secondItem="PLb-Of-bOa" secondAttribute="centerX" id="eLW-YJ-xTT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="zxG-fC-7gm" secondAttribute="bottom" id="fmY-xB-5hn"/>
                                                     <constraint firstItem="V3k-IV-kQP" firstAttribute="centerX" secondItem="PLb-Of-bOa" secondAttribute="centerX" id="nNk-qy-hdr"/>
                                                     <constraint firstItem="UK3-sr-Gea" firstAttribute="top" secondItem="PLb-Of-bOa" secondAttribute="top" id="xuf-TB-yjc"/>
+                                                    <constraint firstItem="zxG-fC-7gm" firstAttribute="leading" secondItem="PLb-Of-bOa" secondAttribute="leading" id="zki-Pv-W75"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -308,15 +338,25 @@
                                                             <constraint firstAttribute="width" secondItem="eSy-b6-h9F" secondAttribute="height" multiplier="1:1" id="Uq1-Pi-nRa"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCc-Gf-bjK" userLabel="overlay button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                        <connections>
+                                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="RKf-76-Yjt"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="Hk6-sC-vyD" firstAttribute="top" secondItem="eSy-b6-h9F" secondAttribute="bottom" id="0gh-wg-8mT"/>
                                                     <constraint firstAttribute="trailing" secondItem="eSy-b6-h9F" secondAttribute="trailing" id="5jH-Q9-7Aw"/>
                                                     <constraint firstItem="eSy-b6-h9F" firstAttribute="centerX" secondItem="rt6-o8-6g7" secondAttribute="centerX" id="ACN-i1-wy0"/>
+                                                    <constraint firstItem="UCc-Gf-bjK" firstAttribute="leading" secondItem="rt6-o8-6g7" secondAttribute="leading" id="CzX-Aa-EuU"/>
                                                     <constraint firstItem="eSy-b6-h9F" firstAttribute="leading" secondItem="rt6-o8-6g7" secondAttribute="leading" id="KOH-mb-WlN"/>
+                                                    <constraint firstItem="UCc-Gf-bjK" firstAttribute="top" secondItem="rt6-o8-6g7" secondAttribute="top" id="Up1-c5-IAd"/>
                                                     <constraint firstItem="Hk6-sC-vyD" firstAttribute="centerX" secondItem="rt6-o8-6g7" secondAttribute="centerX" id="cip-gh-fHr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="UCc-Gf-bjK" secondAttribute="trailing" id="hoR-sU-vjO"/>
                                                     <constraint firstAttribute="bottom" secondItem="Hk6-sC-vyD" secondAttribute="bottom" id="pyD-ni-Pxm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UCc-Gf-bjK" secondAttribute="bottom" id="ucg-cf-1JA"/>
                                                     <constraint firstItem="Hk6-sC-vyD" firstAttribute="width" secondItem="rt6-o8-6g7" secondAttribute="width" id="un7-0y-CcC"/>
                                                     <constraint firstItem="eSy-b6-h9F" firstAttribute="top" secondItem="rt6-o8-6g7" secondAttribute="top" id="wNi-Za-QUD"/>
                                                 </constraints>
@@ -376,22 +416,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHI-WY-Yf9" userLabel="button area">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="320"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-07-v7u">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-07-v7u" userLabel="home">
                                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                                         <state key="normal" image="button-home"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-ke-lDj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-ke-lDj" userLabel="list">
                                         <rect key="frame" x="10" y="70" width="50" height="50"/>
                                         <state key="normal" image="button-list"/>
                                         <connections>
                                             <action selector="backPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="JwY-ka-oMf"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkQ-VJ-IQk" userLabel="repeat">
+                                        <rect key="frame" x="10" y="260" width="50" height="50"/>
+                                        <state key="normal" image="button-repeat"/>
+                                        <connections>
+                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="CJp-0f-lEr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.49390972700000002" green="0.81762108310000003" blue="0.86293402779999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="9ay-ke-lDj" firstAttribute="leading" secondItem="NHI-WY-Yf9" secondAttribute="leading" constant="10" id="3Jf-ds-QyO"/>
+                                    <constraint firstItem="BkQ-VJ-IQk" firstAttribute="leading" secondItem="NHI-WY-Yf9" secondAttribute="leading" constant="10" id="94a-xx-Mal"/>
                                     <constraint firstItem="d9E-07-v7u" firstAttribute="top" secondItem="NHI-WY-Yf9" secondAttribute="top" constant="10" id="ASw-tS-XPL"/>
+                                    <constraint firstAttribute="bottom" secondItem="BkQ-VJ-IQk" secondAttribute="bottom" constant="10" id="IYt-BA-6SL"/>
+                                    <constraint firstAttribute="trailing" secondItem="BkQ-VJ-IQk" secondAttribute="trailing" constant="10" id="Qek-2v-v51"/>
                                     <constraint firstAttribute="trailing" secondItem="d9E-07-v7u" secondAttribute="trailing" constant="10" id="WKh-Nq-3U2"/>
                                     <constraint firstItem="d9E-07-v7u" firstAttribute="leading" secondItem="NHI-WY-Yf9" secondAttribute="leading" constant="10" id="dma-Gq-fL2"/>
                                     <constraint firstItem="9ay-ke-lDj" firstAttribute="top" secondItem="d9E-07-v7u" secondAttribute="bottom" constant="10" id="fV8-n2-XXJ"/>
@@ -451,6 +501,7 @@
         <image name="button-forward" width="50" height="50"/>
         <image name="button-home" width="50" height="50"/>
         <image name="button-list" width="50" height="50"/>
+        <image name="button-repeat" width="50" height="50"/>
         <image name="lion.jpg" width="256" height="256"/>
         <image name="nail.jpg" width="256" height="256"/>
         <image name="nose.jpg" width="256" height="256"/>
