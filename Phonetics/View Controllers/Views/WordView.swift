@@ -33,23 +33,18 @@ class WordView : UINibView {
         }
     }
     
-    @IBInspectable var showingText: Bool? {
+    @IBInspectable var showingText: Bool = true {
         didSet {
-            func transition() {
-                labelBottom.constant = (showingText ?? true) ? -label.frame.height : 0
-                self.nibView.layoutIfNeeded()
-                let scale: CGFloat = (showingText ?? true) ? 1.0 : 0.001
-                label.transform = CGAffineTransformMakeScale(scale, scale)
-            }
-            
-            #if !TARGET_INTERFACE_BUILDER
-                UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 1.0) {
-                    transition()
-                }
-            #else
-                transition()
-            #endif
+            labelBottom.constant = (showingText) ? 0 : -label.frame.height
+            self.label.superview!.layoutIfNeeded()
+            self.label.alpha = showingText ? 1.0 : 0.0
+            let scale: CGFloat = (showingText) ? 1.0 : 0.4
+            label.transform = CGAffineTransformMakeScale(scale, scale)
         }
+    }
+    
+    func setShowingText(showingText: Bool, animated: Bool) {
+        
     }
     
     
@@ -63,17 +58,16 @@ class WordView : UINibView {
         self.word = word
         
         guard let word = word else {
-            self.imageView.image = nil
-            self.label.text = nil
+            self.text = nil
+            self.image = nil
             return
         }
         
         self.imageView.image = word.image
+        self.text = word.text
         
         if let sound = sound, let letter = letter {
             self.label.attributedText = word.attributedText(forSound: sound, ofLetter: letter)
-        } else {
-            self.label.text = word.text
         }
     }
     

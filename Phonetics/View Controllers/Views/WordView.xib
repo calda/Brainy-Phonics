@@ -37,7 +37,7 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1" image="lion.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="W4B-68-zXT">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1" image="lion.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="W4B-68-zXT">
                     <rect key="frame" x="14" y="0.0" width="202" height="202"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="W4B-68-zXT" secondAttribute="height" multiplier="1:1" id="qDj-r3-d2N"/>
@@ -47,11 +47,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="W4B-68-zXT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gaB-WQ-0Cx" secondAttribute="leading" constant="5" id="Hw7-GI-jGV"/>
                 <constraint firstAttribute="trailing" secondItem="W4B-68-zXT" secondAttribute="trailing" id="Ppo-i0-LnQ"/>
                 <constraint firstItem="DtY-sA-gw4" firstAttribute="top" secondItem="W4B-68-zXT" secondAttribute="bottom" id="Q31-aL-jW7"/>
                 <constraint firstItem="W4B-68-zXT" firstAttribute="top" secondItem="gaB-WQ-0Cx" secondAttribute="top" id="Ysn-VH-V8h"/>
                 <constraint firstItem="W4B-68-zXT" firstAttribute="leading" secondItem="gaB-WQ-0Cx" secondAttribute="leading" id="cXi-Jz-T5X"/>
                 <constraint firstAttribute="bottom" secondItem="DtY-sA-gw4" secondAttribute="bottom" id="gli-qX-kIe"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W4B-68-zXT" secondAttribute="trailing" constant="5" id="jne-Z2-LlS"/>
                 <constraint firstItem="DtY-sA-gw4" firstAttribute="width" secondItem="gaB-WQ-0Cx" secondAttribute="width" id="rHN-cs-4mr"/>
                 <constraint firstItem="W4B-68-zXT" firstAttribute="centerX" secondItem="gaB-WQ-0Cx" secondAttribute="centerX" id="rvQ-eV-08R"/>
                 <constraint firstItem="DtY-sA-gw4" firstAttribute="centerX" secondItem="gaB-WQ-0Cx" secondAttribute="centerX" id="tjk-I3-FCI"/>
