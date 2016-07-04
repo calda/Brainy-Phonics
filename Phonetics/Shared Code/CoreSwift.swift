@@ -221,9 +221,15 @@ extension Array {
         var list = self
         for i in 0..<(list.count - 1) {
             let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
+            if (i == j) { continue }
             swap(&list[i], &list[j])
         }
         return list
+    }
+    
+    ///Returns a random element from the array
+    func random() -> Element? {
+        return self.shuffled().first
     }
 }
 
