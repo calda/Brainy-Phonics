@@ -154,7 +154,7 @@ class UITouchGestureRecognizer : UITapGestureRecognizer {
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
         super.touchesMoved(touches, withEvent: event)
-        self.state = .Began
+        self.state = .Changed
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent) {
@@ -171,6 +171,44 @@ class TransparentTableView : UITableView {
         let cell = super.dequeueReusableCellWithIdentifier(identifier)
         cell?.backgroundColor = cell?.backgroundColor
         return cell
+    }
+    
+}
+
+
+///helper class to reduce boilerplate of loading from Nib
+class UINibView : UIView {
+    
+    var nibView: UIView!
+    
+    func nibName() -> String {
+        print("UINibView.nibName() should be overridden by subclass")
+        return ""
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupNib()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupNib()
+    }
+    
+    func setupNib() {
+        
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: nibName(), bundle: bundle)
+        nibView = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        
+        nibView.autoresizesSubviews = true
+        nibView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        nibView.frame = bounds
+        nibView.layer.masksToBounds = true
+        
+        self.addSubview(nibView)
+        
     }
     
 }

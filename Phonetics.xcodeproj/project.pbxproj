@@ -16,11 +16,15 @@
 		2E403DCB1D2624A9002CCC2C /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC91D2624A9002CCC2C /* Sound.swift */; };
 		2E403DCC1D2624A9002CCC2C /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DCA1D2624A9002CCC2C /* Word.swift */; };
 		2E403DCE1D2868A6002CCC2C /* Pronunciations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E403DCD1D2868A6002CCC2C /* Pronunciations.txt */; };
-		2E403DD01D2897CE002CCC2C /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DCF1D2897CE002CCC2C /* LongestCommonSubsequence.swift */; };
 		2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584C061D04E79C003E3C87 /* AppDelegate.swift */; };
 		2E584C0C1D04E79C003E3C87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0A1D04E79C003E3C87 /* Main.storyboard */; };
 		2E584C0E1D04E79C003E3C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0D1D04E79C003E3C87 /* Assets.xcassets */; };
 		2E584C111D04E79C003E3C87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E584C0F1D04E79C003E3C87 /* LaunchScreen.storyboard */; };
+		2E60802C1D29C17300612487 /* WordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E60802B1D29C17300612487 /* WordView.xib */; };
+		2E60802E1D29C18300612487 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E60802D1D29C18300612487 /* WordView.swift */; };
+		2E6080301D29C18C00612487 /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E60802F1D29C18C00612487 /* LongestCommonSubsequence.swift */; };
+		2E6080341D29D10400612487 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080331D29D10400612487 /* QuizViewController.swift */; };
+		2E6080361D29D73900612487 /* InterativeGrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080351D29D73900612487 /* InterativeGrowViewController.swift */; };
 		2E92BF011D091E5600514F5C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB971D091E5100514F5C /* 1.jpg */; };
 		2E92BF021D091E5600514F5C /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB981D091E5100514F5C /* 2.jpg */; };
 		2E92BF031D091E5600514F5C /* 3 and 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB991D091E5100514F5C /* 3 and 6.jpg */; };
@@ -1211,13 +1215,17 @@
 		2E403DC91D2624A9002CCC2C /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = Model/Sound.swift; sourceTree = "<group>"; };
 		2E403DCA1D2624A9002CCC2C /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = Model/Word.swift; sourceTree = "<group>"; };
 		2E403DCD1D2868A6002CCC2C /* Pronunciations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pronunciations.txt; path = Model/Pronunciations.txt; sourceTree = "<group>"; };
-		2E403DCF1D2897CE002CCC2C /* LongestCommonSubsequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongestCommonSubsequence.swift; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E584C061D04E79C003E3C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E584C0B1D04E79C003E3C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E584C0D1D04E79C003E3C87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E584C101D04E79C003E3C87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E584C121D04E79C003E3C87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E60802B1D29C17300612487 /* WordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WordView.xib; path = "View Controllers/Views/WordView.xib"; sourceTree = "<group>"; };
+		2E60802D1D29C18300612487 /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordView.swift; path = "View Controllers/Views/WordView.swift"; sourceTree = "<group>"; };
+		2E60802F1D29C18C00612487 /* LongestCommonSubsequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongestCommonSubsequence.swift; path = "Shared Code/LongestCommonSubsequence.swift"; sourceTree = "<group>"; };
+		2E6080331D29D10400612487 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizViewController.swift; path = "View Controllers/QuizViewController.swift"; sourceTree = "<group>"; };
+		2E6080351D29D73900612487 /* InterativeGrowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterativeGrowViewController.swift; path = "View Controllers/InterativeGrowViewController.swift"; sourceTree = "<group>"; };
 		2E92BB971D091E5100514F5C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		2E92BB981D091E5100514F5C /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		2E92BB991D091E5100514F5C /* 3 and 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3 and 6.jpg"; sourceTree = "<group>"; };
@@ -2412,6 +2420,8 @@
 		2E403DB71D261F80002CCC2C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E584D121D050CEE003E3C87 /* Audio */,
+				2EAD220F1D07AF3600FFD7AD /* Images */,
 				2E403DB81D261F91002CCC2C /* Audio Timings.csv */,
 				2E403DBA1D261F91002CCC2C /* Phonics Map.csv */,
 				2E403DCD1D2868A6002CCC2C /* Pronunciations.txt */,
@@ -2428,7 +2438,7 @@
 			children = (
 				2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */,
 				2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */,
-				2E403DCF1D2897CE002CCC2C /* LongestCommonSubsequence.swift */,
+				2E60802F1D29C18C00612487 /* LongestCommonSubsequence.swift */,
 			);
 			name = "Shared Code";
 			sourceTree = "<group>";
@@ -2453,12 +2463,10 @@
 			isa = PBXGroup;
 			children = (
 				2E403DB71D261F80002CCC2C /* Model */,
-				2EAD22061D07962700FFD7AD /* View Controllers */,
 				2E403DBE1D261FA6002CCC2C /* Shared Code */,
-				2E584D121D050CEE003E3C87 /* Audio */,
-				2EAD220F1D07AF3600FFD7AD /* Images */,
-				2E584C061D04E79C003E3C87 /* AppDelegate.swift */,
 				2E584C0A1D04E79C003E3C87 /* Main.storyboard */,
+				2EAD22061D07962700FFD7AD /* View Controllers */,
+				2E584C061D04E79C003E3C87 /* AppDelegate.swift */,
 				2E584C0D1D04E79C003E3C87 /* Assets.xcassets */,
 				2E584C0F1D04E79C003E3C87 /* LaunchScreen.storyboard */,
 				2E584C121D04E79C003E3C87 /* Info.plist */,
@@ -2775,11 +2783,23 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
+		2E6080281D29C11900612487 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E60802D1D29C18300612487 /* WordView.swift */,
+				2E60802B1D29C17300612487 /* WordView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		2EAD22061D07962700FFD7AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2EAD22071D07966500FFD7AD /* LettersViewController.swift */,
+				2E6080351D29D73900612487 /* InterativeGrowViewController.swift */,
 				2EAD22081D07966500FFD7AD /* LetterViewController.swift */,
+				2E6080331D29D10400612487 /* QuizViewController.swift */,
+				2E6080281D29C11900612487 /* Views */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -4429,6 +4449,7 @@
 				2E92BF211D091E5600514F5C /* albatross.jpg in Resources */,
 				2E92BF331D091E5600514F5C /* B.jpg in Resources */,
 				2E92C03C1D091E5600514F5C /* flower.jpg in Resources */,
+				2E60802C1D29C17300612487 /* WordView.xib in Resources */,
 				2E92C0F61D091E5600514F5C /* mouse.jpg in Resources */,
 				2E92C0131D091E5600514F5C /* egg.jpg in Resources */,
 				2E92C12B1D091E5600514F5C /* pickle.jpg in Resources */,
@@ -4918,13 +4939,16 @@
 			files = (
 				2E403DC41D261FF8002CCC2C /* Letter.swift in Sources */,
 				2E403DBC1D261F91002CCC2C /* PHContent.swift in Sources */,
+				2E6080361D29D73900612487 /* InterativeGrowViewController.swift in Sources */,
 				2E403DCC1D2624A9002CCC2C /* Word.swift in Sources */,
+				2E6080341D29D10400612487 /* QuizViewController.swift in Sources */,
 				2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */,
+				2E6080301D29C18C00612487 /* LongestCommonSubsequence.swift in Sources */,
 				2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */,
 				2EAD22091D07966500FFD7AD /* LettersViewController.swift in Sources */,
 				2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */,
-				2E403DD01D2897CE002CCC2C /* LongestCommonSubsequence.swift in Sources */,
 				2EAD220A1D07966500FFD7AD /* LetterViewController.swift in Sources */,
+				2E60802E1D29C18300612487 /* WordView.swift in Sources */,
 				2E403DCB1D2624A9002CCC2C /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
