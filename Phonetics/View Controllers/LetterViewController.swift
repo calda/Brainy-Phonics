@@ -191,10 +191,16 @@ class LetterViewController : InteractiveGrowViewController {
     
     //MARK: - Interactive Grow behavior
     
-    override func interactiveGrowActionFor(view: UIView) {
+    override func interactiveViewWilGrow(view: UIView) {
         if let wordView = view as? WordView {
             wordView.word?.playAudio()
         }
+    }
+    
+    override func totalDurationForInterruptedAnimationOn(view: UIView) -> NSTimeInterval? {
+        if let wordView = view as? WordView, let duration = wordView.word?.audioInfo?.wordDuration {
+            return duration + 0.5
+        } else { return 1.0 }
     }
     
     override func interactiveGrowScaleFor(view: UIView) -> CGFloat {

@@ -25,6 +25,7 @@
 		2E6080301D29C18C00612487 /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E60802F1D29C18C00612487 /* LongestCommonSubsequence.swift */; };
 		2E6080341D29D10400612487 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080331D29D10400612487 /* QuizViewController.swift */; };
 		2E6080361D29D73900612487 /* InterativeGrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080351D29D73900612487 /* InterativeGrowViewController.swift */; };
+		2E6080381D2A30E400612487 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080371D2A30E400612487 /* HomeViewController.swift */; };
 		2E92BF011D091E5600514F5C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB971D091E5100514F5C /* 1.jpg */; };
 		2E92BF021D091E5600514F5C /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB981D091E5100514F5C /* 2.jpg */; };
 		2E92BF031D091E5600514F5C /* 3 and 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB991D091E5100514F5C /* 3 and 6.jpg */; };
@@ -1226,6 +1227,7 @@
 		2E60802F1D29C18C00612487 /* LongestCommonSubsequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongestCommonSubsequence.swift; path = "Shared Code/LongestCommonSubsequence.swift"; sourceTree = "<group>"; };
 		2E6080331D29D10400612487 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizViewController.swift; path = "View Controllers/QuizViewController.swift"; sourceTree = "<group>"; };
 		2E6080351D29D73900612487 /* InterativeGrowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterativeGrowViewController.swift; path = "View Controllers/InterativeGrowViewController.swift"; sourceTree = "<group>"; };
+		2E6080371D2A30E400612487 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
 		2E92BB971D091E5100514F5C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		2E92BB981D091E5100514F5C /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		2E92BB991D091E5100514F5C /* 3 and 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3 and 6.jpg"; sourceTree = "<group>"; };
@@ -2795,6 +2797,7 @@
 		2EAD22061D07962700FFD7AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E6080371D2A30E400612487 /* HomeViewController.swift */,
 				2EAD22071D07966500FFD7AD /* LettersViewController.swift */,
 				2E6080351D29D73900612487 /* InterativeGrowViewController.swift */,
 				2EAD22081D07966500FFD7AD /* LetterViewController.swift */,
@@ -4942,6 +4945,7 @@
 				2E6080361D29D73900612487 /* InterativeGrowViewController.swift in Sources */,
 				2E403DCC1D2624A9002CCC2C /* Word.swift in Sources */,
 				2E6080341D29D10400612487 /* QuizViewController.swift in Sources */,
+				2E6080381D2A30E400612487 /* HomeViewController.swift in Sources */,
 				2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */,
 				2E6080301D29C18C00612487 /* LongestCommonSubsequence.swift in Sources */,
 				2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */,

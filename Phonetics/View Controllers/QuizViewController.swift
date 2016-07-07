@@ -151,6 +151,13 @@ class QuizViewController : InteractiveGrowViewController {
         }
     }
     
+    func wordSelectedAtIndex(index: Int) {
+        print("selected \(index)")
+    }
+    
+    
+    //MARK: - Interactive Grow behavior
+    
     override func interactiveGrowScaleFor(view: UIView) -> CGFloat {
         return 1.1
     }
@@ -159,9 +166,21 @@ class QuizViewController : InteractiveGrowViewController {
         return !currentlyAnimating
     }
     
-    override func interactiveGrowActionFor(view: UIView) {
+    override func interactiveViewWilGrow(view: UIView) {
         if let wordView = view as? WordView {
             wordView.word?.playAudio()
+        }
+    }
+    
+    override func totalDurationForInterruptedAnimationOn(view: UIView) -> NSTimeInterval? {
+        if let wordView = view as? WordView, let duration = wordView.word?.audioInfo?.wordDuration {
+            return duration + 0.5
+        } else { return 1.0 }
+    }
+    
+    override func touchUpForInteractiveView(view: UIView) {
+        if let wordView = view as? WordView, let index = self.wordViews.indexOf(wordView) {
+            self.wordSelectedAtIndex(index)
         }
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Pw-CV-PhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lDx-yU-Mr0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -128,6 +128,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acM-ND-8OB">
                                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                                         <state key="normal" image="button-home"/>
+                                        <connections>
+                                            <segue destination="21l-jH-Oky" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="Zy7-5e-NT4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -154,6 +157,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2l1-j6-6jV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="21l-jH-Oky" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="360" y="324"/>
         </scene>
@@ -268,9 +272,6 @@
                                             <constraint firstItem="PLb-Of-bOa" firstAttribute="top" secondItem="U9y-Ja-m1B" secondAttribute="top" id="tCb-kv-1iS"/>
                                             <constraint firstAttribute="width" secondItem="U9y-Ja-m1B" secondAttribute="height" multiplier="3:1" id="wiU-50-22t"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="ZU5-oX-H8w" appends="YES" id="jAh-ia-1aB"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -305,6 +306,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-07-v7u" userLabel="home">
                                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                                         <state key="normal" image="button-home"/>
+                                        <connections>
+                                            <segue destination="YOf-Q9-99j" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="mvb-n8-bKc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-ke-lDj" userLabel="list">
                                         <rect key="frame" x="10" y="70" width="50" height="50"/>
@@ -379,11 +383,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAu-k3-ULs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ZU5-oX-H8w" customClass="UITouchGestureRecognizer" customModule="Phonics" customModuleProvider="target">
-                    <connections>
-                        <action selector="gestureRecognized:" destination="z1a-bP-YxR" id="Tyf-IQ-NeO"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <exit id="YOf-Q9-99j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="360" y="719"/>
         </scene>
@@ -406,7 +406,7 @@
                                         <rect key="frame" x="32" y="32" width="256" height="256"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-06-e3s" customClass="WordView" customModule="Phonics" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <rect key="frame" x="64" y="0.0" width="128" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="J6s-06-e3s" secondAttribute="height" multiplier="1:1" id="v9X-dc-e4V"/>
@@ -414,13 +414,6 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showingText" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="zebra.jpg"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hN8-Uc-PIA" customClass="WordView" customModule="Phonics" customModuleProvider="target">
-                                                <rect key="frame" x="128" y="0.0" width="128" height="128"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showingText" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQO-4g-pvd" customClass="WordView" customModule="Phonics" customModuleProvider="target">
@@ -448,27 +441,29 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="BQO-4g-pvd" firstAttribute="top" secondItem="hN8-Uc-PIA" secondAttribute="bottom" id="12b-tC-mq4"/>
                                             <constraint firstItem="J6s-06-e3s" firstAttribute="top" secondItem="G1M-lQ-h1R" secondAttribute="top" id="1BK-KR-4ca"/>
                                             <constraint firstItem="J6s-06-e3s" firstAttribute="width" secondItem="G1M-lQ-h1R" secondAttribute="width" multiplier="0.5" id="6gg-VC-Rhb"/>
-                                            <constraint firstItem="ZrF-ur-OTM" firstAttribute="top" secondItem="hN8-Uc-PIA" secondAttribute="bottom" id="8AX-rX-G8b"/>
+                                            <constraint firstItem="J6s-06-e3s" firstAttribute="centerX" secondItem="G1M-lQ-h1R" secondAttribute="centerX" id="9ae-bp-wRz"/>
                                             <constraint firstItem="BQO-4g-pvd" firstAttribute="trailing" secondItem="J6s-06-e3s" secondAttribute="trailing" id="GX0-Te-cOF"/>
                                             <constraint firstItem="ZrF-ur-OTM" firstAttribute="width" secondItem="ZrF-ur-OTM" secondAttribute="height" multiplier="1:1" id="Hq6-bR-Qq1"/>
                                             <constraint firstAttribute="bottom" secondItem="ZrF-ur-OTM" secondAttribute="bottom" id="HwL-Ew-XKZ"/>
                                             <constraint firstItem="ZrF-ur-OTM" firstAttribute="width" secondItem="ZrF-ur-OTM" secondAttribute="height" multiplier="1:1" id="JxW-Ew-0VV"/>
                                             <constraint firstAttribute="bottom" secondItem="BQO-4g-pvd" secondAttribute="bottom" id="KMB-xz-zhm"/>
                                             <constraint firstAttribute="trailing" secondItem="ZrF-ur-OTM" secondAttribute="trailing" id="NoU-n6-3HV"/>
-                                            <constraint firstItem="hN8-Uc-PIA" firstAttribute="bottom" secondItem="J6s-06-e3s" secondAttribute="bottom" id="QEg-oW-EZu"/>
-                                            <constraint firstItem="hN8-Uc-PIA" firstAttribute="top" secondItem="G1M-lQ-h1R" secondAttribute="top" id="QEs-gw-Qi2"/>
                                             <constraint firstItem="BQO-4g-pvd" firstAttribute="width" secondItem="BQO-4g-pvd" secondAttribute="height" multiplier="1:1" id="RMr-w2-Hpa"/>
                                             <constraint firstItem="BQO-4g-pvd" firstAttribute="leading" secondItem="G1M-lQ-h1R" secondAttribute="leading" id="avd-TS-jcI"/>
+                                            <constraint firstItem="BQO-4g-pvd" firstAttribute="width" secondItem="G1M-lQ-h1R" secondAttribute="width" multiplier="0.5" id="k7Z-Fg-kBs"/>
                                             <constraint firstAttribute="width" secondItem="G1M-lQ-h1R" secondAttribute="height" multiplier="1:1" id="kth-2R-A52"/>
-                                            <constraint firstItem="hN8-Uc-PIA" firstAttribute="leading" secondItem="J6s-06-e3s" secondAttribute="trailing" id="pR8-qO-htL"/>
-                                            <constraint firstAttribute="trailing" secondItem="hN8-Uc-PIA" secondAttribute="trailing" id="q0V-8L-Mus"/>
                                             <constraint firstItem="ZrF-ur-OTM" firstAttribute="leading" secondItem="BQO-4g-pvd" secondAttribute="trailing" id="s4H-ty-5I6"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="sqG-8O-0oA"/>
                                             <constraint firstItem="J6s-06-e3s" firstAttribute="leading" secondItem="G1M-lQ-h1R" secondAttribute="leading" id="wOt-17-BIW"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="GX0-Te-cOF"/>
+                                                <exclude reference="wOt-17-BIW"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -546,6 +541,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sla-CM-GMA" userLabel="home">
                                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                                         <state key="normal" image="button-home"/>
+                                        <connections>
+                                            <segue destination="r0f-2z-x7N" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="Sn8-Zi-Fc4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBK-66-Pq1" userLabel="repeat">
                                         <rect key="frame" x="10" y="260" width="50" height="50"/>
@@ -601,30 +599,21 @@
                             <constraint firstItem="LVb-Ub-RsK" firstAttribute="top" secondItem="AlG-Rt-jRC" secondAttribute="topMargin" id="gXf-ow-uXp"/>
                             <constraint firstItem="ReK-RK-Xhp" firstAttribute="leading" secondItem="hXm-e9-W9R" secondAttribute="trailing" id="yag-7C-MUA"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="Nsh-g4-bw1" appends="YES" id="zcs-u6-nvr"/>
-                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="soundLabel" destination="eP8-VR-vpO" id="TZa-Ij-1DN"/>
                         <outletCollection property="interactiveViews" destination="J6s-06-e3s" collectionClass="NSMutableArray" id="Qxj-hs-4Bl"/>
-                        <outletCollection property="interactiveViews" destination="hN8-Uc-PIA" collectionClass="NSMutableArray" id="8zJ-N2-CFz"/>
                         <outletCollection property="interactiveViews" destination="BQO-4g-pvd" collectionClass="NSMutableArray" id="hGM-2W-IeU"/>
                         <outletCollection property="interactiveViews" destination="ZrF-ur-OTM" collectionClass="NSMutableArray" id="kPT-IO-Z5f"/>
                         <outletCollection property="wordViews" destination="J6s-06-e3s" collectionClass="NSMutableArray" id="VCl-ke-Nsn"/>
                         <outletCollection property="wordViews" destination="BQO-4g-pvd" collectionClass="NSMutableArray" id="W54-NG-u3K"/>
-                        <outletCollection property="wordViews" destination="hN8-Uc-PIA" collectionClass="NSMutableArray" id="C4k-yl-iKb"/>
                         <outletCollection property="wordViews" destination="ZrF-ur-OTM" collectionClass="NSMutableArray" id="mRf-lf-5v4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwm-5r-PgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Nsh-g4-bw1" customClass="UITouchGestureRecognizer" customModule="Phonics" customModuleProvider="target">
-                    <connections>
-                        <action selector="gestureRecognized:" destination="3Pw-CV-PhU" id="AkF-i7-1LA"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <exit id="r0f-2z-x7N" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1038" y="324"/>
         </scene>
