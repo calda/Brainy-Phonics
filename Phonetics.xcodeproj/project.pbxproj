@@ -1197,6 +1197,7 @@
 		2E92C5861D0A597800514F5C /* words-Z-zzz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E92C45E1D0A597800514F5C /* words-Z-zzz.mp3 */; };
 		2EAD22091D07966500FFD7AD /* LettersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD22071D07966500FFD7AD /* LettersViewController.swift */; };
 		2EAD220A1D07966500FFD7AD /* LetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAD22081D07966500FFD7AD /* LetterViewController.swift */; };
+		2ED97A901D2E04D800E386CC /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED97A8F1D2E04D800E386CC /* correct.mp3 */; };
 		2ED987851D0BB95300D2225D /* words-I-uh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987841D0BB95300D2225D /* words-I-uh.mp3 */; };
 		2ED987871D0BB9B500D2225D /* words-A-ahh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987861D0BB9B500D2225D /* words-A-ahh.mp3 */; };
 		2ED987891D0BB9DE00D2225D /* words-E-uh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ED987881D0BB9DE00D2225D /* words-E-uh.mp3 */; };
@@ -2399,6 +2400,7 @@
 		2E92C45E1D0A597800514F5C /* words-Z-zzz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-Z-zzz.mp3"; path = "Audio/words-Z-zzz.mp3"; sourceTree = "<group>"; };
 		2EAD22071D07966500FFD7AD /* LettersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LettersViewController.swift; path = "View Controllers/LettersViewController.swift"; sourceTree = "<group>"; };
 		2EAD22081D07966500FFD7AD /* LetterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LetterViewController.swift; path = "View Controllers/LetterViewController.swift"; sourceTree = "<group>"; };
+		2ED97A8F1D2E04D800E386CC /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = correct.mp3; path = "Asset Sounds/correct.mp3"; sourceTree = "<group>"; };
 		2ED987841D0BB95300D2225D /* words-I-uh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-I-uh.mp3"; path = "Audio/words-I-uh.mp3"; sourceTree = "<group>"; };
 		2ED987861D0BB9B500D2225D /* words-A-ahh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-A-ahh.mp3"; path = "Audio/words-A-ahh.mp3"; sourceTree = "<group>"; };
 		2ED987881D0BB9DE00D2225D /* words-E-uh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-E-uh.mp3"; path = "Audio/words-E-uh.mp3"; sourceTree = "<group>"; };
@@ -2470,6 +2472,7 @@
 				2EAD22061D07962700FFD7AD /* View Controllers */,
 				2E584C061D04E79C003E3C87 /* AppDelegate.swift */,
 				2E584C0D1D04E79C003E3C87 /* Assets.xcassets */,
+				2ED97A8E1D2E027400E386CC /* Asset Sounds */,
 				2E584C0F1D04E79C003E3C87 /* LaunchScreen.storyboard */,
 				2E584C121D04E79C003E3C87 /* Info.plist */,
 			);
@@ -3688,6 +3691,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		2ED97A8E1D2E027400E386CC /* Asset Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2ED97A8F1D2E04D800E386CC /* correct.mp3 */,
+			);
+			name = "Asset Sounds";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4414,6 +4425,7 @@
 				2E92C1781D091E5600514F5C /* sailing.jpg in Resources */,
 				2E92BF951D091E5600514F5C /* button.jpg in Resources */,
 				2E92C09C1D091E5600514F5C /* hose.jpg in Resources */,
+				2ED97A901D2E04D800E386CC /* correct.mp3 in Resources */,
 				2E92C1291D091E5600514F5C /* piano and stool.jpg in Resources */,
 				2E92C19D1D091E5600514F5C /* skating.jpg in Resources */,
 				2E92C04C1D091E5600514F5C /* frog pads.jpg in Resources */,

@@ -553,29 +553,13 @@
                                             <action selector="repeatSound:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="ORO-k7-0e6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1w-Jm-Aax">
-                                        <rect key="frame" x="5" y="120" width="60" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="Lfq-By-Qu9"/>
-                                            <constraint firstAttribute="height" constant="80" id="noV-aq-252"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="NEXT">
-                                            <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tempReloadPressed:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="G0e-uP-fgQ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.45053549989408542" green="0.78715277779999993" blue="0.49193002218454462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="vBK-66-Pq1" firstAttribute="leading" secondItem="hXm-e9-W9R" secondAttribute="leading" constant="10" id="5DN-D3-TFu"/>
-                                    <constraint firstItem="f1w-Jm-Aax" firstAttribute="centerX" secondItem="hXm-e9-W9R" secondAttribute="centerX" id="MX8-sF-29X"/>
                                     <constraint firstItem="Sla-CM-GMA" firstAttribute="top" secondItem="hXm-e9-W9R" secondAttribute="top" constant="10" id="Y7D-PC-snj"/>
                                     <constraint firstAttribute="width" constant="70" id="ZXk-cM-0kT"/>
                                     <constraint firstAttribute="trailing" secondItem="Sla-CM-GMA" secondAttribute="trailing" constant="10" id="c2F-6c-Atc"/>
-                                    <constraint firstItem="f1w-Jm-Aax" firstAttribute="centerY" secondItem="hXm-e9-W9R" secondAttribute="centerY" id="mlv-eS-Ty5"/>
                                     <constraint firstAttribute="bottom" secondItem="vBK-66-Pq1" secondAttribute="bottom" constant="10" id="nHB-Jo-mcO"/>
                                     <constraint firstItem="Sla-CM-GMA" firstAttribute="leading" secondItem="hXm-e9-W9R" secondAttribute="leading" constant="10" id="wNi-Qt-RJd"/>
                                     <constraint firstAttribute="trailing" secondItem="vBK-66-Pq1" secondAttribute="trailing" constant="10" id="wxI-NP-oau"/>
