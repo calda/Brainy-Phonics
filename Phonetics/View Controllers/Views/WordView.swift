@@ -16,6 +16,7 @@ class WordView : UINibView {
     @IBOutlet weak var labelBottom: NSLayoutConstraint!
     var word: Word?
     
+   
     
     //MARK: - IBInspectables
     
@@ -35,8 +36,16 @@ class WordView : UINibView {
     
     @IBInspectable var showingText: Bool = true {
         didSet {
-            labelBottom.constant = (showingText) ? 0 : -label.frame.height
-            self.label.superview!.layoutIfNeeded()
+            
+            enum LabelPriority: Float {
+                case Show = 950
+                case Hide = 500
+            }
+            
+            let priority: LabelPriority = showingText ? .Show : .Hide
+            labelBottom.priority = priority.rawValue
+            
+            self.label.superview?.layoutIfNeeded()
             self.label.alpha = showingText ? 1.0 : 0.0
             let scale: CGFloat = (showingText) ? 1.0 : 0.4
             label.transform = CGAffineTransformMakeScale(scale, scale)
@@ -79,14 +88,6 @@ class WordView : UINibView {
         if let sound = sound, let letter = letter {
             self.label.attributedText = word.attributedText(forSound: sound, ofLetter: letter)
         }
-    }
-    
-    
-    //MARK: - User Interaction
-    
-    var tapInside = false
-    @IBAction func touchEventReceived(sender: UIGestureRecognizer) {
-        
     }
     
 }

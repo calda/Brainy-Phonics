@@ -202,13 +202,23 @@ class UINibView : UIView {
         let nib = UINib(nibName: nibName(), bundle: bundle)
         nibView = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         
+        //interface builder doesn't seem to like the NSLayoutConstraints, so use autoresizing instead
+        
+        #if TARGET_INTERFACE_BUILDER
         nibView.autoresizesSubviews = true
         nibView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        #else
+        let attributes: [NSLayoutAttribute] = [.Top, .Left, .Right, .Bottom]
+        for attribute in attributes {
+            let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .Equal, toItem: self.nibView, attribute: attribute, multiplier: 1.0, constant: 0.0)
+            self.addConstraint(constraint)
+        }
+        #endif
+        
         nibView.frame = bounds
         nibView.layer.masksToBounds = true
         
         self.addSubview(nibView)
-        
     }
     
 }

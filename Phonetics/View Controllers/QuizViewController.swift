@@ -69,8 +69,9 @@ class QuizViewController : InteractiveGrowViewController {
                 wordView.frame = originalFrame
             }
             
-            wordView.transform = CGAffineTransformIdentity
             wordView.showingText = false
+            wordView.layoutIfNeeded()
+            wordView.transform = CGAffineTransformIdentity
             wordView.alpha = 1.0
             wordView.useWord(selectedWords[index], forSound: currentSound, ofLetter: currentLetter)
         }
