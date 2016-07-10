@@ -118,9 +118,12 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
             
             selectedViews.removeValueForKey(view)
         
-            self.animateBlock({
-                view.transform = CGAffineTransformIdentity
-            }, withCompletion: nil, forInteractiveView: view)
+            if self.shouldAnimateShrinkForInteractiveView(view, isTouchUp: state == .Ended) {
+                self.animateBlock({
+                    view.transform = CGAffineTransformIdentity
+                }, withCompletion: nil, forInteractiveView: view)
+            }
+            
         }
         
     }
@@ -165,6 +168,11 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
     ///The view finished growing
     func interactiveViewDidGrow(view: UIView) {
         return
+    }
+    
+    //Should the view play a shrink animation?
+    func shouldAnimateShrinkForInteractiveView(view: UIView, isTouchUp: Bool) -> Bool {
+        return true
     }
     
     ///The view recieved a Touch Up Inside event

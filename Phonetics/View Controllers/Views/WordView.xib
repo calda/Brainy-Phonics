@@ -60,6 +60,9 @@
                 <constraint firstItem="DtY-sA-gw4" firstAttribute="centerX" secondItem="gaB-WQ-0Cx" secondAttribute="centerX" id="tjk-I3-FCI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+            </userDefinedRuntimeAttributes>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="Ppo-i0-LnQ"/>
