@@ -52,10 +52,10 @@ class WordView : UINibView {
         }
     }
     
-    func setShowingText(showingText: Bool, animated: Bool) {
+    func setShowingText(showingText: Bool, animated: Bool, duration: NSTimeInterval? = 0.5) {
         
-        if (animated) {
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8) {
+        if let duration = duration where animated {
+            UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.8) {
                 self.showingText = showingText
             }
         }

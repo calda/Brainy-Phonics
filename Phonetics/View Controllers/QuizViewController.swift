@@ -180,55 +180,44 @@ class QuizViewController : InteractiveGrowViewController {
     }
     
     func wordViewSelected(wordView: WordView) {
-        
         wordView.superview?.bringSubviewToFront(wordView)
-        
-        //correct answer
+
         if wordView.word == answerWord {
-            
-            func animateAndContinue() {
-                self.state = .Transitioning
-                
-                UIView.animateWithDuration(0.2) {
-                    self.wordViews.filter{ $0 != wordView }.forEach{ $0.alpha = 0.0 }
-                }
-                
-                UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [UIViewAnimationOptions.BeginFromCurrentState], animations: {
-                    let superSize = wordView.superview!.bounds.size
-                    let superCenter = CGPoint(x: superSize.width / 2, y: superSize.height / 2)
-                    wordView.center = superCenter
-                }, completion: nil)
-                
-                PHPlayer.play("correct", ofType: "mp3")
-                NSTimer.scheduleAfter(1.5, addToArray: &self.timers, handler: self.setupForRandomSoundFromPool)
-            }
-            
-            wordView.setShowingText(true, animated: true)
-            
-            if (UAIsAudioPlaying()) {
-                //if the answer word is already playing, wait until it is done & then continue
-                UAWhenDonePlaying(animateAndContinue)
-            } else {
-                animateAndContinue()
-            }
-            
-        }
-        
-        //incorrect answer
-        else {
-            
-            if (!UAIsAudioPlaying()) {
-                wordView.word?.playAudio()
-            }
-            
+            correctWordSelected(wordView)
+        } else {
             wordView.setShowingText(true, animated: true)
             shakeView(wordView)
         }
     }
     
-    @IBAction func tempReloadPressed(sender: UIButton) {
-        self.setupForRandomSoundFromPool()
+    func correctWordSelected(wordView: WordView) {
+        
+        func animateAndContinue() {
+            self.state = .Transitioning
+            
+            UIView.animateWithDuration(0.2) {
+                self.wordViews.filter{ $0 != wordView }.forEach{ $0.alpha = 0.0 }
+            }
+            
+            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [UIViewAnimationOptions.BeginFromCurrentState], animations: {
+                let superSize = wordView.superview!.bounds.size
+                let superCenter = CGPoint(x: superSize.width / 2, y: superSize.height / 2)
+                wordView.center = superCenter
+                }, completion: nil)
+            
+            PHPlayer.play("correct", ofType: "mp3")
+            NSTimer.scheduleAfter(1.5, addToArray: &self.timers, handler: self.setupForRandomSoundFromPool)
+        }
+        
+        wordView.setShowingText(true, animated: true, duration: 0.5)
+        
+        if (UAIsAudioPlaying()) {
+            UAWhenDonePlayingAudio(animateAndContinue)
+        } else {
+            NSTimer.scheduleAfter(0.55, addToArray: &self.timers, handler: animateAndContinue)
+        }
     }
+    
     
     //MARK: - Interactive Grow behavior
     

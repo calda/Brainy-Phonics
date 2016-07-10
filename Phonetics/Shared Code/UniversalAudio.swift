@@ -50,7 +50,7 @@ func UALengthOfFile(name: String, ofType type: String) -> NSTimeInterval {
     return 0.0
 }
 
-func UAWhenDonePlaying(block: () -> ()) {
+func UAWhenDonePlayingAudio(block: () -> ()) {
     dispatch_async(UAAudioQueue, {
         while(UAIsAudioPlaying()) { }
         sync {
