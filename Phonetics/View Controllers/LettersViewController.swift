@@ -50,16 +50,10 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         }, completion: nil)
         
         //play audio for selection
-        let letter = PHLetters[indexPath.item]
-        let file = "letter-\(letter)"
-        PHPlayer.play(file, ofType: "mp3")
+        let letter = PHContent[PHLetters[indexPath.item]]
+        letter.playSound()
         
-        var duration = UALengthOfFile(file, ofType: "mp3")
-        if duration == 0.0 {
-            duration = 0.5
-        }
-        
-        delay(duration) {
+        UAWhenDonePlayingAudio {
             //recursively call with a nonexistant index to hide the cell
             UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
                 cell?.transform = CGAffineTransformIdentity

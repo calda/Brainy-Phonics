@@ -82,7 +82,7 @@ class QuizViewController : InteractiveGrowViewController {
     }
     
     
-    //MARK: - Animation
+    //MARK: - Question Animation
     
     func transitionToCurrentSound(isFirst isFirst: Bool) {
         //animate if not first
@@ -116,7 +116,7 @@ class QuizViewController : InteractiveGrowViewController {
         startTime += self.currentSound.pronunciationTiming.wordDuration + timeBetween
         
         for (index, wordView) in self.wordViews.enumerate() {
-            
+
             NSTimer.scheduleAfter(startTime, addToArray: &self.timers) {
                 self.playSoundAnimationForWord(index, delayAnimationBy: 0.3)
             }

@@ -37,9 +37,9 @@ class LetterViewController : InteractiveGrowViewController {
     
     //MARK: - Presentation
     
-    static func presentForLetter(letter: String, inController other: UIViewController) {
+    static func presentForLetter(letter: Letter, inController other: UIViewController) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("letter") as! LetterViewController
-        controller.letter = PHContent[letter]!
+        controller.letter = letter
         controller.sound = controller.letter.sounds.first
         other.presentViewController(controller, animated: true, completion: nil)
     }
@@ -54,6 +54,7 @@ class LetterViewController : InteractiveGrowViewController {
     
     override func viewWillDisappear(animated: Bool) {
         UAHaltPlayback()
+        timers.forEach{ $0.invalidate() }
     }
     
     func decorateForCurrentSound(withTransition transition: Bool = false, withAnimationDelay: Bool = true, animationSubtype: String? = nil) {

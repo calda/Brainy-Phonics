@@ -15,6 +15,20 @@ struct Letter: Equatable {
         return sounds.filter{ $0.alphabetPronunciation == sound }.first
     }
     
+    func playSound() {
+        var info: AudioInfo?
+        
+        sounds.forEach{ word in
+            if let timing = word.sourceLetterTiming {
+                info = timing
+            }
+        }
+        
+        if let info = info {
+            PHContent.playAudioForInfo(info)
+        }
+    }
+    
 }
 
 func ==(left: Letter, right: Letter) -> Bool {
