@@ -13,6 +13,7 @@ class LetterViewController : InteractiveGrowViewController {
     @IBOutlet weak var letterLabel: UILabel!
     @IBOutlet weak var previousSoundButton: UIButton!
     @IBOutlet weak var nextSoundButton: UIButton!
+    @IBOutlet weak var quizButton: UIButton!
     @IBOutlet weak var wordsView: UIView!
     
     @IBOutlet var wordViews: [WordView]!
@@ -72,8 +73,11 @@ class LetterViewController : InteractiveGrowViewController {
         self.letterLabel.text = sound.displayString
         self.previousSoundButton.enabled = previousSound != nil
         self.nextSoundButton.enabled = nextSound != nil
+        self.quizButton.hidden = true
         
-        for i in 0...2 {
+        self.wordViews.forEach{ $0.alpha = 0.0 }
+        
+        for i in 0...min(2, self.sound.words.count - 1) {
             let wordView = wordViews[i]
             wordView.alpha = withAnimationDelay ? 0.0 : 1.0
             wordView.useWord(self.sound.words[i], forSound: self.sound, ofLetter: self.letter)
@@ -129,8 +133,12 @@ class LetterViewController : InteractiveGrowViewController {
             startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
             
             if (word == self.sound.words.last) {
-                NSTimer.scheduleAfter(startTime - timeBetween, addToArray: &self.timers) { _ in
+                NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
                     self.currentlyPlaying = false
+                    
+                    if self.nextSound == nil {
+                        NSTimer.scheduleAfter(0.3, addToArray: &self.timers, handler: self.showQuizButton)
+                    }
                 }
             }
         }
@@ -151,6 +159,16 @@ class LetterViewController : InteractiveGrowViewController {
         UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
             wordView.transform = CGAffineTransformIdentity
         })
+    }
+    
+    func showQuizButton() {
+        self.quizButton.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.65) {
+            self.quizButton.transform = CGAffineTransformMakeScale(1.15, 1.15)
+            self.quizButton.hidden = false
+            self.quizButton.alpha = 1.0
+        }
     }
     
     
@@ -187,6 +205,10 @@ class LetterViewController : InteractiveGrowViewController {
     @IBAction func nextSoundPressed(sender: AnyObject) {
         sound = nextSound ?? sound
         decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromRight)
+    }
+    
+    @IBAction func openQuiz(sender: AnyObject) {
+        QuizViewController.presentQuizWithLetterPool([self.letter], showingThreeWords: true, onController: self)
     }
     
     
