@@ -87,9 +87,9 @@ struct Word: Equatable {
     }
     
     
-    func playAudio() {
+    func playAudio(withConcurrencyMode concurrencyMode: UAConcurrentAudioMode = .Interrupt) {
         if let audioInfo = audioInfo {
-            PHContent.playAudioForInfo(audioInfo)
+            PHContent.playAudioForInfo(audioInfo, concurrentcyMode: concurrencyMode)
         }
     }
     

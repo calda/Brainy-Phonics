@@ -172,10 +172,10 @@ class PHContentManager {
     //MARK: - Helper Funcitons
     
     ///plays the audio starting 0.3 seconds early and ending 0.5 seconds late to account for errors
-    func playAudioForInfo(info: AudioInfo) {
+    func playAudioForInfo(info: AudioInfo, concurrentcyMode: UAConcurrentAudioMode = .Interrupt) {
         PHPlayer.play(info.fileName,
                       ofType: "mp3",
-                      ifConcurrent: .Interrupt,
+                      ifConcurrent: concurrentcyMode,
                       startTime: max(0.0, info.wordStart - 0.3),
                       endAfter: info.wordDuration + 0.5)
     }

@@ -77,11 +77,18 @@ class LetterViewController : InteractiveGrowViewController {
         
         self.wordViews.forEach{ $0.alpha = 0.0 }
         
-        for i in 0...min(2, self.sound.words.count - 1) {
-            let wordView = wordViews[i]
+        if self.sound.words.count == 1 {
+            let wordView = wordViews[1]
             wordView.alpha = withAnimationDelay ? 0.0 : 1.0
-            wordView.useWord(self.sound.words[i], forSound: self.sound, ofLetter: self.letter)
+            wordView.useWord(self.sound.words[0], forSound: self.sound, ofLetter: self.letter)
+        } else {
+            for i in 0 ..< min(3, self.sound.words.count) {
+                let wordView = wordViews[i]
+                wordView.alpha = withAnimationDelay ? 0.0 : 1.0
+                wordView.useWord(self.sound.words[i], forSound: self.sound, ofLetter: self.letter)
+            }
         }
+        
         
         //play audio, cue animations
         if !withAnimationDelay {
@@ -102,16 +109,18 @@ class LetterViewController : InteractiveGrowViewController {
     }
     
     
+    //MARK: - Animation
+    
     func playSoundAnimation() {
         
         self.currentlyPlaying = true
         var startTime: NSTimeInterval = 0.0
         let timeBetween = 0.85
         
-        if let sourceLetterInfo = self.sound.sourceLetterTiming {
+        /*if let sourceLetterInfo = self.sound.sourceLetterTiming {
             PHContent.playAudioForInfo(sourceLetterInfo)
             startTime += sourceLetterInfo.wordDuration + timeBetween
-        }
+        }*/
         
         NSTimer.scheduleAfter(startTime, addToArray: &timers) { _ in
             shakeView(self.letterLabel)
@@ -123,32 +132,34 @@ class LetterViewController : InteractiveGrowViewController {
         
         startTime += self.sound.pronunciationTiming.wordDuration + timeBetween
         
-        for (index, word) in self.sound.words.enumerate() {
+        for (wordIndex, word) in self.sound.words.enumerate() {
+            var wordViewIndex = wordIndex
             
+            //only animate the middle word if there is only one word
+            if self.sound.words.count == 1 {
+                wordViewIndex = 1
+            }
             
             NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
-                self.playSoundAnimationForWord(index, delayAnimationBy: 0.3)
+                self.playSoundAnimationForWordView(self.wordViews[wordViewIndex], delayAnimationBy: 0.3)
             }
             
             startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
             
             if (word == self.sound.words.last) {
                 NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
-                    self.currentlyPlaying = false
-                    
                     if self.nextSound == nil {
                         NSTimer.scheduleAfter(0.3, addToArray: &self.timers, handler: self.showQuizButton)
+                    } else {
+                        self.currentlyPlaying = false
                     }
                 }
             }
         }
     }
     
-    func playSoundAnimationForWord(index: Int, delayAnimationBy delay: NSTimeInterval = 0.0, extendAnimationBy extend: NSTimeInterval = 0.0) {
-        if index >= self.sound.words.count { return }
-        
-        let word = self.sound.words[index]
-        let wordView = self.wordViews[index]
+    func playSoundAnimationForWordView(wordView: WordView, delayAnimationBy delay: NSTimeInterval = 0.0, extendAnimationBy extend: NSTimeInterval = 0.0) {
+        let word = wordView.word!
         word.playAudio()
         
         UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
@@ -169,6 +180,8 @@ class LetterViewController : InteractiveGrowViewController {
             self.quizButton.hidden = false
             self.quizButton.alpha = 1.0
         }
+        
+        self.currentlyPlaying = false
     }
     
     
