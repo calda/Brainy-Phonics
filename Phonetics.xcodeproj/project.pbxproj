@@ -3700,8 +3700,8 @@
 		2E584C051D04E79C003E3C87 /* Phonetics */ = {
 			isa = PBXGroup;
 			children = (
-				2EAD22061D07962700FFD7AD /* View Controllers */,
 				2E403DB71D261F80002CCC2C /* Content Model */,
+				2EAD22061D07962700FFD7AD /* View Controllers */,
 				2E403DBE1D261FA6002CCC2C /* Shared Code */,
 				2E19BD751D484548008538CC /* Assets */,
 				2E584C0A1D04E79C003E3C87 /* Main.storyboard */,

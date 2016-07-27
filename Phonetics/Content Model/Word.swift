@@ -21,7 +21,10 @@ struct Word: Equatable {
     
     init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo?) {
         
-        guard let wordText = wordText, pronunciation = pronunciation else {
+        guard let wordText = wordText else { return nil }
+        
+        guard let pronunciation = pronunciation else {
+            print("NO PRONUNCIATION FOR \(wordText)")
             return nil
         }
         
@@ -29,9 +32,8 @@ struct Word: Equatable {
             return nil
         }
         
-        guard let audioInfo = audioInfo else {
-            print("COULD NOT CREATE \(wordText)")
-            return nil
+        if audioInfo == nil {
+            print("NO AUDIO FOR \(wordText)")
         }
         
         var text = wordText.lowercaseString
