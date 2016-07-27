@@ -75,7 +75,7 @@ class PHContentManager {
         //**
         //now parse the actual content
         //**
-        let file = NSBundle.mainBundle().pathForResource("Phonics Map", ofType: "csv")!
+        let file = NSBundle.mainBundle().pathForResource("Phonics Map (old)", ofType: "csv")!
         let text = try! NSString(contentsOfFile: file, encoding: NSUTF8StringEncoding)
         let lines = text.componentsSeparatedByString("\n")
         
