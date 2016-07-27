@@ -16,19 +16,19 @@ struct Sound: Equatable {
     //MARK: - Properties
     
     let sourceLetter: String
-    let alphabetPronunciation: String
+    let soundId: String
     let ipaPronunciation: String
     let displayString: String
     let words: [Word]
     
     var sourceLetterTiming: AudioInfo?
-    var pronunciationTiming: AudioInfo!
+    var pronunciationTiming: AudioInfo?
     
     
     //MARK: - Helper Methods
     
     func audioName(withWords withWords: Bool) -> String {
-        return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(alphabetPronunciation)"
+        return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(soundId)"
     }
     
     func playAudio(withWords withWords: Bool) {
@@ -92,7 +92,7 @@ struct Sound: Equatable {
             
         }
         
-        var spokenWords = [self.alphabetPronunciation]
+        var spokenWords = [self.soundId]
         spokenWords.appendContentsOf(words.map({ $0.text }))
         //5 is format "A ah bat cat hat"
         if (ranges.count == 5) {
@@ -131,6 +131,6 @@ struct Sound: Equatable {
 }
 
 func ==(left: Sound, right: Sound) -> Bool {
-    return left.alphabetPronunciation == right.alphabetPronunciation && left.sourceLetter == right.sourceLetter
+    return left.soundId == right.soundId && left.sourceLetter == right.sourceLetter
 }
 

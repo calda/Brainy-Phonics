@@ -16,7 +16,7 @@ struct Word: Equatable {
     let audioInfo: AudioInfo?
     
     var image: UIImage? {
-        return UIImage(named: "\(text).jpg")?
+        return UIImage(named: "\(text).jpg")
     }
     
     init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo?) {

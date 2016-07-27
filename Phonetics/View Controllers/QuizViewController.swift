@@ -156,7 +156,7 @@ class QuizViewController : InteractiveGrowViewController {
             PHContent.playAudioForInfo(self.currentSound.pronunciationTiming)
         }
         
-        startTime += self.currentSound.pronunciationTiming.wordDuration + timeBetween
+        startTime += (self.currentSound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
         
         for (index, wordView) in self.wordViews.enumerate() {
 

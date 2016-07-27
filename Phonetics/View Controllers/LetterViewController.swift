@@ -130,7 +130,7 @@ class LetterViewController : InteractiveGrowViewController {
             PHContent.playAudioForInfo(self.sound.pronunciationTiming)
         }
         
-        startTime += self.sound.pronunciationTiming.wordDuration + timeBetween
+        startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
         
         for (wordIndex, word) in self.sound.words.enumerate() {
             var wordViewIndex = wordIndex

@@ -19,30 +19,22 @@ typealias AudioInfo = (fileName: String, wordStart: Double, wordDuration: Double
 
 class PHContentManager {
     
-    
-    //MARK: - Initialization
-    
     let letters: [String : Letter]
     
-    init() {
-        
-        //***
-        //parse audio timings
-        //***
-        let audioFile = NSBundle.mainBundle().pathForResource("Audio Timings", ofType: "csv")!
-        let audioText = try! NSString(contentsOfFile: audioFile, encoding: NSUTF8StringEncoding)
-        let audioLines = audioText.componentsSeparatedByString("\r\n")
-        
+    
+    //MARK: - Static Init Helpers
+    
+    static func parseAudioTimings() -> [FileName : [WordName : AudioInfo]]! {
+        guard let audioLines = linesForCSV("Audio Timings") else { return nil }
         var audioTimings = [FileName : [WordName : AudioInfo]]()
         
         for line in audioLines {
-            let cols = line.componentsSeparatedByString(",")
-            let fileName = cols[0]
+            let fileName = line[0]
             var wordsDict = [WordName : AudioInfo]()
             
-            for i in 1 ..< cols.count {
+            for i in 1 ..< line.count {
                 let splitSet = NSCharacterSet(charactersInString: "=/")
-                let parts = cols[i].componentsSeparatedByCharactersInSet(splitSet)
+                let parts = line[i].componentsSeparatedByCharactersInSet(splitSet)
                 let value = (fileName: fileName,
                              wordStart: parts[1].asDouble()!,
                              wordDuration: parts[2].asDouble()!)
@@ -52,14 +44,11 @@ class PHContentManager {
             audioTimings[fileName] = wordsDict
         }
         
-        
-        //***
-        //parse pronunciations
-        //***
-        let pronunciationFile = NSBundle.mainBundle().pathForResource("Pronunciations", ofType: "txt")!
-        let pronunciationText = try! NSString(contentsOfFile: pronunciationFile, encoding: NSUTF8StringEncoding)
-        let pronunciationLines = pronunciationText.componentsSeparatedByString("\n")
-        
+        return audioTimings
+    }
+    
+    static func parsePronunciations() -> [WordName : Pronunciation]! {
+        guard let pronunciationLines = linesForFile("Pronunciations", ofType:"txt", usingNewlineMarker:"\n") else { return nil }
         var pronunciations = [WordName : Pronunciation]()
         
         for line in pronunciationLines {
@@ -71,20 +60,17 @@ class PHContentManager {
             pronunciations[word] = pronunciation
         }
         
-        
-        //**
-        //now parse the actual content
-        //**
-        let file = NSBundle.mainBundle().pathForResource("Phonics Map (old)", ofType: "csv")!
-        let text = try! NSString(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-        let lines = text.componentsSeparatedByString("\n")
+        return pronunciations
+    }
+    
+    static func parseLetters(audioTimings audioTimings: [FileName : [WordName : AudioInfo]], pronunciations: [WordName : Pronunciation]) -> [String : Letter]! {
+        guard let letterLines = linesForCSV("Sound List") else { return nil }
         
         //put each line in a bucket for its letter
-        var linesPerLetter = [String : [String]]()
+        var linesPerLetter = [String : [[String]]]()
         
-        for line in lines {
-            let cols = line.componentsSeparatedByString(",")
-            let letter = cols[0]
+        for line in letterLines {
+            let letter = line[0]
             var currentLetterArray = linesPerLetter[letter] ?? []
             currentLetterArray.append(line)
             linesPerLetter[letter] = currentLetterArray
@@ -97,72 +83,46 @@ class PHContentManager {
             let lines = linesPerLetter[letter]!
             var sounds = [Sound]()
             
-            for line in lines.map({ $0.componentsSeparatedByString(",") }) {
-                let alphabetPronunciation = line[1]
-                let displayString = line[5]
-                let ipaPronunciation = line[6]
-                let soundInfo = audioTimings["words-\(letter)-\(alphabetPronunciation)"] ?? [:]
+            for line in lines {
+                let soundId = line[1]
+                let displayString = line[2]
+                let ipaPronunciation = displayString.lowercaseString //TODO: fix IPA pronunciations
+                let soundInfo = audioTimings["words-\(letter)-\(soundId)"] ?? [:]
                 
                 func wordForString(text: String) -> Word? {
                     return Word(text:text, pronunciation: pronunciations[text], audioInfo: soundInfo[text])
                 }
                 
                 let words = [
-                    wordForString(line[2]),
                     wordForString(line[3]),
-                    wordForString(line[4])
+                    wordForString(line[4]),
+                    wordForString(line[5])
                 ].flatMap{ $0 }
                 
                 let sound = Sound(sourceLetter: letter,
-                                  alphabetPronunciation: alphabetPronunciation,
+                                  soundId: soundId,
                                   ipaPronunciation: ipaPronunciation,
                                   displayString: displayString,
                                   words: words,
                                   sourceLetterTiming: soundInfo[letter],
-                                  pronunciationTiming: soundInfo[alphabetPronunciation])
+                                  pronunciationTiming: soundInfo[soundId])
                 
                 sounds.append(sound)
             }
             
-            sounds.sortInPlace({ (sound1, sound2) in
-                //single letters with source letter (A a ape tail jay) come first
-                if sound1.sourceLetterTiming != nil { return true }
-                if sound2.sourceLetterTiming != nil { return false }
-                
-                //single letters without source letter (uh canoe zebra sofa) come next
-                let AaFormatted = "\(letter.uppercaseString)\(letter.lowercaseString)"
-                if sound1.displayString == AaFormatted { return true }
-                if sound2.displayString == AaFormatted { return false }
-                
-                //sort based on the characters of the two strings
-                //replace the primary letter with "0" because Character("0") < Character("a" - "z") is TRUE
-                //so the primary letter always comes first
-                let sortable1 = sound1.displayString.lowercaseString.stringByReplacingOccurrencesOfString(letter.lowercaseString, withString: "0")
-                let sortable2 = sound2.displayString.lowercaseString.stringByReplacingOccurrencesOfString(letter.lowercaseString, withString: "0")
-                
-                //sort two-letter based on non-primary character
-                func checkCharactersAtIndex(index: Int, are check: (Character, Character) -> Bool) -> Bool {
-                    let char1 = sortable1.stringAtIndex(index).characters.first!
-                    let char2 = sortable2.stringAtIndex(index).characters.first!
-                    return check(char1, char2)
-                }
-                
-                //order: ab ac ad
-                if checkCharactersAtIndex(0, are: ==) {
-                    return checkCharactersAtIndex(1, are: <)
-                }
-                
-                //order: ba ca da
-                else {
-                    return checkCharactersAtIndex(0, are: <)
-                }
-                
-            })
-            
             letters[letter] = Letter(text: letter, sounds: sounds)
         }
         
-        self.letters = letters
+        return letters
+    }
+    
+    
+    //MARK: - Initialization
+    
+    init() {
+        let audioTimings = PHContentManager.parseAudioTimings()
+        let pronunciations = PHContentManager.parsePronunciations()
+        self.letters = PHContentManager.parseLetters(audioTimings: audioTimings, pronunciations: pronunciations)
         
         //print all audio timings
         //self.letters.values.forEach{ $0.sounds.forEach { $0.printAudioTimings() } }
@@ -172,10 +132,10 @@ class PHContentManager {
     //MARK: - Helper Funcitons
     
     ///plays the audio starting 0.3 seconds early and ending 0.5 seconds late to account for errors
-    func playAudioForInfo(info: AudioInfo, concurrentcyMode: UAConcurrentAudioMode = .Interrupt) {
-        PHPlayer.play(info.fileName,
-                      ofType: "mp3",
-                      ifConcurrent: concurrentcyMode,
+    func playAudioForInfo(info: AudioInfo?, concurrentcyMode: UAConcurrentAudioMode = .Interrupt) {
+        guard let info = info else { return }
+        
+        PHPlayer.play(info.fileName, ofType: "mp3", ifConcurrent: concurrentcyMode,
                       startTime: max(0.0, info.wordStart - 0.3),
                       endAfter: info.wordDuration + 0.5)
     }

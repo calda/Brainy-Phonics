@@ -75,10 +75,13 @@ class UAPlayer {
         self.endAfter = endAfter
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: [])
         
-        if let path = NSBundle.mainBundle().pathForResource(name, ofType: type) {
-            let data = NSData(contentsOfFile: path)!
+        if let path = NSBundle.mainBundle().pathForResource(name, ofType: type), let data = NSData(contentsOfFile: path) {
             
-            player = try! AVAudioPlayer(data: data, fileTypeHint: nil)
+            do {
+               player = try AVAudioPlayer(data: data, fileTypeHint: nil)
+            } catch {
+                return false
+            }
             
             if mode == .Interrupt {
                 startPlayback()

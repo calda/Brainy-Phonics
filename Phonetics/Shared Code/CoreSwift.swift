@@ -142,6 +142,24 @@ func heightForText(text: String, width: CGFloat, font: UIFont) -> CGFloat {
     return rect.height
 }
 
+///Reads the lines for a text file out of the bundle
+func linesForFile(fileName: String, ofType type: String, usingNewlineMarker newline: String = "\r\n") -> [String]? {
+    guard let file = NSBundle.mainBundle().pathForResource(fileName, ofType: type) else { return nil }
+    
+    do {
+        let text = try NSString(contentsOfFile: file, encoding: NSUTF8StringEncoding)
+        return text.componentsSeparatedByString(newline)
+    } catch {
+        return nil;
+    }
+}
+
+///Reads the lines for a CSV out of the bundle
+func linesForCSV(fileName: String, usingNewlineMarker newline: String = "\r\n") -> [[String]]? {
+    guard let lines = linesForFile(fileName, ofType: "csv", usingNewlineMarker: newline) else { return nil }
+    return lines.map{ $0.componentsSeparatedByString(",") }
+}
+
 //MARK: - Classes
 
 ///A touch gesture recognizer that sends events on both .Began (down) and .Ended (up)

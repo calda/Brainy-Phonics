@@ -7,12 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E19B4321D4844B4008538CC /* Audio Timings.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E19B42A1D4844B4008538CC /* Audio Timings.csv */; };
 		2E19B4331D4844B4008538CC /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19B42B1D4844B4008538CC /* Letter.swift */; };
 		2E19B4341D4844B4008538CC /* PHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19B42C1D4844B4008538CC /* PHContent.swift */; };
-		2E19B4351D4844B4008538CC /* Phonics Map (old).csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E19B42D1D4844B4008538CC /* Phonics Map (old).csv */; };
-		2E19B4361D4844B4008538CC /* Pronunciations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E19B42E1D4844B4008538CC /* Pronunciations.txt */; };
-		2E19B4371D4844B4008538CC /* Sound List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E19B42F1D4844B4008538CC /* Sound List.csv */; };
 		2E19B4381D4844B4008538CC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19B4301D4844B4008538CC /* Sound.swift */; };
 		2E19B4391D4844B4008538CC /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19B4311D4844B4008538CC /* Word.swift */; };
 		2E19B8DB1D48451A008538CC /* letter-A.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E19B43F1D484514008538CC /* letter-A.mp3 */; };
@@ -1195,6 +1191,10 @@
 		2E19BD741D48451A008538CC /* zebra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E19B8DA1D48451A008538CC /* zebra.jpg */; };
 		2E19BD791D484548008538CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD761D484548008538CC /* Assets.xcassets */; };
 		2E19BD7A1D484548008538CC /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD781D484548008538CC /* correct.mp3 */; };
+		2E19BD821D48496C008538CC /* Audio Timings.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD7E1D48496C008538CC /* Audio Timings.csv */; };
+		2E19BD831D48496C008538CC /* Phonics Map (old).csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD7F1D48496C008538CC /* Phonics Map (old).csv */; };
+		2E19BD841D48496C008538CC /* Pronunciations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD801D48496C008538CC /* Pronunciations.txt */; };
+		2E19BD851D48496C008538CC /* Sound List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD811D48496C008538CC /* Sound List.csv */; };
 		2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */; };
 		2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */; };
 		2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584C061D04E79C003E3C87 /* AppDelegate.swift */; };
@@ -1211,12 +1211,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E19B42A1D4844B4008538CC /* Audio Timings.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Audio Timings.csv"; path = "Content Model/Audio Timings.csv"; sourceTree = "<group>"; };
 		2E19B42B1D4844B4008538CC /* Letter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Letter.swift; path = "Content Model/Letter.swift"; sourceTree = "<group>"; };
 		2E19B42C1D4844B4008538CC /* PHContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHContent.swift; path = "Content Model/PHContent.swift"; sourceTree = "<group>"; };
-		2E19B42D1D4844B4008538CC /* Phonics Map (old).csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Phonics Map (old).csv"; path = "Content Model/Phonics Map (old).csv"; sourceTree = "<group>"; };
-		2E19B42E1D4844B4008538CC /* Pronunciations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pronunciations.txt; path = "Content Model/Pronunciations.txt"; sourceTree = "<group>"; };
-		2E19B42F1D4844B4008538CC /* Sound List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Sound List.csv"; path = "Content Model/Sound List.csv"; sourceTree = "<group>"; };
 		2E19B4301D4844B4008538CC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = "Content Model/Sound.swift"; sourceTree = "<group>"; };
 		2E19B4311D4844B4008538CC /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = "Content Model/Word.swift"; sourceTree = "<group>"; };
 		2E19B43F1D484514008538CC /* letter-A.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "letter-A.mp3"; sourceTree = "<group>"; };
@@ -2399,6 +2395,10 @@
 		2E19B8DA1D48451A008538CC /* zebra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zebra.jpg; sourceTree = "<group>"; };
 		2E19BD761D484548008538CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E19BD781D484548008538CC /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		2E19BD7E1D48496C008538CC /* Audio Timings.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Audio Timings.csv"; path = "Content Model/CSVs/Audio Timings.csv"; sourceTree = "<group>"; };
+		2E19BD7F1D48496C008538CC /* Phonics Map (old).csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Phonics Map (old).csv"; path = "Content Model/CSVs/Phonics Map (old).csv"; sourceTree = "<group>"; };
+		2E19BD801D48496C008538CC /* Pronunciations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pronunciations.txt; path = "Content Model/CSVs/Pronunciations.txt"; sourceTree = "<group>"; };
+		2E19BD811D48496C008538CC /* Sound List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Sound List.csv"; path = "Content Model/CSVs/Sound List.csv"; sourceTree = "<group>"; };
 		2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreSwift.swift; path = "Shared Code/CoreSwift.swift"; sourceTree = "<group>"; };
 		2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversalAudio.swift; path = "Shared Code/UniversalAudio.swift"; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3646,19 +3646,27 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		2E19BD7D1D484925008538CC /* CSVs */ = {
+			isa = PBXGroup;
+			children = (
+				2E19BD7E1D48496C008538CC /* Audio Timings.csv */,
+				2E19BD7F1D48496C008538CC /* Phonics Map (old).csv */,
+				2E19BD801D48496C008538CC /* Pronunciations.txt */,
+				2E19BD811D48496C008538CC /* Sound List.csv */,
+			);
+			name = CSVs;
+			sourceTree = "<group>";
+		};
 		2E403DB71D261F80002CCC2C /* Content Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E19BD7D1D484925008538CC /* CSVs */,
 				2E19B43E1D484514008538CC /* Audio */,
 				2E19B56D1D484515008538CC /* Images */,
 				2E19B42C1D4844B4008538CC /* PHContent.swift */,
 				2E19B42B1D4844B4008538CC /* Letter.swift */,
 				2E19B4301D4844B4008538CC /* Sound.swift */,
 				2E19B4311D4844B4008538CC /* Word.swift */,
-				2E19B42F1D4844B4008538CC /* Sound List.csv */,
-				2E19B42A1D4844B4008538CC /* Audio Timings.csv */,
-				2E19B42E1D4844B4008538CC /* Pronunciations.txt */,
-				2E19B42D1D4844B4008538CC /* Phonics Map (old).csv */,
 			);
 			name = "Content Model";
 			sourceTree = "<group>";
@@ -3851,6 +3859,7 @@
 				2E19BB5D1D48451A008538CC /* german shepherd.jpg in Resources */,
 				2E19BBD81D48451A008538CC /* Little.jpg in Resources */,
 				2E19BB211D48451A008538CC /* envelope.jpg in Resources */,
+				2E19BD841D48496C008538CC /* Pronunciations.txt in Resources */,
 				2E19BC1D1D48451A008538CC /* owl.jpg in Resources */,
 				2E19BA4A1D48451A008538CC /* balloon.jpg in Resources */,
 				2E19B9381D48451A008538CC /* sound-OWN.mp3 in Resources */,
@@ -3969,7 +3978,6 @@
 				2E19BD1C1D48451A008538CC /* tree.jpg in Resources */,
 				2E19BB741D48451A008538CC /* grasshopper.jpg in Resources */,
 				2E19B9D61D48451A008538CC /* words-R-rrr.mp3 in Resources */,
-				2E19B4351D4844B4008538CC /* Phonics Map (old).csv in Resources */,
 				2E19BB6B1D48451A008538CC /* golf club and ball.jpg in Resources */,
 				2E19BADC1D48451A008538CC /* cowboy hat.jpg in Resources */,
 				2E19BBCC1D48451A008538CC /* legs.jpg in Resources */,
@@ -4066,6 +4074,7 @@
 				2E19BA231D48451A008538CC /* A.jpg in Resources */,
 				2E19BBE61D48451A008538CC /* mask of frog.jpg in Resources */,
 				2E19BBED1D48451A008538CC /* mind.jpg in Resources */,
+				2E19BD821D48496C008538CC /* Audio Timings.csv in Resources */,
 				2E19BA911D48451A008538CC /* bull.jpg in Resources */,
 				2E19B9921D48451A008538CC /* words-H-WH.mp3 in Resources */,
 				2E19B9681D48451A008538CC /* words-A-ahh.mp3 in Resources */,
@@ -4393,7 +4402,6 @@
 				2E19B9511D48451A008538CC /* sound-TH.mp3 in Resources */,
 				2E19BB4B1D48451A008538CC /* football helmet.jpg in Resources */,
 				2E19BAB81D48451A008538CC /* chamber.jpg in Resources */,
-				2E19B4361D4844B4008538CC /* Pronunciations.txt in Resources */,
 				2E19BB441D48451A008538CC /* flower.jpg in Resources */,
 				2E19BA8A1D48451A008538CC /* brush.jpg in Resources */,
 				2E19BC191D48451A008538CC /* orca.jpg in Resources */,
@@ -4523,6 +4531,7 @@
 				2E19BBB01D48451A008538CC /* J.jpg in Resources */,
 				2E19BC951D48451A008538CC /* see-saw.jpg in Resources */,
 				2E19BA941D48451A008538CC /* bunny.jpg in Resources */,
+				2E19BD831D48496C008538CC /* Phonics Map (old).csv in Resources */,
 				2E19BC1E1D48451A008538CC /* oyster and pearl.jpg in Resources */,
 				2E19BB9E1D48451A008538CC /* hog.jpg in Resources */,
 				2E19B9261D48451A008538CC /* sound-L.mp3 in Resources */,
@@ -4554,7 +4563,6 @@
 				2E19BD1D1D48451A008538CC /* trees.jpg in Resources */,
 				2E60802C1D29C17300612487 /* WordView.xib in Resources */,
 				2E19BC8D1D48451A008538CC /* scarf.jpg in Resources */,
-				2E19B4321D4844B4008538CC /* Audio Timings.csv in Resources */,
 				2E19BC351D48451A008538CC /* pickle.jpg in Resources */,
 				2E19BB8E1D48451A008538CC /* hawk.jpg in Resources */,
 				2E19BB0F1D48451A008538CC /* drop.jpg in Resources */,
@@ -4585,7 +4593,6 @@
 				2E19BBEA1D48451A008538CC /* microwave oven.jpg in Resources */,
 				2E19B9C41D48451A008538CC /* words-P-puh.mp3 in Resources */,
 				2E19BBC61D48451A008538CC /* L.jpg in Resources */,
-				2E19B4371D4844B4008538CC /* Sound List.csv in Resources */,
 				2E19BA821D48451A008538CC /* boy.jpg in Resources */,
 				2E19BAE81D48451A008538CC /* cucumbers.jpg in Resources */,
 				2E19B9A01D48451A008538CC /* words-L-BL.mp3 in Resources */,
@@ -4880,6 +4887,7 @@
 				2E19B8ED1D48451A008538CC /* sound-A-ah.mp3 in Resources */,
 				2E19BB7A1D48451A008538CC /* greyhound.jpg in Resources */,
 				2E19B9151D48451A008538CC /* sound-FR.mp3 in Resources */,
+				2E19BD851D48496C008538CC /* Sound List.csv in Resources */,
 				2E19BB041D48451A008538CC /* door.jpg in Resources */,
 				2E19B9CE1D48451A008538CC /* words-R-IR.mp3 in Resources */,
 				2E19BAE31D48451A008538CC /* crayons.jpg in Resources */,
