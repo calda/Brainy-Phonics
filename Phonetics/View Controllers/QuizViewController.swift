@@ -77,7 +77,7 @@ class QuizViewController : InteractiveGrowViewController {
         let isFirst = (currentSound == nil)
         self.currentLetter = letterPool.random()
         self.currentSound = currentLetter.sounds.random()
-        self.answerWord = currentSound.words.random()
+        self.answerWord = currentSound.allWords.random()
         
         soundLabel.text = self.currentSound.displayString
         
@@ -87,7 +87,7 @@ class QuizViewController : InteractiveGrowViewController {
         let possibleWords = allWords.filter{ word in
             
             for character in blacklistedSound.characters {
-                if word.pronunciation.containsString("\(character)") {
+                if word.pronunciation?.containsString("\(character)") == true {
                     return false
                 }
             }

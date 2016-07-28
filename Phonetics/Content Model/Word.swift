@@ -12,7 +12,7 @@ import UIKit
 struct Word: Equatable {
     
     let text: String
-    let pronunciation: String
+    let pronunciation: String?
     let audioInfo: AudioInfo?
     
     var image: UIImage? {
@@ -23,13 +23,8 @@ struct Word: Equatable {
         
         guard let wordText = wordText else { return nil }
         
-        guard let pronunciation = pronunciation else {
+        if pronunciation == nil {
             print("NO PRONUNCIATION FOR \(wordText)")
-            return nil
-        }
-        
-        if wordText == "" {
-            return nil
         }
         
         if audioInfo == nil {

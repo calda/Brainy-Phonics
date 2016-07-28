@@ -157,7 +157,37 @@ func linesForFile(fileName: String, ofType type: String, usingNewlineMarker newl
 ///Reads the lines for a CSV out of the bundle
 func linesForCSV(fileName: String, usingNewlineMarker newline: String = "\r\n") -> [[String]]? {
     guard let lines = linesForFile(fileName, ofType: "csv", usingNewlineMarker: newline) else { return nil }
-    return lines.map{ $0.componentsSeparatedByString(",") }
+    return lines.map{ line in
+        
+        // A,long,A,ape,tail,jay,"skate, suitcase, crayons”,”hello, hi”
+        // [“A,long,A,ape,tail,jay,”, “skate, suitcase, crayons”, “,”, “hello, hi”, “”]
+        // [“A,long,A,ape,tail,jay,”, “skate~|~ suitcase~|~ crayons”, “,”, “hello~|~ hi”]
+        // A,long,A,ape,tail,jay,skate~|~ suitcase~|~ crayons,hello~|~ hi
+        // ["A", "long", "A", "ape", "tail", "jay", "skate, suitcase, crayons", "hello, hi"]
+        
+        let separatedByQuotes = line.componentsSeparatedByString("\"")
+        var reparsedLine = [String]()
+        
+        for (index, part) in separatedByQuotes.enumerate() {
+
+            if line.hasSuffix("\"") && index == separatedByQuotes.count - 1 {
+                continue
+            }
+            
+            if index.isEven {
+                reparsedLine.append(part)
+            } else {
+                let noCommaString = part.stringByReplacingOccurrencesOfString(",", withString: "~|~")
+                reparsedLine.append(noCommaString)
+            }
+        }
+        
+        let rejoinedLine = reparsedLine.joinWithSeparator("")
+        let separatedByCommas = rejoinedLine.componentsSeparatedByString(",")
+        
+        
+        return separatedByCommas.map{ $0.stringByReplacingOccurrencesOfString("~|~", withString: ",") }
+    }
 }
 
 //MARK: - Classes
@@ -279,6 +309,14 @@ extension Int {
         if hours == 0 { return String(format: "%d:%02d", minutes, seconds) }
         return String(format: "%d:%02d:%02d", hours, minutes, seconds)
     }
+    
+    var isEven: Bool {
+        return self % 2 == 0
+    }
+    
+    var isOdd: Bool {
+        return self.isEven
+    }
 }
 
 extension NSObject {
@@ -392,6 +430,20 @@ extension String {
             || self == "\u{A0}" || self == "\u{2007}" || self == "\u{202F}" || self == "\u{2060}" || self == "\u{FEFF}"
         //there are lots of whitespace characters apparently
         //http://www.fileformat.info/info/unicode/char/00a0/index.htm
+    }
+    
+    func trimmingWhitespace() -> String {
+        var trimmedText = self
+        
+        while (trimmedText.hasPrefix(" ")) {
+            trimmedText = trimmedText.substringFromIndex(trimmedText.startIndex.successor())
+        }
+        
+        while (trimmedText.hasSuffix(" ")) {
+            trimmedText = trimmedText.substringToIndex(trimmedText.endIndex.successor())
+        }
+        
+        return trimmedText
     }
     
     mutating func prepareForURL(isFullURL isFullURL: Bool = false) {

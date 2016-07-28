@@ -19,10 +19,18 @@ struct Sound: Equatable {
     let soundId: String
     let ipaPronunciation: String
     let displayString: String
-    let words: [Word]
+    
+    let primaryWords: [Word]
+    let quizWords: [Word]
     
     var sourceLetterTiming: AudioInfo?
     var pronunciationTiming: AudioInfo?
+    
+    var allWords: [Word] {
+        var words = primaryWords
+        words.appendContentsOf(quizWords)
+        return words
+    }
     
     
     //MARK: - Helper Methods
@@ -93,7 +101,7 @@ struct Sound: Equatable {
         }
         
         var spokenWords = [self.soundId]
-        spokenWords.appendContentsOf(words.map({ $0.text }))
+        spokenWords.appendContentsOf(self.primaryWords.map({ $0.text }))
         //5 is format "A ah bat cat hat"
         if (ranges.count == 5) {
             spokenWords.insert(self.sourceLetter, atIndex: 0)
@@ -117,7 +125,7 @@ struct Sound: Equatable {
     //IPA is hard
     func generatePronunciation() -> String {
         
-        let pronunciations = self.words.map{ $0.pronunciation }
+        let pronunciations = self.primaryWords.flatMap{ $0.pronunciation }
         
         var common = pronunciations[0]
         for pronunciation in pronunciations {

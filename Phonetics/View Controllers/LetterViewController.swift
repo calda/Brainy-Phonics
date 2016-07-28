@@ -77,15 +77,15 @@ class LetterViewController : InteractiveGrowViewController {
         
         self.wordViews.forEach{ $0.alpha = 0.0 }
         
-        if self.sound.words.count == 1 {
+        if self.sound.primaryWords.count == 1 {
             let wordView = wordViews[1]
             wordView.alpha = withAnimationDelay ? 0.0 : 1.0
-            wordView.useWord(self.sound.words[0], forSound: self.sound, ofLetter: self.letter)
+            wordView.useWord(self.sound.primaryWords[0], forSound: self.sound, ofLetter: self.letter)
         } else {
-            for i in 0 ..< min(3, self.sound.words.count) {
+            for i in 0 ..< min(3, self.sound.primaryWords.count) {
                 let wordView = wordViews[i]
                 wordView.alpha = withAnimationDelay ? 0.0 : 1.0
-                wordView.useWord(self.sound.words[i], forSound: self.sound, ofLetter: self.letter)
+                wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
             }
         }
         
@@ -132,11 +132,11 @@ class LetterViewController : InteractiveGrowViewController {
         
         startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
         
-        for (wordIndex, word) in self.sound.words.enumerate() {
+        for (wordIndex, word) in self.sound.primaryWords.enumerate() {
             var wordViewIndex = wordIndex
             
             //only animate the middle word if there is only one word
-            if self.sound.words.count == 1 {
+            if self.sound.primaryWords.count == 1 {
                 wordViewIndex = 1
             }
             
@@ -146,7 +146,7 @@ class LetterViewController : InteractiveGrowViewController {
             
             startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
             
-            if (word == self.sound.words.last) {
+            if (word == self.sound.primaryWords.last) {
                 NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
                     if self.nextSound == nil {
                         NSTimer.scheduleAfter(0.3, addToArray: &self.timers, handler: self.showQuizButton)

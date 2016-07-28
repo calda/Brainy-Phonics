@@ -93,17 +93,21 @@ class PHContentManager {
                     return Word(text:text, pronunciation: pronunciations[text], audioInfo: soundInfo[text])
                 }
                 
-                let words = [
-                    wordForString(line[3]),
-                    wordForString(line[4]),
-                    wordForString(line[5])
-                ].flatMap{ $0 }
+                let primaryWords = [line[3], line[4], line[5]].flatMap{ wordForString($0) }
+                
+                var quizWords = [Word]()
+                let quizWordsString = line[6]
+                if !quizWordsString.isEmpty && !quizWordsString.isWhitespace() {
+                    let quizWordsArray = quizWordsString.componentsSeparatedByString(",")
+                    quizWords = quizWordsArray.flatMap{ wordForString($0.trimmingWhitespace()) }
+                }
                 
                 let sound = Sound(sourceLetter: letter,
                                   soundId: soundId,
                                   ipaPronunciation: ipaPronunciation,
                                   displayString: displayString,
-                                  words: words,
+                                  primaryWords: primaryWords,
+                                  quizWords: quizWords,
                                   sourceLetterTiming: soundInfo[letter],
                                   pronunciationTiming: soundInfo[soundId])
                 
@@ -123,6 +127,29 @@ class PHContentManager {
         let audioTimings = PHContentManager.parseAudioTimings()
         let pronunciations = PHContentManager.parsePronunciations()
         self.letters = PHContentManager.parseLetters(audioTimings: audioTimings, pronunciations: pronunciations)
+        
+        print("\n\n\n\nMISSING CONTENT:")
+        
+        let prints: [(Word) -> (Bool, String)?] = [
+            { ($0.image == nil, "IMAGE") },
+            { ($0.audioInfo == nil, "AUDIO") },
+            { ($0.pronunciation == nil, "PRONUNCIATION") }
+        ]
+        
+        for function in prints {
+            print("\n\n")
+            for (_, letter) in letters {
+                for sound in letter.sounds {
+                    for word in sound.allWords {
+                        
+                        if let (missingItem, itemName) = function(word) where missingItem {
+                            print("\tNO \(itemName) FOR \(word.text).")
+                        }
+                        
+                    }
+                }
+            }
+        }
         
         //print all audio timings
         //self.letters.values.forEach{ $0.sounds.forEach { $0.printAudioTimings() } }
@@ -163,7 +190,7 @@ class PHContentManager {
         var words = [Word]()
         
         for sound in allSounds {
-            for word in sound.words {
+            for word in sound.allWords {
                 words.append(word)
             }
         }
