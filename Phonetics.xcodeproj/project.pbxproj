@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E02FE361D406DED00AA4239 /* Phonics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E02FE341D406DED00AA4239 /* Phonics.xcdatamodeld */; };
 		2E403DBB1D261F91002CCC2C /* Audio Timings.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E403DB81D261F91002CCC2C /* Audio Timings.csv */; };
 		2E403DBC1D261F91002CCC2C /* PHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DB91D261F91002CCC2C /* PHContent.swift */; };
 		2E403DBD1D261F91002CCC2C /* Phonics Map.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E403DBA1D261F91002CCC2C /* Phonics Map.csv */; };
@@ -26,6 +27,7 @@
 		2E6080341D29D10400612487 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080331D29D10400612487 /* QuizViewController.swift */; };
 		2E6080361D29D73900612487 /* InterativeGrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080351D29D73900612487 /* InterativeGrowViewController.swift */; };
 		2E6080381D2A30E400612487 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6080371D2A30E400612487 /* HomeViewController.swift */; };
+		2E8D5F401D45C5D0003E69A6 /* Sound List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E8D5F3F1D45C5D0003E69A6 /* Sound List.csv */; };
 		2E92BF011D091E5600514F5C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB971D091E5100514F5C /* 1.jpg */; };
 		2E92BF021D091E5600514F5C /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB981D091E5100514F5C /* 2.jpg */; };
 		2E92BF031D091E5600514F5C /* 3 and 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E92BB991D091E5100514F5C /* 3 and 6.jpg */; };
@@ -1208,6 +1210,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E02FE351D406DED00AA4239 /* Phonics.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Phonics.xcdatamodel; sourceTree = "<group>"; };
 		2E403DB81D261F91002CCC2C /* Audio Timings.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Audio Timings.csv"; path = "Model/Audio Timings.csv"; sourceTree = "<group>"; };
 		2E403DB91D261F91002CCC2C /* PHContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PHContent.swift; path = Model/PHContent.swift; sourceTree = "<group>"; };
 		2E403DBA1D261F91002CCC2C /* Phonics Map.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Phonics Map.csv"; path = "Model/Phonics Map.csv"; sourceTree = "<group>"; };
@@ -1229,6 +1232,7 @@
 		2E6080331D29D10400612487 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizViewController.swift; path = "View Controllers/QuizViewController.swift"; sourceTree = "<group>"; };
 		2E6080351D29D73900612487 /* InterativeGrowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterativeGrowViewController.swift; path = "View Controllers/InterativeGrowViewController.swift"; sourceTree = "<group>"; };
 		2E6080371D2A30E400612487 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
+		2E8D5F3F1D45C5D0003E69A6 /* Sound List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Sound List.csv"; path = "Model/Sound List.csv"; sourceTree = "<group>"; };
 		2E92BB971D091E5100514F5C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		2E92BB981D091E5100514F5C /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		2E92BB991D091E5100514F5C /* 3 and 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3 and 6.jpg"; sourceTree = "<group>"; };
@@ -2421,20 +2425,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E403DB71D261F80002CCC2C /* Model */ = {
+		2E02FE331D406D4200AA4239 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				2E02FE341D406DED00AA4239 /* Phonics.xcdatamodeld */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		2E403DB71D261F80002CCC2C /* Content Model */ = {
 			isa = PBXGroup;
 			children = (
 				2E584D121D050CEE003E3C87 /* Audio */,
 				2EAD220F1D07AF3600FFD7AD /* Images */,
 				2E403DB81D261F91002CCC2C /* Audio Timings.csv */,
 				2E403DBA1D261F91002CCC2C /* Phonics Map.csv */,
+				2E8D5F3F1D45C5D0003E69A6 /* Sound List.csv */,
 				2E403DCD1D2868A6002CCC2C /* Pronunciations.txt */,
 				2E403DB91D261F91002CCC2C /* PHContent.swift */,
 				2E403DC31D261FF8002CCC2C /* Letter.swift */,
 				2E403DC91D2624A9002CCC2C /* Sound.swift */,
 				2E403DCA1D2624A9002CCC2C /* Word.swift */,
 			);
-			name = Model;
+			name = "Content Model";
 			sourceTree = "<group>";
 		};
 		2E403DBE1D261FA6002CCC2C /* Shared Code */ = {
@@ -2466,7 +2479,8 @@
 		2E584C051D04E79C003E3C87 /* Phonetics */ = {
 			isa = PBXGroup;
 			children = (
-				2E403DB71D261F80002CCC2C /* Model */,
+				2E02FE331D406D4200AA4239 /* User */,
+				2E403DB71D261F80002CCC2C /* Content Model */,
 				2E584C0A1D04E79C003E3C87 /* Main.storyboard */,
 				2EAD22061D07962700FFD7AD /* View Controllers */,
 				2E403DBE1D261FA6002CCC2C /* Shared Code */,
@@ -4480,6 +4494,7 @@
 				2E92C4601D0A597800514F5C /* letter-B.mp3 in Resources */,
 				2E92BFB31D091E5600514F5C /* chihuahua.jpg in Resources */,
 				2E92C0A61D091E5600514F5C /* ice.jpg in Resources */,
+				2E8D5F401D45C5D0003E69A6 /* Sound List.csv in Resources */,
 				2E92C4A31D0A597800514F5C /* sound-ILK.mp3 in Resources */,
 				2E92C4681D0A597800514F5C /* letter-J.mp3 in Resources */,
 				2E92C4981D0A597800514F5C /* sound-FL.mp3 in Resources */,
@@ -4953,6 +4968,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E403DC41D261FF8002CCC2C /* Letter.swift in Sources */,
+				2E02FE361D406DED00AA4239 /* Phonics.xcdatamodeld in Sources */,
 				2E403DBC1D261F91002CCC2C /* PHContent.swift in Sources */,
 				2E6080361D29D73900612487 /* InterativeGrowViewController.swift in Sources */,
 				2E403DCC1D2624A9002CCC2C /* Word.swift in Sources */,
@@ -5130,6 +5146,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E02FE341D406DED00AA4239 /* Phonics.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E02FE351D406DED00AA4239 /* Phonics.xcdatamodel */,
+			);
+			currentVersion = 2E02FE351D406DED00AA4239 /* Phonics.xcdatamodel */;
+			name = Phonics.xcdatamodeld;
+			path = User/Phonics.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E584BFB1D04E79C003E3C87 /* Project object */;
 }

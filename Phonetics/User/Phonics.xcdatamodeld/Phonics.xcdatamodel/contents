@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="CompletedSound" representedClassName="CompletedSound" syncable="YES">
+        <attribute name="displayString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ipaPronunciation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="letter" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <relationship name="completedSounds" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CompletedSound" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CompletedSound" positionX="-81" positionY="-1" width="128" height="88"/>
+        <element name="User" positionX="126" positionY="-13" width="171" height="58"/>
+    </elements>
+</model>
