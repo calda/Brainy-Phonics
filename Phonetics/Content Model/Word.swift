@@ -78,7 +78,13 @@ struct Word: Equatable {
     }
     
     var lengthOfAudio: NSTimeInterval? {
-        return 1.0
+        let length = UALengthOfFile(self.text, ofType: "mp3")
+        
+        if length == 0.0 {
+            return nil
+        }
+        
+        return length
     }
     
     

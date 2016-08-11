@@ -23,7 +23,9 @@ class PHContentTest: XCTestCase {
     }
     
     func testAllWordsHaveAudio() {
-        
+        for word in PHContent.allWordsNoDuplicates {
+            XCTAssertNotNil(word.lengthOfAudio, "\(word.text) has no audio")
+        }
     }
     
 }
