@@ -15,18 +15,8 @@ struct Letter: Equatable {
         return sounds.filter{ $0.soundId == soundId }.first
     }
     
-    func playSound() {
-        var info: AudioInfo?
+    func playAudio() {
         
-        sounds.forEach{ word in
-            if let timing = word.sourceLetterTiming {
-                info = timing
-            }
-        }
-        
-        if let info = info {
-            PHContent.playAudioForInfo(info)
-        }
     }
     
 }

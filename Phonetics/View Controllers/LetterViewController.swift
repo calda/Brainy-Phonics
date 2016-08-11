@@ -127,10 +127,10 @@ class LetterViewController : InteractiveGrowViewController {
         }
         
         NSTimer.scheduleAfter(startTime - 0.3, addToArray: &timers) { _ in
-            PHContent.playAudioForInfo(self.sound.pronunciationTiming)
+            self.sound.playAudio(withWords: false)
         }
         
-        startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
+        startTime += (self.sound.lengthForAudio(withWords: false) ?? 0.5) + timeBetween
         
         for (wordIndex, word) in self.sound.primaryWords.enumerate() {
             var wordViewIndex = wordIndex
@@ -144,7 +144,7 @@ class LetterViewController : InteractiveGrowViewController {
                 self.playSoundAnimationForWordView(self.wordViews[wordViewIndex], delayAnimationBy: 0.3)
             }
             
-            startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
+            startTime += (word.lengthOfAudio ?? 0.0) + timeBetween
             
             if (word == self.sound.primaryWords.last) {
                 NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
@@ -167,7 +167,7 @@ class LetterViewController : InteractiveGrowViewController {
             wordView.alpha = 1.0
         })
         
-        UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+        UIView.animateWithDuration(0.5, delay: delay + extend + (word.lengthOfAudio ?? 0.5), usingSpringWithDamping: 1.0, animations: {
             wordView.transform = CGAffineTransformIdentity
         })
     }
@@ -205,7 +205,7 @@ class LetterViewController : InteractiveGrowViewController {
         if (sender.tag == 0) {
             decorateForCurrentSound(withTransition: false, withAnimationDelay: false, animationSubtype: kCATransitionFade)
         } else if sender.tag == 1 {
-            PHContent.playAudioForInfo(sound.pronunciationTiming)
+            sound.playAudio(withWords: false)
             shakeView(self.letterLabel)
         }
     }
@@ -234,7 +234,7 @@ class LetterViewController : InteractiveGrowViewController {
     }
     
     override func totalDurationForInterruptedAnimationOn(view: UIView) -> NSTimeInterval? {
-        if let wordView = view as? WordView, let duration = wordView.word?.audioInfo?.wordDuration {
+        if let wordView = view as? WordView, let duration = wordView.word?.lengthOfAudio {
             return duration + 0.5
         } else { return 1.0 }
     }

@@ -23,9 +23,6 @@ struct Sound: Equatable {
     let primaryWords: [Word]
     let quizWords: [Word]
     
-    var sourceLetterTiming: AudioInfo?
-    var pronunciationTiming: AudioInfo?
-    
     var allWords: [Word] {
         var words = primaryWords
         words.appendContentsOf(quizWords)

@@ -153,10 +153,10 @@ class QuizViewController : InteractiveGrowViewController {
         }
         
         NSTimer.scheduleAfter(startTime - 0.3, addToArray: &timers) {
-            PHContent.playAudioForInfo(self.currentSound.pronunciationTiming)
+            self.currentSound.playAudio(withWords: false)
         }
         
-        startTime += (self.currentSound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
+        startTime += (self.currentSound.lengthForAudio(withWords: false)) + timeBetween
         
         for (index, wordView) in self.wordViews.enumerate() {
 
@@ -164,7 +164,7 @@ class QuizViewController : InteractiveGrowViewController {
                 self.playSoundAnimationForWord(index, delayAnimationBy: 0.3)
             }
             
-            startTime += (wordView.word?.audioInfo?.wordDuration ?? 0.0) + timeBetween
+            startTime += (wordView.word?.lengthOfAudio ?? 0.0) + timeBetween
             
             if (wordView == self.wordViews.last) {
                 NSTimer.scheduleAfter(startTime - timeBetween, addToArray: &self.timers) {
@@ -186,7 +186,7 @@ class QuizViewController : InteractiveGrowViewController {
             wordView.alpha = 1.0
         })
         
-        UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+        UIView.animateWithDuration(0.5, delay: delay + extend + (word.lengthOfAudio ?? 0.5), usingSpringWithDamping: 1.0, animations: {
             wordView.transform = CGAffineTransformIdentity
         })
     }
@@ -217,7 +217,7 @@ class QuizViewController : InteractiveGrowViewController {
         if (sender.tag == 0) {
             playQuestionAnimation()
         } else if sender.tag == 1 {
-            PHContent.playAudioForInfo(currentSound.pronunciationTiming)
+            currentSound.playAudio(withWords: false)
             shakeView(self.soundLabel)
         }
     }
@@ -295,7 +295,7 @@ class QuizViewController : InteractiveGrowViewController {
     }
     
     override func totalDurationForInterruptedAnimationOn(view: UIView) -> NSTimeInterval? {
-        if let wordView = view as? WordView, let duration = wordView.word?.audioInfo?.wordDuration {
+        if let wordView = view as? WordView, let duration = wordView.word?.lengthOfAudio {
             if wordView.word == self.answerWord { return 3.0 }
             return duration + 0.5
         } else { return 1.0 }

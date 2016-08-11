@@ -13,23 +13,13 @@ struct Word: Equatable {
     
     let text: String
     let pronunciation: String?
-    let audioInfo: AudioInfo?
     
     var image: UIImage? {
         return UIImage(named: "\(text).jpg")
     }
     
-    init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo?) {
-        
+    init?(text wordText: String?, pronunciation: String?) {
         guard let wordText = wordText else { return nil }
-        
-        if pronunciation == nil {
-            print("NO PRONUNCIATION FOR \(wordText)")
-        }
-        
-        if audioInfo == nil {
-            print("NO AUDIO FOR \(wordText)")
-        }
         
         var text = wordText.lowercaseString
         
@@ -44,7 +34,6 @@ struct Word: Equatable {
         
         self.text = text
         self.pronunciation = pronunciation
-        self.audioInfo = audioInfo
     }
     
     
@@ -85,9 +74,11 @@ struct Word: Equatable {
     
     
     func playAudio(withConcurrencyMode concurrencyMode: UAConcurrentAudioMode = .Interrupt) {
-        if let audioInfo = audioInfo {
-            PHContent.playAudioForInfo(audioInfo, concurrentcyMode: concurrencyMode)
-        }
+        
+    }
+    
+    var lengthOfAudio: NSTimeInterval? {
+        return 1.0
     }
     
     

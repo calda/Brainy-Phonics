@@ -51,7 +51,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         
         //play audio for selection
         let letter = PHContent[PHLetters[indexPath.item]]
-        letter.playSound()
+        letter.playAudio()
         
         UAWhenDonePlayingAudio {
             //recursively call with a nonexistant index to hide the cell
