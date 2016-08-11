@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>PhonicsTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2E584C021D04E79C003E3C87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EDBFA2A1D5C0CE600C1451F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

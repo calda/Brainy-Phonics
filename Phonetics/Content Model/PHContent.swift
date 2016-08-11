@@ -128,7 +128,7 @@ class PHContentManager {
         let pronunciations = PHContentManager.parsePronunciations()
         self.letters = PHContentManager.parseLetters(audioTimings: audioTimings, pronunciations: pronunciations)
         
-        print("\n\n\n\nMISSING CONTENT:")
+        /*print("\n\n\n\nMISSING CONTENT:")
         
         let prints: [(Word) -> (Bool, String)?] = [
             { ($0.image == nil, "IMAGE") },
@@ -149,7 +149,7 @@ class PHContentManager {
                     }
                 }
             }
-        }
+        }*/
         
         //print all audio timings
         //self.letters.values.forEach{ $0.sounds.forEach { $0.printAudioTimings() } }
