@@ -22,4 +22,8 @@ class PHContentTest: XCTestCase {
         }
     }
     
+    func testAllWordsHaveAudio() {
+        
+    }
+    
 }

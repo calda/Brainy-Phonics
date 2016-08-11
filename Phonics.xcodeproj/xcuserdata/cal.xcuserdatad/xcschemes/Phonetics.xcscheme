@@ -17,7 +17,7 @@
                BlueprintIdentifier = "2E584C021D04E79C003E3C87"
                BuildableName = "Phonics.app"
                BlueprintName = "Phonics"
-               ReferencedContainer = "container:Phonetics.xcodeproj">
+               ReferencedContainer = "container:Phonics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "2EDBFA2A1D5C0CE600C1451F"
                BuildableName = "PhonicsTests.xctest"
                BlueprintName = "PhonicsTests"
-               ReferencedContainer = "container:Phonetics.xcodeproj">
+               ReferencedContainer = "container:Phonics.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "2E584C021D04E79C003E3C87"
             BuildableName = "Phonics.app"
             BlueprintName = "Phonics"
-            ReferencedContainer = "container:Phonetics.xcodeproj">
+            ReferencedContainer = "container:Phonics.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "2E584C021D04E79C003E3C87"
             BuildableName = "Phonics.app"
             BlueprintName = "Phonics"
-            ReferencedContainer = "container:Phonetics.xcodeproj">
+            ReferencedContainer = "container:Phonics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "2E584C021D04E79C003E3C87"
             BuildableName = "Phonics.app"
             BlueprintName = "Phonics"
-            ReferencedContainer = "container:Phonetics.xcodeproj">
+            ReferencedContainer = "container:Phonics.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

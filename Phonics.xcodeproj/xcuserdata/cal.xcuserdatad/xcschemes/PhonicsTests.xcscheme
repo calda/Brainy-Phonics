@@ -20,7 +20,7 @@
                BlueprintIdentifier = "2EDBFA2A1D5C0CE600C1451F"
                BuildableName = "PhonicsTests.xctest"
                BlueprintName = "PhonicsTests"
-               ReferencedContainer = "container:Phonetics.xcodeproj">
+               ReferencedContainer = "container:Phonics.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
