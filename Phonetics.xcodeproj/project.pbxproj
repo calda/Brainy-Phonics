@@ -13,6 +13,7 @@
 		2E19B4391D4844B4008538CC /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19B4311D4844B4008538CC /* Word.swift */; };
 		2E19BD791D484548008538CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD761D484548008538CC /* Assets.xcassets */; };
 		2E19BD7A1D484548008538CC /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E19BD781D484548008538CC /* correct.mp3 */; };
+		2E209BCE1D5E9B1600C94EA1 /* PuzzleExperimentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E209BCD1D5E9B1600C94EA1 /* PuzzleExperimentController.swift */; };
 		2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */; };
 		2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */; };
 		2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584C061D04E79C003E3C87 /* AppDelegate.swift */; };
@@ -1207,6 +1208,7 @@
 		2E19B4311D4844B4008538CC /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = "Content Model/Word.swift"; sourceTree = "<group>"; };
 		2E19BD761D484548008538CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E19BD781D484548008538CC /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		2E209BCD1D5E9B1600C94EA1 /* PuzzleExperimentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleExperimentController.swift; path = "View Controllers/PuzzleExperimentController.swift"; sourceTree = "<group>"; };
 		2E403DBF1D261FB3002CCC2C /* CoreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreSwift.swift; path = "Shared Code/CoreSwift.swift"; sourceTree = "<group>"; };
 		2E403DC01D261FB3002CCC2C /* UniversalAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniversalAudio.swift; path = "Shared Code/UniversalAudio.swift"; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2497,6 +2499,7 @@
 				2EAD22081D07966500FFD7AD /* LetterViewController.swift */,
 				2E6080331D29D10400612487 /* QuizViewController.swift */,
 				2E6080281D29C11900612487 /* Views */,
+				2E209BCD1D5E9B1600C94EA1 /* PuzzleExperimentController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -4951,6 +4954,7 @@
 				2E6080381D2A30E400612487 /* HomeViewController.swift in Sources */,
 				2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */,
 				2E6080301D29C18C00612487 /* LongestCommonSubsequence.swift in Sources */,
+				2E209BCE1D5E9B1600C94EA1 /* PuzzleExperimentController.swift in Sources */,
 				2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */,
 				2EAD22091D07966500FFD7AD /* LettersViewController.swift in Sources */,
 				2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */,
