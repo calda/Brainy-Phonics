@@ -1247,6 +1247,7 @@
 		2EDBFA251D5C0CC200C1451F /* zebra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2EDBF69A1D5C0CC200C1451F /* zebra.jpg */; };
 		2EDBFA261D5C0CC200C1451F /* zipper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2EDBF69B1D5C0CC200C1451F /* zipper.jpg */; };
 		2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */; };
+		2EF8D4FD1D600E95004B169E /* PuzzleExperimentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8D4FC1D600E95004B169E /* PuzzleExperimentController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2497,6 +2498,7 @@
 		2EDBFA2B1D5C0CE600C1451F /* PhonicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhonicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHContentTest.swift; sourceTree = "<group>"; };
 		2EDBFA2F1D5C0CE600C1451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF8D4FC1D600E95004B169E /* PuzzleExperimentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleExperimentController.swift; path = "View Controllers/PuzzleExperimentController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2608,6 +2610,7 @@
 				2E6080351D29D73900612487 /* InterativeGrowViewController.swift */,
 				2EAD22081D07966500FFD7AD /* LetterViewController.swift */,
 				2E6080331D29D10400612487 /* QuizViewController.swift */,
+				2EF8D4FC1D600E95004B169E /* PuzzleExperimentController.swift */,
 				2E6080281D29C11900612487 /* Views */,
 			);
 			name = "View Controllers";
@@ -5184,6 +5187,7 @@
 				2E6080381D2A30E400612487 /* HomeViewController.swift in Sources */,
 				2E403DC11D261FB3002CCC2C /* CoreSwift.swift in Sources */,
 				2E6080301D29C18C00612487 /* LongestCommonSubsequence.swift in Sources */,
+				2EF8D4FD1D600E95004B169E /* PuzzleExperimentController.swift in Sources */,
 				2E403DC21D261FB3002CCC2C /* UniversalAudio.swift in Sources */,
 				2EAD22091D07966500FFD7AD /* LettersViewController.swift in Sources */,
 				2E584C071D04E79C003E3C87 /* AppDelegate.swift in Sources */,

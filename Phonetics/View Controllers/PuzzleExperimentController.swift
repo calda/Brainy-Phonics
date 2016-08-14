@@ -20,38 +20,107 @@ class PuzzleView: UIView {
         UIColor.redColor().setFill()
         UIColor.blueColor().setStroke()
         
-        let start = CGPoint(x: 100, y: 100)
-        let vector = CGVector(dx: 250, dy: 0)
         
-        let path = UIBezierPath()
-        path.lineJoinStyle = .Round
-        path.lineWidth = 5.0
+        var puzzleDirections: [[PuzzlePiece.Direction]] = []
         
-        path.moveToPoint(start)
-        path.drawPuzzleLineFrom(from: start, to: start + vector, facing: .left)
-        path.drawPuzzleLineFrom(from: start + vector, to: start + vector * 2, facing: .right)
-    
-        path.stroke()
-        //path.fill()
+        for _ in (1 ... 19) {
+            var row: [PuzzlePiece.Direction] = []
+            for _ in (1 ... 19) {
+                row.append(PuzzlePiece.Direction.random)
+            }
+            puzzleDirections.append(row)
+        }
+        
+        func directionFor(row: Int, _ col: Int) -> PuzzlePiece.Direction? {
+            if row < 0 || row >= 19 { return nil }
+            if col < 0 || col >= 19 { return nil }
+            return puzzleDirections[row][col]
+        }
+        
+        
+        var puzzle: [[PuzzlePiece]] = []
+        
+        for row in (1 ... 20) {
+            var puzzleRow: [PuzzlePiece] = []
+            for col in (1 ... 20) {
+            
+                let piece = PuzzlePiece(topNubDirection: directionFor(row - 1, col),
+                                        rightNubDirection: directionFor(row, col + 1),
+                                        bottomNubDirection: directionFor(row + 1, col),
+                                        leftNubDirection: directionFor(row, col - 1))
+                
+                puzzleRow.append(piece)
+                
+            }
+            puzzle.append(puzzleRow)
+        }
+        
+        
+        for (row, pieces) in puzzle.enumerate() {
+            for (col, piece) in pieces.enumerate() {
+                piece.drawInCurrentContext(at: CGPoint(x: row * 50, y: col * 50), width: 50)
+            }
+        }
+        
+        
+        
+        UIColor.blueColor().setStroke()
+        //puzzlePiece.drawInCurrentContext(at: CGPoint(x: 100, y: 100), width: 200)
+        
     }
 
 }
 
-extension UIBezierPath {
+struct PuzzlePiece {
     
     enum Direction {
-        case left, right
+        case outside, inside
         
         var isClockwise: Bool {
             switch(self) {
-                case .left: return true
-                case .right: return false
+            case .outside: return true
+            case .inside: return false
             }
+        }
+        
+        static var random: Direction {
+            return (arc4random() % 2 == 0 ? .outside : .inside)
         }
     }
     
-    func drawPuzzleLineFrom(from start: CGPoint, to end: CGPoint, facing direction: Direction) {
+    let topNubDirection: Direction?
+    let rightNubDirection: Direction?
+    let bottomNubDirection: Direction?
+    let leftNubDirection: Direction?
+    
+    func drawInCurrentContext(at start: CGPoint, width: CGFloat) {
+        let path = UIBezierPath()
+        path.moveToPoint(start)
         
+        var currentPoint = start
+        var vector = CGVector(dx: width, dy: 0)
+        
+        for direction in [topNubDirection, rightNubDirection, bottomNubDirection, leftNubDirection] {
+            let nextPoint = currentPoint + vector
+            
+            if let direction = direction {
+                path.addPuzzleLineFrom(from: currentPoint, to: nextPoint, facing: direction)
+            } else {
+                path.addLineToPoint(nextPoint)
+            }
+            
+            vector = vector.rotated(clockwise: false, degrees: 90)
+            currentPoint = nextPoint
+        }
+        
+        path.closePath()
+        path.stroke()
+    }
+}
+
+extension UIBezierPath {
+    
+    func addPuzzleLineFrom(from start: CGPoint, to end: CGPoint, facing direction: PuzzlePiece.Direction) {
         
         //define critical vectors
         
@@ -61,38 +130,27 @@ extension UIBezierPath {
         
         let nubDirection = lineDirection.rotated(clockwise: direction.isClockwise)
         let nubHeight = lineDistance * 0.2
-        let nubWidth = lineDistance * 0.2
+        let nubWidth = lineDistance * 0.175
         
-        //define critical points
+        //define points
         
-        let nubBaseLeft = start + (lineTranslation * 0.4)
-        let nubTopLeft = nubBaseLeft + (nubDirection * nubHeight)
-        let nubTopRight = nubTopLeft + (lineDirection * nubWidth)
-        let nubBaseRight = nubTopRight - (nubDirection * nubHeight)
-        
-        
-        //create points
-        
+        let nubBaseLeft = start + (lineTranslation * 0.4125)
         self.addLineToPoint(nubBaseLeft)
         
-        var nubDirectionNormalized = nubDirection
-        if nubDirectionNormalized.dx.distanceTo(0) < 0.0001 { nubDirectionNormalized.dx = 1.0 }
-        if nubDirectionNormalized.dy.distanceTo(0) < 0.0001 { nubDirectionNormalized.dy = 1.0 }
+        let nubTopLeft = nubBaseLeft + (nubDirection * nubHeight)
+        let nubTopLeft_cp1 = nubBaseLeft + (nubDirection * nubHeight * 0.4).rotated(clockwise: direction.isClockwise, degrees: 15)
+        let nubTopLeft_cp2 = nubTopLeft + (-lineTranslation * 0.15)
+        self.addCurveToPoint(nubTopLeft, controlPoint1: nubTopLeft_cp1, controlPoint2: nubTopLeft_cp2)
         
-        let leftControlPoint1 = nubBaseLeft + CGVector(dx: -lineDistance * 0.05, dy: nubHeight * 0.5) * nubDirectionNormalized
-        let leftControlPoint2 = nubBaseLeft + CGVector(dx: 0, dy: nubHeight * 0.5) * nubDirectionNormalized
-        self.addCurveToPoint(nubTopLeft, controlPoint1: leftControlPoint1, controlPoint2: leftControlPoint2)
-        
+        let nubTopRight = nubTopLeft + (lineDirection * nubWidth)
         self.addLineToPoint(nubTopRight)
         
-        let rightControlPoint1 = nubBaseRight + CGVector(dx: 0, dy: nubHeight * 0.5) * nubDirectionNormalized
-        let rightControlPoint2 = nubBaseRight + CGVector(dx: lineDistance * 0.05, dy: nubHeight * 0.5) * nubDirectionNormalized
-        self.addCurveToPoint(nubBaseRight, controlPoint1: rightControlPoint1, controlPoint2: rightControlPoint2)
-    
+        let nubBaseRight = nubTopRight - (nubDirection * nubHeight)
+        let nubBaseRight_cp1 = nubTopRight + (lineTranslation * 0.15)
+        let nubBaseRight_cp2 = nubBaseRight + (nubDirection * nubHeight * 0.4).rotated(clockwise: direction.isClockwise, degrees: -15)
+        self.addCurveToPoint(nubBaseRight, controlPoint1: nubBaseRight_cp1, controlPoint2: nubBaseRight_cp2)
         
         self.addLineToPoint(end)
-        
-        
     }
     
 }
@@ -122,7 +180,9 @@ extension CGVector {
     }
     
     func magnitude() -> CGVector {
-        var vector = CGVector(dx: self.dx / abs(self.dx), dy: self.dy / abs(self.dy))
+        let normalizedSelf = self.normalized()
+        var vector = CGVector(dx: normalizedSelf.dx / abs(normalizedSelf.dx),
+                              dy: normalizedSelf.dy / abs(normalizedSelf.dy))
         
         if vector.dx.isNaN { vector.dx = 0.0 }
         if vector.dy.isNaN { vector.dy = 0.0 }
@@ -130,6 +190,17 @@ extension CGVector {
         return vector
     }
     
+    func normalized() -> CGVector {
+        var normalizedSelf = self
+        if abs(normalizedSelf.dx.distanceTo(0)) < 0.0001 { normalizedSelf.dx = 0.0 }
+        if abs(normalizedSelf.dy.distanceTo(0)) < 0.0001 { normalizedSelf.dy = 0.0 }
+        return normalizedSelf
+    }
+    
+}
+
+prefix func -(vector: CGVector) -> CGVector {
+    return CGVector(dx: -vector.dx, dy: -vector.dy)
 }
 
 func *(vector: CGVector, scalar: CGFloat) -> CGVector {
