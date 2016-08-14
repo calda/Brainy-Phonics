@@ -12,6 +12,9 @@ class PuzzleExperimentController : UIViewController {
     
 }
 
+
+//MARK: - View
+
 class PuzzleView: UIView {
     
     override func drawRect(rect: CGRect) {
@@ -21,44 +24,33 @@ class PuzzleView: UIView {
         UIColor.blueColor().setStroke()
         
         
-        var puzzleDirections: [[PuzzlePiece.Direction]] = []
+        let rows = 3
+        let cols = 5
         
-        for _ in (1 ... 19) {
-            var row: [PuzzlePiece.Direction] = []
-            for _ in (1 ... 19) {
-                row.append(PuzzlePiece.Direction.random)
+        var puzzle: [[PuzzlePiece!]!] = [[PuzzlePiece!]!](count: rows, repeatedValue: [PuzzlePiece!](count: cols, repeatedValue: nil))
+        
+        func pieceWithRandomNubs() -> PuzzlePiece {
+            return PuzzlePiece(topNub: .random, rightNub: .random, bottomNub: .random, leftNub: .random)
+        }
+        
+        func pieceAt(row: Int, _ col: Int) -> PuzzlePiece? {
+            if row < 0 || row >= rows { return nil }
+            if col < 0 || col >= cols { return nil }
+            return puzzle[row][col] ?? pieceWithRandomNubs()
+        }
+        
+        for row in 0 ..< rows {
+            for col in 0 ..< cols {
+                puzzle[row][col] = PuzzlePiece(topNeighbor: pieceAt(row - 1, col),
+                                               rightNeighbor: pieceAt(row, col + 1),
+                                               bottomNeighbor: pieceAt(row + 1, col),
+                                               leftNeighbor: pieceAt(row, col - 1))
             }
-            puzzleDirections.append(row)
         }
         
-        func directionFor(row: Int, _ col: Int) -> PuzzlePiece.Direction? {
-            if row < 0 || row >= 19 { return nil }
-            if col < 0 || col >= 19 { return nil }
-            return puzzleDirections[row][col]
-        }
-        
-        
-        var puzzle: [[PuzzlePiece]] = []
-        
-        for row in (1 ... 20) {
-            var puzzleRow: [PuzzlePiece] = []
-            for col in (1 ... 20) {
-            
-                let piece = PuzzlePiece(topNubDirection: directionFor(row - 1, col),
-                                        rightNubDirection: directionFor(row, col + 1),
-                                        bottomNubDirection: directionFor(row + 1, col),
-                                        leftNubDirection: directionFor(row, col - 1))
-                
-                puzzleRow.append(piece)
-                
-            }
-            puzzle.append(puzzleRow)
-        }
-        
-        
-        for (row, pieces) in puzzle.enumerate() {
-            for (col, piece) in pieces.enumerate() {
-                piece.drawInCurrentContext(at: CGPoint(x: row * 50, y: col * 50), width: 50)
+        for (col, pieces) in puzzle.enumerate() {
+            for (row, piece) in pieces.enumerate() {
+                piece.drawInCurrentContext(at: CGPoint(x: row * 100 + 10, y: col * 100 + 10), width: 65)
             }
         }
         
@@ -70,6 +62,9 @@ class PuzzleView: UIView {
     }
 
 }
+
+
+//MARK: - Model
 
 struct PuzzlePiece {
     
@@ -83,6 +78,13 @@ struct PuzzlePiece {
             }
         }
         
+        var opposite: Direction {
+            switch(self) {
+            case .outside: return .inside
+            case .inside: return .outside
+            }
+        }
+        
         static var random: Direction {
             return (arc4random() % 2 == 0 ? .outside : .inside)
         }
@@ -92,6 +94,20 @@ struct PuzzlePiece {
     let rightNubDirection: Direction?
     let bottomNubDirection: Direction?
     let leftNubDirection: Direction?
+    
+    init(topNub: Direction?, rightNub: Direction?, bottomNub: Direction?, leftNub: Direction?) {
+        topNubDirection = topNub
+        rightNubDirection = rightNub
+        bottomNubDirection = bottomNub
+        leftNubDirection = leftNub
+    }
+    
+    init(topNeighbor: PuzzlePiece?, rightNeighbor: PuzzlePiece?, bottomNeighbor: PuzzlePiece?, leftNeighbor: PuzzlePiece?) {
+        topNubDirection = topNeighbor?.bottomNubDirection?.opposite
+        rightNubDirection = rightNeighbor?.leftNubDirection?.opposite
+        bottomNubDirection = bottomNeighbor?.topNubDirection?.opposite
+        leftNubDirection = leftNeighbor?.rightNubDirection?.opposite
+    }
     
     func drawInCurrentContext(at start: CGPoint, width: CGFloat) {
         let path = UIBezierPath()
@@ -118,6 +134,9 @@ struct PuzzlePiece {
     }
 }
 
+
+//MARK: - Rendering
+
 extension UIBezierPath {
     
     func addPuzzleLineFrom(from start: CGPoint, to end: CGPoint, facing direction: PuzzlePiece.Direction) {
@@ -132,7 +151,7 @@ extension UIBezierPath {
         let nubHeight = lineDistance * 0.2
         let nubWidth = lineDistance * 0.175
         
-        //define points
+        //draw points
         
         let nubBaseLeft = start + (lineTranslation * 0.4125)
         self.addLineToPoint(nubBaseLeft)
@@ -154,6 +173,9 @@ extension UIBezierPath {
     }
     
 }
+
+
+//MARK: - Core Graphics extensions
 
 extension CGPoint {
     
