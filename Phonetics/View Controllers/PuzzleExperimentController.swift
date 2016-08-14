@@ -10,33 +10,42 @@ import UIKit
 
 class PuzzleExperimentController : UIViewController {
     
+    override func viewDidLoad() {
+        let piece = PuzzlePiece(topNub: .outside, rightNub: .outside, bottomNub: .inside, leftNub: .outside)
+        let bezierPath = piece.path(origin: CGPoint(x: 100, y: 100), width: 75)
+        
+        let image = UIImage(named: "puzzle-test")!
+        /*
+        
+        let mask = CAShapeLayer()
+        mask.path = bezierPath.CGPath
+        imageView.layer.mask = mask*/
+        
+        let pieceImage = piece.cropPiece(at: .zero, fromFlippedImage: image.flipped, width: 150)
+        
+        let imageView = UIImageView(image: pieceImage)
+        imageView.frame = CGRect(x: 100, y: 100, width: 150, height: 150)
+        self.view.addSubview(imageView)
+    }
+    
 }
 
 
-//MARK: - View
 
-class PuzzleView: UIView {
+//MARK: - Puzzle, creates pieces with consistent nub directions
+
+struct Puzzle {
     
-    override func drawRect(rect: CGRect) {
-        self.backgroundColor = UIColor.grayColor()
-        
-        UIColor.redColor().setFill()
-        UIColor.blueColor().setStroke()
-        
-        
-        let rows = 3
-        let cols = 5
-        
-        var puzzle: [[PuzzlePiece!]!] = [[PuzzlePiece!]!](count: rows, repeatedValue: [PuzzlePiece!](count: cols, repeatedValue: nil))
-        
-        func pieceWithRandomNubs() -> PuzzlePiece {
-            return PuzzlePiece(topNub: .random, rightNub: .random, bottomNub: .random, leftNub: .random)
-        }
+    let pieces: [[PuzzlePiece]]
+    
+    init(rows: Int, cols: Int) {
+        let emptyRow = [PuzzlePiece?](count: cols, repeatedValue: nil)
+        var puzzle = [[PuzzlePiece?]](count: rows, repeatedValue: emptyRow)
         
         func pieceAt(row: Int, _ col: Int) -> PuzzlePiece? {
             if row < 0 || row >= rows { return nil }
             if col < 0 || col >= cols { return nil }
-            return puzzle[row][col] ?? pieceWithRandomNubs()
+            return puzzle[row][col] ?? PuzzlePiece.withRandomNubs
         }
         
         for row in 0 ..< rows {
@@ -48,23 +57,25 @@ class PuzzleView: UIView {
             }
         }
         
-        for (col, pieces) in puzzle.enumerate() {
-            for (row, piece) in pieces.enumerate() {
-                piece.drawInCurrentContext(at: CGPoint(x: row * 100 + 10, y: col * 100 + 10), width: 65)
-            }
+        //reduce [[PuzzlePiece?]] to [[PuzzlePiece]]
+        self.pieces = puzzle.map { pieceRow in
+            return pieceRow.flatMap{ $0 }
         }
-        
-        
-        
-        UIColor.blueColor().setStroke()
-        //puzzlePiece.drawInCurrentContext(at: CGPoint(x: 100, y: 100), width: 200)
-        
     }
-
+    
+    func drawWithPieceSettings(infoForPiece: (row: Int, col: Int) -> (location: CGPoint, width: CGFloat)) {
+        /*for (col, rowPieces) in pieces.enumerate() {
+            for (row, piece) in rowPieces.enumerate() {
+                let (location, width) = infoForPiece(row: row, col: col)
+                piece.drawInCurrentContext(at: location, width: width)
+            }
+        }*/
+    }
+    
 }
 
 
-//MARK: - Model
+//MARK: - Puzzle Piece, renders self using Nub Directions
 
 struct PuzzlePiece {
     
@@ -109,11 +120,53 @@ struct PuzzlePiece {
         leftNubDirection = leftNeighbor?.rightNubDirection?.opposite
     }
     
-    func drawInCurrentContext(at start: CGPoint, width: CGFloat) {
-        let path = UIBezierPath()
-        path.moveToPoint(start)
+    static var withRandomNubs: PuzzlePiece {
+        return PuzzlePiece(topNub: .random, rightNub: .random, bottomNub: .random, leftNub: .random)
+    }
+    
+    
+    
+    //MARK: - Render Puzzle Piece
+    
+    func size(forWidth width: CGFloat) -> CGSize {
+        var size = CGSize(width: width, height: width)
+        let nubLength = width * 0.175
         
-        var currentPoint = start
+        if topNubDirection    != nil { size.height += nubLength }
+        if bottomNubDirection != nil { size.height += nubLength }
+        if leftNubDirection   != nil { size.width += nubLength }
+        if rightNubDirection  != nil { size.width += nubLength }
+        
+        return size
+    }
+    
+    func cropPiece(at imageOrigin: CGPoint, fromFlippedImage sourceImage: UIImage, width: CGFloat) -> UIImage {
+        let contextSize = self.size(forWidth: width)
+        UIGraphicsBeginImageContextWithOptions(contextSize, true, 0.0)
+        let context = UIGraphicsGetCurrentContext()
+        
+        let nubLength = width * 0.175
+        let originInContext = CGPoint(x: (self.leftNubDirection == nil ? 0 : nubLength),
+                                      y: (self.topNubDirection == nil ? 0 : nubLength))
+        
+        let piecePath = path(origin: originInContext, width: width)
+        CGContextAddPath(context, piecePath.CGPath)
+        CGContextClip(context)
+        
+        let originOfImage = imageOrigin - originInContext.vectorFromOrigin()
+        let rectOfImage = CGRect(origin: originOfImage, size: contextSize)
+        CGContextDrawImage(context, rectOfImage, sourceImage.CGImage)
+        
+        let pieceImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return pieceImage
+    }
+    
+    func path(origin origin: CGPoint, width: CGFloat) -> UIBezierPath {
+        let path = UIBezierPath()
+        path.moveToPoint(origin)
+        
+        var currentPoint = origin
         var vector = CGVector(dx: width, dy: 0)
         
         for direction in [topNubDirection, rightNubDirection, bottomNubDirection, leftNubDirection] {
@@ -130,12 +183,12 @@ struct PuzzlePiece {
         }
         
         path.closePath()
-        path.stroke()
+        return path
     }
 }
 
 
-//MARK: - Rendering
+//MARK: - Render Puzzle Piece line with Nub
 
 extension UIBezierPath {
     
@@ -175,6 +228,24 @@ extension UIBezierPath {
 }
 
 
+extension UIImage {
+    
+    var flipped: UIImage {
+        let cgImage = self.CGImage
+        let size = CGSize(width: CGImageGetWidth(cgImage), height: CGImageGetHeight(cgImage))
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        CGContextDrawImage(context, CGRect(origin: .zero, size: size), cgImage)
+        
+        let flippedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return flippedImage
+    }
+    
+}
+
+
 //MARK: - Core Graphics extensions
 
 extension CGPoint {
@@ -185,6 +256,10 @@ extension CGPoint {
     
     func direction(of other: CGPoint) -> CGVector {
         return CGVector(dx: other.x - self.x, dy: other.y - self.y)
+    }
+    
+    func vectorFromOrigin() -> CGVector {
+        return CGPoint.zero.direction(of: self)
     }
     
 }
@@ -244,7 +319,4 @@ func +(point: CGPoint, vector: CGVector) -> CGPoint {
 func -(point: CGPoint, vector: CGVector) -> CGPoint {
     return CGPoint(x: point.x - vector.dx, y: point.y - vector.dy)
 }
-
-
-
 
