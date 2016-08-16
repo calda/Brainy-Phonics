@@ -1,77 +1,17 @@
 //
-//  PuzzleExperimentController.swift
-//  Phonetics
+//  PuzzleView.swift
+//  Phonics
 //
-//  Created by Cal Stephens on 8/12/16.
+//  Created by Cal Stephens on 8/16/16.
 //  Copyright © 2016 Cal Stephens. All rights reserved.
 //
 
 import UIKit
 
-class PuzzleExperimentController : UIViewController {
-    
-    override func viewDidLoad() {
-        
-        
-        let puzzle = Puzzle(rows: 5, cols: 8)
-        let sourceImage = UIImage(named: "puzzle-test")!
-        
-        puzzle.createImages(from: sourceImage).map { (image, piece, row, col) in
-            
-            let imageView = UIImageView(image: image)
-            let size = piece.size(forWidth: 50)
-            
-            let origin = CGPoint(x: 65 * col + 50, y: 65 * row + 50)
-            let imageOrigin = piece.imageOrigin(relativeTo: origin, forWidth: 50)
-            imageView.frame = CGRect(origin: imageOrigin, size: size)
-            
-            return imageView
-            
-        }.forEach(self.view.addSubview)
-        
-        
-    }
-    
-}
 
+//MARK: - Render Puzzle
 
-
-//MARK: - Puzzle, creates pieces with consistent nub directions
-
-struct Puzzle {
-    
-    let pieces: [[PuzzlePiece]]
-    let rowCount: Int
-    let colCount: Int
-    
-    init(rows: Int, cols: Int) {
-        
-        self.rowCount = rows
-        self.colCount = cols
-        
-        let emptyRow = [PuzzlePiece?](count: cols, repeatedValue: nil)
-        var puzzle = [[PuzzlePiece?]](count: rows, repeatedValue: emptyRow)
-        
-        func pieceAt(row: Int, _ col: Int) -> PuzzlePiece? {
-            if !(0 ..< rows).contains(row) { return nil }
-            if !(0 ..< cols).contains(col) { return nil }
-            return puzzle[row][col] ?? PuzzlePiece.withRandomNubs
-        }
-        
-        for row in 0 ..< rows {
-            for col in 0 ..< cols {
-                puzzle[row][col] = PuzzlePiece(topNeighbor: pieceAt(row - 1, col),
-                                               rightNeighbor: pieceAt(row, col + 1),
-                                               bottomNeighbor: pieceAt(row + 1, col),
-                                               leftNeighbor: pieceAt(row, col - 1))
-            }
-        }
-        
-        //reduce [[PuzzlePiece?]] to [[PuzzlePiece]]
-        self.pieces = puzzle.map { pieceRow in
-            return pieceRow.flatMap{ $0 }
-        }
-    }
+extension Puzzle {
     
     func createImages(from image: UIImage) -> [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)] {
         var images = [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)]()
@@ -98,64 +38,9 @@ struct Puzzle {
 }
 
 
-//MARK: - Puzzle Piece, renders self using Nub Directions
+//MARK: - Render Puzzle Piece
 
-struct PuzzlePiece {
-    
-    
-    //MARK: - Direction of Nub
-    
-    enum Direction {
-        case outside, inside
-        
-        var isClockwise: Bool {
-            switch(self) {
-            case .outside: return true
-            case .inside: return false
-            }
-        }
-        
-        var opposite: Direction {
-            switch(self) {
-            case .outside: return .inside
-            case .inside: return .outside
-            }
-        }
-        
-        static var random: Direction {
-            return (arc4random() % 2 == 0 ? .outside : .inside)
-        }
-    }
-    
-    
-    //MARK: - Initializers
-    
-    let topNubDirection: Direction?
-    let rightNubDirection: Direction?
-    let bottomNubDirection: Direction?
-    let leftNubDirection: Direction?
-    
-    init(topNub: Direction?, rightNub: Direction?, bottomNub: Direction?, leftNub: Direction?) {
-        topNubDirection = topNub
-        rightNubDirection = rightNub
-        bottomNubDirection = bottomNub
-        leftNubDirection = leftNub
-    }
-    
-    init(topNeighbor: PuzzlePiece?, rightNeighbor: PuzzlePiece?, bottomNeighbor: PuzzlePiece?, leftNeighbor: PuzzlePiece?) {
-        topNubDirection = topNeighbor?.bottomNubDirection?.opposite
-        rightNubDirection = rightNeighbor?.leftNubDirection?.opposite
-        bottomNubDirection = bottomNeighbor?.topNubDirection?.opposite
-        
-        leftNubDirection = leftNeighbor?.rightNubDirection?.opposite
-    }
-    
-    static var withRandomNubs: PuzzlePiece {
-        return PuzzlePiece(topNub: .random, rightNub: .random, bottomNub: .random, leftNub: .random)
-    }
-    
-    
-    //MARK: - Render Puzzle Piece
+extension PuzzlePiece {
     
     static let nubHeightRelativeToPieceWidth: CGFloat = 0.2
     static let nubWidthRelativeToPieceWidth: CGFloat = 0.175
@@ -245,7 +130,7 @@ struct PuzzlePiece {
     }
     
     func addPuzzleLineFrom(from start: CGPoint, to end: CGPoint, facing direction: PuzzlePiece.Direction, on path: UIBezierPath) {
-
+        
         //define critical vectors
         
         let lineTranslation = start.direction(of: end)
@@ -276,10 +161,11 @@ struct PuzzlePiece {
         
         path.addLineToPoint(end)
     }
+    
 }
 
 
-//MARK: - Graphics Extensions
+//MARK: - Helper Extensions
 
 extension UIImage {
     

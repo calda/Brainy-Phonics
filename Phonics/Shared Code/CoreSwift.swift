@@ -255,19 +255,12 @@ class UINibView : UIView {
         
         self.addSubview(nibView)
         
-        //interface builder doesn't seem to like the NSLayoutConstraints, so use autoresizing instead
-        
-        #if TARGET_INTERFACE_BUILDER
-            nibView.autoresizesSubviews = true
-            nibView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-        #else
-            nibView.translatesAutoresizingMaskIntoConstraints = false
-            let attributes: [NSLayoutAttribute] = [.Top, .Left, .Right, .Bottom]
-            for attribute in attributes {
-                let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .Equal, toItem: self.nibView, attribute: attribute, multiplier: 1.0, constant: 0.0)
-                self.addConstraint(constraint)
-            }
-        #endif
+        nibView.translatesAutoresizingMaskIntoConstraints = false
+        let attributes: [NSLayoutAttribute] = [.Top, .Left, .Right, .Bottom]
+        for attribute in attributes {
+            let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .Equal, toItem: self.nibView, attribute: attribute, multiplier: 1.0, constant: 0.0)
+            self.addConstraint(constraint)
+        }
     }
     
 }
