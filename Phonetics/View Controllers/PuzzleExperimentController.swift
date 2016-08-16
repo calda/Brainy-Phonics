@@ -11,21 +11,20 @@ import UIKit
 class PuzzleExperimentController : UIViewController {
     
     override func viewDidLoad() {
-        let piece = PuzzlePiece(topNub: .outside, rightNub: .outside, bottomNub: .inside, leftNub: .outside)
-        let bezierPath = piece.path(origin: CGPoint(x: 100, y: 100), width: 75)
         
-        let image = UIImage(named: "puzzle-test")!
-        /*
         
-        let mask = CAShapeLayer()
-        mask.path = bezierPath.CGPath
-        imageView.layer.mask = mask*/
+        let puzzle = Puzzle(rows: 5, cols: 5)
+        let sourceImage = UIImage(named: "puzzle-test")!
         
-        let pieceImage = piece.cropPiece(at: .zero, fromFlippedImage: image.flipped, width: 150)
+        puzzle.createImages(from: sourceImage).map { (image, row, col) in
+            let imageView = UIImageView(image: image)
+            let size = CGSize(width: 50, height: 50)
+            let origin = CGPoint(x: 60 * col + 50, y: 60 * row + 50)
+            imageView.frame = CGRect(origin: origin, size: size)
+            return imageView
+        }.forEach(self.view.addSubview)
         
-        let imageView = UIImageView(image: pieceImage)
-        imageView.frame = CGRect(x: 100, y: 100, width: 150, height: 150)
-        self.view.addSubview(imageView)
+        
     }
     
 }
@@ -37,8 +36,14 @@ class PuzzleExperimentController : UIViewController {
 struct Puzzle {
     
     let pieces: [[PuzzlePiece]]
+    let rowCount: Int
+    let colCount: Int
     
     init(rows: Int, cols: Int) {
+        
+        self.rowCount = rows
+        self.colCount = cols
+        
         let emptyRow = [PuzzlePiece?](count: cols, repeatedValue: nil)
         var puzzle = [[PuzzlePiece?]](count: rows, repeatedValue: emptyRow)
         
@@ -63,13 +68,26 @@ struct Puzzle {
         }
     }
     
-    func drawWithPieceSettings(infoForPiece: (row: Int, col: Int) -> (location: CGPoint, width: CGFloat)) {
-        /*for (col, rowPieces) in pieces.enumerate() {
+    func createImages(from image: UIImage) -> [(image: UIImage, row: Int, col: Int)] {
+        var images = [(image: UIImage, row: Int, col: Int)]()
+        let flippedImage = image.flipped
+        
+        let cgImage = image.CGImage
+        let imageWidth = CGFloat(CGImageGetWidth(cgImage))
+        let imageHeight = CGFloat(CGImageGetHeight(cgImage))
+        
+        let pieceWidth = imageWidth / CGFloat(self.colCount)
+        let pieceHeight = imageHeight / CGFloat(self.rowCount)
+        
+        for (col, rowPieces) in pieces.enumerate() {
             for (row, piece) in rowPieces.enumerate() {
-                let (location, width) = infoForPiece(row: row, col: col)
-                piece.drawInCurrentContext(at: location, width: width)
+                let originInImage = CGPoint(x: Int(pieceWidth) * col, y: Int(pieceHeight) * row)
+                let pieceImage = piece.cropPiece(at: originInImage, fromFlippedImage: flippedImage, width: pieceWidth, multiplyByDeviceScale: false)
+                images.append(image: pieceImage, row: row, col: col)
             }
-        }*/
+        }
+        
+        return images
     }
     
 }
@@ -78,6 +96,9 @@ struct Puzzle {
 //MARK: - Puzzle Piece, renders self using Nub Directions
 
 struct PuzzlePiece {
+    
+    
+    //MARK: - Direction of Nub
     
     enum Direction {
         case outside, inside
@@ -100,6 +121,9 @@ struct PuzzlePiece {
             return (arc4random() % 2 == 0 ? .outside : .inside)
         }
     }
+    
+    
+    //MARK: - Initializers
     
     let topNubDirection: Direction?
     let rightNubDirection: Direction?
@@ -125,8 +149,11 @@ struct PuzzlePiece {
     }
     
     
-    
     //MARK: - Render Puzzle Piece
+    
+    static let nubHeightRelativeToPieceWidth: CGFloat = 0.2
+    static let nubWidthRelativeToPieceWidth: CGFloat = 0.175
+    static let distanceBeforeNubRelativeToPieceWidth: CGFloat = (1.0 - nubWidthRelativeToPieceWidth) / 2.0
     
     func size(forWidth width: CGFloat) -> CGSize {
         var size = CGSize(width: width, height: width)
@@ -140,22 +167,33 @@ struct PuzzlePiece {
         return size
     }
     
-    func cropPiece(at imageOrigin: CGPoint, fromFlippedImage sourceImage: UIImage, width: CGFloat) -> UIImage {
+    func cropPiece(at imageOriginUnscaled: CGPoint, fromFlippedImage sourceImage: UIImage, width widthUnscaled: CGFloat, multiplyByDeviceScale: Bool = true) -> UIImage {
+        
+        let deviceScale = UIScreen.mainScreen().scale
+        let imageOrigin = (multiplyByDeviceScale ? imageOriginUnscaled * deviceScale : imageOriginUnscaled)
+        let width = (multiplyByDeviceScale ? widthUnscaled * deviceScale : widthUnscaled)
+        
         let contextSize = self.size(forWidth: width)
-        UIGraphicsBeginImageContextWithOptions(contextSize, true, 0.0)
+        UIGraphicsBeginImageContextWithOptions(contextSize, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
         
-        let nubLength = width * 0.175
-        let originInContext = CGPoint(x: (self.leftNubDirection == nil ? 0 : nubLength),
-                                      y: (self.topNubDirection == nil ? 0 : nubLength))
+        let nubLength = width * PuzzlePiece.nubHeightRelativeToPieceWidth
+        let originOfBezierPath = CGPoint(x: (self.leftNubDirection == .outside ? nubLength : 0),
+                                         y: (self.topNubDirection == .outside ? nubLength : 0))
         
-        let piecePath = path(origin: originInContext, width: width)
+        let piecePath = path(origin: originOfBezierPath, width: width)
         CGContextAddPath(context, piecePath.CGPath)
         CGContextClip(context)
         
-        let originOfImage = imageOrigin - originInContext.vectorFromOrigin()
-        let rectOfImage = CGRect(origin: originOfImage, size: contextSize)
-        CGContextDrawImage(context, rectOfImage, sourceImage.CGImage)
+        let originInImage = imageOrigin - originOfBezierPath.vectorFromOrigin()
+        
+        let cgImage = sourceImage.CGImage
+        let imageSize = CGSize(width: CGImageGetWidth(cgImage), height: CGImageGetHeight(cgImage))
+        let imageRectInContext = CGRect(origin: .zero, size: imageSize)
+        
+        CGContextTranslateCTM(context, -originInImage.x, -originInImage.y)
+        CGContextDrawImage(context, imageRectInContext, sourceImage.CGImage)
+        CGContextTranslateCTM(context, originInImage.x, originInImage.y)
         
         let pieceImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -173,7 +211,7 @@ struct PuzzlePiece {
             let nextPoint = currentPoint + vector
             
             if let direction = direction {
-                path.addPuzzleLineFrom(from: currentPoint, to: nextPoint, facing: direction)
+                self.addPuzzleLineFrom(from: currentPoint, to: nextPoint, facing: direction, on: path)
             } else {
                 path.addLineToPoint(nextPoint)
             }
@@ -185,15 +223,9 @@ struct PuzzlePiece {
         path.closePath()
         return path
     }
-}
-
-
-//MARK: - Render Puzzle Piece line with Nub
-
-extension UIBezierPath {
     
-    func addPuzzleLineFrom(from start: CGPoint, to end: CGPoint, facing direction: PuzzlePiece.Direction) {
-        
+    func addPuzzleLineFrom(from start: CGPoint, to end: CGPoint, facing direction: PuzzlePiece.Direction, on path: UIBezierPath) {
+
         //define critical vectors
         
         let lineTranslation = start.direction(of: end)
@@ -201,32 +233,33 @@ extension UIBezierPath {
         let lineDistance = start.distance(to: end)
         
         let nubDirection = lineDirection.rotated(clockwise: direction.isClockwise)
-        let nubHeight = lineDistance * 0.2
-        let nubWidth = lineDistance * 0.175
+        let nubHeight = lineDistance * PuzzlePiece.nubHeightRelativeToPieceWidth
+        let nubWidth = lineDistance * PuzzlePiece.nubWidthRelativeToPieceWidth
         
         //draw points
         
-        let nubBaseLeft = start + (lineTranslation * 0.4125)
-        self.addLineToPoint(nubBaseLeft)
+        let nubBaseLeft = start + (lineTranslation * PuzzlePiece.distanceBeforeNubRelativeToPieceWidth)
+        path.addLineToPoint(nubBaseLeft)
         
         let nubTopLeft = nubBaseLeft + (nubDirection * nubHeight)
         let nubTopLeft_cp1 = nubBaseLeft + (nubDirection * nubHeight * 0.4).rotated(clockwise: direction.isClockwise, degrees: 15)
         let nubTopLeft_cp2 = nubTopLeft + (-lineTranslation * 0.15)
-        self.addCurveToPoint(nubTopLeft, controlPoint1: nubTopLeft_cp1, controlPoint2: nubTopLeft_cp2)
+        path.addCurveToPoint(nubTopLeft, controlPoint1: nubTopLeft_cp1, controlPoint2: nubTopLeft_cp2)
         
         let nubTopRight = nubTopLeft + (lineDirection * nubWidth)
-        self.addLineToPoint(nubTopRight)
+        path.addLineToPoint(nubTopRight)
         
         let nubBaseRight = nubTopRight - (nubDirection * nubHeight)
         let nubBaseRight_cp1 = nubTopRight + (lineTranslation * 0.15)
         let nubBaseRight_cp2 = nubBaseRight + (nubDirection * nubHeight * 0.4).rotated(clockwise: direction.isClockwise, degrees: -15)
-        self.addCurveToPoint(nubBaseRight, controlPoint1: nubBaseRight_cp1, controlPoint2: nubBaseRight_cp2)
+        path.addCurveToPoint(nubBaseRight, controlPoint1: nubBaseRight_cp1, controlPoint2: nubBaseRight_cp2)
         
-        self.addLineToPoint(end)
+        path.addLineToPoint(end)
     }
-    
 }
 
+
+//MARK: - Graphics Extensions
 
 extension UIImage {
     
@@ -234,7 +267,7 @@ extension UIImage {
         let cgImage = self.CGImage
         let size = CGSize(width: CGImageGetWidth(cgImage), height: CGImageGetHeight(cgImage))
         
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
         let context = UIGraphicsGetCurrentContext()
         CGContextDrawImage(context, CGRect(origin: .zero, size: size), cgImage)
         
@@ -244,9 +277,6 @@ extension UIImage {
     }
     
 }
-
-
-//MARK: - Core Graphics extensions
 
 extension CGPoint {
     
@@ -296,6 +326,9 @@ extension CGVector {
     
 }
 
+
+//MARK: - CGVector Operators
+
 prefix func -(vector: CGVector) -> CGVector {
     return CGVector(dx: -vector.dx, dy: -vector.dy)
 }
@@ -312,6 +345,13 @@ func +(vector1: CGVector, vector2: CGVector) -> CGVector {
     return CGVector(dx: vector1.dx + vector2.dx, dy: vector1.dy + vector2.dy)
 }
 
+
+//MARK: - CGPoint Operations
+
+prefix func -(point: CGPoint) -> CGPoint {
+    return CGPoint(x: -point.x, y: -point.y)
+}
+
 func +(point: CGPoint, vector: CGVector) -> CGPoint {
     return CGPoint(x: point.x + vector.dx, y: point.y + vector.dy)
 }
@@ -320,3 +360,10 @@ func -(point: CGPoint, vector: CGVector) -> CGPoint {
     return CGPoint(x: point.x - vector.dx, y: point.y - vector.dy)
 }
 
+func *(point1: CGPoint, point2: CGPoint) -> CGPoint {
+    return CGPoint(x: point1.x * point2.x, y: point1.y * point2.y)
+}
+
+func *(point: CGPoint, scalar: CGFloat) -> CGPoint {
+    return CGPoint(x: point.x * scalar, y: point.y * scalar)
+}
