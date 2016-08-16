@@ -13,15 +13,20 @@ class PuzzleExperimentController : UIViewController {
     override func viewDidLoad() {
         
         
-        let puzzle = Puzzle(rows: 5, cols: 5)
+        let puzzle = Puzzle(rows: 5, cols: 8)
         let sourceImage = UIImage(named: "puzzle-test")!
         
-        puzzle.createImages(from: sourceImage).map { (image, row, col) in
+        puzzle.createImages(from: sourceImage).map { (image, piece, row, col) in
+            
             let imageView = UIImageView(image: image)
-            let size = CGSize(width: 50, height: 50)
-            let origin = CGPoint(x: 60 * col + 50, y: 60 * row + 50)
-            imageView.frame = CGRect(origin: origin, size: size)
+            let size = piece.size(forWidth: 50)
+            
+            let origin = CGPoint(x: 65 * col + 50, y: 65 * row + 50)
+            let imageOrigin = piece.imageOrigin(relativeTo: origin, forWidth: 50)
+            imageView.frame = CGRect(origin: imageOrigin, size: size)
+            
             return imageView
+            
         }.forEach(self.view.addSubview)
         
         
@@ -48,8 +53,8 @@ struct Puzzle {
         var puzzle = [[PuzzlePiece?]](count: rows, repeatedValue: emptyRow)
         
         func pieceAt(row: Int, _ col: Int) -> PuzzlePiece? {
-            if row < 0 || row >= rows { return nil }
-            if col < 0 || col >= cols { return nil }
+            if !(0 ..< rows).contains(row) { return nil }
+            if !(0 ..< cols).contains(col) { return nil }
             return puzzle[row][col] ?? PuzzlePiece.withRandomNubs
         }
         
@@ -68,8 +73,8 @@ struct Puzzle {
         }
     }
     
-    func createImages(from image: UIImage) -> [(image: UIImage, row: Int, col: Int)] {
-        var images = [(image: UIImage, row: Int, col: Int)]()
+    func createImages(from image: UIImage) -> [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)] {
+        var images = [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)]()
         let flippedImage = image.flipped
         
         let cgImage = image.CGImage
@@ -79,11 +84,11 @@ struct Puzzle {
         let pieceWidth = imageWidth / CGFloat(self.colCount)
         let pieceHeight = imageHeight / CGFloat(self.rowCount)
         
-        for (col, rowPieces) in pieces.enumerate() {
-            for (row, piece) in rowPieces.enumerate() {
+        for (row, rowPieces) in pieces.enumerate() {
+            for (col, piece) in rowPieces.enumerate() {
                 let originInImage = CGPoint(x: Int(pieceWidth) * col, y: Int(pieceHeight) * row)
                 let pieceImage = piece.cropPiece(at: originInImage, fromFlippedImage: flippedImage, width: pieceWidth, multiplyByDeviceScale: false)
-                images.append(image: pieceImage, row: row, col: col)
+                images.append(image: pieceImage, piece: piece, row: row, col: col)
             }
         }
         
@@ -141,6 +146,7 @@ struct PuzzlePiece {
         topNubDirection = topNeighbor?.bottomNubDirection?.opposite
         rightNubDirection = rightNeighbor?.leftNubDirection?.opposite
         bottomNubDirection = bottomNeighbor?.topNubDirection?.opposite
+        
         leftNubDirection = leftNeighbor?.rightNubDirection?.opposite
     }
     
@@ -157,14 +163,24 @@ struct PuzzlePiece {
     
     func size(forWidth width: CGFloat) -> CGSize {
         var size = CGSize(width: width, height: width)
-        let nubLength = width * 0.175
+        let nubLength = width * PuzzlePiece.nubHeightRelativeToPieceWidth
         
-        if topNubDirection    != nil { size.height += nubLength }
-        if bottomNubDirection != nil { size.height += nubLength }
-        if leftNubDirection   != nil { size.width += nubLength }
-        if rightNubDirection  != nil { size.width += nubLength }
+        if topNubDirection    == .outside { size.height += nubLength }
+        if bottomNubDirection == .outside { size.height += nubLength }
+        if leftNubDirection   == .outside { size.width += nubLength }
+        if rightNubDirection  == .outside { size.width += nubLength }
         
         return size
+    }
+    
+    func imageOrigin(relativeTo pieceOrigin: CGPoint, forWidth width: CGFloat) -> CGPoint {
+        var imageOrigin = pieceOrigin
+        
+        let nubLength = width * PuzzlePiece.nubHeightRelativeToPieceWidth
+        if self.leftNubDirection == .outside { imageOrigin.x -= nubLength }
+        if self.topNubDirection  == .outside { imageOrigin.y -= nubLength }
+        
+        return imageOrigin
     }
     
     func cropPiece(at imageOriginUnscaled: CGPoint, fromFlippedImage sourceImage: UIImage, width widthUnscaled: CGFloat, multiplyByDeviceScale: Bool = true) -> UIImage {
@@ -194,6 +210,10 @@ struct PuzzlePiece {
         CGContextTranslateCTM(context, -originInImage.x, -originInImage.y)
         CGContextDrawImage(context, imageRectInContext, sourceImage.CGImage)
         CGContextTranslateCTM(context, originInImage.x, originInImage.y)
+        
+        UIColor(white: 0.0, alpha: 0.5).setStroke()
+        piecePath.lineWidth = 5.0
+        piecePath.stroke()
         
         let pieceImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
