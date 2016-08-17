@@ -42,6 +42,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.36112837357954547" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqJ-fW-pWd" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="280"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="puzzle-test"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rows">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cols">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -645,26 +661,6 @@
             </objects>
             <point key="canvasLocation" x="1038" y="324"/>
         </scene>
-        <!--Puzzle Experiment Controller-->
-        <scene sceneID="toG-K5-Oxs">
-            <objects>
-                <viewController id="d3p-Mv-Ldw" customClass="PuzzleExperimentController" customModule="Phonics" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sQf-jc-gJ7"/>
-                        <viewControllerLayoutGuide type="bottom" id="R7l-JF-DpH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2Zr-Ih-yu3">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cky-ot-GUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1651" y="324"/>
-        </scene>
     </scenes>
     <resources>
         <image name="anchor.jpg" width="256" height="256"/>
@@ -675,6 +671,7 @@
         <image name="button-question" width="50" height="50"/>
         <image name="button-repeat" width="50" height="50"/>
         <image name="lion.jpg" width="256" height="256"/>
+        <image name="puzzle-test" width="1000" height="625"/>
         <image name="run.jpg" width="256" height="256"/>
         <image name="shadow-right" width="9" height="598"/>
         <image name="yo-yo.jpg" width="256" height="256"/>

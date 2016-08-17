@@ -13,7 +13,7 @@ import UIKit
 
 extension Puzzle {
     
-    func createImages(from image: UIImage) -> [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)] {
+    func createImages(from image: UIImage, multiplyByDeviceScale: Bool) -> [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)] {
         var images = [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)]()
         let flippedImage = image.flipped
         
@@ -27,7 +27,7 @@ extension Puzzle {
         for (row, rowPieces) in pieces.enumerate() {
             for (col, piece) in rowPieces.enumerate() {
                 let originInImage = CGPoint(x: Int(pieceWidth) * col, y: Int(pieceHeight) * row)
-                let pieceImage = piece.cropPiece(at: originInImage, fromFlippedImage: flippedImage, width: pieceWidth, multiplyByDeviceScale: false)
+                let pieceImage = piece.cropPiece(at: originInImage, fromFlippedImage: flippedImage, width: pieceWidth, multiplyByDeviceScale: multiplyByDeviceScale)
                 images.append(image: pieceImage, piece: piece, row: row, col: col)
             }
         }
