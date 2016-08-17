@@ -40,6 +40,9 @@ struct PuzzlePiece {
     let bottomNubDirection: Direction?
     let leftNubDirection: Direction?
     
+    var row: Int?
+    var col: Int?
+    
     init(topNub: Direction?, rightNub: Direction?, bottomNub: Direction?, leftNub: Direction?) {
         topNubDirection = topNub
         rightNubDirection = rightNub

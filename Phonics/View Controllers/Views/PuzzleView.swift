@@ -18,7 +18,68 @@ class PuzzleView : UIView {
     @IBInspectable var image: UIImage?
     @IBInspectable var rows: Int = 0
     @IBInspectable var cols: Int = 0
+    
     @IBInspectable var spacing: CGFloat = 0
+    @IBInspectable var scaleToFitBasedOnSpacing: Bool = false
+    
+    @IBInspectable var clipsPieces: Bool {
+        set { self.clipsToBounds = clipsPieces }
+        get { return self.clipsToBounds }
+    }
+    
+    @IBInspectable var allowInteractionWithPieces: Bool {
+        set { self.userInteractionEnabled = allowInteractionWithPieces }
+        get { return self.userInteractionEnabled }
+    }
+    
+    var dynamics: UIDynamicAnimator!
+    
+    
+    //MARK: - Computed Properties
+    
+    var sizeOfPuzzle: CGSize {
+        guard let image = self.image else { return .zero }
+        
+        var imageSize = image.size
+        if scaleToFitBasedOnSpacing && spacing > 0 && rows > 0 && cols > 0 {
+            imageSize.height += CGFloat(rows - 1) * spacing
+            imageSize.width += CGFloat(cols - 1) * spacing
+        }
+        
+        var width = self.frame.size.width
+        var height = width * (imageSize.height / imageSize.width)
+        
+        if height > frame.size.height {
+            height = self.frame.size.height
+            width = height * (imageSize.width / imageSize.height)
+        }
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    var originOfPuzzle: CGPoint {
+        let sizeDifference = CGSize(width: abs(sizeOfPuzzle.width - self.frame.width),
+                                    height: abs(sizeOfPuzzle.height - self.frame.height))
+        return CGPoint(x: sizeDifference.width / 2,
+                       y: sizeDifference.height / 2)
+    }
+    
+    var sizeOfPiece: CGSize {
+        let width = sizeOfPuzzle.width / CGFloat(self.cols)
+        let height = sizeOfPuzzle.height / CGFloat(self.rows)
+        return CGSize(width: width, height: height)
+    }
+    
+    func originForPieceAt(row row: Int, col: Int) -> CGPoint {
+        let size = self.sizeOfPiece
+        let offset = CGVector(dx: (size.width + spacing) * CGFloat(col),
+                              dy: (size.height + spacing) * CGFloat(row))
+        
+        return self.originOfPuzzle + offset
+    }
+    
+    
+    //MARK: - Layout Subviews
     
     override func awakeFromNib() {
         self.createImageViews()
@@ -28,25 +89,20 @@ class PuzzleView : UIView {
         self.createImageViews()
     }
     
-    //MARK: - Layout Subviews
-    
     func createImageViews() {
         guard let image = image else { return }
         let puzzle = Puzzle(rows: self.rows, cols: self.cols)
         let images = puzzle.createImages(from: image, multiplyByDeviceScale: false)
         
         images.forEach(self.addImageView)
+        
+        self.gestureRecognizers = nil
+        self.addGestureRecognizers()
     }
     
     func addImageView(image image: UIImage, piece: PuzzlePiece, row: Int, col: Int) {
-        guard let sourceImage = self.image else { return }
-        let deviceScale = PuzzleView.scaleForCurrentScreen
-        let width = sourceImage.size.width / deviceScale / CGFloat(self.cols)
-        let height = sourceImage.size.height / deviceScale / CGFloat(self.rows)
-        
-        let origin = CGPoint(x: (width + spacing) * CGFloat(col),
-                             y: (height + spacing) * CGFloat(row))
-        let frame = CGRect(origin: origin, size: CGSize(width: width, height: height))
+        let originOfPiece = self.originForPieceAt(row: row, col: col)
+        let frame = CGRect(origin: originOfPiece, size: self.sizeOfPiece)
         
         let pieceView = PuzzlePieceView(frame: frame, piece: piece, pieceImage: image)
         self.addSubview(pieceView)
@@ -61,7 +117,59 @@ class PuzzleView : UIView {
     }
     
     
+    //MARK: - User Interaction
+    
+    var pieceBeingPanned: PuzzlePieceView?
+    
+    func addGestureRecognizers() {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.viewPanned(_:)))
+        self.superview?.addGestureRecognizer(pan)
+        
+        self.dynamics = UIDynamicAnimator(referenceView: self)
+    }
+    
+    func viewPanned(gestureRecognizer: UIPanGestureRecognizer) {
+        let touch = gestureRecognizer.locationInView(self)
+        let touchedSubviews = self.subviews.filter { $0.frame.contains(touch) }
+        
+        if gestureRecognizer.state == .Began, let pieceView = touchedSubviews.first as? PuzzlePieceView {
+            self.pieceBeingPanned = pieceView
+            self.bringSubviewToFront(pieceView)
+            dynamics.removeAllBehaviors()
+        }
+        
+        if let pieceView = self.pieceBeingPanned {
+            
+            let translation = gestureRecognizer.translationInView(self)
+            pieceView.transform = CGAffineTransformMakeTranslation(translation.x, translation.y)
+            
+            if gestureRecognizer.state == .Ended {
+                guard let piece = pieceView.piece, let row = piece.row, let col = piece.col else { return }
+                
+                //change translation to frame
+                let totalTranslation = gestureRecognizer.translationInView(self).vectorFromOrigin()
+                let newOrigin = pieceView.frame.origin + totalTranslation
+                pieceView.frame.origin = newOrigin
+                pieceView.transform = CGAffineTransformIdentity
+                
+                //snap to expected place
+                let origin = self.originForPieceAt(row: row, col: col)
+                let center = origin + CGVector(dx: pieceView.frame.width / 2,
+                                               dy: pieceView.frame.height / 2)
+                
+                let snap = UISnapBehavior(item: pieceView, snapToPoint: center)
+                snap.damping = 0.9
+                dynamics.addBehavior(snap)
+            }
+        }
+        
+        
+    }
+    
 }
+
+
+//MARK: - Subview to manage individual pieces
 
 class PuzzlePieceView : UIView {
     

@@ -34,6 +34,8 @@ struct Puzzle {
                                                rightNeighbor: pieceAt(row, col + 1),
                                                bottomNeighbor: pieceAt(row + 1, col),
                                                leftNeighbor: pieceAt(row, col - 1))
+                puzzle[row][col]?.row = row
+                puzzle[row][col]?.col = col
             }
         }
         
