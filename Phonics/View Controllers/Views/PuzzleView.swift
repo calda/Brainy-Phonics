@@ -65,8 +65,12 @@ class PuzzleView : UIView {
     }
     
     var sizeOfPiece: CGSize {
-        let width = sizeOfPuzzle.width / CGFloat(self.cols)
-        let height = sizeOfPuzzle.height / CGFloat(self.rows)
+        let widthFromSpacing = self.spacing * CGFloat(self.cols - 1)
+        let width = (sizeOfPuzzle.width - widthFromSpacing) / CGFloat(self.cols)
+        
+        let heightFromSpacing = self.spacing * CGFloat(self.rows - 1)
+        let height = (sizeOfPuzzle.height - heightFromSpacing) / CGFloat(self.rows)
+        
         return CGSize(width: width, height: height)
     }
     
@@ -86,6 +90,11 @@ class PuzzleView : UIView {
     }
     
     override func prepareForInterfaceBuilder() {
+        self.createImageViews()
+    }
+    
+    func reload() {
+        self.subviews.forEach{ $0.removeFromSuperview() }
         self.createImageViews()
     }
     

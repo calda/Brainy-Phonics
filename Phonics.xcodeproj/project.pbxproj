@@ -1332,6 +1332,7 @@
 		2E8FFAD51D6514FE00B1E498 /* Z.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF6F11D6514FE00B1E498 /* Z.jpg */; };
 		2E8FFAD61D6514FE00B1E498 /* zebra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF6F21D6514FE00B1E498 /* zebra.jpg */; };
 		2E8FFAD71D6514FE00B1E498 /* zipper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF6F31D6514FE00B1E498 /* zipper.jpg */; };
+		2E8FFAD91D66520200B1E498 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8FFAD81D66520200B1E498 /* PuzzleViewController.swift */; };
 		2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -2673,6 +2674,7 @@
 		2E8FF6F11D6514FE00B1E498 /* Z.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Z.jpg; sourceTree = "<group>"; };
 		2E8FF6F21D6514FE00B1E498 /* zebra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zebra.jpg; sourceTree = "<group>"; };
 		2E8FF6F31D6514FE00B1E498 /* zipper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zipper.jpg; sourceTree = "<group>"; };
+		2E8FFAD81D66520200B1E498 /* PuzzleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		2EDBFA2B1D5C0CE600C1451F /* PhonicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhonicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHContentTest.swift; sourceTree = "<group>"; };
 		2EDBFA2F1D5C0CE600C1451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -3100,6 +3102,7 @@
 				2E6DE27F1D639A1B00978DD6 /* LettersViewController.swift */,
 				2E6DE2801D639A1B00978DD6 /* LetterViewController.swift */,
 				2E6DE2821D639A1B00978DD6 /* QuizViewController.swift */,
+				2E8FFAD81D66520200B1E498 /* PuzzleViewController.swift */,
 				2E6DE2831D639A1B00978DD6 /* Views */,
 			);
 			path = "View Controllers";
@@ -5566,6 +5569,7 @@
 				2E6DE74F1D639A1C00978DD6 /* LongestCommonSubsequence.swift in Sources */,
 				2E6DE75A1D639A1C00978DD6 /* WordView.swift in Sources */,
 				2E6DE7561D639A1C00978DD6 /* LetterViewController.swift in Sources */,
+				2E8FFAD91D66520200B1E498 /* PuzzleViewController.swift in Sources */,
 				2E6DE7591D639A1C00978DD6 /* Puzzle+Rendering.swift in Sources */,
 				2E6DE74B1D639A1C00978DD6 /* Sound.swift in Sources */,
 			);

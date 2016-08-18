@@ -37,30 +37,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This screen needs to be designed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T28-6l-ysY">
-                                <rect key="frame" x="34" y="163" width="270" height="21"/>
+                                <rect key="frame" x="34" y="227" width="270" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.36112837357954547" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqJ-fW-pWd" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
-                                <rect key="frame" x="117" y="20" width="339" height="280"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rows">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cols">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="raccoons.jpg"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsPieces" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowInteractionWithPieces" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="scaleToFitBasedOnSpacing" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQI-HB-gnF">
+                                <rect key="frame" x="34" y="159" width="110" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Puzzles"/>
+                                <connections>
+                                    <segue destination="lR7-lD-hLC" kind="show" id="D1e-nA-U6V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -69,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGQ-qQ-txV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="-180"/>
+            <point key="canvasLocation" x="1038" y="-188"/>
         </scene>
         <!--Letters View Controller-->
         <scene sceneID="iQk-xz-ewT">
@@ -511,36 +500,6 @@
                                     <constraint firstAttribute="trailing" secondItem="r3G-hw-fNA" secondAttribute="trailing" id="za6-bS-JNv"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="hXm-e9-W9R" userLabel="button area">
-                                <rect key="frame" x="0.0" y="0.0" width="70" height="320"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sla-CM-GMA" userLabel="home">
-                                        <rect key="frame" x="10" y="10" width="50" height="50"/>
-                                        <state key="normal" image="button-home"/>
-                                        <connections>
-                                            <segue destination="r0f-2z-x7N" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="Sn8-Zi-Fc4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBK-66-Pq1" userLabel="repeat">
-                                        <rect key="frame" x="10" y="260" width="50" height="50"/>
-                                        <state key="normal" image="button-repeat"/>
-                                        <connections>
-                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="QV3-Lt-e4m"/>
-                                            <action selector="repeatSound:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="ORO-k7-0e6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.45053549989408542" green="0.78715277779999993" blue="0.49193002218454462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="vBK-66-Pq1" firstAttribute="leading" secondItem="hXm-e9-W9R" secondAttribute="leading" constant="10" id="5DN-D3-TFu"/>
-                                    <constraint firstItem="Sla-CM-GMA" firstAttribute="top" secondItem="hXm-e9-W9R" secondAttribute="top" constant="10" id="Y7D-PC-snj"/>
-                                    <constraint firstAttribute="width" constant="70" id="ZXk-cM-0kT"/>
-                                    <constraint firstAttribute="trailing" secondItem="Sla-CM-GMA" secondAttribute="trailing" constant="10" id="c2F-6c-Atc"/>
-                                    <constraint firstAttribute="bottom" secondItem="vBK-66-Pq1" secondAttribute="bottom" constant="10" id="nHB-Jo-mcO"/>
-                                    <constraint firstItem="Sla-CM-GMA" firstAttribute="leading" secondItem="hXm-e9-W9R" secondAttribute="leading" constant="10" id="wNi-Qt-RJd"/>
-                                    <constraint firstAttribute="trailing" secondItem="vBK-66-Pq1" secondAttribute="trailing" constant="10" id="wxI-NP-oau"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9C-ft-nq3" userLabel="words superview">
                                 <rect key="frame" x="270" y="0.0" width="298" height="320"/>
                                 <subviews>
@@ -624,6 +583,36 @@
                                     <constraint firstItem="G1M-lQ-h1R" firstAttribute="centerY" secondItem="M9C-ft-nq3" secondAttribute="centerY" id="vda-jC-NLV"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="hXm-e9-W9R" userLabel="button area">
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="320"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sla-CM-GMA" userLabel="home">
+                                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                        <state key="normal" image="button-home"/>
+                                        <connections>
+                                            <segue destination="r0f-2z-x7N" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="Sn8-Zi-Fc4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBK-66-Pq1" userLabel="repeat">
+                                        <rect key="frame" x="10" y="260" width="50" height="50"/>
+                                        <state key="normal" image="button-repeat"/>
+                                        <connections>
+                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="QV3-Lt-e4m"/>
+                                            <action selector="repeatSound:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="ORO-k7-0e6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.45053549989408542" green="0.78715277779999993" blue="0.49193002218454462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vBK-66-Pq1" firstAttribute="leading" secondItem="hXm-e9-W9R" secondAttribute="leading" constant="10" id="5DN-D3-TFu"/>
+                                    <constraint firstItem="Sla-CM-GMA" firstAttribute="top" secondItem="hXm-e9-W9R" secondAttribute="top" constant="10" id="Y7D-PC-snj"/>
+                                    <constraint firstAttribute="width" constant="70" id="ZXk-cM-0kT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sla-CM-GMA" secondAttribute="trailing" constant="10" id="c2F-6c-Atc"/>
+                                    <constraint firstAttribute="bottom" secondItem="vBK-66-Pq1" secondAttribute="bottom" constant="10" id="nHB-Jo-mcO"/>
+                                    <constraint firstItem="Sla-CM-GMA" firstAttribute="leading" secondItem="hXm-e9-W9R" secondAttribute="leading" constant="10" id="wNi-Qt-RJd"/>
+                                    <constraint firstAttribute="trailing" secondItem="vBK-66-Pq1" secondAttribute="trailing" constant="10" id="wxI-NP-oau"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.37254901959999998" green="0.73333333329999995" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -664,6 +653,79 @@
             </objects>
             <point key="canvasLocation" x="1038" y="324"/>
         </scene>
+        <!--Puzzle View Controller-->
+        <scene sceneID="SAF-lq-4yz">
+            <objects>
+                <viewController id="lR7-lD-hLC" customClass="PuzzleViewController" customModule="Phonics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gDx-5N-1FC"/>
+                        <viewControllerLayoutGuide type="bottom" id="IpJ-Ly-bIe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Grw-aG-N2x">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-I0-VGo" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
+                                <rect key="frame" x="134" y="10" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wPc-I0-VGo" secondAttribute="height" multiplier="1:1" id="zB8-Y9-uMA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="puzzle-A-AI.jpg"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rows">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cols">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sd-Fm-uSg">
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WgR-oo-ulh"/>
+                                    <constraint firstAttribute="width" constant="50" id="zpX-tI-01y"/>
+                                </constraints>
+                                <state key="normal" image="button-home"/>
+                                <connections>
+                                    <segue destination="Vc7-WB-2M8" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="UMR-CC-liK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1l-VR-5Vs">
+                                <rect key="frame" x="10" y="280" width="106" height="30"/>
+                                <state key="normal" title="Random Puzzle"/>
+                                <connections>
+                                    <action selector="randomPuzzle:" destination="lR7-lD-hLC" eventType="touchUpInside" id="RPW-y5-NPV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U1l-VR-5Vs" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="5RX-FT-r9p"/>
+                            <constraint firstItem="wPc-I0-VGo" firstAttribute="centerY" secondItem="Grw-aG-N2x" secondAttribute="centerY" id="7OZ-4o-7hY"/>
+                            <constraint firstItem="7Sd-Fm-uSg" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="Bnj-nV-2I4"/>
+                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="U1l-VR-5Vs" secondAttribute="bottom" constant="10" id="Ho4-cZ-0DC"/>
+                            <constraint firstItem="7Sd-Fm-uSg" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Nqn-u2-cJu"/>
+                            <constraint firstItem="wPc-I0-VGo" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Oay-to-5LA"/>
+                            <constraint firstItem="wPc-I0-VGo" firstAttribute="centerX" secondItem="Grw-aG-N2x" secondAttribute="centerX" id="swi-Z6-RpB"/>
+                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="wPc-I0-VGo" secondAttribute="bottom" constant="10" id="zGY-qM-JHO"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="puzzleView" destination="wPc-I0-VGo" id="ajZ-uS-v4v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4A-7Q-TGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Vc7-WB-2M8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="324"/>
+        </scene>
     </scenes>
     <resources>
         <image name="anchor.jpg" width="256" height="256"/>
@@ -674,7 +736,7 @@
         <image name="button-question" width="50" height="50"/>
         <image name="button-repeat" width="50" height="50"/>
         <image name="lion.jpg" width="256" height="256"/>
-        <image name="raccoons.jpg" width="256" height="256"/>
+        <image name="puzzle-A-AI.jpg" width="1000" height="1342"/>
         <image name="run.jpg" width="256" height="256"/>
         <image name="shadow-right" width="9" height="598"/>
         <image name="yo-yo.jpg" width="256" height="256"/>
