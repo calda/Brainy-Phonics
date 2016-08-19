@@ -336,95 +336,6 @@
 		2E6DE75E1D63A06900978DD6 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75C1D63A06900978DD6 /* Puzzle.swift */; };
 		2E6DE75F1D63A06900978DD6 /* PuzzlePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75D1D63A06900978DD6 /* PuzzlePiece.swift */; };
 		2E6DE7611D63A90100978DD6 /* PuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE7601D63A90100978DD6 /* PuzzleView.swift */; };
-		2E8FF6F41D6514FE00B1E498 /* puzzle-A-ahh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF30F1D6514F900B1E498 /* puzzle-A-ahh.jpg */; };
-		2E8FF6F51D6514FE00B1E498 /* puzzle-A-AI.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3101D6514F900B1E498 /* puzzle-A-AI.jpg */; };
-		2E8FF6F61D6514FE00B1E498 /* puzzle-A-AN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3111D6514F900B1E498 /* puzzle-A-AN.jpg */; };
-		2E8FF6F71D6514FE00B1E498 /* puzzle-A-AR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3121D6514F900B1E498 /* puzzle-A-AR.jpg */; };
-		2E8FF6F81D6514FE00B1E498 /* puzzle-A-AU.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3131D6514F900B1E498 /* puzzle-A-AU.jpg */; };
-		2E8FF6F91D6514FE00B1E498 /* puzzle-A-AW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3141D6514F900B1E498 /* puzzle-A-AW.jpg */; };
-		2E8FF6FA1D6514FE00B1E498 /* puzzle-A-AY.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3151D6514F900B1E498 /* puzzle-A-AY.jpg */; };
-		2E8FF6FB1D6514FE00B1E498 /* puzzle-A-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3161D6514F900B1E498 /* puzzle-A-long.jpg */; };
-		2E8FF6FC1D6514FE00B1E498 /* puzzle-A-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3171D6514F900B1E498 /* puzzle-A-schwa.jpg */; };
-		2E8FF6FD1D6514FE00B1E498 /* puzzle-A-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3181D6514F900B1E498 /* puzzle-A-short.jpg */; };
-		2E8FF6FE1D6514FE00B1E498 /* puzzle-B-BL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3191D6514F900B1E498 /* puzzle-B-BL.jpg */; };
-		2E8FF6FF1D6514FE00B1E498 /* puzzle-B-BR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF31A1D6514F900B1E498 /* puzzle-B-BR.jpg */; };
-		2E8FF7001D6514FE00B1E498 /* puzzle-B-buh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF31B1D6514F900B1E498 /* puzzle-B-buh.jpg */; };
-		2E8FF7011D6514FE00B1E498 /* puzzle-C-CH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF31C1D6514F900B1E498 /* puzzle-C-CH.jpg */; };
-		2E8FF7021D6514FE00B1E498 /* puzzle-C-CL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF31D1D6514F900B1E498 /* puzzle-C-CL.jpg */; };
-		2E8FF7031D6514FE00B1E498 /* puzzle-C-CR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF31E1D6514F900B1E498 /* puzzle-C-CR.jpg */; };
-		2E8FF7041D6514FE00B1E498 /* puzzle-C-kuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF31F1D6514F900B1E498 /* puzzle-C-kuh.jpg */; };
-		2E8FF7051D6514FE00B1E498 /* puzzle-C-sss.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3201D6514F900B1E498 /* puzzle-C-sss.png */; };
-		2E8FF7061D6514FE00B1E498 /* puzzle-D-DR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3211D6514F900B1E498 /* puzzle-D-DR.jpg */; };
-		2E8FF7071D6514FE00B1E498 /* puzzle-D-duh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3221D6514F900B1E498 /* puzzle-D-duh.jpg */; };
-		2E8FF7081D6514FE00B1E498 /* puzzle-E-EA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3231D6514F900B1E498 /* puzzle-E-EA.jpg */; };
-		2E8FF7091D6514FE00B1E498 /* puzzle-E-ER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3241D6514F900B1E498 /* puzzle-E-ER.jpg */; };
-		2E8FF70A1D6514FE00B1E498 /* puzzle-E-ET.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3251D6514F900B1E498 /* puzzle-E-ET.jpg */; };
-		2E8FF70B1D6514FE00B1E498 /* puzzle-E-EW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3261D6514F900B1E498 /* puzzle-E-EW.jpg */; };
-		2E8FF70C1D6514FE00B1E498 /* puzzle-E-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3271D6514F900B1E498 /* puzzle-E-long.jpg */; };
-		2E8FF70D1D6514FE00B1E498 /* puzzle-E-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3281D6514F900B1E498 /* puzzle-E-schwa.jpg */; };
-		2E8FF70E1D6514FE00B1E498 /* puzzle-E-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3291D6514F900B1E498 /* puzzle-E-short.jpg */; };
-		2E8FF70F1D6514FE00B1E498 /* puzzle-F-FL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF32A1D6514F900B1E498 /* puzzle-F-FL.jpg */; };
-		2E8FF7101D6514FE00B1E498 /* puzzle-F-FR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF32B1D6514F900B1E498 /* puzzle-F-FR.jpg */; };
-		2E8FF7111D6514FE00B1E498 /* puzzle-G-GL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF32C1D6514F900B1E498 /* puzzle-G-GL.jpg */; };
-		2E8FF7121D6514FE00B1E498 /* puzzle-G-GR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF32D1D6514F900B1E498 /* puzzle-G-GR.jpg */; };
-		2E8FF7131D6514FE00B1E498 /* puzzle-G-guh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF32E1D6514F900B1E498 /* puzzle-G-guh.jpg */; };
-		2E8FF7141D6514FE00B1E498 /* puzzle-H-huh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF32F1D6514F900B1E498 /* puzzle-H-huh.jpg */; };
-		2E8FF7151D6514FE00B1E498 /* puzzle-I-IE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3301D6514F900B1E498 /* puzzle-I-IE.jpg */; };
-		2E8FF7161D6514FE00B1E498 /* puzzle-I-IGH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3311D6514F900B1E498 /* puzzle-I-IGH.jpg */; };
-		2E8FF7171D6514FE00B1E498 /* puzzle-I-IL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3321D6514F900B1E498 /* puzzle-I-IL.jpg */; };
-		2E8FF7181D6514FE00B1E498 /* puzzle-I-IR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3331D6514F900B1E498 /* puzzle-I-IR.jpg */; };
-		2E8FF7191D6514FE00B1E498 /* puzzle-I-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3341D6514F900B1E498 /* puzzle-I-long.jpg */; };
-		2E8FF71A1D6514FE00B1E498 /* puzzle-I-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3351D6514F900B1E498 /* puzzle-I-schwa.jpg */; };
-		2E8FF71B1D6514FE00B1E498 /* puzzle-I-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3361D6514F900B1E498 /* puzzle-I-short.jpg */; };
-		2E8FF71C1D6514FE00B1E498 /* puzzle-J-juh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3371D6514F900B1E498 /* puzzle-J-juh.jpg */; };
-		2E8FF71D1D6514FE00B1E498 /* puzzle-K-kuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3381D6514F900B1E498 /* puzzle-K-kuh.jpg */; };
-		2E8FF71E1D6514FE00B1E498 /* puzzle-L-LE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3391D6514F900B1E498 /* puzzle-L-LE.jpg */; };
-		2E8FF71F1D6514FE00B1E498 /* puzzle-L-lll.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF33A1D6514F900B1E498 /* puzzle-L-lll.jpg */; };
-		2E8FF7201D6514FE00B1E498 /* puzzle-M-mmm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF33B1D6514F900B1E498 /* puzzle-M-mmm.jpg */; };
-		2E8FF7211D6514FE00B1E498 /* puzzle-N-ND.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF33C1D6514F900B1E498 /* puzzle-N-ND.jpg */; };
-		2E8FF7221D6514FE00B1E498 /* puzzle-N-NG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF33D1D6514F900B1E498 /* puzzle-N-NG.jpg */; };
-		2E8FF7231D6514FE00B1E498 /* puzzle-N-NK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF33E1D6514F900B1E498 /* puzzle-N-NK.jpg */; };
-		2E8FF7241D6514FE00B1E498 /* puzzle-N-nnn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF33F1D6514F900B1E498 /* puzzle-N-nnn.jpg */; };
-		2E8FF7251D6514FE00B1E498 /* puzzle-O-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3401D6514F900B1E498 /* puzzle-O-long.jpg */; };
-		2E8FF7261D6514FE00B1E498 /* puzzle-O-OA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3411D6514F900B1E498 /* puzzle-O-OA.jpg */; };
-		2E8FF7271D6514FE00B1E498 /* puzzle-O-OI.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3421D6514F900B1E498 /* puzzle-O-OI.jpg */; };
-		2E8FF7281D6514FE00B1E498 /* puzzle-O-OO-ew.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3431D6514F900B1E498 /* puzzle-O-OO-ew.jpg */; };
-		2E8FF7291D6514FE00B1E498 /* puzzle-O-OO-uh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3441D6514F900B1E498 /* puzzle-O-OO-uh.jpg */; };
-		2E8FF72A1D6514FE00B1E498 /* puzzle-O-OR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3451D6514F900B1E498 /* puzzle-O-OR.jpg */; };
-		2E8FF72B1D6514FE00B1E498 /* puzzle-O-OU.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3461D6514F900B1E498 /* puzzle-O-OU.jpg */; };
-		2E8FF72C1D6514FE00B1E498 /* puzzle-O-OW-ohw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3471D6514F900B1E498 /* puzzle-O-OW-ohw.jpg */; };
-		2E8FF72D1D6514FE00B1E498 /* puzzle-O-OW-ouw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3481D6514F900B1E498 /* puzzle-O-OW-ouw.jpg */; };
-		2E8FF72E1D6514FE00B1E498 /* puzzle-O-OY.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3491D6514F900B1E498 /* puzzle-O-OY.JPG */; };
-		2E8FF72F1D6514FE00B1E498 /* puzzle-O-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF34A1D6514F900B1E498 /* puzzle-O-short.jpg */; };
-		2E8FF7301D6514FE00B1E498 /* puzzle-O-uh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF34B1D6514F900B1E498 /* puzzle-O-uh.jpg */; };
-		2E8FF7311D6514FE00B1E498 /* puzzle-P-PL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF34C1D6514F900B1E498 /* puzzle-P-PL.jpg */; };
-		2E8FF7321D6514FE00B1E498 /* puzzle-P-PR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF34D1D6514F900B1E498 /* puzzle-P-PR.jpg */; };
-		2E8FF7331D6514FE00B1E498 /* puzzle-P-puh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF34E1D6514F900B1E498 /* puzzle-P-puh.jpg */; };
-		2E8FF7341D6514FE00B1E498 /* puzzle-Q-qwuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF34F1D6514F900B1E498 /* puzzle-Q-qwuh.jpg */; };
-		2E8FF7351D6514FE00B1E498 /* puzzle-R-ruh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3501D6514F900B1E498 /* puzzle-R-ruh.jpg */; };
-		2E8FF7361D6514FE00B1E498 /* puzzle-S-SH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3511D6514F900B1E498 /* puzzle-S-SH.jpg */; };
-		2E8FF7371D6514FE00B1E498 /* puzzle-S-SK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3521D6514F900B1E498 /* puzzle-S-SK.jpg */; };
-		2E8FF7381D6514FE00B1E498 /* puzzle-S-SL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3531D6514F900B1E498 /* puzzle-S-SL.jpg */; };
-		2E8FF7391D6514FE00B1E498 /* puzzle-S-SP.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3541D6514F900B1E498 /* puzzle-S-SP.png */; };
-		2E8FF73A1D6514FE00B1E498 /* puzzle-S-sss.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3551D6514F900B1E498 /* puzzle-S-sss.jpg */; };
-		2E8FF73B1D6514FE00B1E498 /* puzzle-S-ST.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3561D6514F900B1E498 /* puzzle-S-ST.jpg */; };
-		2E8FF73C1D6514FE00B1E498 /* puzzle-S-SW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3571D6514F900B1E498 /* puzzle-S-SW.jpg */; };
-		2E8FF73D1D6514FE00B1E498 /* puzzle-S-zz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3581D6514F900B1E498 /* puzzle-S-zz.jpg */; };
-		2E8FF73E1D6514FE00B1E498 /* puzzle-T-TH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3591D6514F900B1E498 /* puzzle-T-TH.jpg */; };
-		2E8FF73F1D6514FE00B1E498 /* puzzle-T-THE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF35A1D6514F900B1E498 /* puzzle-T-THE.jpg */; };
-		2E8FF7401D6514FE00B1E498 /* puzzle-T-TR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF35B1D6514F900B1E498 /* puzzle-T-TR.jpg */; };
-		2E8FF7411D6514FE00B1E498 /* puzzle-T-ttt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF35C1D6514F900B1E498 /* puzzle-T-ttt.jpg */; };
-		2E8FF7421D6514FE00B1E498 /* puzzle-U-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF35D1D6514F900B1E498 /* puzzle-U-long.jpg */; };
-		2E8FF7431D6514FE00B1E498 /* puzzle-U-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF35E1D6514F900B1E498 /* puzzle-U-short.jpg */; };
-		2E8FF7441D6514FE00B1E498 /* puzzle-U-UR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF35F1D6514F900B1E498 /* puzzle-U-UR.jpg */; };
-		2E8FF7451D6514FE00B1E498 /* puzzle-V-vv.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3601D6514F900B1E498 /* puzzle-V-vv.jpg */; };
-		2E8FF7461D6514FE00B1E498 /* puzzle-W-WH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3611D6514F900B1E498 /* puzzle-W-WH.jpg */; };
-		2E8FF7471D6514FE00B1E498 /* puzzle-W-wuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3621D6514F900B1E498 /* puzzle-W-wuh.jpg */; };
-		2E8FF7481D6514FE00B1E498 /* puzzle-X-ks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3631D6514F900B1E498 /* puzzle-X-ks.jpg */; };
-		2E8FF7491D6514FE00B1E498 /* puzzle-Y-e.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3641D6514F900B1E498 /* puzzle-Y-e.jpg */; };
-		2E8FF74A1D6514FE00B1E498 /* puzzle-Y-i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3651D6514F900B1E498 /* puzzle-Y-i.jpg */; };
-		2E8FF74B1D6514FE00B1E498 /* puzzle-Y-yuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3661D6514F900B1E498 /* puzzle-Y-yuh.jpg */; };
-		2E8FF74C1D6514FE00B1E498 /* puzzle-Z-zzz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3671D6514F900B1E498 /* puzzle-Z-zzz.jpg */; };
 		2E8FF74D1D6514FE00B1E498 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF3691D6514F900B1E498 /* 1.jpg */; };
 		2E8FF74E1D6514FE00B1E498 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF36A1D6514F900B1E498 /* 10.jpg */; };
 		2E8FF74F1D6514FE00B1E498 /* 100.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF36B1D6514F900B1E498 /* 100.jpg */; };
@@ -1333,6 +1244,191 @@
 		2E8FFAD61D6514FE00B1E498 /* zebra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF6F21D6514FE00B1E498 /* zebra.jpg */; };
 		2E8FFAD71D6514FE00B1E498 /* zipper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FF6F31D6514FE00B1E498 /* zipper.jpg */; };
 		2E8FFAD91D66520200B1E498 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8FFAD81D66520200B1E498 /* PuzzleViewController.swift */; };
+		2E8FFADA1D67A14100B1E498 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2701D639A1B00978DD6 /* Letter.swift */; };
+		2E8FFADB1D67A14100B1E498 /* PHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2711D639A1B00978DD6 /* PHContent.swift */; };
+		2E8FFADC1D67A14100B1E498 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2721D639A1B00978DD6 /* Sound.swift */; };
+		2E8FFADD1D67A14100B1E498 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2731D639A1B00978DD6 /* Word.swift */; };
+		2E8FFADE1D67A1E400B1E498 /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2761D639A1B00978DD6 /* CoreSwift.swift */; };
+		2E8FFADF1D67A1E400B1E498 /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2771D639A1B00978DD6 /* LongestCommonSubsequence.swift */; };
+		2E8FFAE01D67A1E400B1E498 /* UniversalAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2781D639A1B00978DD6 /* UniversalAudio.swift */; };
+		2E8FFB3A1D67A41800B1E498 /* puzzle-A-ahh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE11D67A41800B1E498 /* puzzle-A-ahh.jpg */; };
+		2E8FFB3B1D67A41800B1E498 /* puzzle-A-ahh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE11D67A41800B1E498 /* puzzle-A-ahh.jpg */; };
+		2E8FFB3C1D67A41800B1E498 /* puzzle-A-AI.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE21D67A41800B1E498 /* puzzle-A-AI.jpg */; };
+		2E8FFB3D1D67A41800B1E498 /* puzzle-A-AI.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE21D67A41800B1E498 /* puzzle-A-AI.jpg */; };
+		2E8FFB3E1D67A41800B1E498 /* puzzle-A-AN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE31D67A41800B1E498 /* puzzle-A-AN.jpg */; };
+		2E8FFB3F1D67A41800B1E498 /* puzzle-A-AN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE31D67A41800B1E498 /* puzzle-A-AN.jpg */; };
+		2E8FFB401D67A41800B1E498 /* puzzle-A-AR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE41D67A41800B1E498 /* puzzle-A-AR.jpg */; };
+		2E8FFB411D67A41800B1E498 /* puzzle-A-AR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE41D67A41800B1E498 /* puzzle-A-AR.jpg */; };
+		2E8FFB421D67A41800B1E498 /* puzzle-A-AU.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE51D67A41800B1E498 /* puzzle-A-AU.jpg */; };
+		2E8FFB431D67A41800B1E498 /* puzzle-A-AU.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE51D67A41800B1E498 /* puzzle-A-AU.jpg */; };
+		2E8FFB441D67A41800B1E498 /* puzzle-A-AW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE61D67A41800B1E498 /* puzzle-A-AW.jpg */; };
+		2E8FFB451D67A41800B1E498 /* puzzle-A-AW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE61D67A41800B1E498 /* puzzle-A-AW.jpg */; };
+		2E8FFB461D67A41800B1E498 /* puzzle-A-AY.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE71D67A41800B1E498 /* puzzle-A-AY.jpg */; };
+		2E8FFB471D67A41800B1E498 /* puzzle-A-AY.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE71D67A41800B1E498 /* puzzle-A-AY.jpg */; };
+		2E8FFB481D67A41800B1E498 /* puzzle-A-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE81D67A41800B1E498 /* puzzle-A-long.jpg */; };
+		2E8FFB491D67A41800B1E498 /* puzzle-A-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE81D67A41800B1E498 /* puzzle-A-long.jpg */; };
+		2E8FFB4A1D67A41800B1E498 /* puzzle-A-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE91D67A41800B1E498 /* puzzle-A-schwa.jpg */; };
+		2E8FFB4B1D67A41800B1E498 /* puzzle-A-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAE91D67A41800B1E498 /* puzzle-A-schwa.jpg */; };
+		2E8FFB4C1D67A41800B1E498 /* puzzle-A-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEA1D67A41800B1E498 /* puzzle-A-short.jpg */; };
+		2E8FFB4D1D67A41800B1E498 /* puzzle-A-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEA1D67A41800B1E498 /* puzzle-A-short.jpg */; };
+		2E8FFB4E1D67A41800B1E498 /* puzzle-B-BL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEB1D67A41800B1E498 /* puzzle-B-BL.jpg */; };
+		2E8FFB4F1D67A41800B1E498 /* puzzle-B-BL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEB1D67A41800B1E498 /* puzzle-B-BL.jpg */; };
+		2E8FFB501D67A41800B1E498 /* puzzle-B-BR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEC1D67A41800B1E498 /* puzzle-B-BR.jpg */; };
+		2E8FFB511D67A41800B1E498 /* puzzle-B-BR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEC1D67A41800B1E498 /* puzzle-B-BR.jpg */; };
+		2E8FFB521D67A41800B1E498 /* puzzle-B-buh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAED1D67A41800B1E498 /* puzzle-B-buh.jpg */; };
+		2E8FFB531D67A41800B1E498 /* puzzle-B-buh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAED1D67A41800B1E498 /* puzzle-B-buh.jpg */; };
+		2E8FFB541D67A41800B1E498 /* puzzle-C-CH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEE1D67A41800B1E498 /* puzzle-C-CH.jpg */; };
+		2E8FFB551D67A41800B1E498 /* puzzle-C-CH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEE1D67A41800B1E498 /* puzzle-C-CH.jpg */; };
+		2E8FFB561D67A41800B1E498 /* puzzle-C-CL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEF1D67A41800B1E498 /* puzzle-C-CL.jpg */; };
+		2E8FFB571D67A41800B1E498 /* puzzle-C-CL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAEF1D67A41800B1E498 /* puzzle-C-CL.jpg */; };
+		2E8FFB581D67A41800B1E498 /* puzzle-C-CR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF01D67A41800B1E498 /* puzzle-C-CR.jpg */; };
+		2E8FFB591D67A41800B1E498 /* puzzle-C-CR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF01D67A41800B1E498 /* puzzle-C-CR.jpg */; };
+		2E8FFB5A1D67A41800B1E498 /* puzzle-C-kuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF11D67A41800B1E498 /* puzzle-C-kuh.jpg */; };
+		2E8FFB5B1D67A41800B1E498 /* puzzle-C-kuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF11D67A41800B1E498 /* puzzle-C-kuh.jpg */; };
+		2E8FFB5C1D67A41800B1E498 /* puzzle-C-sss.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF21D67A41800B1E498 /* puzzle-C-sss.png */; };
+		2E8FFB5D1D67A41800B1E498 /* puzzle-C-sss.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF21D67A41800B1E498 /* puzzle-C-sss.png */; };
+		2E8FFB5E1D67A41800B1E498 /* puzzle-D-DR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF31D67A41800B1E498 /* puzzle-D-DR.jpg */; };
+		2E8FFB5F1D67A41800B1E498 /* puzzle-D-DR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF31D67A41800B1E498 /* puzzle-D-DR.jpg */; };
+		2E8FFB601D67A41800B1E498 /* puzzle-D-duh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF41D67A41800B1E498 /* puzzle-D-duh.jpg */; };
+		2E8FFB611D67A41800B1E498 /* puzzle-D-duh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF41D67A41800B1E498 /* puzzle-D-duh.jpg */; };
+		2E8FFB621D67A41800B1E498 /* puzzle-E-EA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF51D67A41800B1E498 /* puzzle-E-EA.jpg */; };
+		2E8FFB631D67A41800B1E498 /* puzzle-E-EA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF51D67A41800B1E498 /* puzzle-E-EA.jpg */; };
+		2E8FFB641D67A41800B1E498 /* puzzle-E-ER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF61D67A41800B1E498 /* puzzle-E-ER.jpg */; };
+		2E8FFB651D67A41800B1E498 /* puzzle-E-ER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF61D67A41800B1E498 /* puzzle-E-ER.jpg */; };
+		2E8FFB661D67A41800B1E498 /* puzzle-E-ET.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF71D67A41800B1E498 /* puzzle-E-ET.jpg */; };
+		2E8FFB671D67A41800B1E498 /* puzzle-E-ET.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF71D67A41800B1E498 /* puzzle-E-ET.jpg */; };
+		2E8FFB681D67A41800B1E498 /* puzzle-E-EW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF81D67A41800B1E498 /* puzzle-E-EW.jpg */; };
+		2E8FFB691D67A41800B1E498 /* puzzle-E-EW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF81D67A41800B1E498 /* puzzle-E-EW.jpg */; };
+		2E8FFB6A1D67A41800B1E498 /* puzzle-E-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF91D67A41800B1E498 /* puzzle-E-long.jpg */; };
+		2E8FFB6B1D67A41800B1E498 /* puzzle-E-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAF91D67A41800B1E498 /* puzzle-E-long.jpg */; };
+		2E8FFB6C1D67A41800B1E498 /* puzzle-E-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFA1D67A41800B1E498 /* puzzle-E-schwa.jpg */; };
+		2E8FFB6D1D67A41800B1E498 /* puzzle-E-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFA1D67A41800B1E498 /* puzzle-E-schwa.jpg */; };
+		2E8FFB6E1D67A41800B1E498 /* puzzle-E-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFB1D67A41800B1E498 /* puzzle-E-short.jpg */; };
+		2E8FFB6F1D67A41800B1E498 /* puzzle-E-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFB1D67A41800B1E498 /* puzzle-E-short.jpg */; };
+		2E8FFB701D67A41800B1E498 /* puzzle-F-FL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFC1D67A41800B1E498 /* puzzle-F-FL.jpg */; };
+		2E8FFB711D67A41800B1E498 /* puzzle-F-FL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFC1D67A41800B1E498 /* puzzle-F-FL.jpg */; };
+		2E8FFB721D67A41800B1E498 /* puzzle-F-FR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFD1D67A41800B1E498 /* puzzle-F-FR.jpg */; };
+		2E8FFB731D67A41800B1E498 /* puzzle-F-FR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFD1D67A41800B1E498 /* puzzle-F-FR.jpg */; };
+		2E8FFB741D67A41800B1E498 /* puzzle-G-GL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFE1D67A41800B1E498 /* puzzle-G-GL.jpg */; };
+		2E8FFB751D67A41800B1E498 /* puzzle-G-GL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFE1D67A41800B1E498 /* puzzle-G-GL.jpg */; };
+		2E8FFB761D67A41800B1E498 /* puzzle-G-GR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFF1D67A41800B1E498 /* puzzle-G-GR.jpg */; };
+		2E8FFB771D67A41800B1E498 /* puzzle-G-GR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFAFF1D67A41800B1E498 /* puzzle-G-GR.jpg */; };
+		2E8FFB781D67A41800B1E498 /* puzzle-G-guh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB001D67A41800B1E498 /* puzzle-G-guh.jpg */; };
+		2E8FFB791D67A41800B1E498 /* puzzle-G-guh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB001D67A41800B1E498 /* puzzle-G-guh.jpg */; };
+		2E8FFB7A1D67A41800B1E498 /* puzzle-H-huh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB011D67A41800B1E498 /* puzzle-H-huh.jpg */; };
+		2E8FFB7B1D67A41800B1E498 /* puzzle-H-huh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB011D67A41800B1E498 /* puzzle-H-huh.jpg */; };
+		2E8FFB7C1D67A41800B1E498 /* puzzle-I-IE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB021D67A41800B1E498 /* puzzle-I-IE.jpg */; };
+		2E8FFB7D1D67A41800B1E498 /* puzzle-I-IE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB021D67A41800B1E498 /* puzzle-I-IE.jpg */; };
+		2E8FFB7E1D67A41800B1E498 /* puzzle-I-IGH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB031D67A41800B1E498 /* puzzle-I-IGH.jpg */; };
+		2E8FFB7F1D67A41800B1E498 /* puzzle-I-IGH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB031D67A41800B1E498 /* puzzle-I-IGH.jpg */; };
+		2E8FFB801D67A41800B1E498 /* puzzle-I-IL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB041D67A41800B1E498 /* puzzle-I-IL.jpg */; };
+		2E8FFB811D67A41800B1E498 /* puzzle-I-IL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB041D67A41800B1E498 /* puzzle-I-IL.jpg */; };
+		2E8FFB821D67A41800B1E498 /* puzzle-I-IR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB051D67A41800B1E498 /* puzzle-I-IR.jpg */; };
+		2E8FFB831D67A41800B1E498 /* puzzle-I-IR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB051D67A41800B1E498 /* puzzle-I-IR.jpg */; };
+		2E8FFB841D67A41800B1E498 /* puzzle-I-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB061D67A41800B1E498 /* puzzle-I-long.jpg */; };
+		2E8FFB851D67A41800B1E498 /* puzzle-I-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB061D67A41800B1E498 /* puzzle-I-long.jpg */; };
+		2E8FFB861D67A41800B1E498 /* puzzle-I-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB071D67A41800B1E498 /* puzzle-I-schwa.jpg */; };
+		2E8FFB871D67A41800B1E498 /* puzzle-I-schwa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB071D67A41800B1E498 /* puzzle-I-schwa.jpg */; };
+		2E8FFB881D67A41800B1E498 /* puzzle-I-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB081D67A41800B1E498 /* puzzle-I-short.jpg */; };
+		2E8FFB891D67A41800B1E498 /* puzzle-I-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB081D67A41800B1E498 /* puzzle-I-short.jpg */; };
+		2E8FFB8A1D67A41800B1E498 /* puzzle-J-juh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB091D67A41800B1E498 /* puzzle-J-juh.jpg */; };
+		2E8FFB8B1D67A41800B1E498 /* puzzle-J-juh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB091D67A41800B1E498 /* puzzle-J-juh.jpg */; };
+		2E8FFB8C1D67A41800B1E498 /* puzzle-K-kuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0A1D67A41800B1E498 /* puzzle-K-kuh.jpg */; };
+		2E8FFB8D1D67A41800B1E498 /* puzzle-K-kuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0A1D67A41800B1E498 /* puzzle-K-kuh.jpg */; };
+		2E8FFB8E1D67A41800B1E498 /* puzzle-L-LE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0B1D67A41800B1E498 /* puzzle-L-LE.jpg */; };
+		2E8FFB8F1D67A41800B1E498 /* puzzle-L-LE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0B1D67A41800B1E498 /* puzzle-L-LE.jpg */; };
+		2E8FFB901D67A41800B1E498 /* puzzle-L-lll.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0C1D67A41800B1E498 /* puzzle-L-lll.jpg */; };
+		2E8FFB911D67A41800B1E498 /* puzzle-L-lll.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0C1D67A41800B1E498 /* puzzle-L-lll.jpg */; };
+		2E8FFB921D67A41800B1E498 /* puzzle-M-mmm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0D1D67A41800B1E498 /* puzzle-M-mmm.jpg */; };
+		2E8FFB931D67A41800B1E498 /* puzzle-M-mmm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0D1D67A41800B1E498 /* puzzle-M-mmm.jpg */; };
+		2E8FFB941D67A41800B1E498 /* puzzle-N-ND.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0E1D67A41800B1E498 /* puzzle-N-ND.jpg */; };
+		2E8FFB951D67A41800B1E498 /* puzzle-N-ND.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0E1D67A41800B1E498 /* puzzle-N-ND.jpg */; };
+		2E8FFB961D67A41800B1E498 /* puzzle-N-NG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0F1D67A41800B1E498 /* puzzle-N-NG.jpg */; };
+		2E8FFB971D67A41800B1E498 /* puzzle-N-NG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB0F1D67A41800B1E498 /* puzzle-N-NG.jpg */; };
+		2E8FFB981D67A41800B1E498 /* puzzle-N-NK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB101D67A41800B1E498 /* puzzle-N-NK.jpg */; };
+		2E8FFB991D67A41800B1E498 /* puzzle-N-NK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB101D67A41800B1E498 /* puzzle-N-NK.jpg */; };
+		2E8FFB9A1D67A41800B1E498 /* puzzle-N-nnn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB111D67A41800B1E498 /* puzzle-N-nnn.jpg */; };
+		2E8FFB9B1D67A41800B1E498 /* puzzle-N-nnn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB111D67A41800B1E498 /* puzzle-N-nnn.jpg */; };
+		2E8FFB9C1D67A41800B1E498 /* puzzle-O-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB121D67A41800B1E498 /* puzzle-O-long.jpg */; };
+		2E8FFB9D1D67A41800B1E498 /* puzzle-O-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB121D67A41800B1E498 /* puzzle-O-long.jpg */; };
+		2E8FFB9E1D67A41800B1E498 /* puzzle-O-OA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB131D67A41800B1E498 /* puzzle-O-OA.jpg */; };
+		2E8FFB9F1D67A41800B1E498 /* puzzle-O-OA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB131D67A41800B1E498 /* puzzle-O-OA.jpg */; };
+		2E8FFBA01D67A41800B1E498 /* puzzle-O-OI.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB141D67A41800B1E498 /* puzzle-O-OI.jpg */; };
+		2E8FFBA11D67A41800B1E498 /* puzzle-O-OI.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB141D67A41800B1E498 /* puzzle-O-OI.jpg */; };
+		2E8FFBA21D67A41800B1E498 /* puzzle-O-OO-ew.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB151D67A41800B1E498 /* puzzle-O-OO-ew.jpg */; };
+		2E8FFBA31D67A41800B1E498 /* puzzle-O-OO-ew.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB151D67A41800B1E498 /* puzzle-O-OO-ew.jpg */; };
+		2E8FFBA41D67A41800B1E498 /* puzzle-O-OO-uh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB161D67A41800B1E498 /* puzzle-O-OO-uh.jpg */; };
+		2E8FFBA51D67A41800B1E498 /* puzzle-O-OO-uh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB161D67A41800B1E498 /* puzzle-O-OO-uh.jpg */; };
+		2E8FFBA61D67A41800B1E498 /* puzzle-O-OR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB171D67A41800B1E498 /* puzzle-O-OR.jpg */; };
+		2E8FFBA71D67A41800B1E498 /* puzzle-O-OR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB171D67A41800B1E498 /* puzzle-O-OR.jpg */; };
+		2E8FFBA81D67A41800B1E498 /* puzzle-O-OU.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB181D67A41800B1E498 /* puzzle-O-OU.jpg */; };
+		2E8FFBA91D67A41800B1E498 /* puzzle-O-OU.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB181D67A41800B1E498 /* puzzle-O-OU.jpg */; };
+		2E8FFBAA1D67A41800B1E498 /* puzzle-O-OW-ohw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB191D67A41800B1E498 /* puzzle-O-OW-ohw.jpg */; };
+		2E8FFBAB1D67A41800B1E498 /* puzzle-O-OW-ohw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB191D67A41800B1E498 /* puzzle-O-OW-ohw.jpg */; };
+		2E8FFBAC1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1A1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg */; };
+		2E8FFBAD1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1A1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg */; };
+		2E8FFBAE1D67A41800B1E498 /* puzzle-O-OY.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1B1D67A41800B1E498 /* puzzle-O-OY.JPG */; };
+		2E8FFBAF1D67A41800B1E498 /* puzzle-O-OY.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1B1D67A41800B1E498 /* puzzle-O-OY.JPG */; };
+		2E8FFBB01D67A41800B1E498 /* puzzle-O-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1C1D67A41800B1E498 /* puzzle-O-short.jpg */; };
+		2E8FFBB11D67A41800B1E498 /* puzzle-O-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1C1D67A41800B1E498 /* puzzle-O-short.jpg */; };
+		2E8FFBB21D67A41800B1E498 /* puzzle-O-uh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1D1D67A41800B1E498 /* puzzle-O-uh.jpg */; };
+		2E8FFBB31D67A41800B1E498 /* puzzle-O-uh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1D1D67A41800B1E498 /* puzzle-O-uh.jpg */; };
+		2E8FFBB41D67A41800B1E498 /* puzzle-P-PL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1E1D67A41800B1E498 /* puzzle-P-PL.jpg */; };
+		2E8FFBB51D67A41800B1E498 /* puzzle-P-PL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1E1D67A41800B1E498 /* puzzle-P-PL.jpg */; };
+		2E8FFBB61D67A41800B1E498 /* puzzle-P-PR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1F1D67A41800B1E498 /* puzzle-P-PR.jpg */; };
+		2E8FFBB71D67A41800B1E498 /* puzzle-P-PR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB1F1D67A41800B1E498 /* puzzle-P-PR.jpg */; };
+		2E8FFBB81D67A41800B1E498 /* puzzle-P-puh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB201D67A41800B1E498 /* puzzle-P-puh.jpg */; };
+		2E8FFBB91D67A41800B1E498 /* puzzle-P-puh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB201D67A41800B1E498 /* puzzle-P-puh.jpg */; };
+		2E8FFBBA1D67A41800B1E498 /* puzzle-Q-qwuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB211D67A41800B1E498 /* puzzle-Q-qwuh.jpg */; };
+		2E8FFBBB1D67A41800B1E498 /* puzzle-Q-qwuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB211D67A41800B1E498 /* puzzle-Q-qwuh.jpg */; };
+		2E8FFBBC1D67A41800B1E498 /* puzzle-R-ruh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB221D67A41800B1E498 /* puzzle-R-ruh.jpg */; };
+		2E8FFBBD1D67A41800B1E498 /* puzzle-R-ruh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB221D67A41800B1E498 /* puzzle-R-ruh.jpg */; };
+		2E8FFBBE1D67A41800B1E498 /* puzzle-S-SH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB231D67A41800B1E498 /* puzzle-S-SH.jpg */; };
+		2E8FFBBF1D67A41800B1E498 /* puzzle-S-SH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB231D67A41800B1E498 /* puzzle-S-SH.jpg */; };
+		2E8FFBC01D67A41800B1E498 /* puzzle-S-SK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB241D67A41800B1E498 /* puzzle-S-SK.jpg */; };
+		2E8FFBC11D67A41800B1E498 /* puzzle-S-SK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB241D67A41800B1E498 /* puzzle-S-SK.jpg */; };
+		2E8FFBC21D67A41800B1E498 /* puzzle-S-SL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB251D67A41800B1E498 /* puzzle-S-SL.jpg */; };
+		2E8FFBC31D67A41800B1E498 /* puzzle-S-SL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB251D67A41800B1E498 /* puzzle-S-SL.jpg */; };
+		2E8FFBC41D67A41800B1E498 /* puzzle-S-SP.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB261D67A41800B1E498 /* puzzle-S-SP.png */; };
+		2E8FFBC51D67A41800B1E498 /* puzzle-S-SP.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB261D67A41800B1E498 /* puzzle-S-SP.png */; };
+		2E8FFBC61D67A41800B1E498 /* puzzle-S-sss.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB271D67A41800B1E498 /* puzzle-S-sss.jpg */; };
+		2E8FFBC71D67A41800B1E498 /* puzzle-S-sss.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB271D67A41800B1E498 /* puzzle-S-sss.jpg */; };
+		2E8FFBC81D67A41800B1E498 /* puzzle-S-ST.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB281D67A41800B1E498 /* puzzle-S-ST.jpg */; };
+		2E8FFBC91D67A41800B1E498 /* puzzle-S-ST.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB281D67A41800B1E498 /* puzzle-S-ST.jpg */; };
+		2E8FFBCA1D67A41800B1E498 /* puzzle-S-SW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB291D67A41800B1E498 /* puzzle-S-SW.jpg */; };
+		2E8FFBCB1D67A41800B1E498 /* puzzle-S-SW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB291D67A41800B1E498 /* puzzle-S-SW.jpg */; };
+		2E8FFBCC1D67A41800B1E498 /* puzzle-S-zz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2A1D67A41800B1E498 /* puzzle-S-zz.jpg */; };
+		2E8FFBCD1D67A41800B1E498 /* puzzle-S-zz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2A1D67A41800B1E498 /* puzzle-S-zz.jpg */; };
+		2E8FFBCE1D67A41800B1E498 /* puzzle-T-TH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2B1D67A41800B1E498 /* puzzle-T-TH.jpg */; };
+		2E8FFBCF1D67A41800B1E498 /* puzzle-T-TH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2B1D67A41800B1E498 /* puzzle-T-TH.jpg */; };
+		2E8FFBD01D67A41800B1E498 /* puzzle-T-THE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2C1D67A41800B1E498 /* puzzle-T-THE.jpg */; };
+		2E8FFBD11D67A41800B1E498 /* puzzle-T-THE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2C1D67A41800B1E498 /* puzzle-T-THE.jpg */; };
+		2E8FFBD21D67A41800B1E498 /* puzzle-T-TR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2D1D67A41800B1E498 /* puzzle-T-TR.jpg */; };
+		2E8FFBD31D67A41800B1E498 /* puzzle-T-TR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2D1D67A41800B1E498 /* puzzle-T-TR.jpg */; };
+		2E8FFBD41D67A41800B1E498 /* puzzle-T-ttt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2E1D67A41800B1E498 /* puzzle-T-ttt.jpg */; };
+		2E8FFBD51D67A41800B1E498 /* puzzle-T-ttt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2E1D67A41800B1E498 /* puzzle-T-ttt.jpg */; };
+		2E8FFBD61D67A41800B1E498 /* puzzle-U-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2F1D67A41800B1E498 /* puzzle-U-long.jpg */; };
+		2E8FFBD71D67A41800B1E498 /* puzzle-U-long.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB2F1D67A41800B1E498 /* puzzle-U-long.jpg */; };
+		2E8FFBD81D67A41800B1E498 /* puzzle-U-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB301D67A41800B1E498 /* puzzle-U-short.jpg */; };
+		2E8FFBD91D67A41800B1E498 /* puzzle-U-short.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB301D67A41800B1E498 /* puzzle-U-short.jpg */; };
+		2E8FFBDA1D67A41800B1E498 /* puzzle-U-UR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB311D67A41800B1E498 /* puzzle-U-UR.jpg */; };
+		2E8FFBDB1D67A41800B1E498 /* puzzle-U-UR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB311D67A41800B1E498 /* puzzle-U-UR.jpg */; };
+		2E8FFBDC1D67A41800B1E498 /* puzzle-V-vv.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB321D67A41800B1E498 /* puzzle-V-vv.jpg */; };
+		2E8FFBDD1D67A41800B1E498 /* puzzle-V-vv.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB321D67A41800B1E498 /* puzzle-V-vv.jpg */; };
+		2E8FFBDE1D67A41800B1E498 /* puzzle-W-WH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB331D67A41800B1E498 /* puzzle-W-WH.jpg */; };
+		2E8FFBDF1D67A41800B1E498 /* puzzle-W-WH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB331D67A41800B1E498 /* puzzle-W-WH.jpg */; };
+		2E8FFBE01D67A41800B1E498 /* puzzle-W-wuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB341D67A41800B1E498 /* puzzle-W-wuh.jpg */; };
+		2E8FFBE11D67A41800B1E498 /* puzzle-W-wuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB341D67A41800B1E498 /* puzzle-W-wuh.jpg */; };
+		2E8FFBE21D67A41800B1E498 /* puzzle-X-ks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB351D67A41800B1E498 /* puzzle-X-ks.jpg */; };
+		2E8FFBE31D67A41800B1E498 /* puzzle-X-ks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB351D67A41800B1E498 /* puzzle-X-ks.jpg */; };
+		2E8FFBE41D67A41800B1E498 /* puzzle-Y-e.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB361D67A41800B1E498 /* puzzle-Y-e.jpg */; };
+		2E8FFBE51D67A41800B1E498 /* puzzle-Y-e.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB361D67A41800B1E498 /* puzzle-Y-e.jpg */; };
+		2E8FFBE61D67A41800B1E498 /* puzzle-Y-i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB371D67A41800B1E498 /* puzzle-Y-i.jpg */; };
+		2E8FFBE71D67A41800B1E498 /* puzzle-Y-i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB371D67A41800B1E498 /* puzzle-Y-i.jpg */; };
+		2E8FFBE81D67A41800B1E498 /* puzzle-Y-yuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB381D67A41800B1E498 /* puzzle-Y-yuh.jpg */; };
+		2E8FFBE91D67A41800B1E498 /* puzzle-Y-yuh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB381D67A41800B1E498 /* puzzle-Y-yuh.jpg */; };
+		2E8FFBEA1D67A41800B1E498 /* puzzle-Z-zzz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB391D67A41800B1E498 /* puzzle-Z-zzz.jpg */; };
+		2E8FFBEB1D67A41800B1E498 /* puzzle-Z-zzz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FFB391D67A41800B1E498 /* puzzle-Z-zzz.jpg */; };
 		2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -1678,95 +1774,6 @@
 		2E6DE75C1D63A06900978DD6 /* Puzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
 		2E6DE75D1D63A06900978DD6 /* PuzzlePiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzlePiece.swift; sourceTree = "<group>"; };
 		2E6DE7601D63A90100978DD6 /* PuzzleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleView.swift; sourceTree = "<group>"; };
-		2E8FF30F1D6514F900B1E498 /* puzzle-A-ahh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-ahh.jpg"; sourceTree = "<group>"; };
-		2E8FF3101D6514F900B1E498 /* puzzle-A-AI.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AI.jpg"; sourceTree = "<group>"; };
-		2E8FF3111D6514F900B1E498 /* puzzle-A-AN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AN.jpg"; sourceTree = "<group>"; };
-		2E8FF3121D6514F900B1E498 /* puzzle-A-AR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AR.jpg"; sourceTree = "<group>"; };
-		2E8FF3131D6514F900B1E498 /* puzzle-A-AU.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AU.jpg"; sourceTree = "<group>"; };
-		2E8FF3141D6514F900B1E498 /* puzzle-A-AW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AW.jpg"; sourceTree = "<group>"; };
-		2E8FF3151D6514F900B1E498 /* puzzle-A-AY.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AY.jpg"; sourceTree = "<group>"; };
-		2E8FF3161D6514F900B1E498 /* puzzle-A-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-long.jpg"; sourceTree = "<group>"; };
-		2E8FF3171D6514F900B1E498 /* puzzle-A-schwa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-schwa.jpg"; sourceTree = "<group>"; };
-		2E8FF3181D6514F900B1E498 /* puzzle-A-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-short.jpg"; sourceTree = "<group>"; };
-		2E8FF3191D6514F900B1E498 /* puzzle-B-BL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-B-BL.jpg"; sourceTree = "<group>"; };
-		2E8FF31A1D6514F900B1E498 /* puzzle-B-BR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-B-BR.jpg"; sourceTree = "<group>"; };
-		2E8FF31B1D6514F900B1E498 /* puzzle-B-buh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-B-buh.jpg"; sourceTree = "<group>"; };
-		2E8FF31C1D6514F900B1E498 /* puzzle-C-CH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-CH.jpg"; sourceTree = "<group>"; };
-		2E8FF31D1D6514F900B1E498 /* puzzle-C-CL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-CL.jpg"; sourceTree = "<group>"; };
-		2E8FF31E1D6514F900B1E498 /* puzzle-C-CR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-CR.jpg"; sourceTree = "<group>"; };
-		2E8FF31F1D6514F900B1E498 /* puzzle-C-kuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-kuh.jpg"; sourceTree = "<group>"; };
-		2E8FF3201D6514F900B1E498 /* puzzle-C-sss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-C-sss.png"; sourceTree = "<group>"; };
-		2E8FF3211D6514F900B1E498 /* puzzle-D-DR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-D-DR.jpg"; sourceTree = "<group>"; };
-		2E8FF3221D6514F900B1E498 /* puzzle-D-duh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-D-duh.jpg"; sourceTree = "<group>"; };
-		2E8FF3231D6514F900B1E498 /* puzzle-E-EA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-EA.jpg"; sourceTree = "<group>"; };
-		2E8FF3241D6514F900B1E498 /* puzzle-E-ER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-ER.jpg"; sourceTree = "<group>"; };
-		2E8FF3251D6514F900B1E498 /* puzzle-E-ET.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-ET.jpg"; sourceTree = "<group>"; };
-		2E8FF3261D6514F900B1E498 /* puzzle-E-EW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-EW.jpg"; sourceTree = "<group>"; };
-		2E8FF3271D6514F900B1E498 /* puzzle-E-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-long.jpg"; sourceTree = "<group>"; };
-		2E8FF3281D6514F900B1E498 /* puzzle-E-schwa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-schwa.jpg"; sourceTree = "<group>"; };
-		2E8FF3291D6514F900B1E498 /* puzzle-E-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-short.jpg"; sourceTree = "<group>"; };
-		2E8FF32A1D6514F900B1E498 /* puzzle-F-FL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-F-FL.jpg"; sourceTree = "<group>"; };
-		2E8FF32B1D6514F900B1E498 /* puzzle-F-FR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-F-FR.jpg"; sourceTree = "<group>"; };
-		2E8FF32C1D6514F900B1E498 /* puzzle-G-GL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-G-GL.jpg"; sourceTree = "<group>"; };
-		2E8FF32D1D6514F900B1E498 /* puzzle-G-GR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-G-GR.jpg"; sourceTree = "<group>"; };
-		2E8FF32E1D6514F900B1E498 /* puzzle-G-guh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-G-guh.jpg"; sourceTree = "<group>"; };
-		2E8FF32F1D6514F900B1E498 /* puzzle-H-huh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-H-huh.jpg"; sourceTree = "<group>"; };
-		2E8FF3301D6514F900B1E498 /* puzzle-I-IE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IE.jpg"; sourceTree = "<group>"; };
-		2E8FF3311D6514F900B1E498 /* puzzle-I-IGH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IGH.jpg"; sourceTree = "<group>"; };
-		2E8FF3321D6514F900B1E498 /* puzzle-I-IL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IL.jpg"; sourceTree = "<group>"; };
-		2E8FF3331D6514F900B1E498 /* puzzle-I-IR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IR.jpg"; sourceTree = "<group>"; };
-		2E8FF3341D6514F900B1E498 /* puzzle-I-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-long.jpg"; sourceTree = "<group>"; };
-		2E8FF3351D6514F900B1E498 /* puzzle-I-schwa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-schwa.jpg"; sourceTree = "<group>"; };
-		2E8FF3361D6514F900B1E498 /* puzzle-I-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-short.jpg"; sourceTree = "<group>"; };
-		2E8FF3371D6514F900B1E498 /* puzzle-J-juh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-J-juh.jpg"; sourceTree = "<group>"; };
-		2E8FF3381D6514F900B1E498 /* puzzle-K-kuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-K-kuh.jpg"; sourceTree = "<group>"; };
-		2E8FF3391D6514F900B1E498 /* puzzle-L-LE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-L-LE.jpg"; sourceTree = "<group>"; };
-		2E8FF33A1D6514F900B1E498 /* puzzle-L-lll.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-L-lll.jpg"; sourceTree = "<group>"; };
-		2E8FF33B1D6514F900B1E498 /* puzzle-M-mmm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-M-mmm.jpg"; sourceTree = "<group>"; };
-		2E8FF33C1D6514F900B1E498 /* puzzle-N-ND.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-ND.jpg"; sourceTree = "<group>"; };
-		2E8FF33D1D6514F900B1E498 /* puzzle-N-NG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-NG.jpg"; sourceTree = "<group>"; };
-		2E8FF33E1D6514F900B1E498 /* puzzle-N-NK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-NK.jpg"; sourceTree = "<group>"; };
-		2E8FF33F1D6514F900B1E498 /* puzzle-N-nnn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-nnn.jpg"; sourceTree = "<group>"; };
-		2E8FF3401D6514F900B1E498 /* puzzle-O-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-long.jpg"; sourceTree = "<group>"; };
-		2E8FF3411D6514F900B1E498 /* puzzle-O-OA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OA.jpg"; sourceTree = "<group>"; };
-		2E8FF3421D6514F900B1E498 /* puzzle-O-OI.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OI.jpg"; sourceTree = "<group>"; };
-		2E8FF3431D6514F900B1E498 /* puzzle-O-OO-ew.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OO-ew.jpg"; sourceTree = "<group>"; };
-		2E8FF3441D6514F900B1E498 /* puzzle-O-OO-uh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OO-uh.jpg"; sourceTree = "<group>"; };
-		2E8FF3451D6514F900B1E498 /* puzzle-O-OR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OR.jpg"; sourceTree = "<group>"; };
-		2E8FF3461D6514F900B1E498 /* puzzle-O-OU.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OU.jpg"; sourceTree = "<group>"; };
-		2E8FF3471D6514F900B1E498 /* puzzle-O-OW-ohw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OW-ohw.jpg"; sourceTree = "<group>"; };
-		2E8FF3481D6514F900B1E498 /* puzzle-O-OW-ouw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OW-ouw.jpg"; sourceTree = "<group>"; };
-		2E8FF3491D6514F900B1E498 /* puzzle-O-OY.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OY.JPG"; sourceTree = "<group>"; };
-		2E8FF34A1D6514F900B1E498 /* puzzle-O-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-short.jpg"; sourceTree = "<group>"; };
-		2E8FF34B1D6514F900B1E498 /* puzzle-O-uh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-uh.jpg"; sourceTree = "<group>"; };
-		2E8FF34C1D6514F900B1E498 /* puzzle-P-PL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-P-PL.jpg"; sourceTree = "<group>"; };
-		2E8FF34D1D6514F900B1E498 /* puzzle-P-PR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-P-PR.jpg"; sourceTree = "<group>"; };
-		2E8FF34E1D6514F900B1E498 /* puzzle-P-puh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-P-puh.jpg"; sourceTree = "<group>"; };
-		2E8FF34F1D6514F900B1E498 /* puzzle-Q-qwuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Q-qwuh.jpg"; sourceTree = "<group>"; };
-		2E8FF3501D6514F900B1E498 /* puzzle-R-ruh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-R-ruh.jpg"; sourceTree = "<group>"; };
-		2E8FF3511D6514F900B1E498 /* puzzle-S-SH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SH.jpg"; sourceTree = "<group>"; };
-		2E8FF3521D6514F900B1E498 /* puzzle-S-SK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SK.jpg"; sourceTree = "<group>"; };
-		2E8FF3531D6514F900B1E498 /* puzzle-S-SL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SL.jpg"; sourceTree = "<group>"; };
-		2E8FF3541D6514F900B1E498 /* puzzle-S-SP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-S-SP.png"; sourceTree = "<group>"; };
-		2E8FF3551D6514F900B1E498 /* puzzle-S-sss.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-sss.jpg"; sourceTree = "<group>"; };
-		2E8FF3561D6514F900B1E498 /* puzzle-S-ST.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-ST.jpg"; sourceTree = "<group>"; };
-		2E8FF3571D6514F900B1E498 /* puzzle-S-SW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SW.jpg"; sourceTree = "<group>"; };
-		2E8FF3581D6514F900B1E498 /* puzzle-S-zz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-zz.jpg"; sourceTree = "<group>"; };
-		2E8FF3591D6514F900B1E498 /* puzzle-T-TH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-TH.jpg"; sourceTree = "<group>"; };
-		2E8FF35A1D6514F900B1E498 /* puzzle-T-THE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-THE.jpg"; sourceTree = "<group>"; };
-		2E8FF35B1D6514F900B1E498 /* puzzle-T-TR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-TR.jpg"; sourceTree = "<group>"; };
-		2E8FF35C1D6514F900B1E498 /* puzzle-T-ttt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-ttt.jpg"; sourceTree = "<group>"; };
-		2E8FF35D1D6514F900B1E498 /* puzzle-U-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-U-long.jpg"; sourceTree = "<group>"; };
-		2E8FF35E1D6514F900B1E498 /* puzzle-U-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-U-short.jpg"; sourceTree = "<group>"; };
-		2E8FF35F1D6514F900B1E498 /* puzzle-U-UR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-U-UR.jpg"; sourceTree = "<group>"; };
-		2E8FF3601D6514F900B1E498 /* puzzle-V-vv.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-V-vv.jpg"; sourceTree = "<group>"; };
-		2E8FF3611D6514F900B1E498 /* puzzle-W-WH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-W-WH.jpg"; sourceTree = "<group>"; };
-		2E8FF3621D6514F900B1E498 /* puzzle-W-wuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-W-wuh.jpg"; sourceTree = "<group>"; };
-		2E8FF3631D6514F900B1E498 /* puzzle-X-ks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-X-ks.jpg"; sourceTree = "<group>"; };
-		2E8FF3641D6514F900B1E498 /* puzzle-Y-e.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Y-e.jpg"; sourceTree = "<group>"; };
-		2E8FF3651D6514F900B1E498 /* puzzle-Y-i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Y-i.jpg"; sourceTree = "<group>"; };
-		2E8FF3661D6514F900B1E498 /* puzzle-Y-yuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Y-yuh.jpg"; sourceTree = "<group>"; };
-		2E8FF3671D6514F900B1E498 /* puzzle-Z-zzz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Z-zzz.jpg"; sourceTree = "<group>"; };
 		2E8FF3691D6514F900B1E498 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		2E8FF36A1D6514F900B1E498 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		2E8FF36B1D6514F900B1E498 /* 100.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 100.jpg; sourceTree = "<group>"; };
@@ -2675,6 +2682,95 @@
 		2E8FF6F21D6514FE00B1E498 /* zebra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zebra.jpg; sourceTree = "<group>"; };
 		2E8FF6F31D6514FE00B1E498 /* zipper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zipper.jpg; sourceTree = "<group>"; };
 		2E8FFAD81D66520200B1E498 /* PuzzleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
+		2E8FFAE11D67A41800B1E498 /* puzzle-A-ahh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-ahh.jpg"; sourceTree = "<group>"; };
+		2E8FFAE21D67A41800B1E498 /* puzzle-A-AI.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AI.jpg"; sourceTree = "<group>"; };
+		2E8FFAE31D67A41800B1E498 /* puzzle-A-AN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AN.jpg"; sourceTree = "<group>"; };
+		2E8FFAE41D67A41800B1E498 /* puzzle-A-AR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AR.jpg"; sourceTree = "<group>"; };
+		2E8FFAE51D67A41800B1E498 /* puzzle-A-AU.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AU.jpg"; sourceTree = "<group>"; };
+		2E8FFAE61D67A41800B1E498 /* puzzle-A-AW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AW.jpg"; sourceTree = "<group>"; };
+		2E8FFAE71D67A41800B1E498 /* puzzle-A-AY.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-AY.jpg"; sourceTree = "<group>"; };
+		2E8FFAE81D67A41800B1E498 /* puzzle-A-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-long.jpg"; sourceTree = "<group>"; };
+		2E8FFAE91D67A41800B1E498 /* puzzle-A-schwa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-schwa.jpg"; sourceTree = "<group>"; };
+		2E8FFAEA1D67A41800B1E498 /* puzzle-A-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-A-short.jpg"; sourceTree = "<group>"; };
+		2E8FFAEB1D67A41800B1E498 /* puzzle-B-BL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-B-BL.jpg"; sourceTree = "<group>"; };
+		2E8FFAEC1D67A41800B1E498 /* puzzle-B-BR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-B-BR.jpg"; sourceTree = "<group>"; };
+		2E8FFAED1D67A41800B1E498 /* puzzle-B-buh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-B-buh.jpg"; sourceTree = "<group>"; };
+		2E8FFAEE1D67A41800B1E498 /* puzzle-C-CH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-CH.jpg"; sourceTree = "<group>"; };
+		2E8FFAEF1D67A41800B1E498 /* puzzle-C-CL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-CL.jpg"; sourceTree = "<group>"; };
+		2E8FFAF01D67A41800B1E498 /* puzzle-C-CR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-CR.jpg"; sourceTree = "<group>"; };
+		2E8FFAF11D67A41800B1E498 /* puzzle-C-kuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-C-kuh.jpg"; sourceTree = "<group>"; };
+		2E8FFAF21D67A41800B1E498 /* puzzle-C-sss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-C-sss.png"; sourceTree = "<group>"; };
+		2E8FFAF31D67A41800B1E498 /* puzzle-D-DR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-D-DR.jpg"; sourceTree = "<group>"; };
+		2E8FFAF41D67A41800B1E498 /* puzzle-D-duh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-D-duh.jpg"; sourceTree = "<group>"; };
+		2E8FFAF51D67A41800B1E498 /* puzzle-E-EA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-EA.jpg"; sourceTree = "<group>"; };
+		2E8FFAF61D67A41800B1E498 /* puzzle-E-ER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-ER.jpg"; sourceTree = "<group>"; };
+		2E8FFAF71D67A41800B1E498 /* puzzle-E-ET.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-ET.jpg"; sourceTree = "<group>"; };
+		2E8FFAF81D67A41800B1E498 /* puzzle-E-EW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-EW.jpg"; sourceTree = "<group>"; };
+		2E8FFAF91D67A41800B1E498 /* puzzle-E-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-long.jpg"; sourceTree = "<group>"; };
+		2E8FFAFA1D67A41800B1E498 /* puzzle-E-schwa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-schwa.jpg"; sourceTree = "<group>"; };
+		2E8FFAFB1D67A41800B1E498 /* puzzle-E-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-E-short.jpg"; sourceTree = "<group>"; };
+		2E8FFAFC1D67A41800B1E498 /* puzzle-F-FL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-F-FL.jpg"; sourceTree = "<group>"; };
+		2E8FFAFD1D67A41800B1E498 /* puzzle-F-FR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-F-FR.jpg"; sourceTree = "<group>"; };
+		2E8FFAFE1D67A41800B1E498 /* puzzle-G-GL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-G-GL.jpg"; sourceTree = "<group>"; };
+		2E8FFAFF1D67A41800B1E498 /* puzzle-G-GR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-G-GR.jpg"; sourceTree = "<group>"; };
+		2E8FFB001D67A41800B1E498 /* puzzle-G-guh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-G-guh.jpg"; sourceTree = "<group>"; };
+		2E8FFB011D67A41800B1E498 /* puzzle-H-huh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-H-huh.jpg"; sourceTree = "<group>"; };
+		2E8FFB021D67A41800B1E498 /* puzzle-I-IE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IE.jpg"; sourceTree = "<group>"; };
+		2E8FFB031D67A41800B1E498 /* puzzle-I-IGH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IGH.jpg"; sourceTree = "<group>"; };
+		2E8FFB041D67A41800B1E498 /* puzzle-I-IL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IL.jpg"; sourceTree = "<group>"; };
+		2E8FFB051D67A41800B1E498 /* puzzle-I-IR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-IR.jpg"; sourceTree = "<group>"; };
+		2E8FFB061D67A41800B1E498 /* puzzle-I-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-long.jpg"; sourceTree = "<group>"; };
+		2E8FFB071D67A41800B1E498 /* puzzle-I-schwa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-schwa.jpg"; sourceTree = "<group>"; };
+		2E8FFB081D67A41800B1E498 /* puzzle-I-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-I-short.jpg"; sourceTree = "<group>"; };
+		2E8FFB091D67A41800B1E498 /* puzzle-J-juh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-J-juh.jpg"; sourceTree = "<group>"; };
+		2E8FFB0A1D67A41800B1E498 /* puzzle-K-kuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-K-kuh.jpg"; sourceTree = "<group>"; };
+		2E8FFB0B1D67A41800B1E498 /* puzzle-L-LE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-L-LE.jpg"; sourceTree = "<group>"; };
+		2E8FFB0C1D67A41800B1E498 /* puzzle-L-lll.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-L-lll.jpg"; sourceTree = "<group>"; };
+		2E8FFB0D1D67A41800B1E498 /* puzzle-M-mmm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-M-mmm.jpg"; sourceTree = "<group>"; };
+		2E8FFB0E1D67A41800B1E498 /* puzzle-N-ND.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-ND.jpg"; sourceTree = "<group>"; };
+		2E8FFB0F1D67A41800B1E498 /* puzzle-N-NG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-NG.jpg"; sourceTree = "<group>"; };
+		2E8FFB101D67A41800B1E498 /* puzzle-N-NK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-NK.jpg"; sourceTree = "<group>"; };
+		2E8FFB111D67A41800B1E498 /* puzzle-N-nnn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-N-nnn.jpg"; sourceTree = "<group>"; };
+		2E8FFB121D67A41800B1E498 /* puzzle-O-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-long.jpg"; sourceTree = "<group>"; };
+		2E8FFB131D67A41800B1E498 /* puzzle-O-OA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OA.jpg"; sourceTree = "<group>"; };
+		2E8FFB141D67A41800B1E498 /* puzzle-O-OI.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OI.jpg"; sourceTree = "<group>"; };
+		2E8FFB151D67A41800B1E498 /* puzzle-O-OO-ew.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OO-ew.jpg"; sourceTree = "<group>"; };
+		2E8FFB161D67A41800B1E498 /* puzzle-O-OO-uh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OO-uh.jpg"; sourceTree = "<group>"; };
+		2E8FFB171D67A41800B1E498 /* puzzle-O-OR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OR.jpg"; sourceTree = "<group>"; };
+		2E8FFB181D67A41800B1E498 /* puzzle-O-OU.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OU.jpg"; sourceTree = "<group>"; };
+		2E8FFB191D67A41800B1E498 /* puzzle-O-OW-ohw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OW-ohw.jpg"; sourceTree = "<group>"; };
+		2E8FFB1A1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OW-ouw.jpg"; sourceTree = "<group>"; };
+		2E8FFB1B1D67A41800B1E498 /* puzzle-O-OY.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-OY.JPG"; sourceTree = "<group>"; };
+		2E8FFB1C1D67A41800B1E498 /* puzzle-O-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-short.jpg"; sourceTree = "<group>"; };
+		2E8FFB1D1D67A41800B1E498 /* puzzle-O-uh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-O-uh.jpg"; sourceTree = "<group>"; };
+		2E8FFB1E1D67A41800B1E498 /* puzzle-P-PL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-P-PL.jpg"; sourceTree = "<group>"; };
+		2E8FFB1F1D67A41800B1E498 /* puzzle-P-PR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-P-PR.jpg"; sourceTree = "<group>"; };
+		2E8FFB201D67A41800B1E498 /* puzzle-P-puh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-P-puh.jpg"; sourceTree = "<group>"; };
+		2E8FFB211D67A41800B1E498 /* puzzle-Q-qwuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Q-qwuh.jpg"; sourceTree = "<group>"; };
+		2E8FFB221D67A41800B1E498 /* puzzle-R-ruh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-R-ruh.jpg"; sourceTree = "<group>"; };
+		2E8FFB231D67A41800B1E498 /* puzzle-S-SH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SH.jpg"; sourceTree = "<group>"; };
+		2E8FFB241D67A41800B1E498 /* puzzle-S-SK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SK.jpg"; sourceTree = "<group>"; };
+		2E8FFB251D67A41800B1E498 /* puzzle-S-SL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SL.jpg"; sourceTree = "<group>"; };
+		2E8FFB261D67A41800B1E498 /* puzzle-S-SP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-S-SP.png"; sourceTree = "<group>"; };
+		2E8FFB271D67A41800B1E498 /* puzzle-S-sss.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-sss.jpg"; sourceTree = "<group>"; };
+		2E8FFB281D67A41800B1E498 /* puzzle-S-ST.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-ST.jpg"; sourceTree = "<group>"; };
+		2E8FFB291D67A41800B1E498 /* puzzle-S-SW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-SW.jpg"; sourceTree = "<group>"; };
+		2E8FFB2A1D67A41800B1E498 /* puzzle-S-zz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-S-zz.jpg"; sourceTree = "<group>"; };
+		2E8FFB2B1D67A41800B1E498 /* puzzle-T-TH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-TH.jpg"; sourceTree = "<group>"; };
+		2E8FFB2C1D67A41800B1E498 /* puzzle-T-THE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-THE.jpg"; sourceTree = "<group>"; };
+		2E8FFB2D1D67A41800B1E498 /* puzzle-T-TR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-TR.jpg"; sourceTree = "<group>"; };
+		2E8FFB2E1D67A41800B1E498 /* puzzle-T-ttt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-T-ttt.jpg"; sourceTree = "<group>"; };
+		2E8FFB2F1D67A41800B1E498 /* puzzle-U-long.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-U-long.jpg"; sourceTree = "<group>"; };
+		2E8FFB301D67A41800B1E498 /* puzzle-U-short.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-U-short.jpg"; sourceTree = "<group>"; };
+		2E8FFB311D67A41800B1E498 /* puzzle-U-UR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-U-UR.jpg"; sourceTree = "<group>"; };
+		2E8FFB321D67A41800B1E498 /* puzzle-V-vv.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-V-vv.jpg"; sourceTree = "<group>"; };
+		2E8FFB331D67A41800B1E498 /* puzzle-W-WH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-W-WH.jpg"; sourceTree = "<group>"; };
+		2E8FFB341D67A41800B1E498 /* puzzle-W-wuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-W-wuh.jpg"; sourceTree = "<group>"; };
+		2E8FFB351D67A41800B1E498 /* puzzle-X-ks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-X-ks.jpg"; sourceTree = "<group>"; };
+		2E8FFB361D67A41800B1E498 /* puzzle-Y-e.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Y-e.jpg"; sourceTree = "<group>"; };
+		2E8FFB371D67A41800B1E498 /* puzzle-Y-i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Y-i.jpg"; sourceTree = "<group>"; };
+		2E8FFB381D67A41800B1E498 /* puzzle-Y-yuh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Y-yuh.jpg"; sourceTree = "<group>"; };
+		2E8FFB391D67A41800B1E498 /* puzzle-Z-zzz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "puzzle-Z-zzz.jpg"; sourceTree = "<group>"; };
 		2EDBFA2B1D5C0CE600C1451F /* PhonicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhonicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHContentTest.swift; sourceTree = "<group>"; };
 		2EDBFA2F1D5C0CE600C1451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -3131,95 +3227,95 @@
 		2E8FF30E1D6514F900B1E498 /* Puzzles */ = {
 			isa = PBXGroup;
 			children = (
-				2E8FF30F1D6514F900B1E498 /* puzzle-A-ahh.jpg */,
-				2E8FF3101D6514F900B1E498 /* puzzle-A-AI.jpg */,
-				2E8FF3111D6514F900B1E498 /* puzzle-A-AN.jpg */,
-				2E8FF3121D6514F900B1E498 /* puzzle-A-AR.jpg */,
-				2E8FF3131D6514F900B1E498 /* puzzle-A-AU.jpg */,
-				2E8FF3141D6514F900B1E498 /* puzzle-A-AW.jpg */,
-				2E8FF3151D6514F900B1E498 /* puzzle-A-AY.jpg */,
-				2E8FF3161D6514F900B1E498 /* puzzle-A-long.jpg */,
-				2E8FF3171D6514F900B1E498 /* puzzle-A-schwa.jpg */,
-				2E8FF3181D6514F900B1E498 /* puzzle-A-short.jpg */,
-				2E8FF3191D6514F900B1E498 /* puzzle-B-BL.jpg */,
-				2E8FF31A1D6514F900B1E498 /* puzzle-B-BR.jpg */,
-				2E8FF31B1D6514F900B1E498 /* puzzle-B-buh.jpg */,
-				2E8FF31C1D6514F900B1E498 /* puzzle-C-CH.jpg */,
-				2E8FF31D1D6514F900B1E498 /* puzzle-C-CL.jpg */,
-				2E8FF31E1D6514F900B1E498 /* puzzle-C-CR.jpg */,
-				2E8FF31F1D6514F900B1E498 /* puzzle-C-kuh.jpg */,
-				2E8FF3201D6514F900B1E498 /* puzzle-C-sss.png */,
-				2E8FF3211D6514F900B1E498 /* puzzle-D-DR.jpg */,
-				2E8FF3221D6514F900B1E498 /* puzzle-D-duh.jpg */,
-				2E8FF3231D6514F900B1E498 /* puzzle-E-EA.jpg */,
-				2E8FF3241D6514F900B1E498 /* puzzle-E-ER.jpg */,
-				2E8FF3251D6514F900B1E498 /* puzzle-E-ET.jpg */,
-				2E8FF3261D6514F900B1E498 /* puzzle-E-EW.jpg */,
-				2E8FF3271D6514F900B1E498 /* puzzle-E-long.jpg */,
-				2E8FF3281D6514F900B1E498 /* puzzle-E-schwa.jpg */,
-				2E8FF3291D6514F900B1E498 /* puzzle-E-short.jpg */,
-				2E8FF32A1D6514F900B1E498 /* puzzle-F-FL.jpg */,
-				2E8FF32B1D6514F900B1E498 /* puzzle-F-FR.jpg */,
-				2E8FF32C1D6514F900B1E498 /* puzzle-G-GL.jpg */,
-				2E8FF32D1D6514F900B1E498 /* puzzle-G-GR.jpg */,
-				2E8FF32E1D6514F900B1E498 /* puzzle-G-guh.jpg */,
-				2E8FF32F1D6514F900B1E498 /* puzzle-H-huh.jpg */,
-				2E8FF3301D6514F900B1E498 /* puzzle-I-IE.jpg */,
-				2E8FF3311D6514F900B1E498 /* puzzle-I-IGH.jpg */,
-				2E8FF3321D6514F900B1E498 /* puzzle-I-IL.jpg */,
-				2E8FF3331D6514F900B1E498 /* puzzle-I-IR.jpg */,
-				2E8FF3341D6514F900B1E498 /* puzzle-I-long.jpg */,
-				2E8FF3351D6514F900B1E498 /* puzzle-I-schwa.jpg */,
-				2E8FF3361D6514F900B1E498 /* puzzle-I-short.jpg */,
-				2E8FF3371D6514F900B1E498 /* puzzle-J-juh.jpg */,
-				2E8FF3381D6514F900B1E498 /* puzzle-K-kuh.jpg */,
-				2E8FF3391D6514F900B1E498 /* puzzle-L-LE.jpg */,
-				2E8FF33A1D6514F900B1E498 /* puzzle-L-lll.jpg */,
-				2E8FF33B1D6514F900B1E498 /* puzzle-M-mmm.jpg */,
-				2E8FF33C1D6514F900B1E498 /* puzzle-N-ND.jpg */,
-				2E8FF33D1D6514F900B1E498 /* puzzle-N-NG.jpg */,
-				2E8FF33E1D6514F900B1E498 /* puzzle-N-NK.jpg */,
-				2E8FF33F1D6514F900B1E498 /* puzzle-N-nnn.jpg */,
-				2E8FF3401D6514F900B1E498 /* puzzle-O-long.jpg */,
-				2E8FF3411D6514F900B1E498 /* puzzle-O-OA.jpg */,
-				2E8FF3421D6514F900B1E498 /* puzzle-O-OI.jpg */,
-				2E8FF3431D6514F900B1E498 /* puzzle-O-OO-ew.jpg */,
-				2E8FF3441D6514F900B1E498 /* puzzle-O-OO-uh.jpg */,
-				2E8FF3451D6514F900B1E498 /* puzzle-O-OR.jpg */,
-				2E8FF3461D6514F900B1E498 /* puzzle-O-OU.jpg */,
-				2E8FF3471D6514F900B1E498 /* puzzle-O-OW-ohw.jpg */,
-				2E8FF3481D6514F900B1E498 /* puzzle-O-OW-ouw.jpg */,
-				2E8FF3491D6514F900B1E498 /* puzzle-O-OY.JPG */,
-				2E8FF34A1D6514F900B1E498 /* puzzle-O-short.jpg */,
-				2E8FF34B1D6514F900B1E498 /* puzzle-O-uh.jpg */,
-				2E8FF34C1D6514F900B1E498 /* puzzle-P-PL.jpg */,
-				2E8FF34D1D6514F900B1E498 /* puzzle-P-PR.jpg */,
-				2E8FF34E1D6514F900B1E498 /* puzzle-P-puh.jpg */,
-				2E8FF34F1D6514F900B1E498 /* puzzle-Q-qwuh.jpg */,
-				2E8FF3501D6514F900B1E498 /* puzzle-R-ruh.jpg */,
-				2E8FF3511D6514F900B1E498 /* puzzle-S-SH.jpg */,
-				2E8FF3521D6514F900B1E498 /* puzzle-S-SK.jpg */,
-				2E8FF3531D6514F900B1E498 /* puzzle-S-SL.jpg */,
-				2E8FF3541D6514F900B1E498 /* puzzle-S-SP.png */,
-				2E8FF3551D6514F900B1E498 /* puzzle-S-sss.jpg */,
-				2E8FF3561D6514F900B1E498 /* puzzle-S-ST.jpg */,
-				2E8FF3571D6514F900B1E498 /* puzzle-S-SW.jpg */,
-				2E8FF3581D6514F900B1E498 /* puzzle-S-zz.jpg */,
-				2E8FF3591D6514F900B1E498 /* puzzle-T-TH.jpg */,
-				2E8FF35A1D6514F900B1E498 /* puzzle-T-THE.jpg */,
-				2E8FF35B1D6514F900B1E498 /* puzzle-T-TR.jpg */,
-				2E8FF35C1D6514F900B1E498 /* puzzle-T-ttt.jpg */,
-				2E8FF35D1D6514F900B1E498 /* puzzle-U-long.jpg */,
-				2E8FF35E1D6514F900B1E498 /* puzzle-U-short.jpg */,
-				2E8FF35F1D6514F900B1E498 /* puzzle-U-UR.jpg */,
-				2E8FF3601D6514F900B1E498 /* puzzle-V-vv.jpg */,
-				2E8FF3611D6514F900B1E498 /* puzzle-W-WH.jpg */,
-				2E8FF3621D6514F900B1E498 /* puzzle-W-wuh.jpg */,
-				2E8FF3631D6514F900B1E498 /* puzzle-X-ks.jpg */,
-				2E8FF3641D6514F900B1E498 /* puzzle-Y-e.jpg */,
-				2E8FF3651D6514F900B1E498 /* puzzle-Y-i.jpg */,
-				2E8FF3661D6514F900B1E498 /* puzzle-Y-yuh.jpg */,
-				2E8FF3671D6514F900B1E498 /* puzzle-Z-zzz.jpg */,
+				2E8FFAE11D67A41800B1E498 /* puzzle-A-ahh.jpg */,
+				2E8FFAE21D67A41800B1E498 /* puzzle-A-AI.jpg */,
+				2E8FFAE31D67A41800B1E498 /* puzzle-A-AN.jpg */,
+				2E8FFAE41D67A41800B1E498 /* puzzle-A-AR.jpg */,
+				2E8FFAE51D67A41800B1E498 /* puzzle-A-AU.jpg */,
+				2E8FFAE61D67A41800B1E498 /* puzzle-A-AW.jpg */,
+				2E8FFAE71D67A41800B1E498 /* puzzle-A-AY.jpg */,
+				2E8FFAE81D67A41800B1E498 /* puzzle-A-long.jpg */,
+				2E8FFAE91D67A41800B1E498 /* puzzle-A-schwa.jpg */,
+				2E8FFAEA1D67A41800B1E498 /* puzzle-A-short.jpg */,
+				2E8FFAEB1D67A41800B1E498 /* puzzle-B-BL.jpg */,
+				2E8FFAEC1D67A41800B1E498 /* puzzle-B-BR.jpg */,
+				2E8FFAED1D67A41800B1E498 /* puzzle-B-buh.jpg */,
+				2E8FFAEE1D67A41800B1E498 /* puzzle-C-CH.jpg */,
+				2E8FFAEF1D67A41800B1E498 /* puzzle-C-CL.jpg */,
+				2E8FFAF01D67A41800B1E498 /* puzzle-C-CR.jpg */,
+				2E8FFAF11D67A41800B1E498 /* puzzle-C-kuh.jpg */,
+				2E8FFAF21D67A41800B1E498 /* puzzle-C-sss.png */,
+				2E8FFAF31D67A41800B1E498 /* puzzle-D-DR.jpg */,
+				2E8FFAF41D67A41800B1E498 /* puzzle-D-duh.jpg */,
+				2E8FFAF51D67A41800B1E498 /* puzzle-E-EA.jpg */,
+				2E8FFAF61D67A41800B1E498 /* puzzle-E-ER.jpg */,
+				2E8FFAF71D67A41800B1E498 /* puzzle-E-ET.jpg */,
+				2E8FFAF81D67A41800B1E498 /* puzzle-E-EW.jpg */,
+				2E8FFAF91D67A41800B1E498 /* puzzle-E-long.jpg */,
+				2E8FFAFA1D67A41800B1E498 /* puzzle-E-schwa.jpg */,
+				2E8FFAFB1D67A41800B1E498 /* puzzle-E-short.jpg */,
+				2E8FFAFC1D67A41800B1E498 /* puzzle-F-FL.jpg */,
+				2E8FFAFD1D67A41800B1E498 /* puzzle-F-FR.jpg */,
+				2E8FFAFE1D67A41800B1E498 /* puzzle-G-GL.jpg */,
+				2E8FFAFF1D67A41800B1E498 /* puzzle-G-GR.jpg */,
+				2E8FFB001D67A41800B1E498 /* puzzle-G-guh.jpg */,
+				2E8FFB011D67A41800B1E498 /* puzzle-H-huh.jpg */,
+				2E8FFB021D67A41800B1E498 /* puzzle-I-IE.jpg */,
+				2E8FFB031D67A41800B1E498 /* puzzle-I-IGH.jpg */,
+				2E8FFB041D67A41800B1E498 /* puzzle-I-IL.jpg */,
+				2E8FFB051D67A41800B1E498 /* puzzle-I-IR.jpg */,
+				2E8FFB061D67A41800B1E498 /* puzzle-I-long.jpg */,
+				2E8FFB071D67A41800B1E498 /* puzzle-I-schwa.jpg */,
+				2E8FFB081D67A41800B1E498 /* puzzle-I-short.jpg */,
+				2E8FFB091D67A41800B1E498 /* puzzle-J-juh.jpg */,
+				2E8FFB0A1D67A41800B1E498 /* puzzle-K-kuh.jpg */,
+				2E8FFB0B1D67A41800B1E498 /* puzzle-L-LE.jpg */,
+				2E8FFB0C1D67A41800B1E498 /* puzzle-L-lll.jpg */,
+				2E8FFB0D1D67A41800B1E498 /* puzzle-M-mmm.jpg */,
+				2E8FFB0E1D67A41800B1E498 /* puzzle-N-ND.jpg */,
+				2E8FFB0F1D67A41800B1E498 /* puzzle-N-NG.jpg */,
+				2E8FFB101D67A41800B1E498 /* puzzle-N-NK.jpg */,
+				2E8FFB111D67A41800B1E498 /* puzzle-N-nnn.jpg */,
+				2E8FFB121D67A41800B1E498 /* puzzle-O-long.jpg */,
+				2E8FFB131D67A41800B1E498 /* puzzle-O-OA.jpg */,
+				2E8FFB141D67A41800B1E498 /* puzzle-O-OI.jpg */,
+				2E8FFB151D67A41800B1E498 /* puzzle-O-OO-ew.jpg */,
+				2E8FFB161D67A41800B1E498 /* puzzle-O-OO-uh.jpg */,
+				2E8FFB171D67A41800B1E498 /* puzzle-O-OR.jpg */,
+				2E8FFB181D67A41800B1E498 /* puzzle-O-OU.jpg */,
+				2E8FFB191D67A41800B1E498 /* puzzle-O-OW-ohw.jpg */,
+				2E8FFB1A1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg */,
+				2E8FFB1B1D67A41800B1E498 /* puzzle-O-OY.JPG */,
+				2E8FFB1C1D67A41800B1E498 /* puzzle-O-short.jpg */,
+				2E8FFB1D1D67A41800B1E498 /* puzzle-O-uh.jpg */,
+				2E8FFB1E1D67A41800B1E498 /* puzzle-P-PL.jpg */,
+				2E8FFB1F1D67A41800B1E498 /* puzzle-P-PR.jpg */,
+				2E8FFB201D67A41800B1E498 /* puzzle-P-puh.jpg */,
+				2E8FFB211D67A41800B1E498 /* puzzle-Q-qwuh.jpg */,
+				2E8FFB221D67A41800B1E498 /* puzzle-R-ruh.jpg */,
+				2E8FFB231D67A41800B1E498 /* puzzle-S-SH.jpg */,
+				2E8FFB241D67A41800B1E498 /* puzzle-S-SK.jpg */,
+				2E8FFB251D67A41800B1E498 /* puzzle-S-SL.jpg */,
+				2E8FFB261D67A41800B1E498 /* puzzle-S-SP.png */,
+				2E8FFB271D67A41800B1E498 /* puzzle-S-sss.jpg */,
+				2E8FFB281D67A41800B1E498 /* puzzle-S-ST.jpg */,
+				2E8FFB291D67A41800B1E498 /* puzzle-S-SW.jpg */,
+				2E8FFB2A1D67A41800B1E498 /* puzzle-S-zz.jpg */,
+				2E8FFB2B1D67A41800B1E498 /* puzzle-T-TH.jpg */,
+				2E8FFB2C1D67A41800B1E498 /* puzzle-T-THE.jpg */,
+				2E8FFB2D1D67A41800B1E498 /* puzzle-T-TR.jpg */,
+				2E8FFB2E1D67A41800B1E498 /* puzzle-T-ttt.jpg */,
+				2E8FFB2F1D67A41800B1E498 /* puzzle-U-long.jpg */,
+				2E8FFB301D67A41800B1E498 /* puzzle-U-short.jpg */,
+				2E8FFB311D67A41800B1E498 /* puzzle-U-UR.jpg */,
+				2E8FFB321D67A41800B1E498 /* puzzle-V-vv.jpg */,
+				2E8FFB331D67A41800B1E498 /* puzzle-W-WH.jpg */,
+				2E8FFB341D67A41800B1E498 /* puzzle-W-wuh.jpg */,
+				2E8FFB351D67A41800B1E498 /* puzzle-X-ks.jpg */,
+				2E8FFB361D67A41800B1E498 /* puzzle-Y-e.jpg */,
+				2E8FFB371D67A41800B1E498 /* puzzle-Y-i.jpg */,
+				2E8FFB381D67A41800B1E498 /* puzzle-Y-yuh.jpg */,
+				2E8FFB391D67A41800B1E498 /* puzzle-Z-zzz.jpg */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -4237,6 +4333,7 @@
 				2E8FF8BC1D6514FE00B1E498 /* grandfather.jpg in Resources */,
 				2E8FF9B61D6514FE00B1E498 /* rake.jpg in Resources */,
 				2E6DE3731D639A1B00978DD6 /* words-P-PL.mp3 in Resources */,
+				2E8FFBD81D67A41800B1E498 /* puzzle-U-short.jpg in Resources */,
 				2E6DE3971D639A1B00978DD6 /* words-T-ET.mp3 in Resources */,
 				2E6DE3A41D639A1B00978DD6 /* words-U-UL.mp3 in Resources */,
 				2E8FFAAD1D6514FE00B1E498 /* weather.jpg in Resources */,
@@ -4254,11 +4351,11 @@
 				2E8FF77B1D6514FE00B1E498 /* armchair.jpg in Resources */,
 				2E8FF8E41D6514FE00B1E498 /* high heels.jpg in Resources */,
 				2E8FF8731D6514FE00B1E498 /* farm.jpg in Resources */,
-				2E8FF7251D6514FE00B1E498 /* puzzle-O-long.jpg in Resources */,
 				2E8FF9F91D6514FE00B1E498 /* skates.jpg in Resources */,
 				2E8FF79E1D6514FE00B1E498 /* bed.jpg in Resources */,
 				2E8FF9081D6514FE00B1E498 /* jumped.jpg in Resources */,
 				2E8FF7EE1D6514FE00B1E498 /* cannon.jpg in Resources */,
+				2E8FFB461D67A41800B1E498 /* puzzle-A-AY.jpg in Resources */,
 				2E8FF8801D6514FE00B1E498 /* firetruck.jpg in Resources */,
 				2E6DE2DE1D639A1B00978DD6 /* sound-O-short.mp3 in Resources */,
 				2E8FF8631D6514FE00B1E498 /* egg.jpg in Resources */,
@@ -4266,12 +4363,12 @@
 				2E8FF8061D6514FE00B1E498 /* chop.jpg in Resources */,
 				2E6DE30D1D639A1B00978DD6 /* sound-US.mp3 in Resources */,
 				2E8FFA8F1D6514FE00B1E498 /* unicycle.jpg in Resources */,
-				2E8FF7371D6514FE00B1E498 /* puzzle-S-SK.jpg in Resources */,
 				2E6DE3831D639A1B00978DD6 /* words-R-RK.mp3 in Resources */,
 				2E6DE2E91D639A1B00978DD6 /* sound-OWN.mp3 in Resources */,
 				2E8FF7AB1D6514FE00B1E498 /* birthday.jpg in Resources */,
 				2E8FF7ED1D6514FE00B1E498 /* candy.jpg in Resources */,
 				2E8FF7BD1D6514FE00B1E498 /* bookcase.jpg in Resources */,
+				2E8FFB521D67A41800B1E498 /* puzzle-B-buh.jpg in Resources */,
 				2E8FF9051D6514FE00B1E498 /* judge.jpg in Resources */,
 				2E8FF8DB1D6514FE00B1E498 /* hatchet.jpg in Resources */,
 				2E8FFA101D6514FE00B1E498 /* snow skis and poles.jpg in Resources */,
@@ -4292,7 +4389,9 @@
 				2E8FF8DF1D6514FE00B1E498 /* haystacks.jpg in Resources */,
 				2E8FFA291D6514FE00B1E498 /* star.jpg in Resources */,
 				2E6DE3231D639A1B00978DD6 /* words-C-CH.mp3 in Resources */,
+				2E8FFBEA1D67A41800B1E498 /* puzzle-Z-zzz.jpg in Resources */,
 				2E8FF7CC1D6514FE00B1E498 /* broom.jpg in Resources */,
+				2E8FFBD01D67A41800B1E498 /* puzzle-T-THE.jpg in Resources */,
 				2E6DE3BC1D639A1B00978DD6 /* Pronunciations.txt in Resources */,
 				2E6DE3021D639A1B00978DD6 /* sound-TH.mp3 in Resources */,
 				2E8FF89D1D6514FE00B1E498 /* frisbee.jpg in Resources */,
@@ -4305,10 +4404,12 @@
 				2E8FF7D01D6514FE00B1E498 /* brushing.jpg in Resources */,
 				2E6DE2DF1D639A1B00978DD6 /* sound-O-UH.mp3 in Resources */,
 				2E8FF9E21D6514FE00B1E498 /* screws.jpg in Resources */,
+				2E8FFB621D67A41800B1E498 /* puzzle-E-EA.jpg in Resources */,
 				2E8FFAD61D6514FE00B1E498 /* zebra.jpg in Resources */,
 				2E8FF9631D6514FE00B1E498 /* old.jpg in Resources */,
 				2E8FF7FB1D6514FE00B1E498 /* celery.jpg in Resources */,
 				2E8FFAD71D6514FE00B1E498 /* zipper.jpg in Resources */,
+				2E8FFBCE1D67A41800B1E498 /* puzzle-T-TH.jpg in Resources */,
 				2E8FF7E71D6514FE00B1E498 /* calf.jpg in Resources */,
 				2E8FF7A51D6514FE00B1E498 /* beret hat.jpg in Resources */,
 				2E6DE3301D639A1B00978DD6 /* words-E-ehh.mp3 in Resources */,
@@ -4330,7 +4431,6 @@
 				2E8FFA3F1D6514FE00B1E498 /* stump.jpg in Resources */,
 				2E8FF9971D6514FE00B1E498 /* poison.jpg in Resources */,
 				2E8FF7941D6514FE00B1E498 /* baseball cap.jpg in Resources */,
-				2E8FF7041D6514FE00B1E498 /* puzzle-C-kuh.jpg in Resources */,
 				2E8FFA331D6514FE00B1E498 /* stocking cap.jpg in Resources */,
 				2E8FF9CE1D6514FE00B1E498 /* sacks.jpg in Resources */,
 				2E8FFA141D6514FE00B1E498 /* snowy.jpg in Resources */,
@@ -4352,10 +4452,10 @@
 				2E8FFA0F1D6514FE00B1E498 /* snow plow.jpg in Resources */,
 				2E6DE30A1D639A1B00978DD6 /* sound-UMP.mp3 in Resources */,
 				2E8FF7571D6514FE00B1E498 /* 18.jpg in Resources */,
-				2E8FF7191D6514FE00B1E498 /* puzzle-I-long.jpg in Resources */,
 				2E8FF8201D6514FE00B1E498 /* cookies.jpg in Resources */,
 				2E8FF7C31D6514FE00B1E498 /* bow tie.jpg in Resources */,
 				2E6DE3161D639A1B00978DD6 /* sound-Z.mp3 in Resources */,
+				2E8FFB441D67A41800B1E498 /* puzzle-A-AW.jpg in Resources */,
 				2E8FF8281D6514FE00B1E498 /* cranberry.jpg in Resources */,
 				2E6DE2E41D639A1B00978DD6 /* sound-OT.mp3 in Resources */,
 				2E8FFA8C1D6514FE00B1E498 /* U.jpg in Resources */,
@@ -4364,7 +4464,6 @@
 				2E8FF8121D6514FE00B1E498 /* cobweb.jpg in Resources */,
 				2E8FF9421D6514FE00B1E498 /* MNO.jpg in Resources */,
 				2E8FFA871D6514FE00B1E498 /* tumble.jpg in Resources */,
-				2E8FF6F41D6514FE00B1E498 /* puzzle-A-ahh.jpg in Resources */,
 				2E8FFA821D6514FE00B1E498 /* troubles.jpg in Resources */,
 				2E8FF7C81D6514FE00B1E498 /* bread.jpg in Resources */,
 				2E8FF7891D6514FE00B1E498 /* balance.jpg in Resources */,
@@ -4372,18 +4471,16 @@
 				2E8FF8A31D6514FE00B1E498 /* furniture.jpg in Resources */,
 				2E8FF9841D6514FE00B1E498 /* pick.jpg in Resources */,
 				2E8FF9311D6514FE00B1E498 /* mailman.jpg in Resources */,
-				2E8FF7131D6514FE00B1E498 /* puzzle-G-guh.jpg in Resources */,
 				2E8FFAAC1D6514FE00B1E498 /* watermelon.jpg in Resources */,
 				2E8FFAD41D6514FE00B1E498 /* yoyo.jpg in Resources */,
 				2E8FF7A81D6514FE00B1E498 /* bird.jpg in Resources */,
 				2E8FFAC11D6514FE00B1E498 /* windmill.jpg in Resources */,
-				2E8FF6F61D6514FE00B1E498 /* puzzle-A-AN.jpg in Resources */,
 				2E8FFAB31D6514FE00B1E498 /* wheelchair.jpg in Resources */,
 				2E8FF8111D6514FE00B1E498 /* coat.jpg in Resources */,
+				2E8FFBC41D67A41800B1E498 /* puzzle-S-SP.png in Resources */,
+				2E8FFBE01D67A41800B1E498 /* puzzle-W-wuh.jpg in Resources */,
 				2E8FF95F1D6514FE00B1E498 /* nut.jpg in Resources */,
 				2E8FFAA71D6514FE00B1E498 /* watch.jpg in Resources */,
-				2E8FF6F91D6514FE00B1E498 /* puzzle-A-AW.jpg in Resources */,
-				2E8FF73B1D6514FE00B1E498 /* puzzle-S-ST.jpg in Resources */,
 				2E6DE38D1D639A1B00978DD6 /* words-S-SK.mp3 in Resources */,
 				2E8FF75E1D6514FE00B1E498 /* 4.jpg in Resources */,
 				2E8FF7AC1D6514FE00B1E498 /* bite.jpg in Resources */,
@@ -4394,22 +4491,22 @@
 				2E8FF9FA1D6514FE00B1E498 /* skating.jpg in Resources */,
 				2E6DE2B41D639A1B00978DD6 /* sound-D.mp3 in Resources */,
 				2E8FF9991D6514FE00B1E498 /* policeman.jpg in Resources */,
-				2E8FF72C1D6514FE00B1E498 /* puzzle-O-OW-ohw.jpg in Resources */,
 				2E8FF8BE1D6514FE00B1E498 /* grape.jpg in Resources */,
 				2E8FF8321D6514FE00B1E498 /* cup.jpg in Resources */,
 				2E8FF9BD1D6514FE00B1E498 /* rhinoceros.jpg in Resources */,
 				2E8FF7D11D6514FE00B1E498 /* bubble.jpg in Resources */,
+				2E8FFB4C1D67A41800B1E498 /* puzzle-A-short.jpg in Resources */,
 				2E8FFAB41D6514FE00B1E498 /* whisper.jpg in Resources */,
+				2E8FFBD21D67A41800B1E498 /* puzzle-T-TR.jpg in Resources */,
 				2E6DE3751D639A1B00978DD6 /* words-P-puh.mp3 in Resources */,
 				2E6DE3881D639A1B00978DD6 /* words-R-ruh.mp3 in Resources */,
 				2E8FF9221D6514FE00B1E498 /* life jacket.jpg in Resources */,
 				2E8FF8FE1D6514FE00B1E498 /* J.jpg in Resources */,
+				2E8FFBC21D67A41800B1E498 /* puzzle-S-SL.jpg in Resources */,
 				2E8FF8F31D6514FE00B1E498 /* hot dog.jpg in Resources */,
 				2E6DE2EB1D639A1B00978DD6 /* sound-PL.mp3 in Resources */,
-				2E8FF7401D6514FE00B1E498 /* puzzle-T-TR.jpg in Resources */,
 				2E8FF8DE1D6514FE00B1E498 /* haystack.jpg in Resources */,
 				2E6DE28A1D639A1B00978DD6 /* LaunchScreen.storyboard in Resources */,
-				2E8FF7381D6514FE00B1E498 /* puzzle-S-SL.jpg in Resources */,
 				2E8FF79D1D6514FE00B1E498 /* beaver.jpg in Resources */,
 				2E6DE3121D639A1B00978DD6 /* sound-WH.mp3 in Resources */,
 				2E8FF8211D6514FE00B1E498 /* coonskin cap.jpg in Resources */,
@@ -4424,11 +4521,12 @@
 				2E8FFA471D6514FE00B1E498 /* supper.jpg in Resources */,
 				2E8FF7911D6514FE00B1E498 /* barn.jpg in Resources */,
 				2E6DE2EF1D639A1B00978DD6 /* sound-RD.mp3 in Resources */,
+				2E8FFBA41D67A41800B1E498 /* puzzle-O-OO-uh.jpg in Resources */,
 				2E8FF8BF1D6514FE00B1E498 /* grapes.jpg in Resources */,
 				2E8FF86F1D6514FE00B1E498 /* face.jpg in Resources */,
 				2E8FF9791D6514FE00B1E498 /* pearl.jpg in Resources */,
-				2E8FF72B1D6514FE00B1E498 /* puzzle-O-OU.jpg in Resources */,
 				2E8FF9CB1D6514FE00B1E498 /* run.jpg in Resources */,
+				2E8FFB3A1D67A41800B1E498 /* puzzle-A-ahh.jpg in Resources */,
 				2E8FF9701D6514FE00B1E498 /* Paint.jpg in Resources */,
 				2E6DE39A1D639A1B00978DD6 /* words-T-ST.mp3 in Resources */,
 				2E6DE2881D639A1B00978DD6 /* Assets.xcassets in Resources */,
@@ -4442,11 +4540,13 @@
 				2E6DE2C31D639A1B00978DD6 /* sound-F.mp3 in Resources */,
 				2E8FF7E91D6514FE00B1E498 /* canary.jpg in Resources */,
 				2E8FF8DD1D6514FE00B1E498 /* hay.jpg in Resources */,
+				2E8FFB3E1D67A41800B1E498 /* puzzle-A-AN.jpg in Resources */,
 				2E8FF9891D6514FE00B1E498 /* pieman.jpg in Resources */,
 				2E8FF81F1D6514FE00B1E498 /* cook.jpg in Resources */,
 				2E8FF88E1D6514FE00B1E498 /* flower.jpg in Resources */,
 				2E8FF9801D6514FE00B1E498 /* penguin.jpg in Resources */,
 				2E8FF99B1D6514FE00B1E498 /* Porridge.jpg in Resources */,
+				2E8FFB6C1D67A41800B1E498 /* puzzle-E-schwa.jpg in Resources */,
 				2E6DE2E61D639A1B00978DD6 /* sound-OUR.mp3 in Resources */,
 				2E8FF7F91D6514FE00B1E498 /* catcher.jpg in Resources */,
 				2E8FF8D81D6514FE00B1E498 /* harmonica.jpg in Resources */,
@@ -4469,13 +4569,14 @@
 				2E8FFA2F1D6514FE00B1E498 /* stew pot or cauldron.jpg in Resources */,
 				2E8FFA991D6514FE00B1E498 /* V.jpg in Resources */,
 				2E8FF86A1D6514FE00B1E498 /* excavator.jpg in Resources */,
+				2E8FFBB61D67A41800B1E498 /* puzzle-P-PR.jpg in Resources */,
+				2E8FFB8A1D67A41800B1E498 /* puzzle-J-juh.jpg in Resources */,
 				2E8FF9581D6514FE00B1E498 /* net.jpg in Resources */,
 				2E8FF83C1D6514FE00B1E498 /* dance.jpg in Resources */,
 				2E8FF9E01D6514FE00B1E498 /* scratch.jpg in Resources */,
 				2E8FF83F1D6514FE00B1E498 /* Dancing.jpg in Resources */,
 				2E8FF9211D6514FE00B1E498 /* licked.jpg in Resources */,
 				2E8FFA371D6514FE00B1E498 /* storm.jpg in Resources */,
-				2E8FF73D1D6514FE00B1E498 /* puzzle-S-zz.jpg in Resources */,
 				2E8FF93D1D6514FE00B1E498 /* mill.jpg in Resources */,
 				2E8FF92A1D6514FE00B1E498 /* lobster.jpg in Resources */,
 				2E8FF8551D6514FE00B1E498 /* drill.jpg in Resources */,
@@ -4488,7 +4589,6 @@
 				2E8FFA271D6514FE00B1E498 /* squirrel.jpg in Resources */,
 				2E6DE3481D639A1B00978DD6 /* words-I-IR.mp3 in Resources */,
 				2E8FF8EF1D6514FE00B1E498 /* honor.jpg in Resources */,
-				2E8FF7161D6514FE00B1E498 /* puzzle-I-IGH.jpg in Resources */,
 				2E8FF8AB1D6514FE00B1E498 /* gingerbread man.jpg in Resources */,
 				2E8FF8EE1D6514FE00B1E498 /* home.jpg in Resources */,
 				2E8FF9DE1D6514FE00B1E498 /* school bus.jpg in Resources */,
@@ -4499,11 +4599,9 @@
 				2E6DE3051D639A1B00978DD6 /* sound-U-oo.mp3 in Resources */,
 				2E8FF8651D6514FE00B1E498 /* elephant.jpg in Resources */,
 				2E8FF7BA1D6514FE00B1E498 /* bolt cutters.jpg in Resources */,
-				2E8FF70B1D6514FE00B1E498 /* puzzle-E-EW.jpg in Resources */,
 				2E8FF75A1D6514FE00B1E498 /* 20.jpg in Resources */,
 				2E8FF8D51D6514FE00B1E498 /* handsaw.jpg in Resources */,
 				2E8FF81E1D6514FE00B1E498 /* Contrary.jpg in Resources */,
-				2E8FF7181D6514FE00B1E498 /* puzzle-I-IR.jpg in Resources */,
 				2E8FFA431D6514FE00B1E498 /* sunglasses.jpg in Resources */,
 				2E6DE3661D639A1B00978DD6 /* words-N-RN.mp3 in Resources */,
 				2E8FFABE1D6514FE00B1E498 /* wigs.jpg in Resources */,
@@ -4513,6 +4611,7 @@
 				2E8FF8691D6514FE00B1E498 /* envelope.jpg in Resources */,
 				2E8FF98B1D6514FE00B1E498 /* pig.jpg in Resources */,
 				2E8FF8761D6514FE00B1E498 /* feather.jpg in Resources */,
+				2E8FFBB21D67A41800B1E498 /* puzzle-O-uh.jpg in Resources */,
 				2E8FF8C81D6514FE00B1E498 /* grizzly bear.jpg in Resources */,
 				2E6DE34C1D639A1B00978DD6 /* words-K-AK.mp3 in Resources */,
 				2E8FF9161D6514FE00B1E498 /* labrador retriever.jpg in Resources */,
@@ -4521,18 +4620,19 @@
 				2E8FF8CA1D6514FE00B1E498 /* guitar player.jpg in Resources */,
 				2E8FF7D21D6514FE00B1E498 /* bubbles.jpg in Resources */,
 				2E8FFA0A1D6514FE00B1E498 /* slippers.jpg in Resources */,
+				2E8FFBCC1D67A41800B1E498 /* puzzle-S-zz.jpg in Resources */,
 				2E8FFA981D6514FE00B1E498 /* utility knife.jpg in Resources */,
+				2E8FFB9A1D67A41800B1E498 /* puzzle-N-nnn.jpg in Resources */,
 				2E8FFA001D6514FE00B1E498 /* skis.jpg in Resources */,
-				2E8FF7171D6514FE00B1E498 /* puzzle-I-IL.jpg in Resources */,
 				2E8FF8561D6514FE00B1E498 /* drink.jpg in Resources */,
 				2E8FF8971D6514FE00B1E498 /* footstool.jpg in Resources */,
-				2E8FF6F81D6514FE00B1E498 /* puzzle-A-AU.jpg in Resources */,
 				2E6DE38C1D639A1B00978DD6 /* words-S-SH.mp3 in Resources */,
 				2E6DE3951D639A1B00978DD6 /* words-S-zz.mp3 in Resources */,
 				2E6DE34F1D639A1B00978DD6 /* words-K-SK.mp3 in Resources */,
 				2E8FF92F1D6514FE00B1E498 /* machete.jpg in Resources */,
+				2E8FFB4E1D67A41800B1E498 /* puzzle-B-BL.jpg in Resources */,
+				2E8FFBDA1D67A41800B1E498 /* puzzle-U-UR.jpg in Resources */,
 				2E8FF9B91D6514FE00B1E498 /* red potatoes.jpg in Resources */,
-				2E8FF6FB1D6514FE00B1E498 /* puzzle-A-long.jpg in Resources */,
 				2E8FF9CC1D6514FE00B1E498 /* running shoe.jpg in Resources */,
 				2E8FF7E21D6514FE00B1E498 /* button.jpg in Resources */,
 				2E8FF8471D6514FE00B1E498 /* dish.jpg in Resources */,
@@ -4573,6 +4673,7 @@
 				2E8FF9111D6514FE00B1E498 /* kitten.jpg in Resources */,
 				2E8FF8151D6514FE00B1E498 /* cocoa.jpg in Resources */,
 				2E6DE32D1D639A1B00978DD6 /* words-D-ND.mp3 in Resources */,
+				2E8FFB5E1D67A41800B1E498 /* puzzle-D-DR.jpg in Resources */,
 				2E6DE3351D639A1B00978DD6 /* words-F-FL.mp3 in Resources */,
 				2E8FF7C41D6514FE00B1E498 /* bowl.jpg in Resources */,
 				2E8FF85A1D6514FE00B1E498 /* ducks.jpg in Resources */,
@@ -4581,7 +4682,6 @@
 				2E8FF8A61D6514FE00B1E498 /* garden.jpg in Resources */,
 				2E8FF91F1D6514FE00B1E498 /* lettuce.jpg in Resources */,
 				2E6DE34D1D639A1B00978DD6 /* words-K-kuh.mp3 in Resources */,
-				2E8FF7081D6514FE00B1E498 /* puzzle-E-EA.jpg in Resources */,
 				2E8FF9A11D6514FE00B1E498 /* pretzel.jpg in Resources */,
 				2E8FF74D1D6514FE00B1E498 /* 1.jpg in Resources */,
 				2E8FF8AF1D6514FE00B1E498 /* glass.jpg in Resources */,
@@ -4597,23 +4697,27 @@
 				2E8FF8B91D6514FE00B1E498 /* goose.jpg in Resources */,
 				2E8FF9E41D6514FE00B1E498 /* seagulls.jpg in Resources */,
 				2E6DE3761D639A1B00978DD6 /* words-P-SP.mp3 in Resources */,
+				2E8FFBCA1D67A41800B1E498 /* puzzle-S-SW.jpg in Resources */,
 				2E8FFA5B1D6514FE00B1E498 /* tank.jpg in Resources */,
 				2E6DE3A51D639A1B00978DD6 /* words-U-UM.mp3 in Resources */,
 				2E8FFA631D6514FE00B1E498 /* tennis racquet.jpg in Resources */,
+				2E8FFBC01D67A41800B1E498 /* puzzle-S-SK.jpg in Resources */,
 				2E8FFA8B1D6514FE00B1E498 /* turtle.jpg in Resources */,
 				2E8FF80E1D6514FE00B1E498 /* cloudy.jpg in Resources */,
+				2E8FFBB41D67A41800B1E498 /* puzzle-P-PL.jpg in Resources */,
 				2E8FF9291D6514FE00B1E498 /* lizard.jpg in Resources */,
 				2E6DE3AD1D639A1B00978DD6 /* words-W-aw.mp3 in Resources */,
+				2E8FFB921D67A41800B1E498 /* puzzle-M-mmm.jpg in Resources */,
 				2E6DE2A11D639A1B00978DD6 /* sound-ADD.mp3 in Resources */,
 				2E8FF9F71D6514FE00B1E498 /* skate.jpg in Resources */,
 				2E8FF8CC1D6514FE00B1E498 /* gun.jpg in Resources */,
 				2E6DE29E1D639A1B00978DD6 /* sound-A-ah.mp3 in Resources */,
 				2E6DE2961D639A1B00978DD6 /* letter-K.mp3 in Resources */,
-				2E8FF7141D6514FE00B1E498 /* puzzle-H-huh.jpg in Resources */,
 				2E8FF7F81D6514FE00B1E498 /* catch.jpg in Resources */,
 				2E8FF8021D6514FE00B1E498 /* chihuahua.jpg in Resources */,
 				2E6DE29D1D639A1B00978DD6 /* letter-Y.mp3 in Resources */,
 				2E8FF9F21D6514FE00B1E498 /* singing.jpg in Resources */,
+				2E8FFB841D67A41800B1E498 /* puzzle-I-long.jpg in Resources */,
 				2E8FF7A91D6514FE00B1E498 /* birds.jpg in Resources */,
 				2E8FFA8A1D6514FE00B1E498 /* turkey.jpg in Resources */,
 				2E8FF95C1D6514FE00B1E498 /* noise.jpg in Resources */,
@@ -4633,6 +4737,7 @@
 				2E8FF9DC1D6514FE00B1E498 /* saw.jpg in Resources */,
 				2E6DE34E1D639A1B00978DD6 /* words-K-RK.mp3 in Resources */,
 				2E8FF9231D6514FE00B1E498 /* light.jpg in Resources */,
+				2E8FFB421D67A41800B1E498 /* puzzle-A-AU.jpg in Resources */,
 				2E8FF8A21D6514FE00B1E498 /* frying pan.jpg in Resources */,
 				2E8FF7AF1D6514FE00B1E498 /* blackberries.jpg in Resources */,
 				2E8FF8E81D6514FE00B1E498 /* hilly.jpg in Resources */,
@@ -4643,7 +4748,6 @@
 				2E8FF98D1D6514FE00B1E498 /* pillow.jpg in Resources */,
 				2E8FF93B1D6514FE00B1E498 /* microwave oven.jpg in Resources */,
 				2E8FF9D61D6514FE00B1E498 /* sandbox.jpg in Resources */,
-				2E8FF6FA1D6514FE00B1E498 /* puzzle-A-AY.jpg in Resources */,
 				2E8FF7981D6514FE00B1E498 /* bass drum.jpg in Resources */,
 				2E6DE36D1D639A1B00978DD6 /* words-O-OT.mp3 in Resources */,
 				2E8FF9511D6514FE00B1E498 /* N.jpg in Resources */,
@@ -4661,15 +4765,11 @@
 				2E8FF7E41D6514FE00B1E498 /* cabbage.jpg in Resources */,
 				2E8FF84C1D6514FE00B1E498 /* doll house.jpg in Resources */,
 				2E8FFA0C1D6514FE00B1E498 /* snail.jpg in Resources */,
-				2E8FF7421D6514FE00B1E498 /* puzzle-U-long.jpg in Resources */,
 				2E6DE3B61D639A1B00978DD6 /* words-Y-i.mp3 in Resources */,
 				2E8FF8BD1D6514FE00B1E498 /* grandmother.jpg in Resources */,
 				2E8FF8BA1D6514FE00B1E498 /* gossip.jpg in Resources */,
 				2E8FF9761D6514FE00B1E498 /* parallel bars.jpg in Resources */,
 				2E8FF9C91D6514FE00B1E498 /* rocking horse.jpg in Resources */,
-				2E8FF7101D6514FE00B1E498 /* puzzle-F-FR.jpg in Resources */,
-				2E8FF7341D6514FE00B1E498 /* puzzle-Q-qwuh.jpg in Resources */,
-				2E8FF72D1D6514FE00B1E498 /* puzzle-O-OW-ouw.jpg in Resources */,
 				2E8FFA681D6514FE00B1E498 /* throw.jpg in Resources */,
 				2E6DE3471D639A1B00978DD6 /* words-I-IL.mp3 in Resources */,
 				2E8FF8851D6514FE00B1E498 /* flag and pole.jpg in Resources */,
@@ -4677,7 +4777,6 @@
 				2E8FF7D81D6514FE00B1E498 /* bunk bed.jpg in Resources */,
 				2E6DE3B91D639A1B00978DD6 /* words-Z-zzz.mp3 in Resources */,
 				2E8FF8AE1D6514FE00B1E498 /* girl.jpg in Resources */,
-				2E8FF7211D6514FE00B1E498 /* puzzle-N-ND.jpg in Resources */,
 				2E8FF79A1D6514FE00B1E498 /* beagle.jpg in Resources */,
 				2E8FF9301D6514FE00B1E498 /* mail.jpg in Resources */,
 				2E8FF7F61D6514FE00B1E498 /* cat-tails.jpg in Resources */,
@@ -4693,28 +4792,26 @@
 				2E8FFA581D6514FE00B1E498 /* tail.jpg in Resources */,
 				2E6DE2D41D639A1B00978DD6 /* sound-IT.mp3 in Resources */,
 				2E6DE2A91D639A1B00978DD6 /* sound-AT.mp3 in Resources */,
-				2E8FF71E1D6514FE00B1E498 /* puzzle-L-LE.jpg in Resources */,
-				2E8FF7111D6514FE00B1E498 /* puzzle-G-GL.jpg in Resources */,
 				2E8FF9A21D6514FE00B1E498 /* proud.jpg in Resources */,
 				2E8FF9541D6514FE00B1E498 /* Nap.jpg in Resources */,
 				2E8FF82A1D6514FE00B1E498 /* crayon.jpg in Resources */,
+				2E8FFB981D67A41800B1E498 /* puzzle-N-NK.jpg in Resources */,
 				2E8FFA701D6514FE00B1E498 /* toes.jpg in Resources */,
 				2E8FFA661D6514FE00B1E498 /* three.jpg in Resources */,
-				2E8FF7391D6514FE00B1E498 /* puzzle-S-SP.png in Resources */,
 				2E8FFA041D6514FE00B1E498 /* sledge hammer.jpg in Resources */,
 				2E8FFAB61D6514FE00B1E498 /* whistles.jpg in Resources */,
 				2E8FFA231D6514FE00B1E498 /* spoon.jpg in Resources */,
 				2E8FFAB11D6514FE00B1E498 /* wheel.jpg in Resources */,
 				2E8FFA691D6514FE00B1E498 /* thumb.jpg in Resources */,
-				2E8FF70E1D6514FE00B1E498 /* puzzle-E-short.jpg in Resources */,
 				2E8FF7DC1D6514FE00B1E498 /* burned.jpg in Resources */,
 				2E8FFA491D6514FE00B1E498 /* suv.jpg in Resources */,
 				2E8FF8F41D6514FE00B1E498 /* hot.jpg in Resources */,
 				2E8FFAD31D6514FE00B1E498 /* yo-yo.jpg in Resources */,
+				2E8FFB721D67A41800B1E498 /* puzzle-F-FR.jpg in Resources */,
+				2E8FFB9C1D67A41800B1E498 /* puzzle-O-long.jpg in Resources */,
 				2E8FF91B1D6514FE00B1E498 /* legs.jpg in Resources */,
 				2E8FFA071D6514FE00B1E498 /* sleepy.jpg in Resources */,
 				2E6DE2CC1D639A1B00978DD6 /* sound-I-short.mp3 in Resources */,
-				2E8FF7441D6514FE00B1E498 /* puzzle-U-UR.jpg in Resources */,
 				2E8FFA811D6514FE00B1E498 /* trombone.jpg in Resources */,
 				2E8FF8991D6514FE00B1E498 /* fork.jpg in Resources */,
 				2E8FF9451D6514FE00B1E498 /* money.jpg in Resources */,
@@ -4723,24 +4820,23 @@
 				2E6DE36A1D639A1B00978DD6 /* words-O-o.mp3 in Resources */,
 				2E8FF8901D6514FE00B1E498 /* fly.jpg in Resources */,
 				2E8FF9141D6514FE00B1E498 /* knife.jpg in Resources */,
-				2E8FF7241D6514FE00B1E498 /* puzzle-N-nnn.jpg in Resources */,
 				2E6DE3781D639A1B00978DD6 /* words-R-AR.mp3 in Resources */,
 				2E8FF9FB1D6514FE00B1E498 /* skip.jpg in Resources */,
 				2E8FF8951D6514FE00B1E498 /* football helmet.jpg in Resources */,
-				2E8FF7351D6514FE00B1E498 /* puzzle-R-ruh.jpg in Resources */,
 				2E8FF87B1D6514FE00B1E498 /* find.jpg in Resources */,
 				2E8FF81C1D6514FE00B1E498 /* comb.jpg in Resources */,
 				2E8FF7671D6514FE00B1E498 /* A.jpg in Resources */,
-				2E8FF6FE1D6514FE00B1E498 /* puzzle-B-BL.jpg in Resources */,
 				2E8FF7741D6514FE00B1E498 /* ape.jpg in Resources */,
 				2E8FFA1B1D6514FE00B1E498 /* song.jpg in Resources */,
 				2E6DE3AF1D639A1B00978DD6 /* words-W-OWW.mp3 in Resources */,
 				2E8FF8351D6514FE00B1E498 /* curl.jpg in Resources */,
 				2E6DE33E1D639A1B00978DD6 /* words-G-UG.mp3 in Resources */,
+				2E8FFB581D67A41800B1E498 /* puzzle-C-CR.jpg in Resources */,
 				2E8FF8191D6514FE00B1E498 /* coin.jpg in Resources */,
 				2E8FFA181D6514FE00B1E498 /* sofa.jpg in Resources */,
 				2E8FF8E01D6514FE00B1E498 /* hear.jpg in Resources */,
 				2E6DE39B1D639A1B00978DD6 /* words-T-TH.mp3 in Resources */,
+				2E8FFBC61D67A41800B1E498 /* puzzle-S-sss.jpg in Resources */,
 				2E6DE3651D639A1B00978DD6 /* words-N-nnn.mp3 in Resources */,
 				2E6DE30C1D639A1B00978DD6 /* sound-UR.mp3 in Resources */,
 				2E8FF88A1D6514FE00B1E498 /* floor lamp.jpg in Resources */,
@@ -4754,6 +4850,7 @@
 				2E8FF9D41D6514FE00B1E498 /* sandal.jpg in Resources */,
 				2E6DE3181D639A1B00978DD6 /* words-A-ah.mp3 in Resources */,
 				2E8FF9171D6514FE00B1E498 /* lacrosse stick.jpg in Resources */,
+				2E8FFBE81D67A41800B1E498 /* puzzle-Y-yuh.jpg in Resources */,
 				2E8FF7F41D6514FE00B1E498 /* carrot.jpg in Resources */,
 				2E8FF82B1D6514FE00B1E498 /* crayons.jpg in Resources */,
 				2E6DE35A1D639A1B00978DD6 /* words-L-LY.mp3 in Resources */,
@@ -4781,7 +4878,6 @@
 				2E8FFAD11D6514FE00B1E498 /* yawning.jpg in Resources */,
 				2E6DE3491D639A1B00978DD6 /* words-I-IT.mp3 in Resources */,
 				2E6DE2C51D639A1B00978DD6 /* sound-FL.mp3 in Resources */,
-				2E8FF7231D6514FE00B1E498 /* puzzle-N-NK.jpg in Resources */,
 				2E8FF9DB1D6514FE00B1E498 /* sauce pan.jpg in Resources */,
 				2E8FFAC01D6514FE00B1E498 /* wind.jpg in Resources */,
 				2E6DE2DA1D639A1B00978DD6 /* sound-M.mp3 in Resources */,
@@ -4791,8 +4887,6 @@
 				2E8FF92E1D6514FE00B1E498 /* macaw parrot.jpg in Resources */,
 				2E8FF8FD1D6514FE00B1E498 /* icy.jpg in Resources */,
 				2E8FFABC1D6514FE00B1E498 /* wife.jpg in Resources */,
-				2E8FF70D1D6514FE00B1E498 /* puzzle-E-schwa.jpg in Resources */,
-				2E8FF7261D6514FE00B1E498 /* puzzle-O-OA.jpg in Resources */,
 				2E8FFA7B1D6514FE00B1E498 /* trees.jpg in Resources */,
 				2E8FFA191D6514FE00B1E498 /* sombrero.jpg in Resources */,
 				2E8FF7F21D6514FE00B1E498 /* carpenter's square.jpg in Resources */,
@@ -4801,33 +4895,32 @@
 				2E8FFA251D6514FE00B1E498 /* square.jpg in Resources */,
 				2E6DE2C71D639A1B00978DD6 /* sound-G-soft.mp3 in Resources */,
 				2E8FF90F1D6514FE00B1E498 /* king.jpg in Resources */,
-				2E8FF74A1D6514FE00B1E498 /* puzzle-Y-i.jpg in Resources */,
 				2E8FF9821D6514FE00B1E498 /* pet.jpg in Resources */,
 				2E8FF8E61D6514FE00B1E498 /* hill.jpg in Resources */,
 				2E8FF9781D6514FE00B1E498 /* path.jpg in Resources */,
 				2E8FF9961D6514FE00B1E498 /* pocket.jpg in Resources */,
-				2E8FF7491D6514FE00B1E498 /* puzzle-Y-e.jpg in Resources */,
 				2E6DE2BB1D639A1B00978DD6 /* sound-EEL.mp3 in Resources */,
 				2E8FF97F1D6514FE00B1E498 /* pencil.jpg in Resources */,
 				2E8FF8A41D6514FE00B1E498 /* G.jpg in Resources */,
 				2E8FFA5D1D6514FE00B1E498 /* taxi.jpg in Resources */,
 				2E8FF9331D6514FE00B1E498 /* mantel.jpg in Resources */,
+				2E8FFBDC1D67A41800B1E498 /* puzzle-V-vv.jpg in Resources */,
 				2E8FF9911D6514FE00B1E498 /* piper.jpg in Resources */,
 				2E6DE3041D639A1B00978DD6 /* sound-TWI.mp3 in Resources */,
 				2E8FFA721D6514FE00B1E498 /* tongue.jpg in Resources */,
+				2E8FFBA21D67A41800B1E498 /* puzzle-O-OO-ew.jpg in Resources */,
 				2E8FF88B1D6514FE00B1E498 /* floor.jpg in Resources */,
+				2E8FFBD41D67A41800B1E498 /* puzzle-T-ttt.jpg in Resources */,
 				2E8FFA201D6514FE00B1E498 /* spider.jpg in Resources */,
 				2E6DE30E1D639A1B00978DD6 /* sound-UT.mp3 in Resources */,
-				2E8FF7021D6514FE00B1E498 /* puzzle-C-CL.jpg in Resources */,
-				2E8FF7151D6514FE00B1E498 /* puzzle-I-IE.jpg in Resources */,
 				2E8FF7FA1D6514FE00B1E498 /* cauldron.jpg in Resources */,
+				2E8FFB9E1D67A41800B1E498 /* puzzle-O-OA.jpg in Resources */,
 				2E8FF9C31D6514FE00B1E498 /* robbers.jpg in Resources */,
 				2E6DE3A11D639A1B00978DD6 /* words-U-u.mp3 in Resources */,
 				2E8FF8931D6514FE00B1E498 /* flying squirrel.jpg in Resources */,
 				2E8FF8231D6514FE00B1E498 /* cow.jpg in Resources */,
 				2E8FF97C1D6514FE00B1E498 /* pecans.jpg in Resources */,
 				2E8FF7781D6514FE00B1E498 /* archery target.jpg in Resources */,
-				2E8FF7091D6514FE00B1E498 /* puzzle-E-ER.jpg in Resources */,
 				2E8FF8501D6514FE00B1E498 /* dragonfly.jpg in Resources */,
 				2E8FF8071D6514FE00B1E498 /* clam.jpg in Resources */,
 				2E8FFAA21D6514FE00B1E498 /* wall.jpg in Resources */,
@@ -4838,11 +4931,14 @@
 				2E6DE2A81D639A1B00978DD6 /* sound-AR.mp3 in Resources */,
 				2E6DE39E1D639A1B00978DD6 /* words-T-tttt.mp3 in Resources */,
 				2E8FF9251D6514FE00B1E498 /* lion.jpg in Resources */,
+				2E8FFBAC1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg in Resources */,
 				2E6DE28F1D639A1B00978DD6 /* letter-D.mp3 in Resources */,
+				2E8FFB881D67A41800B1E498 /* puzzle-I-short.jpg in Resources */,
 				2E8FF9521D6514FE00B1E498 /* nail.jpg in Resources */,
 				2E8FF9651D6514FE00B1E498 /* onions.jpg in Resources */,
 				2E8FF7E01D6514FE00B1E498 /* busy.jpg in Resources */,
 				2E8FF9AC1D6514FE00B1E498 /* queens.jpg in Resources */,
+				2E8FFB821D67A41800B1E498 /* puzzle-I-IR.jpg in Resources */,
 				2E8FF8411D6514FE00B1E498 /* Dark.jpg in Resources */,
 				2E8FF8B41D6514FE00B1E498 /* goats.jpg in Resources */,
 				2E8FF8641D6514FE00B1E498 /* eggs.jpg in Resources */,
@@ -4854,6 +4950,7 @@
 				2E8FF83D1D6514FE00B1E498 /* danced.jpg in Resources */,
 				2E8FF9E81D6514FE00B1E498 /* sheep.jpg in Resources */,
 				2E6DE31B1D639A1B00978DD6 /* words-A-AL.mp3 in Resources */,
+				2E8FFBA01D67A41800B1E498 /* puzzle-O-OI.jpg in Resources */,
 				2E6DE35C1D639A1B00978DD6 /* words-L-RL.mp3 in Resources */,
 				2E8FF8251D6514FE00B1E498 /* crab.jpg in Resources */,
 				2E8FFAC21D6514FE00B1E498 /* window.jpg in Resources */,
@@ -4878,26 +4975,23 @@
 				2E8FF77C1D6514FE00B1E498 /* ashamed.jpg in Resources */,
 				2E6DE3741D639A1B00978DD6 /* words-P-PR.mp3 in Resources */,
 				2E8FFAB71D6514FE00B1E498 /* whistling.jpg in Resources */,
-				2E8FF74B1D6514FE00B1E498 /* puzzle-Y-yuh.jpg in Resources */,
 				2E8FF78B1D6514FE00B1E498 /* ball.jpg in Resources */,
 				2E8FF99A1D6514FE00B1E498 /* poodle.jpg in Resources */,
 				2E8FF7FE1D6514FE00B1E498 /* chair.jpg in Resources */,
 				2E8FF9D01D6514FE00B1E498 /* saddle.jpg in Resources */,
-				2E8FF6F71D6514FE00B1E498 /* puzzle-A-AR.jpg in Resources */,
 				2E6DE3201D639A1B00978DD6 /* words-B-BL.mp3 in Resources */,
 				2E6DE2CF1D639A1B00978DD6 /* sound-IL.mp3 in Resources */,
 				2E6DE3991D639A1B00978DD6 /* words-T-OT.mp3 in Resources */,
 				2E8FF9121D6514FE00B1E498 /* kitty-cat.jpg in Resources */,
+				2E8FFB761D67A41800B1E498 /* puzzle-G-GR.jpg in Resources */,
 				2E8FF8161D6514FE00B1E498 /* coffee maker.jpg in Resources */,
 				2E8FF7B91D6514FE00B1E498 /* boats.jpg in Resources */,
 				2E8FF8491D6514FE00B1E498 /* doctor.jpg in Resources */,
 				2E8FF9261D6514FE00B1E498 /* lions.jpg in Resources */,
-				2E8FF72F1D6514FE00B1E498 /* puzzle-O-short.jpg in Resources */,
 				2E8FF75C1D6514FE00B1E498 /* 3.jpg in Resources */,
 				2E8FFAC91D6514FE00B1E498 /* wood.jpg in Resources */,
 				2E6DE3361D639A1B00978DD6 /* words-F-FR.mp3 in Resources */,
 				2E8FF80A1D6514FE00B1E498 /* climbs.jpg in Resources */,
-				2E8FF70F1D6514FE00B1E498 /* puzzle-F-FL.jpg in Resources */,
 				2E8FF8831D6514FE00B1E498 /* fishing net.jpg in Resources */,
 				2E6DE2D01D639A1B00978DD6 /* sound-ILK.mp3 in Resources */,
 				2E6DE33A1D639A1B00978DD6 /* words-G-guh.mp3 in Resources */,
@@ -4919,8 +5013,6 @@
 				2E8FF84D1D6514FE00B1E498 /* door.jpg in Resources */,
 				2E8FFAA31D6514FE00B1E498 /* walnuts.jpg in Resources */,
 				2E6DE2B01D639A1B00978DD6 /* sound-C.mp3 in Resources */,
-				2E8FF6FC1D6514FE00B1E498 /* puzzle-A-schwa.jpg in Resources */,
-				2E8FF73F1D6514FE00B1E498 /* puzzle-T-THE.jpg in Resources */,
 				2E8FFA021D6514FE00B1E498 /* sky.jpg in Resources */,
 				2E8FF79C1D6514FE00B1E498 /* bear.jpg in Resources */,
 				2E8FF89C1D6514FE00B1E498 /* frightened.jpg in Resources */,
@@ -4939,10 +5031,12 @@
 				2E6DE3011D639A1B00978DD6 /* sound-TH-voiced.mp3 in Resources */,
 				2E8FF9A41D6514FE00B1E498 /* puddles.jpg in Resources */,
 				2E8FF8571D6514FE00B1E498 /* drop.jpg in Resources */,
+				2E8FFB701D67A41800B1E498 /* puzzle-F-FL.jpg in Resources */,
 				2E8FF8521D6514FE00B1E498 /* drawing.jpg in Resources */,
 				2E8FFA3D1D6514FE00B1E498 /* street sweeper.jpg in Resources */,
 				2E8FFAA81D6514FE00B1E498 /* water pistol.jpg in Resources */,
 				2E8FF82F1D6514FE00B1E498 /* crying.jpg in Resources */,
+				2E8FFB901D67A41800B1E498 /* puzzle-L-lll.jpg in Resources */,
 				2E6DE39C1D639A1B00978DD6 /* words-T-THE.mp3 in Resources */,
 				2E8FFABF1D6514FE00B1E498 /* wilderness.jpg in Resources */,
 				2E6DE3521D639A1B00978DD6 /* words-L-CL.mp3 in Resources */,
@@ -4959,13 +5053,12 @@
 				2E8FF8A81D6514FE00B1E498 /* gazelle.jpg in Resources */,
 				2E8FF7EF1D6514FE00B1E498 /* canoe.jpg in Resources */,
 				2E8FFAC81D6514FE00B1E498 /* woman.jpg in Resources */,
-				2E8FF6F51D6514FE00B1E498 /* puzzle-A-AI.jpg in Resources */,
 				2E6DE2D21D639A1B00978DD6 /* sound-IR.mp3 in Resources */,
 				2E8FF7EB1D6514FE00B1E498 /* candlestick.jpg in Resources */,
 				2E6DE3551D639A1B00978DD6 /* words-L-GL.mp3 in Resources */,
 				2E6DE36F1D639A1B00978DD6 /* words-O-OV.mp3 in Resources */,
 				2E8FF95A1D6514FE00B1E498 /* nightgown.jpg in Resources */,
-				2E8FF7481D6514FE00B1E498 /* puzzle-X-ks.jpg in Resources */,
+				2E8FFB861D67A41800B1E498 /* puzzle-I-schwa.jpg in Resources */,
 				2E8FFA341D6514FE00B1E498 /* stone.jpg in Resources */,
 				2E8FF7D71D6514FE00B1E498 /* bulldog.jpg in Resources */,
 				2E8FF8701D6514FE00B1E498 /* fall.jpg in Resources */,
@@ -4975,7 +5068,6 @@
 				2E8FF7881D6514FE00B1E498 /* balance beam.jpg in Resources */,
 				2E6DE2B91D639A1B00978DD6 /* sound-E-short.mp3 in Resources */,
 				2E8FF9441D6514FE00B1E498 /* mole.jpg in Resources */,
-				2E8FF71A1D6514FE00B1E498 /* puzzle-I-schwa.jpg in Resources */,
 				2E8FF95E1D6514FE00B1E498 /* nun.jpg in Resources */,
 				2E8FF9AE1D6514FE00B1E498 /* quick.jpg in Resources */,
 				2E8FF9E51D6514FE00B1E498 /* secrets.jpg in Resources */,
@@ -4993,7 +5085,6 @@
 				2E8FF8241D6514FE00B1E498 /* cowboy hat.jpg in Resources */,
 				2E8FF8881D6514FE00B1E498 /* Flew.jpg in Resources */,
 				2E8FFA121D6514FE00B1E498 /* snow.jpg in Resources */,
-				2E8FF7301D6514FE00B1E498 /* puzzle-O-uh.jpg in Resources */,
 				2E8FFA591D6514FE00B1E498 /* talk.jpg in Resources */,
 				2E8FF8D91D6514FE00B1E498 /* harp.jpg in Resources */,
 				2E8FF9AF1D6514FE00B1E498 /* quiet.jpg in Resources */,
@@ -5002,12 +5093,10 @@
 				2E6DE31A1D639A1B00978DD6 /* words-A-ak.mp3 in Resources */,
 				2E8FF8BB1D6514FE00B1E498 /* grandfather clock.jpg in Resources */,
 				2E8FFA791D6514FE00B1E498 /* tree stump.jpg in Resources */,
-				2E8FF7201D6514FE00B1E498 /* puzzle-M-mmm.jpg in Resources */,
 				2E8FF9341D6514FE00B1E498 /* marionette.jpg in Resources */,
 				2E6DE2A01D639A1B00978DD6 /* sound-A.mp3 in Resources */,
 				2E8FF8EB1D6514FE00B1E498 /* hoe.jpg in Resources */,
 				2E6DE3771D639A1B00978DD6 /* words-Q-qwuh.mp3 in Resources */,
-				2E8FF6FF1D6514FE00B1E498 /* puzzle-B-BR.jpg in Resources */,
 				2E8FF8811D6514FE00B1E498 /* fish.jpg in Resources */,
 				2E6DE3111D639A1B00978DD6 /* sound-W.mp3 in Resources */,
 				2E8FF7DB1D6514FE00B1E498 /* burn.jpg in Resources */,
@@ -5017,20 +5106,20 @@
 				2E6DE32A1D639A1B00978DD6 /* words-D-DR.mp3 in Resources */,
 				2E8FF7531D6514FE00B1E498 /* 14.jpg in Resources */,
 				2E6DE2C61D639A1B00978DD6 /* sound-FR.mp3 in Resources */,
-				2E8FF7431D6514FE00B1E498 /* puzzle-U-short.jpg in Resources */,
 				2E8FF9F01D6514FE00B1E498 /* Silver.jpg in Resources */,
 				2E6DE2B81D639A1B00978DD6 /* sound-DWE.mp3 in Resources */,
 				2E8FF9FF1D6514FE00B1E498 /* skirt.jpg in Resources */,
+				2E8FFB501D67A41800B1E498 /* puzzle-B-BR.jpg in Resources */,
 				2E8FF8031D6514FE00B1E498 /* chimney.jpg in Resources */,
-				2E8FF7001D6514FE00B1E498 /* puzzle-B-buh.jpg in Resources */,
 				2E6DE2F91D639A1B00978DD6 /* sound-SK.mp3 in Resources */,
 				2E8FF8B61D6514FE00B1E498 /* gold.jpg in Resources */,
+				2E8FFB801D67A41800B1E498 /* puzzle-I-IL.jpg in Resources */,
 				2E6DE2F41D639A1B00978DD6 /* sound-RUH.mp3 in Resources */,
+				2E8FFB681D67A41800B1E498 /* puzzle-E-EW.jpg in Resources */,
 				2E6DE39D1D639A1B00978DD6 /* words-T-TR.mp3 in Resources */,
 				2E6DE2891D639A1B00978DD6 /* correct.mp3 in Resources */,
 				2E8FF81B1D6514FE00B1E498 /* collie.jpg in Resources */,
 				2E6DE2E21D639A1B00978DD6 /* sound-OON.mp3 in Resources */,
-				2E8FF7221D6514FE00B1E498 /* puzzle-N-NG.jpg in Resources */,
 				2E8FFA9F1D6514FE00B1E498 /* W.jpg in Resources */,
 				2E8FF78E1D6514FE00B1E498 /* balloons.jpg in Resources */,
 				2E8FF81D1D6514FE00B1E498 /* conch shell.jpg in Resources */,
@@ -5047,6 +5136,7 @@
 				2E8FF90C1D6514FE00B1E498 /* kangaroo.jpg in Resources */,
 				2E6DE3101D639A1B00978DD6 /* sound-V.mp3 in Resources */,
 				2E8FF8D41D6514FE00B1E498 /* hand.jpg in Resources */,
+				2E8FFBAE1D67A41800B1E498 /* puzzle-O-OY.JPG in Resources */,
 				2E8FFAC41D6514FE00B1E498 /* windy.jpg in Resources */,
 				2E8FF8511D6514FE00B1E498 /* draw.jpg in Resources */,
 				2E8FFA861D6514FE00B1E498 /* tuba.jpg in Resources */,
@@ -5062,27 +5152,29 @@
 				2E8FF9B81D6514FE00B1E498 /* recliner.jpg in Resources */,
 				2E8FF96D1D6514FE00B1E498 /* oyster and pearl.jpg in Resources */,
 				2E8FF95D1D6514FE00B1E498 /* nose.jpg in Resources */,
-				2E8FF71F1D6514FE00B1E498 /* puzzle-L-lll.jpg in Resources */,
-				2E8FF7311D6514FE00B1E498 /* puzzle-P-PL.jpg in Resources */,
 				2E6DE34B1D639A1B00978DD6 /* words-J-juh.mp3 in Resources */,
 				2E8FF87E1D6514FE00B1E498 /* fire.jpg in Resources */,
 				2E6DE37D1D639A1B00978DD6 /* words-R-FR.mp3 in Resources */,
 				2E6DE3841D639A1B00978DD6 /* words-R-RL.mp3 in Resources */,
+				2E8FFBB01D67A41800B1E498 /* puzzle-O-short.jpg in Resources */,
 				2E8FFA281D6514FE00B1E498 /* stands.jpg in Resources */,
 				2E8FF94C1D6514FE00B1E498 /* motorcycle.jpg in Resources */,
 				2E6DE30B1D639A1B00978DD6 /* sound-UN.mp3 in Resources */,
 				2E8FF9F11D6514FE00B1E498 /* sing.jpg in Resources */,
 				2E8FF9381D6514FE00B1E498 /* mens dress shoe.jpg in Resources */,
+				2E8FFBA61D67A41800B1E498 /* puzzle-O-OR.jpg in Resources */,
 				2E8FF85D1D6514FE00B1E498 /* dust pan.jpg in Resources */,
 				2E8FF9E71D6514FE00B1E498 /* see-saw.jpg in Resources */,
 				2E8FF9181D6514FE00B1E498 /* laundress.jpg in Resources */,
 				2E6DE2A61D639A1B00978DD6 /* sound-ANT.mp3 in Resources */,
 				2E8FF9C11D6514FE00B1E498 /* ring.jpg in Resources */,
 				2E8FF9CD1D6514FE00B1E498 /* S.jpg in Resources */,
+				2E8FFB961D67A41800B1E498 /* puzzle-N-NG.jpg in Resources */,
 				2E8FF8611D6514FE00B1E498 /* ears.jpg in Resources */,
 				2E8FFA601D6514FE00B1E498 /* teeter-totter.jpg in Resources */,
 				2E8FF9BC1D6514FE00B1E498 /* rhino.jpg in Resources */,
 				2E8FF93A1D6514FE00B1E498 /* mice.jpg in Resources */,
+				2E8FFBAA1D67A41800B1E498 /* puzzle-O-OW-ohw.jpg in Resources */,
 				2E8FF94E1D6514FE00B1E498 /* mouse.jpg in Resources */,
 				2E8FF87F1D6514FE00B1E498 /* fireplace.jpg in Resources */,
 				2E8FF96B1D6514FE00B1E498 /* oven.jpg in Resources */,
@@ -5096,17 +5188,15 @@
 				2E8FF7CB1D6514FE00B1E498 /* bridge.jpg in Resources */,
 				2E8FFA9D1D6514FE00B1E498 /* volleyball.jpg in Resources */,
 				2E8FF93C1D6514FE00B1E498 /* midnight.jpg in Resources */,
-				2E8FF7061D6514FE00B1E498 /* puzzle-D-DR.jpg in Resources */,
 				2E8FFA7F1D6514FE00B1E498 /* troll.jpg in Resources */,
 				2E8FF8791D6514FE00B1E498 /* fiddle.jpg in Resources */,
 				2E6DE3B41D639A1B00978DD6 /* words-X-zz.mp3 in Resources */,
-				2E8FF7011D6514FE00B1E498 /* puzzle-C-CH.jpg in Resources */,
 				2E8FF8671D6514FE00B1E498 /* elf.jpg in Resources */,
 				2E8FF77F1D6514FE00B1E498 /* B.jpg in Resources */,
-				2E8FF72A1D6514FE00B1E498 /* puzzle-O-OR.jpg in Resources */,
 				2E6DE34A1D639A1B00978DD6 /* words-I-uh.mp3 in Resources */,
 				2E8FF8F81D6514FE00B1E498 /* hungry.jpg in Resources */,
 				2E8FF89B1D6514FE00B1E498 /* fridge.jpg in Resources */,
+				2E8FFB6A1D67A41800B1E498 /* puzzle-E-long.jpg in Resources */,
 				2E8FF9001D6514FE00B1E498 /* jay.jpg in Resources */,
 				2E8FF9F81D6514FE00B1E498 /* skateboard.jpg in Resources */,
 				2E8FF9B01D6514FE00B1E498 /* R.jpg in Resources */,
@@ -5123,6 +5213,7 @@
 				2E8FFA2B1D6514FE00B1E498 /* statue.jpg in Resources */,
 				2E8FF76B1D6514FE00B1E498 /* airplane.jpg in Resources */,
 				2E6DE28E1D639A1B00978DD6 /* letter-C.mp3 in Resources */,
+				2E8FFB8C1D67A41800B1E498 /* puzzle-K-kuh.jpg in Resources */,
 				2E6DE2981D639A1B00978DD6 /* letter-Q.mp3 in Resources */,
 				2E6DE3711D639A1B00978DD6 /* words-O-OWW.mp3 in Resources */,
 				2E8FFA851D6514FE00B1E498 /* trumpet.jpg in Resources */,
@@ -5135,11 +5226,9 @@
 				2E6DE2F11D639A1B00978DD6 /* sound-RL.mp3 in Resources */,
 				2E8FF9B31D6514FE00B1E498 /* raccoons.jpg in Resources */,
 				2E8FF78F1D6514FE00B1E498 /* banana.jpg in Resources */,
-				2E8FF7291D6514FE00B1E498 /* puzzle-O-OO-uh.jpg in Resources */,
 				2E8FF7801D6514FE00B1E498 /* baby.jpg in Resources */,
 				2E8FF7861D6514FE00B1E498 /* bake.jpg in Resources */,
 				2E8FF78C1D6514FE00B1E498 /* ballet slippers.jpg in Resources */,
-				2E8FF7051D6514FE00B1E498 /* puzzle-C-sss.png in Resources */,
 				2E6DE3281D639A1B00978DD6 /* words-C-sss.mp3 in Resources */,
 				2E6DE2BC1D639A1B00978DD6 /* sound-EER.mp3 in Resources */,
 				2E6DE3611D639A1B00978DD6 /* words-M-UM.mp3 in Resources */,
@@ -5152,12 +5241,12 @@
 				2E8FF92D1D6514FE00B1E498 /* M.jpg in Resources */,
 				2E8FF7B31D6514FE00B1E498 /* blanket.jpg in Resources */,
 				2E8FF9931D6514FE00B1E498 /* plug.jpg in Resources */,
-				2E8FF6FD1D6514FE00B1E498 /* puzzle-A-short.jpg in Resources */,
 				2E8FF8841D6514FE00B1E498 /* fishing.jpg in Resources */,
 				2E8FF76C1D6514FE00B1E498 /* alarm clock.jpg in Resources */,
 				2E6DE36E1D639A1B00978DD6 /* words-O-OU.mp3 in Resources */,
 				2E8FF9A81D6514FE00B1E498 /* Purple.jpg in Resources */,
 				2E8FF96E1D6514FE00B1E498 /* oyster.jpg in Resources */,
+				2E8FFB401D67A41800B1E498 /* puzzle-A-AR.jpg in Resources */,
 				2E8FF78D1D6514FE00B1E498 /* balloon.jpg in Resources */,
 				2E6DE3371D639A1B00978DD6 /* words-F-fuh.mp3 in Resources */,
 				2E6DE3541D639A1B00978DD6 /* words-L-FL.mp3 in Resources */,
@@ -5171,13 +5260,12 @@
 				2E8FFA1E1D6514FE00B1E498 /* spade.jpg in Resources */,
 				2E8FF7E81D6514FE00B1E498 /* camel.jpg in Resources */,
 				2E8FF8E51D6514FE00B1E498 /* hiking shoe.jpg in Resources */,
-				2E8FF71C1D6514FE00B1E498 /* puzzle-J-juh.jpg in Resources */,
-				2E8FF7471D6514FE00B1E498 /* puzzle-W-wuh.jpg in Resources */,
-				2E8FF71D1D6514FE00B1E498 /* puzzle-K-kuh.jpg in Resources */,
+				2E8FFB4A1D67A41800B1E498 /* puzzle-A-schwa.jpg in Resources */,
 				2E8FFA441D6514FE00B1E498 /* sunny.jpg in Resources */,
 				2E8FFA011D6514FE00B1E498 /* skunk.jpg in Resources */,
 				2E6DE2F01D639A1B00978DD6 /* sound-RK.mp3 in Resources */,
 				2E8FF9FE1D6514FE00B1E498 /* Skips.jpg in Resources */,
+				2E8FFB481D67A41800B1E498 /* puzzle-A-long.jpg in Resources */,
 				2E8FF76D1D6514FE00B1E498 /* albatross.jpg in Resources */,
 				2E8FF7691D6514FE00B1E498 /* afraid.jpg in Resources */,
 				2E8FF87C1D6514FE00B1E498 /* finger.jpg in Resources */,
@@ -5185,7 +5273,6 @@
 				2E8FF7971D6514FE00B1E498 /* basketball.jpg in Resources */,
 				2E6DE2C81D639A1B00978DD6 /* sound-G.mp3 in Resources */,
 				2E6DE2A41D639A1B00978DD6 /* sound-AL.mp3 in Resources */,
-				2E8FF73A1D6514FE00B1E498 /* puzzle-S-sss.jpg in Resources */,
 				2E6DE2B51D639A1B00978DD6 /* sound-DL.mp3 in Resources */,
 				2E6DE2BF1D639A1B00978DD6 /* sound-EM.mp3 in Resources */,
 				2E8FF8221D6514FE00B1E498 /* corn.jpg in Resources */,
@@ -5196,6 +5283,7 @@
 				2E8FFA9B1D6514FE00B1E498 /* volcano.jpg in Resources */,
 				2E6DE3511D639A1B00978DD6 /* words-L-BL.mp3 in Resources */,
 				2E8FF9611D6514FE00B1E498 /* O.jpg in Resources */,
+				2E8FFBA81D67A41800B1E498 /* puzzle-O-OU.jpg in Resources */,
 				2E6DE2921D639A1B00978DD6 /* letter-G.mp3 in Resources */,
 				2E8FF84F1D6514FE00B1E498 /* dozer.jpg in Resources */,
 				2E6DE2FD1D639A1B00978DD6 /* sound-SON.mp3 in Resources */,
@@ -5210,7 +5298,6 @@
 				2E8FFA4C1D6514FE00B1E498 /* sweet potatoes.jpg in Resources */,
 				2E8FFA501D6514FE00B1E498 /* swimming.jpg in Resources */,
 				2E8FF9C01D6514FE00B1E498 /* rich.jpg in Resources */,
-				2E8FF7271D6514FE00B1E498 /* puzzle-O-OI.jpg in Resources */,
 				2E6DE2DB1D639A1B00978DD6 /* sound-N.mp3 in Resources */,
 				2E6DE2A51D639A1B00978DD6 /* sound-AN.mp3 in Resources */,
 				2E6DE29C1D639A1B00978DD6 /* letter-X.mp3 in Resources */,
@@ -5224,7 +5311,6 @@
 				2E8FF8361D6514FE00B1E498 /* cushion.jpg in Resources */,
 				2E8FF8081D6514FE00B1E498 /* claw hammer.jpg in Resources */,
 				2E6DE28B1D639A1B00978DD6 /* Main.storyboard in Resources */,
-				2E8FF7281D6514FE00B1E498 /* puzzle-O-OO-ew.jpg in Resources */,
 				2E8FF9951D6514FE00B1E498 /* plums.jpg in Resources */,
 				2E8FF86B1D6514FE00B1E498 /* eyebrow.jpg in Resources */,
 				2E8FF8961D6514FE00B1E498 /* football.jpg in Resources */,
@@ -5237,9 +5323,10 @@
 				2E6DE2CA1D639A1B00978DD6 /* sound-GR.mp3 in Resources */,
 				2E8FF9941D6514FE00B1E498 /* plum.jpg in Resources */,
 				2E8FFA1F1D6514FE00B1E498 /* sparrows.jpg in Resources */,
+				2E8FFB6E1D67A41800B1E498 /* puzzle-E-short.jpg in Resources */,
+				2E8FFB741D67A41800B1E498 /* puzzle-G-GL.jpg in Resources */,
 				2E8FF9851D6514FE00B1E498 /* pickle.jpg in Resources */,
 				2E6DE2941D639A1B00978DD6 /* letter-I.mp3 in Resources */,
-				2E8FF70C1D6514FE00B1E498 /* puzzle-E-long.jpg in Resources */,
 				2E6DE3671D639A1B00978DD6 /* words-N-SN.mp3 in Resources */,
 				2E8FF84E1D6514FE00B1E498 /* dougnuts.jpg in Resources */,
 				2E8FF88F1D6514FE00B1E498 /* flowers.jpg in Resources */,
@@ -5259,8 +5346,8 @@
 				2E6DE3401D639A1B00978DD6 /* words-H-huh.mp3 in Resources */,
 				2E6DE37F1D639A1B00978DD6 /* words-R-IR.mp3 in Resources */,
 				2E8FF7A61D6514FE00B1E498 /* berries.jpg in Resources */,
-				2E8FF7331D6514FE00B1E498 /* puzzle-P-puh.jpg in Resources */,
 				2E8FF80C1D6514FE00B1E498 /* clothes.jpg in Resources */,
+				2E8FFB661D67A41800B1E498 /* puzzle-E-ET.jpg in Resources */,
 				2E8FF92B1D6514FE00B1E498 /* lock.jpg in Resources */,
 				2E8FF7FD1D6514FE00B1E498 /* chainsaw.jpg in Resources */,
 				2E8FF9741D6514FE00B1E498 /* panda.jpg in Resources */,
@@ -5274,8 +5361,10 @@
 				2E8FF8461D6514FE00B1E498 /* dig.jpg in Resources */,
 				2E6DE2E81D639A1B00978DD6 /* sound-OW.mp3 in Resources */,
 				2E6DE3341D639A1B00978DD6 /* words-E-uh.mp3 in Resources */,
+				2E8FFB781D67A41800B1E498 /* puzzle-G-guh.jpg in Resources */,
 				2E8FF7A11D6514FE00B1E498 /* beets.jpg in Resources */,
 				2E6DE3531D639A1B00978DD6 /* words-L-DL.mp3 in Resources */,
+				2E8FFB7C1D67A41800B1E498 /* puzzle-I-IE.jpg in Resources */,
 				2E8FF98F1D6514FE00B1E498 /* Pink.jpg in Resources */,
 				2E8FF7CE1D6514FE00B1E498 /* Brown.jpg in Resources */,
 				2E6DE2D51D639A1B00978DD6 /* sound-J.mp3 in Resources */,
@@ -5290,11 +5379,9 @@
 				2E8FF7CF1D6514FE00B1E498 /* brush.jpg in Resources */,
 				2E6DE3B31D639A1B00978DD6 /* words-X-ks.mp3 in Resources */,
 				2E8FF76A1D6514FE00B1E498 /* air.jpg in Resources */,
-				2E8FF7031D6514FE00B1E498 /* puzzle-C-CR.jpg in Resources */,
 				2E6DE2CB1D639A1B00978DD6 /* sound-H.mp3 in Resources */,
 				2E6DE28D1D639A1B00978DD6 /* letter-B.mp3 in Resources */,
 				2E6DE2BD1D639A1B00978DD6 /* sound-ELD.mp3 in Resources */,
-				2E8FF71B1D6514FE00B1E498 /* puzzle-I-short.jpg in Resources */,
 				2E6DE3BA1D639A1B00978DD6 /* Audio Timings.csv in Resources */,
 				2E8FFA2C1D6514FE00B1E498 /* steal.jpg in Resources */,
 				2E6DE3891D639A1B00978DD6 /* words-R-TR.mp3 in Resources */,
@@ -5313,19 +5400,20 @@
 				2E8FFA931D6514FE00B1E498 /* unknown4.jpg in Resources */,
 				2E8FF8781D6514FE00B1E498 /* ferret.jpg in Resources */,
 				2E8FF7BB1D6514FE00B1E498 /* bone.jpg in Resources */,
+				2E8FFB941D67A41800B1E498 /* puzzle-N-ND.jpg in Resources */,
 				2E8FFA641D6514FE00B1E498 /* tent.jpg in Resources */,
 				2E8FF9771D6514FE00B1E498 /* parrot.jpg in Resources */,
-				2E8FF74C1D6514FE00B1E498 /* puzzle-Z-zzz.jpg in Resources */,
 				2E8FF90A1D6514FE00B1E498 /* jumps.jpg in Resources */,
 				2E8FF8EA1D6514FE00B1E498 /* hockey stick and puck.jpg in Resources */,
 				2E8FFA361D6514FE00B1E498 /* stool.jpg in Resources */,
 				2E8FF8341D6514FE00B1E498 /* cups.jpg in Resources */,
 				2E8FF7F01D6514FE00B1E498 /* cantaloupes.jpg in Resources */,
 				2E6DE2951D639A1B00978DD6 /* letter-J.mp3 in Resources */,
+				2E8FFBB81D67A41800B1E498 /* puzzle-P-puh.jpg in Resources */,
 				2E8FF8B11D6514FE00B1E498 /* glove.jpg in Resources */,
-				2E8FF73E1D6514FE00B1E498 /* puzzle-T-TH.jpg in Resources */,
 				2E8FFA401D6514FE00B1E498 /* suitcase.jpg in Resources */,
 				2E8FF7A41D6514FE00B1E498 /* bench.jpg in Resources */,
+				2E8FFB601D67A41800B1E498 /* puzzle-D-duh.jpg in Resources */,
 				2E6DE3691D639A1B00978DD6 /* words-O-ah.mp3 in Resources */,
 				2E8FF85B1D6514FE00B1E498 /* dunce cap.jpg in Resources */,
 				2E6DE2901D639A1B00978DD6 /* letter-E.mp3 in Resources */,
@@ -5341,19 +5429,19 @@
 				2E8FF7681D6514FE00B1E498 /* ABC.jpg in Resources */,
 				2E6DE2FA1D639A1B00978DD6 /* sound-SLE.mp3 in Resources */,
 				2E8FFACA1D6514FE00B1E498 /* work.jpg in Resources */,
-				2E8FF7451D6514FE00B1E498 /* puzzle-V-vv.jpg in Resources */,
 				2E8FF7F71D6514FE00B1E498 /* cat.jpg in Resources */,
 				2E8FF7901D6514FE00B1E498 /* bananas.jpg in Resources */,
+				2E8FFB5A1D67A41800B1E498 /* puzzle-C-kuh.jpg in Resources */,
 				2E8FF7D51D6514FE00B1E498 /* bug.jpg in Resources */,
 				2E6DE37C1D639A1B00978DD6 /* words-R-ER.mp3 in Resources */,
 				2E6DE3851D639A1B00978DD6 /* words-R-RM.mp3 in Resources */,
-				2E8FF7071D6514FE00B1E498 /* puzzle-D-duh.jpg in Resources */,
 				2E6DE3681D639A1B00978DD6 /* words-N-UN.mp3 in Resources */,
 				2E8FF8331D6514FE00B1E498 /* cupcakes.jpg in Resources */,
 				2E8FFAAA1D6514FE00B1E498 /* water.jpg in Resources */,
 				2E8FF8011D6514FE00B1E498 /* chestnuts.jpg in Resources */,
 				2E8FFA9A1D6514FE00B1E498 /* van.jpg in Resources */,
 				2E8FF9661D6514FE00B1E498 /* open toe shoes.jpg in Resources */,
+				2E8FFB3C1D67A41800B1E498 /* puzzle-A-AI.jpg in Resources */,
 				2E6DE2D91D639A1B00978DD6 /* sound-LY.mp3 in Resources */,
 				2E8FF7CD1D6514FE00B1E498 /* brother.jpg in Resources */,
 				2E8FF9191D6514FE00B1E498 /* leaf.jpg in Resources */,
@@ -5369,6 +5457,7 @@
 				2E8FFA521D6514FE00B1E498 /* swing.jpg in Resources */,
 				2E8FF7B51D6514FE00B1E498 /* bloodhound.jpg in Resources */,
 				2E8FF8301D6514FE00B1E498 /* cucumber.jpg in Resources */,
+				2E8FFB541D67A41800B1E498 /* puzzle-C-CH.jpg in Resources */,
 				2E8FF9D71D6514FE00B1E498 /* sandwich.jpg in Resources */,
 				2E8FF9C41D6514FE00B1E498 /* robin.jpg in Resources */,
 				2E8FF8141D6514FE00B1E498 /* cocker spaniel.jpg in Resources */,
@@ -5391,7 +5480,6 @@
 				2E8FFAB01D6514FE00B1E498 /* whale.jpg in Resources */,
 				2E6DE31E1D639A1B00978DD6 /* words-A-aw.mp3 in Resources */,
 				2E6DE2D61D639A1B00978DD6 /* sound-K.mp3 in Resources */,
-				2E8FF7321D6514FE00B1E498 /* puzzle-P-PR.jpg in Resources */,
 				2E8FF8AD1D6514FE00B1E498 /* giraffes.jpg in Resources */,
 				2E6DE2BA1D639A1B00978DD6 /* sound-E.mp3 in Resources */,
 				2E8FFA6F1D6514FE00B1E498 /* toe.jpg in Resources */,
@@ -5399,6 +5487,7 @@
 				2E8FFABA1D6514FE00B1E498 /* white spider.jpg in Resources */,
 				2E6DE3431D639A1B00978DD6 /* words-H-WH.mp3 in Resources */,
 				2E6DE37B1D639A1B00978DD6 /* words-R-DR.mp3 in Resources */,
+				2E8FFBBA1D67A41800B1E498 /* puzzle-Q-qwuh.jpg in Resources */,
 				2E8FF8541D6514FE00B1E498 /* Dress.jpg in Resources */,
 				2E8FF8D21D6514FE00B1E498 /* hamster.jpg in Resources */,
 				2E8FF9271D6514FE00B1E498 /* Listen.jpg in Resources */,
@@ -5408,7 +5497,6 @@
 				2E6DE35D1D639A1B00978DD6 /* words-L-SL.mp3 in Resources */,
 				2E8FF7FF1D6514FE00B1E498 /* chamber.jpg in Resources */,
 				2E8FF9041D6514FE00B1E498 /* JKL.jpg in Resources */,
-				2E8FF7411D6514FE00B1E498 /* puzzle-T-ttt.jpg in Resources */,
 				2E6DE3561D639A1B00978DD6 /* words-L-IL.mp3 in Resources */,
 				2E6DE2B21D639A1B00978DD6 /* sound-CL.mp3 in Resources */,
 				2E8FF8821D6514FE00B1E498 /* fisherman.jpg in Resources */,
@@ -5420,6 +5508,7 @@
 				2E8FF7D41D6514FE00B1E498 /* buckle.jpg in Resources */,
 				2E8FFA7C1D6514FE00B1E498 /* triangle.jpg in Resources */,
 				2E8FF9D31D6514FE00B1E498 /* saint bernard.jpg in Resources */,
+				2E8FFBE61D67A41800B1E498 /* puzzle-Y-i.jpg in Resources */,
 				2E8FF75F1D6514FE00B1E498 /* 40.jpg in Resources */,
 				2E8FFA5A1D6514FE00B1E498 /* tank truck.jpg in Resources */,
 				2E6DE3071D639A1B00978DD6 /* sound-U.mp3 in Resources */,
@@ -5434,15 +5523,19 @@
 				2E8FF8EC1D6514FE00B1E498 /* hog.jpg in Resources */,
 				2E8FF9DA1D6514FE00B1E498 /* sat.jpg in Resources */,
 				2E8FF7E11D6514FE00B1E498 /* butterfly.jpg in Resources */,
+				2E8FFBDE1D67A41800B1E498 /* puzzle-W-WH.jpg in Resources */,
 				2E8FF8E11D6514FE00B1E498 /* hearing.jpg in Resources */,
 				2E8FF87A1D6514FE00B1E498 /* fiddlestick.jpg in Resources */,
+				2E8FFBBE1D67A41800B1E498 /* puzzle-S-SH.jpg in Resources */,
 				2E8FF7C21D6514FE00B1E498 /* bow and arrows.jpg in Resources */,
+				2E8FFB561D67A41800B1E498 /* puzzle-C-CL.jpg in Resources */,
 				2E6DE2F71D639A1B00978DD6 /* sound-SC.mp3 in Resources */,
 				2E8FF8371D6514FE00B1E498 /* customer.jpg in Resources */,
 				2E8FF8CE1D6514FE00B1E498 /* hair.jpg in Resources */,
 				2E6DE2DD1D639A1B00978DD6 /* sound-NG.mp3 in Resources */,
 				2E6DE2A31D639A1B00978DD6 /* sound-AK.mp3 in Resources */,
 				2E8FF81A1D6514FE00B1E498 /* Cold.jpg in Resources */,
+				2E8FFBC81D67A41800B1E498 /* puzzle-S-ST.jpg in Resources */,
 				2E8FF9B71D6514FE00B1E498 /* ran.jpg in Resources */,
 				2E6DE3291D639A1B00978DD6 /* words-D-DL.mp3 in Resources */,
 				2E8FF9CF1D6514FE00B1E498 /* sad.jpg in Resources */,
@@ -5454,7 +5547,7 @@
 				2E6DE3801D639A1B00978DD6 /* words-R-OR.mp3 in Resources */,
 				2E8FF8A71D6514FE00B1E498 /* gate.jpg in Resources */,
 				2E8FF8C91D6514FE00B1E498 /* guinea pig.jpg in Resources */,
-				2E8FF72E1D6514FE00B1E498 /* puzzle-O-OY.JPG in Resources */,
+				2E8FFB7A1D67A41800B1E498 /* puzzle-H-huh.jpg in Resources */,
 				2E8FFA451D6514FE00B1E498 /* sunshiney.jpg in Resources */,
 				2E6DE3501D639A1B00978DD6 /* words-L-AL.mp3 in Resources */,
 				2E8FFA4E1D6514FE00B1E498 /* sweetly.jpg in Resources */,
@@ -5482,16 +5575,18 @@
 				2E8FFA3C1D6514FE00B1E498 /* street light.jpg in Resources */,
 				2E8FF7AA1D6514FE00B1E498 /* birthday cake.jpg in Resources */,
 				2E8FFAC31D6514FE00B1E498 /* windows.jpg in Resources */,
+				2E8FFBE41D67A41800B1E498 /* puzzle-Y-e.jpg in Resources */,
 				2E8FF9B41D6514FE00B1E498 /* rainbow.jpg in Resources */,
+				2E8FFB641D67A41800B1E498 /* puzzle-E-ER.jpg in Resources */,
 				2E8FFAB81D6514FE00B1E498 /* white calf.jpg in Resources */,
 				2E8FF7F31D6514FE00B1E498 /* carpet.jpg in Resources */,
+				2E8FFB7E1D67A41800B1E498 /* puzzle-I-IGH.jpg in Resources */,
 				2E8FF97A1D6514FE00B1E498 /* pears.jpg in Resources */,
 				2E6DE2F61D639A1B00978DD6 /* sound-S.mp3 in Resources */,
 				2E6DE36C1D639A1B00978DD6 /* words-O-OR.mp3 in Resources */,
 				2E6DE2991D639A1B00978DD6 /* letter-R.mp3 in Resources */,
 				2E8FF9D91D6514FE00B1E498 /* sang.jpg in Resources */,
 				2E8FF8C51D6514FE00B1E498 /* green.jpg in Resources */,
-				2E8FF7361D6514FE00B1E498 /* puzzle-S-SH.jpg in Resources */,
 				2E8FFA241D6514FE00B1E498 /* spoons.jpg in Resources */,
 				2E8FF7B61D6514FE00B1E498 /* Blue.jpg in Resources */,
 				2E8FFA1C1D6514FE00B1E498 /* soup.jpg in Resources */,
@@ -5508,16 +5603,14 @@
 				2E8FFA261D6514FE00B1E498 /* squash.jpg in Resources */,
 				2E8FF9691D6514FE00B1E498 /* ostrich.jpg in Resources */,
 				2E8FF7C71D6514FE00B1E498 /* boy.jpg in Resources */,
-				2E8FF70A1D6514FE00B1E498 /* puzzle-E-ET.jpg in Resources */,
 				2E8FF8F01D6514FE00B1E498 /* horn.jpg in Resources */,
+				2E8FFBD61D67A41800B1E498 /* puzzle-U-long.jpg in Resources */,
 				2E8FF9EC1D6514FE00B1E498 /* shovel.jpg in Resources */,
 				2E6DE3901D639A1B00978DD6 /* words-S-SP.mp3 in Resources */,
 				2E6DE3391D639A1B00978DD6 /* words-G-GR.mp3 in Resources */,
 				2E8FF9831D6514FE00B1E498 /* piano and stool.jpg in Resources */,
 				2E8FFA1D1D6514FE00B1E498 /* sow.jpg in Resources */,
-				2E8FF7461D6514FE00B1E498 /* puzzle-W-WH.jpg in Resources */,
 				2E8FF9EB1D6514FE00B1E498 /* shoes.jpg in Resources */,
-				2E8FF7121D6514FE00B1E498 /* puzzle-G-GR.jpg in Resources */,
 				2E8FF9BA1D6514FE00B1E498 /* Red.jpg in Resources */,
 				2E6DE35E1D639A1B00978DD6 /* words-L-UL.mp3 in Resources */,
 				2E8FF9671D6514FE00B1E498 /* Orange.jpg in Resources */,
@@ -5526,13 +5619,16 @@
 				2E8FF8381D6514FE00B1E498 /* cut.jpg in Resources */,
 				2E8FF98A1D6514FE00B1E498 /* pies.jpg in Resources */,
 				2E6DE2C01D639A1B00978DD6 /* sound-ER.mp3 in Resources */,
-				2E8FF73C1D6514FE00B1E498 /* puzzle-S-SW.jpg in Resources */,
 				2E8FF7E61D6514FE00B1E498 /* cake.jpg in Resources */,
+				2E8FFB5C1D67A41800B1E498 /* puzzle-C-sss.png in Resources */,
+				2E8FFB8E1D67A41800B1E498 /* puzzle-L-LE.jpg in Resources */,
 				2E8FF7931D6514FE00B1E498 /* baseball bat.jpg in Resources */,
 				2E8FF9021D6514FE00B1E498 /* jellyfish.jpg in Resources */,
 				2E8FFA951D6514FE00B1E498 /* unknown6.jpg in Resources */,
 				2E8FFA311D6514FE00B1E498 /* sticks.jpg in Resources */,
 				2E8FF7C51D6514FE00B1E498 /* bowler hat.jpg in Resources */,
+				2E8FFBE21D67A41800B1E498 /* puzzle-X-ks.jpg in Resources */,
+				2E8FFBBC1D67A41800B1E498 /* puzzle-R-ruh.jpg in Resources */,
 				2E8FFAB91D6514FE00B1E498 /* white cat.jpg in Resources */,
 				2E8FF9AD1D6514FE00B1E498 /* question.jpg in Resources */,
 				2E8FF9411D6514FE00B1E498 /* mittens.jpg in Resources */,
@@ -5543,6 +5639,95 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8FFB971D67A41800B1E498 /* puzzle-N-NG.jpg in Resources */,
+				2E8FFB6B1D67A41800B1E498 /* puzzle-E-long.jpg in Resources */,
+				2E8FFBE91D67A41800B1E498 /* puzzle-Y-yuh.jpg in Resources */,
+				2E8FFBE31D67A41800B1E498 /* puzzle-X-ks.jpg in Resources */,
+				2E8FFB671D67A41800B1E498 /* puzzle-E-ET.jpg in Resources */,
+				2E8FFBD51D67A41800B1E498 /* puzzle-T-ttt.jpg in Resources */,
+				2E8FFB771D67A41800B1E498 /* puzzle-G-GR.jpg in Resources */,
+				2E8FFB9F1D67A41800B1E498 /* puzzle-O-OA.jpg in Resources */,
+				2E8FFBB71D67A41800B1E498 /* puzzle-P-PR.jpg in Resources */,
+				2E8FFBDB1D67A41800B1E498 /* puzzle-U-UR.jpg in Resources */,
+				2E8FFB751D67A41800B1E498 /* puzzle-G-GL.jpg in Resources */,
+				2E8FFBB51D67A41800B1E498 /* puzzle-P-PL.jpg in Resources */,
+				2E8FFB811D67A41800B1E498 /* puzzle-I-IL.jpg in Resources */,
+				2E8FFBAD1D67A41800B1E498 /* puzzle-O-OW-ouw.jpg in Resources */,
+				2E8FFB531D67A41800B1E498 /* puzzle-B-buh.jpg in Resources */,
+				2E8FFBCD1D67A41800B1E498 /* puzzle-S-zz.jpg in Resources */,
+				2E8FFBA51D67A41800B1E498 /* puzzle-O-OO-uh.jpg in Resources */,
+				2E8FFB891D67A41800B1E498 /* puzzle-I-short.jpg in Resources */,
+				2E8FFB3F1D67A41800B1E498 /* puzzle-A-AN.jpg in Resources */,
+				2E8FFB991D67A41800B1E498 /* puzzle-N-NK.jpg in Resources */,
+				2E8FFB471D67A41800B1E498 /* puzzle-A-AY.jpg in Resources */,
+				2E8FFB3B1D67A41800B1E498 /* puzzle-A-ahh.jpg in Resources */,
+				2E8FFBA11D67A41800B1E498 /* puzzle-O-OI.jpg in Resources */,
+				2E8FFB411D67A41800B1E498 /* puzzle-A-AR.jpg in Resources */,
+				2E8FFB931D67A41800B1E498 /* puzzle-M-mmm.jpg in Resources */,
+				2E8FFBAB1D67A41800B1E498 /* puzzle-O-OW-ohw.jpg in Resources */,
+				2E8FFB511D67A41800B1E498 /* puzzle-B-BR.jpg in Resources */,
+				2E8FFBBF1D67A41800B1E498 /* puzzle-S-SH.jpg in Resources */,
+				2E8FFBE11D67A41800B1E498 /* puzzle-W-wuh.jpg in Resources */,
+				2E8FFBCF1D67A41800B1E498 /* puzzle-T-TH.jpg in Resources */,
+				2E8FFBCB1D67A41800B1E498 /* puzzle-S-SW.jpg in Resources */,
+				2E8FFB9D1D67A41800B1E498 /* puzzle-O-long.jpg in Resources */,
+				2E8FFB8F1D67A41800B1E498 /* puzzle-L-LE.jpg in Resources */,
+				2E8FFBDD1D67A41800B1E498 /* puzzle-V-vv.jpg in Resources */,
+				2E8FFB4F1D67A41800B1E498 /* puzzle-B-BL.jpg in Resources */,
+				2E8FFBEB1D67A41800B1E498 /* puzzle-Z-zzz.jpg in Resources */,
+				2E8FFB7B1D67A41800B1E498 /* puzzle-H-huh.jpg in Resources */,
+				2E8FFBE51D67A41800B1E498 /* puzzle-Y-e.jpg in Resources */,
+				2E8FFB8D1D67A41800B1E498 /* puzzle-K-kuh.jpg in Resources */,
+				2E8FFBB31D67A41800B1E498 /* puzzle-O-uh.jpg in Resources */,
+				2E8FFB9B1D67A41800B1E498 /* puzzle-N-nnn.jpg in Resources */,
+				2E8FFBAF1D67A41800B1E498 /* puzzle-O-OY.JPG in Resources */,
+				2E8FFB4D1D67A41800B1E498 /* puzzle-A-short.jpg in Resources */,
+				2E8FFB551D67A41800B1E498 /* puzzle-C-CH.jpg in Resources */,
+				2E8FFBB91D67A41800B1E498 /* puzzle-P-puh.jpg in Resources */,
+				2E8FFB5B1D67A41800B1E498 /* puzzle-C-kuh.jpg in Resources */,
+				2E8FFBDF1D67A41800B1E498 /* puzzle-W-WH.jpg in Resources */,
+				2E8FFBC31D67A41800B1E498 /* puzzle-S-SL.jpg in Resources */,
+				2E8FFB791D67A41800B1E498 /* puzzle-G-guh.jpg in Resources */,
+				2E8FFBD11D67A41800B1E498 /* puzzle-T-THE.jpg in Resources */,
+				2E8FFBD91D67A41800B1E498 /* puzzle-U-short.jpg in Resources */,
+				2E8FFB451D67A41800B1E498 /* puzzle-A-AW.jpg in Resources */,
+				2E8FFBE71D67A41800B1E498 /* puzzle-Y-i.jpg in Resources */,
+				2E8FFBB11D67A41800B1E498 /* puzzle-O-short.jpg in Resources */,
+				2E8FFB8B1D67A41800B1E498 /* puzzle-J-juh.jpg in Resources */,
+				2E8FFB591D67A41800B1E498 /* puzzle-C-CR.jpg in Resources */,
+				2E8FFB711D67A41800B1E498 /* puzzle-F-FL.jpg in Resources */,
+				2E8FFB7D1D67A41800B1E498 /* puzzle-I-IE.jpg in Resources */,
+				2E8FFB611D67A41800B1E498 /* puzzle-D-duh.jpg in Resources */,
+				2E8FFBC91D67A41800B1E498 /* puzzle-S-ST.jpg in Resources */,
+				2E8FFBC11D67A41800B1E498 /* puzzle-S-SK.jpg in Resources */,
+				2E8FFBD31D67A41800B1E498 /* puzzle-T-TR.jpg in Resources */,
+				2E8FFBA71D67A41800B1E498 /* puzzle-O-OR.jpg in Resources */,
+				2E8FFB631D67A41800B1E498 /* puzzle-E-EA.jpg in Resources */,
+				2E8FFBBD1D67A41800B1E498 /* puzzle-R-ruh.jpg in Resources */,
+				2E8FFB911D67A41800B1E498 /* puzzle-L-lll.jpg in Resources */,
+				2E8FFBBB1D67A41800B1E498 /* puzzle-Q-qwuh.jpg in Resources */,
+				2E8FFBC51D67A41800B1E498 /* puzzle-S-SP.png in Resources */,
+				2E8FFB7F1D67A41800B1E498 /* puzzle-I-IGH.jpg in Resources */,
+				2E8FFB491D67A41800B1E498 /* puzzle-A-long.jpg in Resources */,
+				2E8FFB431D67A41800B1E498 /* puzzle-A-AU.jpg in Resources */,
+				2E8FFB3D1D67A41800B1E498 /* puzzle-A-AI.jpg in Resources */,
+				2E8FFBC71D67A41800B1E498 /* puzzle-S-sss.jpg in Resources */,
+				2E8FFB5D1D67A41800B1E498 /* puzzle-C-sss.png in Resources */,
+				2E8FFB831D67A41800B1E498 /* puzzle-I-IR.jpg in Resources */,
+				2E8FFB6D1D67A41800B1E498 /* puzzle-E-schwa.jpg in Resources */,
+				2E8FFB691D67A41800B1E498 /* puzzle-E-EW.jpg in Resources */,
+				2E8FFB651D67A41800B1E498 /* puzzle-E-ER.jpg in Resources */,
+				2E8FFB6F1D67A41800B1E498 /* puzzle-E-short.jpg in Resources */,
+				2E8FFBA31D67A41800B1E498 /* puzzle-O-OO-ew.jpg in Resources */,
+				2E8FFBD71D67A41800B1E498 /* puzzle-U-long.jpg in Resources */,
+				2E8FFB4B1D67A41800B1E498 /* puzzle-A-schwa.jpg in Resources */,
+				2E8FFB951D67A41800B1E498 /* puzzle-N-ND.jpg in Resources */,
+				2E8FFB731D67A41800B1E498 /* puzzle-F-FR.jpg in Resources */,
+				2E8FFB851D67A41800B1E498 /* puzzle-I-long.jpg in Resources */,
+				2E8FFB871D67A41800B1E498 /* puzzle-I-schwa.jpg in Resources */,
+				2E8FFBA91D67A41800B1E498 /* puzzle-O-OU.jpg in Resources */,
+				2E8FFB5F1D67A41800B1E498 /* puzzle-D-DR.jpg in Resources */,
+				2E8FFB571D67A41800B1E498 /* puzzle-C-CL.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5580,6 +5765,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */,
+				2E8FFADB1D67A14100B1E498 /* PHContent.swift in Sources */,
+				2E8FFAE01D67A1E400B1E498 /* UniversalAudio.swift in Sources */,
+				2E8FFADE1D67A1E400B1E498 /* CoreSwift.swift in Sources */,
+				2E8FFADD1D67A14100B1E498 /* Word.swift in Sources */,
+				2E8FFADA1D67A14100B1E498 /* Letter.swift in Sources */,
+				2E8FFADF1D67A1E400B1E498 /* LongestCommonSubsequence.swift in Sources */,
+				2E8FFADC1D67A14100B1E498 /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

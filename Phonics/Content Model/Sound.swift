@@ -33,7 +33,7 @@ struct Sound: Equatable {
     }
     
     var puzzleImage: UIImage? {
-        let name = "puzzle-\(sourceLetter)-\(soundId)"
+        let name = "puzzle-\(sourceLetter)-\(soundId).jpg"
         return UIImage(named: name)
     }
     

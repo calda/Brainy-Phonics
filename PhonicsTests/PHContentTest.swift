@@ -10,6 +10,20 @@ import XCTest
 
 class PHContentTest: XCTestCase {
     
+    
+    //MARK: - Sounds
+    
+    func testAllSoundsHavePuzzles() {
+        for sound in PHContent.allSounds {
+            XCTAssertNotNil(sound.puzzleImage, "\(sound.sourceLetter)-\(sound.soundId) has no puzzle image.")
+        }
+        
+        print("done")
+    }
+    
+    
+    //MARK: - Words
+    
     func testAllWordsHaveImages() {
         for word in PHContent.allWordsNoDuplicates {
             XCTAssertNotNil(word.image, "\(word.text) has no image.")

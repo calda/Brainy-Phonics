@@ -182,6 +182,11 @@ extension UIImage {
         return flippedImage
     }
     
+    //TODO: how can i do this? should i do it manually?
+    /*var croppedToIntegerAspectRatio: (cropped: UIImage, unitsTall: Int, unitsWide: Int) {
+        let currentRatio = self.size.height / self.size.width
+    }*/
+    
 }
 
 extension CGPoint {

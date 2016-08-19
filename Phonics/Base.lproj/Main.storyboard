@@ -702,15 +702,24 @@
                                     <action selector="randomPuzzle:" destination="lR7-lD-hLC" eventType="touchUpInside" id="RPW-y5-NPV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fg-VW-giA">
+                                <rect key="frame" x="10" y="240" width="94" height="30"/>
+                                <state key="normal" title="Attach Pieces"/>
+                                <connections>
+                                    <action selector="togglePieces:" destination="lR7-lD-hLC" eventType="touchUpInside" id="YhO-e0-Uyp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="U1l-VR-5Vs" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="5RX-FT-r9p"/>
                             <constraint firstItem="wPc-I0-VGo" firstAttribute="centerY" secondItem="Grw-aG-N2x" secondAttribute="centerY" id="7OZ-4o-7hY"/>
                             <constraint firstItem="7Sd-Fm-uSg" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="Bnj-nV-2I4"/>
+                            <constraint firstItem="U1l-VR-5Vs" firstAttribute="top" secondItem="6fg-VW-giA" secondAttribute="bottom" constant="10" id="Bzh-sx-Lm6"/>
                             <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="U1l-VR-5Vs" secondAttribute="bottom" constant="10" id="Ho4-cZ-0DC"/>
                             <constraint firstItem="7Sd-Fm-uSg" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Nqn-u2-cJu"/>
                             <constraint firstItem="wPc-I0-VGo" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Oay-to-5LA"/>
+                            <constraint firstItem="6fg-VW-giA" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="bsK-VP-tHW"/>
                             <constraint firstItem="wPc-I0-VGo" firstAttribute="centerX" secondItem="Grw-aG-N2x" secondAttribute="centerX" id="swi-Z6-RpB"/>
                             <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="wPc-I0-VGo" secondAttribute="bottom" constant="10" id="zGY-qM-JHO"/>
                         </constraints>

@@ -37,4 +37,18 @@ class PuzzleViewController : UIViewController {
         
     }
     
+    @IBAction func togglePieces(sender: UIButton) {
+        let text: String
+        
+        if sender.titleLabel!.text!.containsString("Attach") {
+            puzzleView.spacing = 0.0
+            text = "Detach Pieces"
+        } else {
+            puzzleView.spacing = 20.0
+            text = "Attach Pieces"
+        }
+        
+        sender.setTitle(text, forState: .Normal)
+        puzzleView.reload()
+    }
 }
