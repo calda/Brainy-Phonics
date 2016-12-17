@@ -38,23 +38,23 @@ class WordView : UINibView {
         didSet {
             
             enum LabelPriority: Float {
-                case Show = 950
-                case Hide = 500
+                case show = 950
+                case hide = 500
             }
             
-            let priority: LabelPriority = showingText ? .Show : .Hide
+            let priority: LabelPriority = showingText ? .show : .hide
             labelBottom.priority = priority.rawValue
             
             self.label.superview?.layoutIfNeeded()
             self.label.alpha = showingText ? 1.0 : 0.0
             let scale: CGFloat = (showingText) ? 1.0 : 0.4
-            label.transform = CGAffineTransformMakeScale(scale, scale)
+            label.transform = CGAffineTransform(scaleX: scale, y: scale)
         }
     }
     
-    func setShowingText(showingText: Bool, animated: Bool, duration: NSTimeInterval? = 0.5) {
+    func setShowingText(_ showingText: Bool, animated: Bool, duration: TimeInterval? = 0.5) {
         
-        if let duration = duration where animated {
+        if let duration = duration, animated {
             UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.8) {
                 self.showingText = showingText
             }
@@ -73,7 +73,7 @@ class WordView : UINibView {
         return "WordView"
     }
     
-    func useWord(word: Word?, forSound sound: Sound? = nil, ofLetter letter: Letter? = nil) {
+    func useWord(_ word: Word?, forSound sound: Sound? = nil, ofLetter letter: Letter? = nil) {
         self.word = word
         
         guard let word = word else {

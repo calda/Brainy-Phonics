@@ -33,8 +33,8 @@ class PHContentManager {
             var wordsDict = [WordName : AudioInfo]()
             
             for i in 1 ..< line.count {
-                let splitSet = NSCharacterSet(charactersInString: "=/")
-                let parts = line[i].componentsSeparatedByCharactersInSet(splitSet)
+                let splitSet = CharacterSet(charactersIn: "=/")
+                let parts = line[i].components(separatedBy: splitSet)
                 let value = (fileName: fileName,
                              wordStart: parts[1].asDouble()!,
                              wordDuration: parts[2].asDouble()!)
@@ -53,7 +53,7 @@ class PHContentManager {
         
         for line in pronunciationLines {
             if line.isEmpty || line.isWhitespace() { continue }
-            let components = line.componentsSeparatedByString("=")
+            let components = line.components(separatedBy: "=")
             
             let word = components[0]
             let pronunciation = components[1]
@@ -63,7 +63,7 @@ class PHContentManager {
         return pronunciations
     }
     
-    static func parseLetters(audioTimings audioTimings: [FileName : [WordName : AudioInfo]], pronunciations: [WordName : Pronunciation]) -> [String : Letter]! {
+    static func parseLetters(audioTimings: [FileName : [WordName : AudioInfo]], pronunciations: [WordName : Pronunciation]) -> [String : Letter]! {
         guard let letterLines = linesForCSV("Sound List") else { return nil }
         
         //put each line in a bucket for its letter
@@ -86,10 +86,10 @@ class PHContentManager {
             for line in lines {
                 let soundId = line[1]
                 let displayString = line[2]
-                let ipaPronunciation = displayString.lowercaseString //TODO: fix IPA pronunciations
+                let ipaPronunciation = displayString.lowercased() //TODO: fix IPA pronunciations
                 let soundInfo = audioTimings["words-\(letter)-\(soundId)"] ?? [:]
                 
-                func wordForString(text: String) -> Word? {
+                func wordForString(_ text: String) -> Word? {
                     return Word(text:text, pronunciation: pronunciations[text], audioInfo: soundInfo[text])
                 }
                 
@@ -98,7 +98,7 @@ class PHContentManager {
                 var quizWords = [Word]()
                 let quizWordsString = line[6]
                 if !quizWordsString.isEmpty && !quizWordsString.isWhitespace() {
-                    let quizWordsArray = quizWordsString.componentsSeparatedByString(",")
+                    let quizWordsArray = quizWordsString.components(separatedBy: ",")
                     quizWords = quizWordsArray.flatMap{ wordForString($0.trimmingWhitespace()) }
                 }
                 
@@ -126,14 +126,14 @@ class PHContentManager {
     init() {
         let audioTimings = PHContentManager.parseAudioTimings()
         let pronunciations = PHContentManager.parsePronunciations()
-        self.letters = PHContentManager.parseLetters(audioTimings: audioTimings, pronunciations: pronunciations)
+        self.letters = PHContentManager.parseLetters(audioTimings: audioTimings!, pronunciations: pronunciations!)
     }
     
     
     //MARK: - Helper Funcitons
     
     ///plays the audio starting 0.3 seconds early and ending 0.5 seconds late to account for errors
-    func playAudioForInfo(info: AudioInfo?, concurrentcyMode: UAConcurrentAudioMode = .Interrupt) {
+    func playAudioForInfo(_ info: AudioInfo?, concurrentcyMode: UAConcurrentAudioMode = .interrupt) {
         guard let info = info else { return }
         
         PHPlayer.play(info.fileName, ofType: "mp3", ifConcurrent: concurrentcyMode,

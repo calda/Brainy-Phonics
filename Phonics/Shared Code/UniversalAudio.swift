@@ -14,17 +14,17 @@ var PHPlayer: UAPlayer {
     return UAPlayer()
 }
 
-private let UAAudioQueue = dispatch_queue_create("com.hearatale.phonetics.audio", DISPATCH_QUEUE_SERIAL)
+private let UAAudioQueue = DispatchQueue(label: "com.hearatale.phonetics.audio", attributes: [])
 private var UAAudioIsPlaying = false
 private var UAShouldHaltPlayback = false
 
 enum UAConcurrentAudioMode {
     ///The audio track will immediately start playing.
-    case Interrupt
+    case interrupt
     ///The audio track will be added to the play queue and will attempt to play after other tracks finish playing.
-    case Wait
+    case wait
     ///The audio track will only play is no other audio is playing or queued.
-    case Ignore
+    case ignore
 }
 
 func UAHaltPlayback() {
@@ -39,19 +39,19 @@ func UAIsAudioPlaying() -> Bool {
     return UAAudioIsPlaying
 }
 
-func UALengthOfFile(name: String, ofType type: String) -> NSTimeInterval {
-    if let path = NSBundle.mainBundle().pathForResource(name, ofType: type) {
-        let URL = NSURL(fileURLWithPath: path)
-        let asset = AVURLAsset(URL: URL, options: nil)
+func UALengthOfFile(_ name: String, ofType type: String) -> TimeInterval {
+    if let path = Bundle.main.path(forResource: name, ofType: type) {
+        let URL = Foundation.URL(fileURLWithPath: path)
+        let asset = AVURLAsset(url: URL, options: nil)
         
         let time = asset.duration
-        return NSTimeInterval(CMTimeGetSeconds(time))
+        return TimeInterval(CMTimeGetSeconds(time))
     }
     return 0.0
 }
 
-func UAWhenDonePlayingAudio(block: () -> ()) {
-    dispatch_async(UAAudioQueue, {
+func UAWhenDonePlayingAudio(_ block: @escaping () -> ()) {
+    UAAudioQueue.async(execute: {
         while(UAIsAudioPlaying()) { }
         sync {
             block()
@@ -64,18 +64,20 @@ class UAPlayer {
     var player: AVAudioPlayer?
     var name: String?
     var shouldHalt = false
-    var startTime: NSTimeInterval?
-    var endAfter: NSTimeInterval?
+    var startTime: TimeInterval?
+    var endAfter: TimeInterval?
     
-    func play(name: String, ofType type: String,
-              ifConcurrent mode: UAConcurrentAudioMode = .Interrupt, startTime: NSTimeInterval = 0.0, endAfter: NSTimeInterval? = nil) -> Bool {
+    @discardableResult func play(_ name: String, ofType type: String,
+              ifConcurrent mode: UAConcurrentAudioMode = .interrupt,
+              startTime: TimeInterval = 0.0,
+              endAfter: TimeInterval? = nil) -> Bool {
         
         self.name = name
         self.startTime = startTime
         self.endAfter = endAfter
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, withOptions: [])
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, with: [])
         
-        if let path = NSBundle.mainBundle().pathForResource(name, ofType: type), let data = NSData(contentsOfFile: path) {
+        if let path = Bundle.main.path(forResource: name, ofType: type), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
             
             do {
                player = try AVAudioPlayer(data: data, fileTypeHint: nil)
@@ -83,20 +85,20 @@ class UAPlayer {
                 return false
             }
             
-            if mode == .Interrupt {
+            if mode == .interrupt {
                 startPlayback()
                 return true
             }
             
-            if mode == .Ignore {
+            if mode == .ignore {
                 if !UAAudioIsPlaying {
                     startPlayback()
                     return true
                 }
             }
             
-            if mode == .Wait {
-                dispatch_async(UAAudioQueue, {
+            if mode == .wait {
+                UAAudioQueue.async(execute: {
                     while(UAAudioIsPlaying) {
                         if UAShouldHaltPlayback {
                             return
@@ -117,7 +119,7 @@ class UAPlayer {
             
             player.play()
             
-            if let startTime = startTime where startTime != 0.0 {
+            if let startTime = startTime, startTime != 0.0 {
                 player.currentTime = startTime
             }
             
@@ -128,8 +130,8 @@ class UAPlayer {
                 }
             }
             
-            dispatch_async(UAAudioQueue, {
-                while(player.playing) {
+            UAAudioQueue.async(execute: {
+                while(player.isPlaying) {
                     if self.shouldHalt && !self.fading {
                         sync {
                             self.doVolumeFade()

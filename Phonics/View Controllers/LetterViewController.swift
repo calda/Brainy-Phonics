@@ -20,17 +20,17 @@ class LetterViewController : InteractiveGrowViewController {
     
     var letter: Letter!
     var sound: Sound!
-    var timers = [NSTimer]()
+    var timers = [Timer]()
     var currentlyPlaying = false
     
     var previousSound: Sound? {
-        let prev = letter.sounds.indexOf(sound)!.predecessor()
+        let prev = (letter.sounds.index(of: sound)! - 1)
         if prev < 0 { return nil }
         return letter.sounds[prev]
     }
     
     var nextSound: Sound? {
-        let next = letter.sounds.indexOf(sound)!.successor()
+        let next = (letter.sounds.index(of: sound)! + 1)
         if next >= letter.sounds.count { return nil }
         return letter.sounds[next]
     }
@@ -38,22 +38,22 @@ class LetterViewController : InteractiveGrowViewController {
     
     //MARK: - Presentation
     
-    static func presentForLetter(letter: Letter, inController other: UIViewController) {
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("letter") as! LetterViewController
+    static func presentForLetter(_ letter: Letter, inController other: UIViewController) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "letter") as! LetterViewController
         controller.letter = letter
         controller.sound = controller.letter.sounds.first
-        other.presentViewController(controller, animated: true, completion: nil)
+        other.present(controller, animated: true, completion: nil)
     }
     
     
     //MARK: - Set up
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         decorateForCurrentSound()
         sortOutletCollectionByTag(&wordViews)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         UAHaltPlayback()
         timers.forEach{ $0.invalidate() }
     }
@@ -71,9 +71,9 @@ class LetterViewController : InteractiveGrowViewController {
         
         //set up view
         self.letterLabel.text = sound.displayString
-        self.previousSoundButton.enabled = previousSound != nil
-        self.nextSoundButton.enabled = nextSound != nil
-        self.quizButton.hidden = true
+        self.previousSoundButton.isEnabled = previousSound != nil
+        self.nextSoundButton.isEnabled = nextSound != nil
+        self.quizButton.isHidden = true
         
         self.wordViews.forEach{ $0.alpha = 0.0 }
         
@@ -94,13 +94,13 @@ class LetterViewController : InteractiveGrowViewController {
         if !withAnimationDelay {
             self.playSoundAnimation()
         } else {
-            NSTimer.scheduleAfter(0.4, addToArray: &self.timers) { _ in
+            Timer.scheduleAfter(0.4, addToArray: &self.timers) { _ in
                 self.playSoundAnimation()
             }
         }
         
         if transition {
-            let views = [letterLabel, wordsView]
+            let views: [UIView] = [letterLabel, wordsView]
             for view in views {
                 playTransitionForView(view, duration: 0.5, transition: kCATransitionPush, subtype: animationSubtype,
                                       timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
@@ -114,7 +114,7 @@ class LetterViewController : InteractiveGrowViewController {
     func playSoundAnimation() {
         
         self.currentlyPlaying = true
-        var startTime: NSTimeInterval = 0.0
+        var startTime: TimeInterval = 0.0
         let timeBetween = 0.85
         
         /*if let sourceLetterInfo = self.sound.sourceLetterTiming {
@@ -122,17 +122,17 @@ class LetterViewController : InteractiveGrowViewController {
             startTime += sourceLetterInfo.wordDuration + timeBetween
         }*/
         
-        NSTimer.scheduleAfter(startTime, addToArray: &timers) { _ in
+        Timer.scheduleAfter(startTime, addToArray: &timers) { _ in
             shakeView(self.letterLabel)
         }
         
-        NSTimer.scheduleAfter(startTime - 0.3, addToArray: &timers) { _ in
+        Timer.scheduleAfter(startTime - 0.3, addToArray: &timers) { _ in
             PHContent.playAudioForInfo(self.sound.pronunciationTiming)
         }
         
         startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
         
-        for (wordIndex, word) in self.sound.primaryWords.enumerate() {
+        for (wordIndex, word) in self.sound.primaryWords.enumerated() {
             var wordViewIndex = wordIndex
             
             //only animate the middle word if there is only one word
@@ -140,16 +140,16 @@ class LetterViewController : InteractiveGrowViewController {
                 wordViewIndex = 1
             }
             
-            NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
+            Timer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
                 self.playSoundAnimationForWordView(self.wordViews[wordViewIndex], delayAnimationBy: 0.3)
             }
             
             startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
             
             if (word == self.sound.primaryWords.last) {
-                NSTimer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
+                Timer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
                     if self.nextSound == nil {
-                        NSTimer.scheduleAfter(0.3, addToArray: &self.timers, handler: self.showQuizButton)
+                        Timer.scheduleAfter(0.3, addToArray: &self.timers, handler: self.showQuizButton)
                     } else {
                         self.currentlyPlaying = false
                     }
@@ -158,26 +158,26 @@ class LetterViewController : InteractiveGrowViewController {
         }
     }
     
-    func playSoundAnimationForWordView(wordView: WordView, delayAnimationBy delay: NSTimeInterval = 0.0, extendAnimationBy extend: NSTimeInterval = 0.0) {
+    func playSoundAnimationForWordView(_ wordView: WordView, delayAnimationBy delay: TimeInterval = 0.0, extendAnimationBy extend: TimeInterval = 0.0) {
         let word = wordView.word!
         word.playAudio()
         
         UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
-            wordView.transform = CGAffineTransformMakeScale(1.15, 1.15)
+            wordView.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
             wordView.alpha = 1.0
         })
         
         UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
-            wordView.transform = CGAffineTransformIdentity
+            wordView.transform = CGAffineTransform.identity
         })
     }
     
     func showQuizButton() {
-        self.quizButton.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        self.quizButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.65) {
-            self.quizButton.transform = CGAffineTransformMakeScale(1.15, 1.15)
-            self.quizButton.hidden = false
+            self.quizButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            self.quizButton.isHidden = false
             self.quizButton.alpha = 1.0
         }
         
@@ -187,16 +187,16 @@ class LetterViewController : InteractiveGrowViewController {
     
     //MARK: - User Interaction
     
-    @IBAction func backPressed(sender: UIButton) {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func backPressed(_ sender: UIButton) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func repeatPressed(sender: UIButton) {
+    @IBAction func repeatPressed(_ sender: UIButton) {
         if self.currentlyPlaying { return }
         
-        sender.userInteractionEnabled = false
+        sender.isUserInteractionEnabled = false
         delay(1.0) {
-            sender.userInteractionEnabled = true
+            sender.isUserInteractionEnabled = true
         }
         
         //sender.tag = 0  >>  repeat Sound Animation
@@ -210,40 +210,40 @@ class LetterViewController : InteractiveGrowViewController {
         }
     }
     
-    @IBAction func previousSoundPressed(sender: AnyObject) {
+    @IBAction func previousSoundPressed(_ sender: AnyObject) {
         sound = previousSound ?? sound
         decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromLeft)
     }
     
-    @IBAction func nextSoundPressed(sender: AnyObject) {
+    @IBAction func nextSoundPressed(_ sender: AnyObject) {
         sound = nextSound ?? sound
         decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromRight)
     }
     
-    @IBAction func openQuiz(sender: AnyObject) {
+    @IBAction func openQuiz(_ sender: AnyObject) {
         QuizViewController.presentQuizWithLetterPool([self.letter], showingThreeWords: true, onController: self)
     }
     
     
     //MARK: - Interactive Grow behavior
     
-    override func interactiveViewWilGrow(view: UIView) {
+    override func interactiveViewWilGrow(_ view: UIView) {
         if let wordView = view as? WordView {
             wordView.word?.playAudio()
         }
     }
     
-    override func totalDurationForInterruptedAnimationOn(view: UIView) -> NSTimeInterval? {
+    override func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
         if let wordView = view as? WordView, let duration = wordView.word?.audioInfo?.wordDuration {
             return duration + 0.5
         } else { return 1.0 }
     }
     
-    override func interactiveGrowScaleFor(view: UIView) -> CGFloat {
+    override func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
         return 1.15
     }
     
-    override func interactiveGrowShouldHappenFor(view: UIView) -> Bool {
+    override func interactiveGrowShouldHappenFor(_ view: UIView) -> Bool {
         return !self.currentlyPlaying
     }
     

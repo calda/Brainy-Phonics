@@ -24,27 +24,27 @@ class QuizViewController : InteractiveGrowViewController {
     @IBOutlet weak var fourthWord: WordView!
     
     var originalCenters = [WordView : CGPoint]()
-    var timers = [NSTimer]()
-    var state: QuizState = .Waiting
+    var timers = [Timer]()
+    var state: QuizState = .waiting
     
     enum QuizState {
-        case Waiting, PlayingQuestion, Transitioning
+        case waiting, playingQuestion, transitioning
     }
     
     
     //MARK: - Transition
     
-    static func presentQuizWithLetterPool(customLetterPool: [Letter]?, showingThreeWords: Bool, onController controller: UIViewController) {
-        let quiz = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("quiz") as! QuizViewController
+    static func presentQuizWithLetterPool(_ customLetterPool: [Letter]?, showingThreeWords: Bool, onController controller: UIViewController) {
+        let quiz = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "quiz") as! QuizViewController
         quiz.letterPool = customLetterPool
         quiz.onlyShowThreeWords = showingThreeWords
-        controller.presentViewController(quiz, animated: true, completion: nil)
+        controller.present(quiz, animated: true, completion: nil)
     }
     
     
     //MARK: - Content Setup
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         if letterPool == nil {
             letterPool = PHContent.letters.map{ (_, letter) in letter }
@@ -52,14 +52,14 @@ class QuizViewController : InteractiveGrowViewController {
         
         if self.onlyShowThreeWords {
             enum TopLeftLeadingPriority : UILayoutPriority {
-                case CenterView = 850
-                case LeftAlignView = 950
+                case centerView = 850
+                case leftAlignView = 950
             }
             
-            self.topLeftWordLeading.priority = TopLeftLeadingPriority.CenterView.rawValue
+            self.topLeftWordLeading.priority = TopLeftLeadingPriority.centerView.rawValue
             self.fourthWord.removeFromSuperview()
-            self.interactiveViews.removeAtIndex(self.interactiveViews.indexOf(self.fourthWord)!)
-            self.wordViews.removeAtIndex(self.wordViews.indexOf(self.fourthWord)!)
+            self.interactiveViews.remove(at: self.interactiveViews.index(of: self.fourthWord)!)
+            self.wordViews.remove(at: self.wordViews.index(of: self.fourthWord)!)
         }
         
         self.view.layoutIfNeeded()
@@ -69,7 +69,7 @@ class QuizViewController : InteractiveGrowViewController {
         setupForRandomSoundFromPool()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         stopAnimations(stopAudio: true)
     }
     
@@ -83,17 +83,17 @@ class QuizViewController : InteractiveGrowViewController {
         
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation
-        let blacklistedLetter = currentSound.sourceLetter.lowercaseString
+        let blacklistedLetter = currentSound.sourceLetter.lowercased()
         let possibleWords = allWords.filter{ word in
             
             for character in blacklistedSound.characters {
-                if word.pronunciation?.containsString("\(character)") == true {
+                if word.pronunciation?.contains("\(character)") == true {
                     return false
                 }
             }
             
             for character in blacklistedLetter.characters {
-                if word.text.lowercaseString.containsString("\(character)") {
+                if word.text.lowercased().contains("\(character)") {
                     return false
                 }
             }
@@ -104,18 +104,18 @@ class QuizViewController : InteractiveGrowViewController {
         
         var selectedWords: [Word] = [answerWord]
         while selectedWords.count != wordViews.count {
-            if let candidateWord = possibleWords.random() where !selectedWords.contains(candidateWord) {
+            if let candidateWord = possibleWords.random(), !selectedWords.contains(candidateWord) {
                 selectedWords.append(candidateWord)
             }
         }
         
         selectedWords = selectedWords.shuffled()
         
-        for (index, wordView) in wordViews.enumerate() {
+        for (index, wordView) in wordViews.enumerated() {
             wordView.center = self.originalCenters[wordView]!
             wordView.showingText = false
             wordView.layoutIfNeeded()
-            wordView.transform = CGAffineTransformIdentity
+            wordView.transform = CGAffineTransform.identity
             wordView.alpha = 1.0
             wordView.useWord(selectedWords[index], forSound: currentSound, ofLetter: currentLetter)
         }
@@ -126,7 +126,7 @@ class QuizViewController : InteractiveGrowViewController {
     
     //MARK: - Question Animation
     
-    func transitionToCurrentSound(isFirst isFirst: Bool) {
+    func transitionToCurrentSound(isFirst: Bool) {
         //animate if not first
         if !isFirst {
             for view in [wordViews.first!.superview!, self.soundLabel.superview!] {
@@ -142,39 +142,39 @@ class QuizViewController : InteractiveGrowViewController {
     
     func playQuestionAnimation() {
         
-        self.state = .PlayingQuestion
-        self.wordViews.first!.superview!.userInteractionEnabled = true
+        self.state = .playingQuestion
+        self.wordViews.first!.superview!.isUserInteractionEnabled = true
         
-        var startTime: NSTimeInterval = 0.0
+        var startTime: TimeInterval = 0.0
         let timeBetween = 0.85
         
-        NSTimer.scheduleAfter(startTime, addToArray: &timers) {
+        Timer.scheduleAfter(startTime, addToArray: &timers) {
             shakeView(self.soundLabel)
         }
         
-        NSTimer.scheduleAfter(startTime - 0.3, addToArray: &timers) {
+        Timer.scheduleAfter(startTime - 0.3, addToArray: &timers) {
             PHContent.playAudioForInfo(self.currentSound.pronunciationTiming)
         }
         
         startTime += (self.currentSound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
         
-        for (index, wordView) in self.wordViews.enumerate() {
+        for (index, wordView) in self.wordViews.enumerated() {
 
-            NSTimer.scheduleAfter(startTime, addToArray: &self.timers) {
+            Timer.scheduleAfter(startTime, addToArray: &self.timers) {
                 self.playSoundAnimationForWord(index, delayAnimationBy: 0.3)
             }
             
             startTime += (wordView.word?.audioInfo?.wordDuration ?? 0.0) + timeBetween
             
             if (wordView == self.wordViews.last) {
-                NSTimer.scheduleAfter(startTime - timeBetween, addToArray: &self.timers) {
-                    self.state = .Waiting
+                Timer.scheduleAfter(startTime - timeBetween, addToArray: &self.timers) {
+                    self.state = .waiting
                 }
             }
         }
     }
     
-    func playSoundAnimationForWord(index: Int, delayAnimationBy delay: NSTimeInterval = 0.0, extendAnimationBy extend: NSTimeInterval = 0.0) {
+    func playSoundAnimationForWord(_ index: Int, delayAnimationBy delay: TimeInterval = 0.0, extendAnimationBy extend: TimeInterval = 0.0) {
         if index >= self.wordViews.count { return }
         
         let wordView = self.wordViews[index]
@@ -182,20 +182,20 @@ class QuizViewController : InteractiveGrowViewController {
         word.playAudio()
         
         UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
-            wordView.transform = CGAffineTransformMakeScale(1.1, 1.1)
+            wordView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             wordView.alpha = 1.0
         })
         
         UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
-            wordView.transform = CGAffineTransformIdentity
+            wordView.transform = CGAffineTransform.identity
         })
     }
     
-    func stopAnimations(stopAudio stopAudio: Bool = true) {
-        if self.state != .Waiting {
+    func stopAnimations(stopAudio: Bool = true) {
+        if self.state != .waiting {
             self.timers.forEach{ $0.invalidate() }
             if stopAudio { UAHaltPlayback() }
-            self.state = .Waiting
+            self.state = .waiting
         }
         
     }
@@ -203,12 +203,12 @@ class QuizViewController : InteractiveGrowViewController {
     
     //MARK: - User Interaction
     
-    @IBAction func repeatSound(sender: UIButton) {
-        if self.state == .PlayingQuestion { return }
+    @IBAction func repeatSound(_ sender: UIButton) {
+        if self.state == .playingQuestion { return }
         
-        sender.userInteractionEnabled = false
+        sender.isUserInteractionEnabled = false
         delay(1.0) {
-            sender.userInteractionEnabled = true
+            sender.isUserInteractionEnabled = true
         }
         
         //sender.tag = 0  >>  repeat Sound Animation
@@ -222,8 +222,8 @@ class QuizViewController : InteractiveGrowViewController {
         }
     }
     
-    func wordViewSelected(wordView: WordView) {
-        wordView.superview?.bringSubviewToFront(wordView)
+    func wordViewSelected(_ wordView: WordView) {
+        wordView.superview?.bringSubview(toFront: wordView)
 
         if wordView.word == answerWord {
             correctWordSelected(wordView)
@@ -233,26 +233,26 @@ class QuizViewController : InteractiveGrowViewController {
         }
     }
     
-    func correctWordSelected(wordView: WordView) {
+    func correctWordSelected(_ wordView: WordView) {
         
-        self.state = .Transitioning
-        self.wordViews.first!.superview!.userInteractionEnabled = false
+        self.state = .transitioning
+        self.wordViews.first!.superview!.isUserInteractionEnabled = false
         
         func hideOtherWords() {
-            UIView.animateWithDuration(0.2) {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.wordViews.filter{ $0 != wordView }.forEach{ $0.alpha = 0.0 }
-            }
+            }) 
         }
         
         func animateAndContinue() {
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [UIViewAnimationOptions.BeginFromCurrentState], animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [UIViewAnimationOptions.beginFromCurrentState], animations: {
                 let superSize = wordView.superview!.bounds.size
                 let superCenter = CGPoint(x: superSize.width / 2, y: superSize.height / 2)
                 wordView.center = superCenter
                 }, completion: nil)
             
             PHPlayer.play("correct", ofType: "mp3")
-            NSTimer.scheduleAfter(1.5, addToArray: &self.timers, handler: self.setupForRandomSoundFromPool)
+            Timer.scheduleAfter(1.5, addToArray: &self.timers, handler: self.setupForRandomSoundFromPool)
         }
         
         wordView.setShowingText(true, animated: true, duration: 0.5)
@@ -260,25 +260,25 @@ class QuizViewController : InteractiveGrowViewController {
         if (UAIsAudioPlaying()) {
             UAWhenDonePlayingAudio {
                 hideOtherWords()
-                NSTimer.scheduleAfter(0.1, addToArray: &self.timers, handler: animateAndContinue)
+                Timer.scheduleAfter(0.1, addToArray: &self.timers, handler: animateAndContinue)
             }
         } else {
-            NSTimer.scheduleAfter(0.45, addToArray: &self.timers, handler: hideOtherWords)
-            NSTimer.scheduleAfter(0.55, addToArray: &self.timers, handler: animateAndContinue)
+            Timer.scheduleAfter(0.45, addToArray: &self.timers, handler: hideOtherWords)
+            Timer.scheduleAfter(0.55, addToArray: &self.timers, handler: animateAndContinue)
         }
     }
     
     
     //MARK: - Interactive Grow behavior
     
-    override func interactiveGrowScaleFor(view: UIView) -> CGFloat {
+    override func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
         return 1.1
     }
     
-    override func interactiveViewWilGrow(view: UIView) {
+    override func interactiveViewWilGrow(_ view: UIView) {
         if let wordView = view as? WordView {
             
-            if self.state == .PlayingQuestion {
+            if self.state == .playingQuestion {
                 self.stopAnimations(stopAudio: false)
             }
             
@@ -286,7 +286,7 @@ class QuizViewController : InteractiveGrowViewController {
         }
     }
     
-    override func shouldAnimateShrinkForInteractiveView(view: UIView, isTouchUp: Bool) -> Bool {
+    override func shouldAnimateShrinkForInteractiveView(_ view: UIView, isTouchUp: Bool) -> Bool {
         if view is WordView {
             return !isTouchUp
         }
@@ -294,14 +294,14 @@ class QuizViewController : InteractiveGrowViewController {
         return true
     }
     
-    override func totalDurationForInterruptedAnimationOn(view: UIView) -> NSTimeInterval? {
+    override func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
         if let wordView = view as? WordView, let duration = wordView.word?.audioInfo?.wordDuration {
             if wordView.word == self.answerWord { return 3.0 }
             return duration + 0.5
         } else { return 1.0 }
     }
     
-    override func touchUpForInteractiveView(view: UIView) {
+    override func touchUpForInteractiveView(_ view: UIView) {
         if let wordView = view as? WordView {
             self.wordViewSelected(wordView)
         }

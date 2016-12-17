@@ -12,54 +12,54 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     //MARK: - Collection View Data Source
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("LOADED PHCONTENT \(PHContent)")
         return PHLetters.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("letter", forIndexPath: indexPath) as! LetterCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "letter", for: indexPath) as! LetterCell
         cell.decorateForLetter(PHLetters[indexPath.item])
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (self.view.bounds.width - 90) / 4
-        return CGSizeMake(width, width)
+        return CGSize(width: width, height: width)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
     
     //MARK: - User Interaction
     
-    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         
-        self.view.userInteractionEnabled = false
+        self.view.isUserInteractionEnabled = false
         
         //animate selection
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
-            cell?.transform = CGAffineTransformMakeScale(1.15, 1.15)
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+            cell?.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
         }, completion: nil)
         
         //play audio for selection
-        let letter = PHContent[PHLetters[indexPath.item]]
+        guard let letter = PHContent[PHLetters[indexPath.item]] else { return true }
         letter.playSound()
         
         UAWhenDonePlayingAudio {
             //recursively call with a nonexistant index to hide the cell
-            UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
-                cell?.transform = CGAffineTransformIdentity
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+                cell?.transform = CGAffineTransform.identity
                 
                 LetterViewController.presentForLetter(letter, inController: self)
-                self.view.userInteractionEnabled = true
+                self.view.isUserInteractionEnabled = true
                 
             }, completion: nil)
         }
@@ -82,7 +82,7 @@ class LetterCell : UICollectionViewCell {
         cardView.clipsToBounds = true
     }
     
-    func decorateForLetter(letter: String) {
+    func decorateForLetter(_ letter: String) {
         
         cardView.layer.cornerRadius = cardView.frame.width * 0.2
         letterLabel.text = letter

@@ -12,13 +12,13 @@ import UIKit.UIGestureRecognizerSubclass
 //MARK: - Functions
 
 ///perform the closure function after a given delay
-func delay(delay: Double, closure: ()->()) {
-    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-    dispatch_after(time, dispatch_get_main_queue(), closure)
+func delay(_ delay: Double, closure: @escaping ()->()) {
+    let time = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: time, execute: closure)
 }
 
 ///play a CATransition for a UIView
-func playTransitionForView(view: UIView, duration: Double, transition transitionName: String, subtype: String? = nil, timingFunction: CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)) {
+func playTransitionForView(_ view: UIView, duration: Double, transition transitionName: String, subtype: String? = nil, timingFunction: CAMediaTimingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)) {
     let transition = CATransition()
     transition.duration = duration
     transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
@@ -36,17 +36,17 @@ func playTransitionForView(view: UIView, duration: Double, transition transition
     
     transition.subtype = subtype
     transition.timingFunction = timingFunction
-    view.layer.addAnimation(transition, forKey: nil)
+    view.layer.add(transition, forKey: nil)
 }
 
 ///dimiss a stack of View Controllers until a desired controler is found
-func dismissController(controller: UIViewController, untilMatch controllerCheck: (UIViewController) -> Bool) {
+func dismissController(_ controller: UIViewController, untilMatch controllerCheck: @escaping (UIViewController) -> Bool) {
     if controllerCheck(controller) {
         return //we made it to our destination
     }
     
     let superController = controller.presentingViewController
-    controller.dismissViewControllerAnimated(false, completion: {
+    controller.dismiss(animated: false, completion: {
         if let superController = superController {
             dismissController(superController, untilMatch: controllerCheck)
         }
@@ -54,7 +54,7 @@ func dismissController(controller: UIViewController, untilMatch controllerCheck:
 }
 
 ///get the top most view controller of the current Application
-func getTopController(application: UIApplicationDelegate) -> UIViewController? {
+func getTopController(_ application: UIApplicationDelegate) -> UIViewController? {
     //find the top controller
     var topController: UIViewController?
     
@@ -69,93 +69,93 @@ func getTopController(application: UIApplicationDelegate) -> UIViewController? {
 }
 
 ///sorts any [UIView]! by view.tag
-func sortOutletCollectionByTag<T : UIView>(inout collection: [T]!) {
-    collection = (collection as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(key: "tag", ascending: true)]) as! [T]
+func sortOutletCollectionByTag<T : UIView>(_ collection: inout [T]!) {
+    collection = (collection as NSArray).sortedArray(using: [NSSortDescriptor(key: "tag", ascending: true)]) as! [T]
 }
 
 ///animates a back and forth shake
-func shakeView(view: UIView) {
+func shakeView(_ view: UIView) {
     let animations : [CGFloat] = [20.0, -20.0, 10.0, -10.0, 3.0, -3.0, 0]
     for i in 0 ..< animations.count {
-        let frameOrigin = CGPointMake(view.frame.origin.x + animations[i], view.frame.origin.y)
+        let frameOrigin = CGPoint(x: view.frame.origin.x + animations[i], y: view.frame.origin.y)
         
-        UIView.animateWithDuration(0.1, delay: NSTimeInterval(0.1 * Double(i)), options: [.BeginFromCurrentState], animations: {
+        UIView.animate(withDuration: 0.1, delay: TimeInterval(0.1 * Double(i)), options: [.beginFromCurrentState], animations: {
             view.frame.origin = frameOrigin
             }, completion: nil)
     }
 }
 
 ///animates a back and forth rotation
-func pivotView(view: UIView, multiplier: CGFloat) {
+func pivotView(_ view: UIView, multiplier: CGFloat) {
     let animations : [CGFloat] = [20.0, -20.0, 10.0, -10.0, 3.0, -3.0, 0]
     for i in 0 ..< animations.count {
-        let transform = CGAffineTransformMakeRotation(animations[i] * (CGFloat(M_PI) / 180.0) * 1.2 * multiplier)
+        let transform = CGAffineTransform(rotationAngle: animations[i] * (CGFloat(M_PI) / 180.0) * 1.2 * multiplier)
         
-        UIView.animateWithDuration(0.1, delay: NSTimeInterval(0.1 * Double(i)), options: [], animations: {
+        UIView.animate(withDuration: 0.1, delay: TimeInterval(0.1 * Double(i)), options: [], animations: {
             view.transform = transform
             }, completion: nil)
     }
 }
 
-func pivotView(view: UIView) {
+func pivotView(_ view: UIView) {
     pivotView(view, multiplier: 1.0)
 }
 
 ///short-form function to run a block synchronously on the main queue
-func sync(closure: () -> ()) {
-    dispatch_sync(dispatch_get_main_queue(), closure)
+func sync(_ closure: () -> ()) {
+    DispatchQueue.main.sync(execute: closure)
 }
 
 ///short-form function to run a block asynchronously on the main queue
-func async(closure: () -> ()) {
-    dispatch_async(dispatch_get_main_queue(), closure)
+func async(_ closure: @escaping () -> ()) {
+    DispatchQueue.main.async(execute: closure)
 }
 
 
 ///open to this app's iOS Settings
 func openSettings() {
-    UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
+    UIApplication.shared.openURL(URL(string:UIApplicationOpenSettingsURLString)!)
 }
 
 
 ///returns trus if the current device is an iPad
 func iPad() -> Bool {
-    return UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
+    return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
 }
 
 ///returns trus if the current device is an iPhone 4S
 func is4S() -> Bool {
-    return UIScreen.mainScreen().bounds.height == 480.0
+    return UIScreen.main.bounds.height == 480.0
 }
 
 
 ///a more succinct function call to post a notification
-func postNotification(name: String, object: AnyObject?) {
-    NSNotificationCenter.defaultCenter().postNotificationName(name, object: object, userInfo: nil)
+func postNotification(_ name: String, object: AnyObject?) {
+    NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: object, userInfo: nil)
 }
 
 ///Determines the height required to display the text in the given label
-func heightForText(text: String, width: CGFloat, font: UIFont) -> CGFloat {
+func heightForText(_ text: String, width: CGFloat, font: UIFont) -> CGFloat {
     let context = NSStringDrawingContext()
-    let size = CGSizeMake(width, CGFloat.max)
-    let rect = text.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: context)
+    let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+    let rect = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: context)
     return rect.height
 }
 
 ///Reads the lines for a text file out of the bundle
-func linesForFile(fileName: String, ofType type: String, usingNewlineMarker newline: String = "\r\n") -> [String]? {
-    guard let file = NSBundle.mainBundle().pathForResource(fileName, ofType: type) else { return nil }
+func linesForFile(_ fileName: String, ofType type: String, usingNewlineMarker newline: String = "\r\n") -> [String]? {
+    guard let file = Bundle.main.path(forResource: fileName, ofType: type) else { return nil }
     
     do {
-        let text = try NSString(contentsOfFile: file, encoding: NSUTF8StringEncoding)
-        return text.componentsSeparatedByString(newline)
+        let text = try NSString(contentsOfFile: file, encoding: String.Encoding.utf8.rawValue)
+        return text.components(separatedBy: newline)
     } catch {
         return nil;
     }
 }
 
 ///Reads the lines for a CSV out of the bundle
-func linesForCSV(fileName: String, usingNewlineMarker newline: String = "\r\n") -> [[String]]? {
+func linesForCSV(_ fileName: String, usingNewlineMarker newline: String = "\r\n") -> [[String]]? {
     guard let lines = linesForFile(fileName, ofType: "csv", usingNewlineMarker: newline) else { return nil }
     return lines.map{ line in
         
@@ -165,10 +165,10 @@ func linesForCSV(fileName: String, usingNewlineMarker newline: String = "\r\n") 
         // A,long,A,ape,tail,jay,skate~|~ suitcase~|~ crayons,hello~|~ hi
         // ["A", "long", "A", "ape", "tail", "jay", "skate, suitcase, crayons", "hello, hi"]
         
-        let separatedByQuotes = line.componentsSeparatedByString("\"")
+        let separatedByQuotes = line.components(separatedBy: "\"")
         var reparsedLine = [String]()
         
-        for (index, part) in separatedByQuotes.enumerate() {
+        for (index, part) in separatedByQuotes.enumerated() {
 
             if line.hasSuffix("\"") && index == separatedByQuotes.count - 1 {
                 continue
@@ -177,16 +177,16 @@ func linesForCSV(fileName: String, usingNewlineMarker newline: String = "\r\n") 
             if index.isEven {
                 reparsedLine.append(part)
             } else {
-                let noCommaString = part.stringByReplacingOccurrencesOfString(",", withString: "~|~")
+                let noCommaString = part.replacingOccurrences(of: ",", with: "~|~")
                 reparsedLine.append(noCommaString)
             }
         }
         
-        let rejoinedLine = reparsedLine.joinWithSeparator("")
-        let separatedByCommas = rejoinedLine.componentsSeparatedByString(",")
+        let rejoinedLine = reparsedLine.joined(separator: "")
+        let separatedByCommas = rejoinedLine.components(separatedBy: ",")
         
         
-        return separatedByCommas.map{ $0.stringByReplacingOccurrencesOfString("~|~", withString: ",") }
+        return separatedByCommas.map{ $0.replacingOccurrences(of: "~|~", with: ",") }
     }
 }
 
@@ -195,19 +195,19 @@ func linesForCSV(fileName: String, usingNewlineMarker newline: String = "\r\n") 
 ///A touch gesture recognizer that sends events on both .Began (down) and .Ended (up)
 class UITouchGestureRecognizer : UITapGestureRecognizer {
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
-        self.state = .Began
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesBegan(touches, with: event)
+        self.state = .began
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesMoved(touches, withEvent: event)
-        self.state = .Changed
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesMoved(touches, with: event)
+        self.state = .changed
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesEnded(touches, withEvent: event)
-        self.state = .Ended
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesEnded(touches, with: event)
+        self.state = .ended
     }
     
 }
@@ -215,8 +215,8 @@ class UITouchGestureRecognizer : UITapGestureRecognizer {
 ///This class fixes the weird bug where iPad Table View Cells always default to a white background
 class TransparentTableView : UITableView {
     
-    override func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell? {
-        let cell = super.dequeueReusableCellWithIdentifier(identifier)
+    override func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
+        let cell = super.dequeueReusableCell(withIdentifier: identifier)
         cell?.backgroundColor = cell?.backgroundColor
         return cell
     }
@@ -246,9 +246,9 @@ class UINibView : UIView {
     
     func setupNib() {
         
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName(), bundle: bundle)
-        nibView = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        nibView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
         nibView.frame = bounds
         nibView.layer.masksToBounds = true
@@ -256,9 +256,9 @@ class UINibView : UIView {
         self.addSubview(nibView)
         
         nibView.translatesAutoresizingMaskIntoConstraints = false
-        let attributes: [NSLayoutAttribute] = [.Top, .Left, .Right, .Bottom]
+        let attributes: [NSLayoutAttribute] = [.top, .left, .right, .bottom]
         for attribute in attributes {
-            let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .Equal, toItem: self.nibView, attribute: attribute, multiplier: 1.0, constant: 0.0)
+            let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .equal, toItem: self.nibView, attribute: attribute, multiplier: 1.0, constant: 0.0)
             self.addConstraint(constraint)
         }
     }
@@ -314,12 +314,12 @@ extension Int {
 
 extension NSObject {
     ///Short-hand function to register a notification observer
-    func observeNotification(name: String, selector: Selector) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: selector, name: name, object: nil)
+    func observeNotification(_ name: String, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: name), object: nil)
     }
 }
 
-extension NSDate {
+extension Date {
     ///converts to a "10 seconds ago" / "1 day ago" syntax
     func agoString() -> String {
         let deltaTime = -self.timeIntervalSinceNow
@@ -374,7 +374,7 @@ extension NSDate {
             }
         }
         
-        let dateString = NSDateFormatter.localizedStringFromDate(self, dateStyle: .MediumStyle, timeStyle: .NoStyle)
+        let dateString = DateFormatter.localizedString(from: self, dateStyle: .medium, timeStyle: .none)
         return "on \(dateString)"
         
     }
@@ -395,8 +395,8 @@ extension UITableViewCell {
 
 extension UIView {
     
-    static func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, usingSpringWithDamping damping: CGFloat, animations: () -> ()) {
-        UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: damping, initialSpringVelocity: 0.0, options: [], animations: animations, completion: nil)
+    static func animateWithDuration(_ duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping damping: CGFloat, animations: @escaping () -> ()) {
+        UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: damping, initialSpringVelocity: 0.0, options: [], animations: animations, completion: nil)
     }
     
 }
@@ -408,11 +408,11 @@ extension String {
     }
     
     func asDouble() -> Double? {
-        return NSNumberFormatter().numberFromString(self)?.doubleValue
+        return NumberFormatter().number(from: self)?.doubleValue
     }
     
     func percentStringAsDouble() -> Double? {
-        if let displayedNumber = (self as NSString).substringToIndex(self.length - 1).asDouble() {
+        if let displayedNumber = (self as NSString).substring(to: self.length - 1).asDouble() {
             return displayedNumber / 100.0
         }
         return nil
@@ -429,21 +429,21 @@ extension String {
         var trimmedText = self
         
         while (trimmedText.hasPrefix(" ")) {
-            trimmedText = trimmedText.substringFromIndex(trimmedText.startIndex.successor())
+            trimmedText = trimmedText.substring(from: trimmedText.characters.index(after: trimmedText.startIndex))
         }
         
         while (trimmedText.hasSuffix(" ")) {
-            trimmedText = trimmedText.substringToIndex(trimmedText.endIndex.successor())
+            trimmedText = trimmedText.substring(to: trimmedText.characters.index(after: trimmedText.endIndex))
         }
         
         return trimmedText
     }
     
-    mutating func prepareForURL(isFullURL isFullURL: Bool = false) {
+    mutating func prepareForURL(isFullURL: Bool = false) {
         self = self.preparedForURL(isFullURL: isFullURL)
     }
     
-    func preparedForURL(isFullURL isFullURL: Bool = false) -> String {
+    func preparedForURL(isFullURL: Bool = false) -> String {
         var specialCharacters = [
             "?" : "%3F",
             "&" : "%26",
@@ -455,7 +455,7 @@ extension String {
         
         if isFullURL {
             //replacing % on full URLs would change %20 to %2520, breaking the link
-            specialCharacters.removeValueForKey("%")
+            specialCharacters.removeValue(forKey: "%")
         }
         
         //if this isn't a full URL (ex: a post argument), then also strip out some special URL characters
@@ -467,7 +467,7 @@ extension String {
         
         var currentString = self
         for (special, replace) in specialCharacters {
-            currentString = currentString.stringByReplacingOccurrencesOfString(special, withString: replace)
+            currentString = currentString.replacingOccurrences(of: special, with: replace)
         }
         return currentString
     }
@@ -475,16 +475,16 @@ extension String {
 }
 
 ///Add dedicated NSCoding methods to cut down on boilerplate everywhere else
-extension NSUserDefaults {
+extension UserDefaults {
     
-    func setCodedObject(value: NSCoding, forKey key: String) {
-        let data = NSKeyedArchiver.archivedDataWithRootObject(value)
-        setObject(data, forKey: key)
+    func setCodedObject(_ value: NSCoding, forKey key: String) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: value)
+        set(data, forKey: key)
     }
     
-    func codedObjectForKey(key: String) -> AnyObject? {
-        if let data = objectForKey(key) as? NSData {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(data)
+    func codedObjectForKey(_ key: String) -> AnyObject? {
+        if let data = object(forKey: key) as? Data {
+            return NSKeyedUnarchiver.unarchiveObject(with: data) as AnyObject?
         }
         return nil
     }
@@ -493,29 +493,29 @@ extension NSUserDefaults {
 
 extension NSString {
     
-    func stringAtIndex(index: Int) -> String {
-        let char = self.characterAtIndex(index)
-        return "\(Character(UnicodeScalar(char)))"
+    func stringAtIndex(_ index: Int) -> String {
+        let char = self.character(at: index)
+        return "\(Character(UnicodeScalar(char)!))"
     }
     
-    func countOccurancesOfString(string: String) -> Int {
-        let strCount = self.length - self.stringByReplacingOccurrencesOfString(string, withString: "").length
+    func countOccurancesOfString(_ string: String) -> Int {
+        let strCount = self.length - self.replacingOccurrences(of: string, with: "").length
         return strCount / string.length
     }
     
 }
 
-extension NSBundle {
+extension Bundle {
     
     static var applicationVersionNumber: String {
-        if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             return version
         }
         return "Version Number Not Available"
     }
     
     static var applicationBuildNumber: String {
-        if let build = NSBundle.mainBundle().infoDictionary?["CFBundleVersion"] as? String {
+        if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
             return build
         }
         return "Build Number Not Available"
@@ -523,36 +523,36 @@ extension NSBundle {
     
 }
 
-extension NSDateFormatter {
+extension DateFormatter {
     
     convenience init(withFormat format: String) {
         self.init()
         self.dateFormat = format
     }
     
-    static func stringFromDate(date: NSDate, withFormat format: String) -> String {
-        let formatter = NSDateFormatter(withFormat: format)
-        return formatter.stringFromDate(date)
+    static func stringFromDate(_ date: Date, withFormat format: String) -> String {
+        let formatter = DateFormatter(withFormat: format)
+        return formatter.string(from: date)
     }
     
     
-    static func dateFromString(string: String, withFormat format: String) -> NSDate? {
-        let formatter = NSDateFormatter(withFormat: format)
-        return formatter.dateFromString(string)
+    static func dateFromString(_ string: String, withFormat format: String) -> Date? {
+        let formatter = DateFormatter(withFormat: format)
+        return formatter.date(from: string)
     }
     
 }
 
-extension NSTimer {
+extension Timer {
     
-    class func scheduleAfter(delay: NSTimeInterval, inout addToArray array: [NSTimer], handler: () -> ()) -> NSTimer {
+    @discardableResult class func scheduleAfter(_ delay: TimeInterval, addToArray array: inout [Timer], handler: @escaping () -> ()) -> Timer {
         let fireDate = delay + CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, 0, 0, 0, { _ in handler() })
-        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
         
-        array.append(timer)
+        array.append(timer!)
         
-        return timer
+        return timer!
     }
     
 }

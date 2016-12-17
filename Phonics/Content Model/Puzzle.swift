@@ -19,10 +19,10 @@ struct Puzzle {
         self.rowCount = rows
         self.colCount = cols
         
-        let emptyRow = [PuzzlePiece?](count: cols, repeatedValue: nil)
-        var puzzle = [[PuzzlePiece?]](count: rows, repeatedValue: emptyRow)
+        let emptyRow = [PuzzlePiece?](repeating: nil, count: cols)
+        var puzzle = [[PuzzlePiece?]](repeating: emptyRow, count: rows)
         
-        func pieceAt(row: Int, _ col: Int) -> PuzzlePiece? {
+        func pieceAt(_ row: Int, _ col: Int) -> PuzzlePiece? {
             if !(0 ..< rows).contains(row) { return nil }
             if !(0 ..< cols).contains(col) { return nil }
             return puzzle[row][col] ?? PuzzlePiece.withRandomNubs

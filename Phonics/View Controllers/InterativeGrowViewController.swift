@@ -20,18 +20,18 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
     private var selectedViews = [UIView : SelectionState]()
     
     private enum SelectionState {
-        case Growing(NSDate), Grown
+        case growing(Date), grown
         
-        var startTime: NSDate? {
+        var startTime: Date? {
             switch (self) {
-                case .Growing(let date): return date
+                case .growing(let date): return date
                 default: return nil
             }
         }
         
         var isGrowing: Bool {
             switch (self) {
-                case .Growing(_): return true
+                case .growing(_): return true
                 default: return false
             }
         }
@@ -40,57 +40,57 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
     
     //MARK: - Touch Recognizing
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        touchRecognized(touch, state: .Began)
+        touchRecognized(touch, state: .began)
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        touchRecognized(touch, state: .Changed)
+        touchRecognized(touch, state: .changed)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        touchRecognized(touch, state: .Ended)
+        touchRecognized(touch, state: .ended)
     }
     
-    private func touchRecognized(touch: UITouch, state: UIGestureRecognizerState) {
+    fileprivate func touchRecognized(_ touch: UITouch, state: UIGestureRecognizerState) {
         for view in interactiveViews {
             if !interactiveGrowShouldHappenFor(view) { continue }
             
             let selected: Bool
         
-            if state == .Ended {
+            if state == .ended {
                 selected = false
             } else {
-                let location = touch.locationInView(view)
-                selected = CGRectContainsPoint(view.bounds, location)
+                let location = touch.location(in: view)
+                selected = view.bounds.contains(location)
             }
             
-            (selected ? touchEnteredView : touchExitedView)(view, withState: state)
+            (selected ? touchEnteredView : touchExitedView)(view, state)
         }
     }
     
     
     //MARK: - View Selection
     
-    private func touchEnteredView(view: UIView, withState state: UIGestureRecognizerState) {
+    fileprivate func touchEnteredView(_ view: UIView, withState state: UIGestureRecognizerState) {
         
         if !selectedViews.keys.contains(view) {
-            selectedViews[view] = .Growing(NSDate())
+            selectedViews[view] = .growing(Date())
             self.interactiveViewWilGrow(view)
             
             self.animateBlock({
                 
                     let scale = self.interactiveGrowScaleFor(view)
-                    view.transform = CGAffineTransformMakeScale(scale, scale)
+                    view.transform = CGAffineTransform(scaleX: scale, y: scale)
                 
                 }, withCompletion: { completed in
                     
                     if self.selectedViews.keys.contains(view) {
                         self.interactiveViewDidGrow(view)
-                        self.selectedViews[view] = .Grown
+                        self.selectedViews[view] = .grown
                     }
                     
                 }, forInteractiveView: view)
@@ -99,11 +99,11 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
         
     }
     
-    private func touchExitedView(view: UIView, withState state: UIGestureRecognizerState) {
+    fileprivate func touchExitedView(_ view: UIView, withState state: UIGestureRecognizerState) {
         
         if selectedViews.keys.contains(view) {
             
-            if state == .Ended {
+            if state == .ended {
                 self.touchUpForInteractiveView(view)
             }
             
@@ -116,11 +116,11 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
                 }
             }
             
-            selectedViews.removeValueForKey(view)
+            selectedViews.removeValue(forKey: view)
         
-            if self.shouldAnimateShrinkForInteractiveView(view, isTouchUp: state == .Ended) {
+            if self.shouldAnimateShrinkForInteractiveView(view, isTouchUp: state == .ended) {
                 self.animateBlock({
-                    view.transform = CGAffineTransformIdentity
+                    view.transform = CGAffineTransform.identity
                 }, withCompletion: nil, forInteractiveView: view)
             }
             
@@ -128,9 +128,9 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
         
     }
     
-    private func continueAnimationOnView(view: UIView, forTotalDuration duration: NSTimeInterval) {
+    fileprivate func continueAnimationOnView(_ view: UIView, forTotalDuration duration: TimeInterval) {
         guard let startTime = selectedViews[view]?.startTime else { return }
-        let timeSinceStart = NSDate().timeIntervalSinceDate(startTime)
+        let timeSinceStart = Date().timeIntervalSince(startTime)
         let timeRemaining = max(0, duration - timeSinceStart)
         
         weak var weakView = view
@@ -139,9 +139,9 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
         delay(timeRemaining) {
             if let strongView = weakView, let strongSelf = weakSelf {
                 self.animateBlock({
-                        view.transform = CGAffineTransformIdentity
+                        view.transform = CGAffineTransform.identity
                     }, withCompletion: { _ in
-                        strongSelf.selectedViews.removeValueForKey(strongView)
+                        strongSelf.selectedViews.removeValue(forKey: strongView)
                     }, forInteractiveView: strongView)
             }
         }
@@ -151,44 +151,44 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
     //MARK: - Customization Points
     
     ///There has been a touch over the view. What scale should the view grow to, at this time?
-    func interactiveGrowScaleFor(view: UIView) -> CGFloat {
+    func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
         return 1.2
     }
     
     ///There has been a touch over the view. Should the view grow, at this time?
-    func interactiveGrowShouldHappenFor(view: UIView) -> Bool {
+    func interactiveGrowShouldHappenFor(_ view: UIView) -> Bool {
         return true
     }
     
     ///The view is about to start growing
-    func interactiveViewWilGrow(view: UIView) {
+    func interactiveViewWilGrow(_ view: UIView) {
         return
     }
     
     ///The view finished growing
-    func interactiveViewDidGrow(view: UIView) {
+    func interactiveViewDidGrow(_ view: UIView) {
         return
     }
     
     //Should the view play a shrink animation?
-    func shouldAnimateShrinkForInteractiveView(view: UIView, isTouchUp: Bool) -> Bool {
+    func shouldAnimateShrinkForInteractiveView(_ view: UIView, isTouchUp: Bool) -> Bool {
         return true
     }
     
     ///The view recieved a Touch Up Inside event
-    func touchUpForInteractiveView(view: UIView) {
+    func touchUpForInteractiveView(_ view: UIView) {
         return
     }
     
     ///The tap exited the view before it could finish growing. How long should the view be grown for, from start to end?
-    func totalDurationForInterruptedAnimationOn(view: UIView) -> NSTimeInterval? {
+    func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
         return nil
     }
     
     ///The block and completion should be used in a UIView animation to achieve the desired grow animation.
-    func animateBlock(block: () -> (), withCompletion completion: ((Bool) -> ())?, forInteractiveView view: UIView) {
-        UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0,
-                                   options: [.AllowUserInteraction], animations: block, completion: completion)
+    func animateBlock(_ block: @escaping () -> (), withCompletion completion: ((Bool) -> ())?, forInteractiveView view: UIView) {
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0,
+                                   options: [.allowUserInteraction], animations: block, completion: completion)
     }
     
     

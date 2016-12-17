@@ -16,7 +16,7 @@ class PuzzleViewController : UIViewController {
     
     //MARK: - Set up
     
-    func configureForSound(sound: Sound) {
+    func configureForSound(_ sound: Sound) {
         guard let image = sound.puzzleImage else { return }
         puzzleView.image = image
         
@@ -26,10 +26,10 @@ class PuzzleViewController : UIViewController {
     
     //MARK: - User Interaction
     
-    @IBAction func randomPuzzle(sender: UIButton) {
+    @IBAction func randomPuzzle(_ sender: UIButton) {
         let sound = PHContent.allSounds.random()
         
-        if let sound = sound where sound.puzzleImage != nil {
+        if let sound = sound, sound.puzzleImage != nil {
             self.configureForSound(sound)
         } else {
             self.randomPuzzle(sender)
@@ -37,10 +37,10 @@ class PuzzleViewController : UIViewController {
         
     }
     
-    @IBAction func togglePieces(sender: UIButton) {
+    @IBAction func togglePieces(_ sender: UIButton) {
         let text: String
         
-        if sender.titleLabel!.text!.containsString("Attach") {
+        if sender.titleLabel!.text!.contains("Attach") {
             puzzleView.spacing = 0.0
             text = "Detach Pieces"
         } else {
@@ -48,7 +48,7 @@ class PuzzleViewController : UIViewController {
             text = "Attach Pieces"
         }
         
-        sender.setTitle(text, forState: .Normal)
+        sender.setTitle(text, for: UIControlState())
         puzzleView.reload()
     }
 }

@@ -17,15 +17,15 @@ extension Puzzle {
         var images = [(image: UIImage, piece: PuzzlePiece, row: Int, col: Int)]()
         let flippedImage = image.flipped
         
-        let cgImage = image.CGImage
-        let imageWidth = CGFloat(CGImageGetWidth(cgImage))
-        let imageHeight = CGFloat(CGImageGetHeight(cgImage))
+        let cgImage = image.cgImage
+        let imageWidth = CGFloat((cgImage?.width)!)
+        let imageHeight = CGFloat((cgImage?.height)!)
         
         let pieceWidth = imageWidth / CGFloat(self.colCount)
         let pieceHeight = imageHeight / CGFloat(self.rowCount)
         
-        for (row, rowPieces) in pieces.enumerate() {
-            for (col, piece) in rowPieces.enumerate() {
+        for (row, rowPieces) in pieces.enumerated() {
+            for (col, piece) in rowPieces.enumerated() {
                 let originInImage = CGPoint(x: Int(pieceWidth) * col, y: Int(pieceHeight) * row)
                 let pieceImage = piece.cropPiece(at: originInImage, fromFlippedImage: flippedImage, width: pieceWidth, multiplyByDeviceScale: multiplyByDeviceScale)
                 images.append(image: pieceImage, piece: piece, row: row, col: col)
@@ -70,7 +70,7 @@ extension PuzzlePiece {
     
     func cropPiece(at imageOriginUnscaled: CGPoint, fromFlippedImage sourceImage: UIImage, width widthUnscaled: CGFloat, multiplyByDeviceScale: Bool = true) -> UIImage {
         
-        let deviceScale = UIScreen.mainScreen().scale
+        let deviceScale = UIScreen.main.scale
         let imageOrigin = (multiplyByDeviceScale ? imageOriginUnscaled * deviceScale : imageOriginUnscaled)
         let width = (multiplyByDeviceScale ? widthUnscaled * deviceScale : widthUnscaled)
         
@@ -83,18 +83,18 @@ extension PuzzlePiece {
                                          y: (self.topNubDirection == .outside ? nubLength : 0))
         
         let piecePath = path(origin: originOfBezierPath, width: width)
-        CGContextAddPath(context, piecePath.CGPath)
-        CGContextClip(context)
+        context?.addPath(piecePath.cgPath)
+        context?.clip()
         
         let originInImage = imageOrigin - originOfBezierPath.vectorFromOrigin()
         
-        let cgImage = sourceImage.CGImage
-        let imageSize = CGSize(width: CGImageGetWidth(cgImage), height: CGImageGetHeight(cgImage))
+        let cgImage = sourceImage.cgImage
+        let imageSize = CGSize(width: (cgImage?.width)!, height: (cgImage?.height)!)
         let imageRectInContext = CGRect(origin: .zero, size: imageSize)
         
-        CGContextTranslateCTM(context, -originInImage.x, -originInImage.y)
-        CGContextDrawImage(context, imageRectInContext, sourceImage.CGImage)
-        CGContextTranslateCTM(context, originInImage.x, originInImage.y)
+        context?.translateBy(x: -originInImage.x, y: -originInImage.y)
+        context?.draw(sourceImage.cgImage!, in: imageRectInContext)
+        context?.translateBy(x: originInImage.x, y: originInImage.y)
         
         UIColor(white: 0.0, alpha: 0.5).setStroke()
         piecePath.lineWidth = 5.0
@@ -102,12 +102,12 @@ extension PuzzlePiece {
         
         let pieceImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return pieceImage
+        return pieceImage!
     }
     
-    func path(origin origin: CGPoint, width: CGFloat) -> UIBezierPath {
+    func path(origin: CGPoint, width: CGFloat) -> UIBezierPath {
         let path = UIBezierPath()
-        path.moveToPoint(origin)
+        path.move(to: origin)
         
         var currentPoint = origin
         var vector = CGVector(dx: width, dy: 0)
@@ -118,14 +118,14 @@ extension PuzzlePiece {
             if let direction = direction {
                 self.addPuzzleLineFrom(from: currentPoint, to: nextPoint, facing: direction, on: path)
             } else {
-                path.addLineToPoint(nextPoint)
+                path.addLine(to: nextPoint)
             }
             
             vector = vector.rotated(clockwise: false, degrees: 90)
             currentPoint = nextPoint
         }
         
-        path.closePath()
+        path.close()
         return path
     }
     
@@ -144,22 +144,22 @@ extension PuzzlePiece {
         //draw points
         
         let nubBaseLeft = start + (lineTranslation * PuzzlePiece.distanceBeforeNubRelativeToPieceWidth)
-        path.addLineToPoint(nubBaseLeft)
+        path.addLine(to: nubBaseLeft)
         
         let nubTopLeft = nubBaseLeft + (nubDirection * nubHeight)
         let nubTopLeft_cp1 = nubBaseLeft + (nubDirection * nubHeight * 0.4).rotated(clockwise: direction.isClockwise, degrees: 15)
         let nubTopLeft_cp2 = nubTopLeft + (-lineTranslation * 0.15)
-        path.addCurveToPoint(nubTopLeft, controlPoint1: nubTopLeft_cp1, controlPoint2: nubTopLeft_cp2)
+        path.addCurve(to: nubTopLeft, controlPoint1: nubTopLeft_cp1, controlPoint2: nubTopLeft_cp2)
         
         let nubTopRight = nubTopLeft + (lineDirection * nubWidth)
-        path.addLineToPoint(nubTopRight)
+        path.addLine(to: nubTopRight)
         
         let nubBaseRight = nubTopRight - (nubDirection * nubHeight)
         let nubBaseRight_cp1 = nubTopRight + (lineTranslation * 0.15)
         let nubBaseRight_cp2 = nubBaseRight + (nubDirection * nubHeight * 0.4).rotated(clockwise: direction.isClockwise, degrees: -15)
-        path.addCurveToPoint(nubBaseRight, controlPoint1: nubBaseRight_cp1, controlPoint2: nubBaseRight_cp2)
+        path.addCurve(to: nubBaseRight, controlPoint1: nubBaseRight_cp1, controlPoint2: nubBaseRight_cp2)
         
-        path.addLineToPoint(end)
+        path.addLine(to: end)
     }
     
 }
@@ -170,16 +170,16 @@ extension PuzzlePiece {
 extension UIImage {
     
     var flipped: UIImage {
-        let cgImage = self.CGImage
-        let size = CGSize(width: CGImageGetWidth(cgImage), height: CGImageGetHeight(cgImage))
+        let cgImage = self.cgImage
+        let size = CGSize(width: (cgImage?.width)!, height: (cgImage?.height)!)
         
         UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
         let context = UIGraphicsGetCurrentContext()
-        CGContextDrawImage(context, CGRect(origin: .zero, size: size), cgImage)
+        context?.draw(cgImage!, in: CGRect(origin: .zero, size: size))
         
         let flippedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return flippedImage
+        return flippedImage!
     }
     
     //TODO: how can i do this? should i do it manually?
@@ -210,10 +210,10 @@ extension CGVector {
     func rotated(clockwise useClockwise: Bool, degrees: CGFloat = 90.0) -> CGVector {
         let multiplier: CGFloat = (useClockwise ? -1 : 1)
         let radians = (degrees * multiplier * CGFloat(M_PI)) / 180
-        let transform = CGAffineTransformMakeRotation(radians)
+        let transform = CGAffineTransform(rotationAngle: radians)
         
         let selfAsPoint = CGPoint(x: self.dx, y: self.dy)
-        let rotatedPoint = CGPointApplyAffineTransform(selfAsPoint, transform)
+        let rotatedPoint = selfAsPoint.applying(transform)
         return CGVector(dx: rotatedPoint.x, dy: rotatedPoint.y)
     }
     
@@ -230,8 +230,8 @@ extension CGVector {
     
     func normalized() -> CGVector {
         var normalizedSelf = self
-        if abs(normalizedSelf.dx.distanceTo(0)) < 0.0001 { normalizedSelf.dx = 0.0 }
-        if abs(normalizedSelf.dy.distanceTo(0)) < 0.0001 { normalizedSelf.dy = 0.0 }
+        if abs(normalizedSelf.dx.distance(to: 0)) < 0.0001 { normalizedSelf.dx = 0.0 }
+        if abs(normalizedSelf.dy.distance(to: 0)) < 0.0001 { normalizedSelf.dy = 0.0 }
         return normalizedSelf
     }
     

@@ -28,7 +28,7 @@ struct Sound: Equatable {
     
     var allWords: [Word] {
         var words = primaryWords
-        words.appendContentsOf(quizWords)
+        words.append(contentsOf: quizWords)
         return words
     }
     
@@ -40,16 +40,16 @@ struct Sound: Equatable {
     
     //MARK: - Helper Methods
     
-    func audioName(withWords withWords: Bool) -> String {
+    func audioName(withWords: Bool) -> String {
         return "\(withWords ? "words" : "sound")-\(sourceLetter)-\(soundId)"
     }
     
-    func playAudio(withWords withWords: Bool) {
+    func playAudio(withWords: Bool) {
         let name = audioName(withWords: withWords)
         PHPlayer.play(name, ofType: "mp3")
     }
     
-    func lengthForAudio(withWords withWords: Bool) -> NSTimeInterval {
+    func lengthForAudio(withWords: Bool) -> TimeInterval {
         return UALengthOfFile(audioName(withWords: withWords), ofType: "mp3")
     }
     
@@ -57,15 +57,15 @@ struct Sound: Equatable {
     //MARK: - Data Generation
     
     func printAudioTimings() {
-        let url = NSBundle.mainBundle().URLForResource(self.audioName(withWords: true), withExtension: "mp3")
+        let url = Bundle.main.url(forResource: self.audioName(withWords: true), withExtension: "mp3")
         
         let audioFile = try! AVAudioFile(forReading: url!)
-        let format = AVAudioFormat(commonFormat: .PCMFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
+        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
         
         //get raw data for sounds
-        let buf = AVAudioPCMBuffer(PCMFormat: format, frameCapacity: 900000)
-        try! audioFile.readIntoBuffer(buf)
-        let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData[0], count:Int(buf.frameLength)))
+        let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: 900000)
+        try! audioFile.read(into: buf)
+        let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
         
         //average together 100 audio frames in little buckets
         var bucketArray = [Float]()
@@ -106,22 +106,22 @@ struct Sound: Equatable {
         }
         
         var spokenWords = [self.soundId]
-        spokenWords.appendContentsOf(self.primaryWords.map({ $0.text }))
+        spokenWords.append(contentsOf: self.primaryWords.map({ $0.text }))
         //5 is format "A ah bat cat hat"
         if (ranges.count == 5) {
-            spokenWords.insert(self.sourceLetter, atIndex: 0)
+            spokenWords.insert(self.sourceLetter, at: 0)
         }
         
         var csvLine = "\(self.audioName(withWords: true)),"
         
         for i in 0..<spokenWords.count {
-            let current = ("\(ranges[i].start)" as NSString).substringToIndex(min(6, "\(ranges[i].start)".length))
-            let duration = ("\(ranges[i].duration)" as NSString).substringToIndex(min(6, "\(ranges[i].duration)".length))
+            let current = ("\(ranges[i].start)" as NSString).substring(to: min(6, "\(ranges[i].start)".length))
+            let duration = ("\(ranges[i].duration)" as NSString).substring(to: min(6, "\(ranges[i].duration)".length))
             csvLine += "\(spokenWords[i])=\(current)/\(duration),"
         }
         
         //print without the last ", "
-        print(csvLine.substringToIndex(csvLine.endIndex.predecessor().predecessor()))
+        print(csvLine.substring(to: csvLine.index(csvLine.endIndex, offsetBy: -2)))
     }
     
     //finds the longest common substring of the sound's words' IPA spellings

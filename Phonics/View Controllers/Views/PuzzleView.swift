@@ -28,8 +28,8 @@ class PuzzleView : UIView {
     }
     
     @IBInspectable var allowInteractionWithPieces: Bool {
-        set { self.userInteractionEnabled = allowInteractionWithPieces }
-        get { return self.userInteractionEnabled }
+        set { self.isUserInteractionEnabled = allowInteractionWithPieces }
+        get { return self.isUserInteractionEnabled }
     }
     
     var dynamics: UIDynamicAnimator!
@@ -74,7 +74,7 @@ class PuzzleView : UIView {
         return CGSize(width: width, height: height)
     }
     
-    func originForPieceAt(row row: Int, col: Int) -> CGPoint {
+    func originForPieceAt(row: Int, col: Int) -> CGPoint {
         let size = self.sizeOfPiece
         let offset = CGVector(dx: (size.width + spacing) * CGFloat(col),
                               dy: (size.height + spacing) * CGFloat(row))
@@ -109,7 +109,7 @@ class PuzzleView : UIView {
         self.addGestureRecognizers()
     }
     
-    func addImageView(image image: UIImage, piece: PuzzlePiece, row: Int, col: Int) {
+    func addImageView(image: UIImage, piece: PuzzlePiece, row: Int, col: Int) {
         let originOfPiece = self.originForPieceAt(row: row, col: col)
         let frame = CGRect(origin: originOfPiece, size: self.sizeOfPiece)
         
@@ -121,7 +121,7 @@ class PuzzleView : UIView {
         #if TARGET_INTERFACE_BUILDER
             return 2.0
         #else
-            return UIScreen.mainScreen().scale
+            return UIScreen.main.scale
         #endif
     }
     
@@ -137,36 +137,36 @@ class PuzzleView : UIView {
         self.dynamics = UIDynamicAnimator(referenceView: self)
     }
     
-    func viewPanned(gestureRecognizer: UIPanGestureRecognizer) {
-        let touch = gestureRecognizer.locationInView(self)
+    func viewPanned(_ gestureRecognizer: UIPanGestureRecognizer) {
+        let touch = gestureRecognizer.location(in: self)
         let touchedSubviews = self.subviews.filter { $0.frame.contains(touch) }
         
-        if gestureRecognizer.state == .Began, let pieceView = touchedSubviews.first as? PuzzlePieceView {
+        if gestureRecognizer.state == .began, let pieceView = touchedSubviews.first as? PuzzlePieceView {
             self.pieceBeingPanned = pieceView
-            self.bringSubviewToFront(pieceView)
+            self.bringSubview(toFront: pieceView)
             dynamics.removeAllBehaviors()
         }
         
         if let pieceView = self.pieceBeingPanned {
             
-            let translation = gestureRecognizer.translationInView(self)
-            pieceView.transform = CGAffineTransformMakeTranslation(translation.x, translation.y)
+            let translation = gestureRecognizer.translation(in: self)
+            pieceView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
             
-            if gestureRecognizer.state == .Ended {
+            if gestureRecognizer.state == .ended {
                 guard let piece = pieceView.piece, let row = piece.row, let col = piece.col else { return }
                 
                 //change translation to frame
-                let totalTranslation = gestureRecognizer.translationInView(self).vectorFromOrigin()
+                let totalTranslation = gestureRecognizer.translation(in: self).vectorFromOrigin()
                 let newOrigin = pieceView.frame.origin + totalTranslation
                 pieceView.frame.origin = newOrigin
-                pieceView.transform = CGAffineTransformIdentity
+                pieceView.transform = CGAffineTransform.identity
                 
                 //snap to expected place
                 let origin = self.originForPieceAt(row: row, col: col)
                 let center = origin + CGVector(dx: pieceView.frame.width / 2,
                                                dy: pieceView.frame.height / 2)
                 
-                let snap = UISnapBehavior(item: pieceView, snapToPoint: center)
+                let snap = UISnapBehavior(item: pieceView, snapTo: center)
                 snap.damping = 0.9
                 dynamics.addBehavior(snap)
             }

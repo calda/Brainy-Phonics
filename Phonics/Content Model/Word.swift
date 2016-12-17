@@ -31,15 +31,15 @@ struct Word: Equatable {
             print("NO AUDIO FOR \(wordText)")
         }
         
-        var text = wordText.lowercaseString
+        var text = wordText.lowercased()
         
         //remove padding spaces, if exist
         while text.hasPrefix(" ") {
-            text = text.substringFromIndex(text.startIndex.successor())
+            text = text.substring(from: text.characters.index(after: text.startIndex))
         }
         
         while text.hasSuffix(" ") {
-            text = text.substringToIndex(text.endIndex.predecessor())
+            text = text.substring(to: text.characters.index(before: text.endIndex))
         }
         
         self.text = text
@@ -56,27 +56,27 @@ struct Word: Equatable {
         ]
         
         var soundText = sound.displayString
-        if soundText.hasPrefix("\(letter.text)\(letter.text.lowercaseString)") {
+        if soundText.hasPrefix("\(letter.text)\(letter.text.lowercased())") {
             soundText = letter.text
         }
         
-        soundText = soundText.lowercaseString
+        soundText = soundText.lowercased()
         
-        let wordText = self.text.lowercaseString
+        let wordText = self.text.lowercased()
         var mutableWord = wordText
-        let attributedWord = NSMutableAttributedString(string: wordText, attributes: [NSForegroundColorAttributeName : UIColor.blackColor()])
+        let attributedWord = NSMutableAttributedString(string: wordText, attributes: [NSForegroundColorAttributeName : UIColor.black])
         let matchColor = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
         
         var matchIndex = 1
         
-        while mutableWord.containsString(soundText) {
-            let range = (mutableWord as NSString).rangeOfString(soundText)
+        while mutableWord.contains(soundText) {
+            let range = (mutableWord as NSString).range(of: soundText)
             if (explicitExclusions[wordText] != matchIndex) {
                 attributedWord.addAttributes([NSForegroundColorAttributeName : matchColor], range: range)
             }
             
-            let replacement = String(count: soundText.length, repeatedValue: Character("_"))
-            mutableWord = (mutableWord as NSString).stringByReplacingCharactersInRange(range, withString: replacement)
+            let replacement = String(repeating: "_", count: soundText.length)
+            mutableWord = (mutableWord as NSString).replacingCharacters(in: range, with: replacement)
             matchIndex += 1
         }
         
@@ -84,7 +84,7 @@ struct Word: Equatable {
     }
     
     
-    func playAudio(withConcurrencyMode concurrencyMode: UAConcurrentAudioMode = .Interrupt) {
+    func playAudio(withConcurrencyMode concurrencyMode: UAConcurrentAudioMode = .interrupt) {
         if let audioInfo = audioInfo {
             PHContent.playAudioForInfo(audioInfo, concurrentcyMode: concurrencyMode)
         }
@@ -93,20 +93,19 @@ struct Word: Equatable {
     
     //use wordsapi.com to fetch an IPA pronunciation of the word
     //requires an API key & a freemium payment plan
-    func fetchPronunciation(withKey key: String, completion: (String?) -> ()) {
+    func fetchPronunciation(withKey key: String, completion: @escaping (String?) -> ()) {
         let method = "https://wordsapiv1.p.mashape.com/words/\(self.text.preparedForURL())/pronunciation"
-        let request = NSMutableURLRequest(URL: NSURL(string: method)!)
+        var request = URLRequest(url: URL(string: method)!, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 1.0)
         request.setValue(key, forHTTPHeaderField: "X-Mashape-Key")
         
-        NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
-            
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
                 completion(nil)
                 return
             }
             
             do {
-                let dict = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+                let dict = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary
                 if let subdict = dict["pronunciation"] as? NSDictionary {
                     if let pronunciation = subdict["all"] as? String {
                         completion(pronunciation)
