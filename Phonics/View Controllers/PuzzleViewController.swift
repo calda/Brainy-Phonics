@@ -17,9 +17,7 @@ class PuzzleViewController : UIViewController {
     //MARK: - Set up
     
     func configureForSound(_ sound: Sound) {
-        guard let image = sound.puzzleImage else { return }
-        puzzleView.image = image
-        
+        puzzleView.puzzleName = sound.puzzleName
         puzzleView.reload()
     }
     
@@ -29,7 +27,7 @@ class PuzzleViewController : UIViewController {
     @IBAction func randomPuzzle(_ sender: UIButton) {
         let sound = PHContent.allSounds.random()
         
-        if let sound = sound, sound.puzzleImage != nil {
+        if let sound = sound {
             self.configureForSound(sound)
         } else {
             self.randomPuzzle(sender)

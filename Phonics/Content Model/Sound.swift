@@ -32,9 +32,12 @@ struct Sound: Equatable {
         return words
     }
     
-    var puzzleImage: UIImage? {
-        let name = "puzzle-\(sourceLetter)-\(soundId).jpg"
-        return UIImage(named: name)
+    var puzzleName: String {
+        return "puzzle-\(sourceLetter)-\(soundId)"
+    }
+    
+    var puzzle: Puzzle? {
+        return Puzzle(fromSpecForPuzzleNamed: self.puzzleName)
     }
     
     

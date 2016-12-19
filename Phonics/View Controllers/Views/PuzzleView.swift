@@ -15,9 +15,8 @@ class PuzzleView : UIView {
     
     //MARK: - Properties
     
-    @IBInspectable var image: UIImage?
-    @IBInspectable var rows: Int = 0
-    @IBInspectable var cols: Int = 0
+    @IBInspectable var puzzleName: String?
+    private var puzzle: Puzzle?
     
     @IBInspectable var spacing: CGFloat = 0
     @IBInspectable var scaleToFitBasedOnSpacing: Bool = false
@@ -32,18 +31,16 @@ class PuzzleView : UIView {
         get { return self.isUserInteractionEnabled }
     }
     
-    var dynamics: UIDynamicAnimator!
-    
     
     //MARK: - Computed Properties
     
     var sizeOfPuzzle: CGSize {
-        guard let image = self.image else { return .zero }
+        guard let puzzle = puzzle else { return .zero }
+        var imageSize = puzzle.pixelSize
         
-        var imageSize = image.size
-        if scaleToFitBasedOnSpacing && spacing > 0 && rows > 0 && cols > 0 {
-            imageSize.height += CGFloat(rows - 1) * spacing
-            imageSize.width += CGFloat(cols - 1) * spacing
+        if scaleToFitBasedOnSpacing && spacing > 0 && puzzle.rowCount > 0 && puzzle.colCount > 0 {
+            imageSize.height += CGFloat(puzzle.rowCount - 1) * spacing
+            imageSize.width += CGFloat(puzzle.colCount - 1) * spacing
         }
         
         var width = self.frame.size.width
@@ -65,21 +62,24 @@ class PuzzleView : UIView {
     }
     
     var sizeOfPiece: CGSize {
-        let widthFromSpacing = self.spacing * CGFloat(self.cols - 1)
-        let width = (sizeOfPuzzle.width - widthFromSpacing) / CGFloat(self.cols)
+        guard let puzzle = self.puzzle else { return .zero }
+        let widthFromSpacing = self.spacing * CGFloat(puzzle.colCount - 1)
+        let width = (sizeOfPuzzle.width - widthFromSpacing) / CGFloat(puzzle.colCount)
         
-        let heightFromSpacing = self.spacing * CGFloat(self.rows - 1)
-        let height = (sizeOfPuzzle.height - heightFromSpacing) / CGFloat(self.rows)
+        let heightFromSpacing = self.spacing * CGFloat(puzzle.rowCount - 1)
+        let height = (sizeOfPuzzle.height - heightFromSpacing) / CGFloat(puzzle.rowCount)
         
         return CGSize(width: width, height: height)
     }
     
     func originForPieceAt(row: Int, col: Int) -> CGPoint {
+        guard let puzzle = puzzle else { return .zero }
         let size = self.sizeOfPiece
         let offset = CGVector(dx: (size.width + spacing) * CGFloat(col),
                               dy: (size.height + spacing) * CGFloat(row))
         
-        return self.originOfPuzzle + offset
+        return CGPoint(x: self.originOfPuzzle.x + offset.dx,
+                       y: self.originOfPuzzle.y + offset.dy)
     }
     
     
@@ -99,22 +99,22 @@ class PuzzleView : UIView {
     }
     
     func createImageViews() {
-        guard let image = image else { return }
-        let puzzle = Puzzle(rows: self.rows, cols: self.cols)
-        let images = puzzle.createImages(from: image, multiplyByDeviceScale: false)
+        guard let puzzleName = self.puzzleName else { return }
+        self.puzzle = Puzzle(fromSpecForPuzzleNamed: puzzleName)
         
-        images.forEach(self.addImageView)
-        
-        self.gestureRecognizers = nil
-        self.addGestureRecognizers()
-    }
-    
-    func addImageView(image: UIImage, piece: PuzzlePiece, row: Int, col: Int) {
-        let originOfPiece = self.originForPieceAt(row: row, col: col)
-        let frame = CGRect(origin: originOfPiece, size: self.sizeOfPiece)
-        
-        let pieceView = PuzzlePieceView(frame: frame, piece: piece, pieceImage: image)
-        self.addSubview(pieceView)
+        guard let puzzle = self.puzzle else { return }
+        puzzle.pieces.forEach { row in
+            row.forEach { piece in
+                guard let pieceRow = piece.row, let pieceCol = piece.col else { return }
+                guard let pieceImage = piece.image else { return }
+                
+                let originOfPiece = self.originForPieceAt(row: pieceRow, col: pieceCol)
+                let frame = CGRect(origin: originOfPiece, size: self.sizeOfPiece)
+                
+                let pieceView = PuzzlePieceView(frame: frame, piece: piece, pieceImage: pieceImage)
+                self.addSubview(pieceView)
+            }
+        }
     }
     
     static var scaleForCurrentScreen: CGFloat {
@@ -123,56 +123,6 @@ class PuzzleView : UIView {
         #else
             return UIScreen.main.scale
         #endif
-    }
-    
-    
-    //MARK: - User Interaction
-    
-    var pieceBeingPanned: PuzzlePieceView?
-    
-    func addGestureRecognizers() {
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.viewPanned(_:)))
-        self.superview?.addGestureRecognizer(pan)
-        
-        self.dynamics = UIDynamicAnimator(referenceView: self)
-    }
-    
-    func viewPanned(_ gestureRecognizer: UIPanGestureRecognizer) {
-        let touch = gestureRecognizer.location(in: self)
-        let touchedSubviews = self.subviews.filter { $0.frame.contains(touch) }
-        
-        if gestureRecognizer.state == .began, let pieceView = touchedSubviews.first as? PuzzlePieceView {
-            self.pieceBeingPanned = pieceView
-            self.bringSubview(toFront: pieceView)
-            dynamics.removeAllBehaviors()
-        }
-        
-        if let pieceView = self.pieceBeingPanned {
-            
-            let translation = gestureRecognizer.translation(in: self)
-            pieceView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
-            
-            if gestureRecognizer.state == .ended {
-                guard let piece = pieceView.piece, let row = piece.row, let col = piece.col else { return }
-                
-                //change translation to frame
-                let totalTranslation = gestureRecognizer.translation(in: self).vectorFromOrigin()
-                let newOrigin = pieceView.frame.origin + totalTranslation
-                pieceView.frame.origin = newOrigin
-                pieceView.transform = CGAffineTransform.identity
-                
-                //snap to expected place
-                let origin = self.originForPieceAt(row: row, col: col)
-                let center = origin + CGVector(dx: pieceView.frame.width / 2,
-                                               dy: pieceView.frame.height / 2)
-                
-                let snap = UISnapBehavior(item: pieceView, snapTo: center)
-                snap.damping = 0.9
-                dynamics.addBehavior(snap)
-            }
-        }
-        
-        
     }
     
 }

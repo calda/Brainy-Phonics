@@ -14,9 +14,9 @@ class PHContentTest: XCTestCase {
     //MARK: - Sounds
     
     func testAllSoundsHavePuzzles() {
-        for sound in PHContent.allSounds {
+        /*for sound in PHContent.allSounds {
             XCTAssertNotNil(sound.puzzleImage, "\(sound.sourceLetter)-\(sound.soundId) has no puzzle image.")
-        }
+        }*/
         
         print("done")
     }
@@ -38,6 +38,16 @@ class PHContentTest: XCTestCase {
     
     func testAllWordsHaveAudio() {
         
+    }
+    
+    
+    //MARK: - Puzzles
+    
+    func testPuzzles() {
+        let puzzle = Puzzle(fromSpecForPuzzleNamed: "puzzle-A-AI")
+        XCTAssertNotNil(puzzle)
+        
+        XCTAssertNotNil(puzzle?.pieces.first?.first?.image)
     }
     
 }

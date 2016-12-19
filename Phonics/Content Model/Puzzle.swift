@@ -13,37 +13,70 @@ struct Puzzle {
     let pieces: [[PuzzlePiece]]
     let rowCount: Int
     let colCount: Int
+    let pixelSize: CGSize
     
-    init(rows: Int, cols: Int) {
+    ///load from json spec (https://github.com/calda/Puzzle-Generator)
+    init?(fromSpecForPuzzleNamed puzzleName: String) {
+        let specName = "\(puzzleName)-spec"
+        guard let url = Bundle.main.url(forResource: specName, withExtension: "json") else { return nil }
+        guard let data = try? Data(contentsOf: url) else { return nil }
         
-        self.rowCount = rows
-        self.colCount = cols
+        let unspecificJson = try? JSONSerialization.jsonObject(with: data, options: [])
+        guard let json = unspecificJson as? [String : Any] else { return nil }
         
-        let emptyRow = [PuzzlePiece?](repeating: nil, count: cols)
-        var puzzle = [[PuzzlePiece?]](repeating: emptyRow, count: rows)
-        
-        func pieceAt(_ row: Int, _ col: Int) -> PuzzlePiece? {
-            if !(0 ..< rows).contains(row) { return nil }
-            if !(0 ..< cols).contains(col) { return nil }
-            return puzzle[row][col] ?? PuzzlePiece.withRandomNubs
+        func int(for key: String) -> Int? {
+            guard let value = json[key] as? Int else { return nil }
+            return value
         }
         
+        guard let rows = int(for: "rows"),
+            let cols = int(for: "cols"),
+            let pixelsTall = int(for: "pixelsTall"),
+            let pixelsWide = int(for: "pixelsWide") else {
+                return nil
+        }
+        
+        guard let piecesJson = json["pieces"] as? [String : [String : String]] else { return nil }
+        
+        let emptyRow = [PuzzlePiece?](repeating: nil, count: cols)
+        var pieces = [[PuzzlePiece?]](repeating: emptyRow, count: rows)
+        
+        //initialize pieces
         for row in 0 ..< rows {
             for col in 0 ..< cols {
-                puzzle[row][col] = PuzzlePiece(topNeighbor: pieceAt(row - 1, col),
-                                               rightNeighbor: pieceAt(row, col + 1),
-                                               bottomNeighbor: pieceAt(row + 1, col),
-                                               leftNeighbor: pieceAt(row, col - 1))
-                puzzle[row][col]?.row = row
-                puzzle[row][col]?.col = col
+                let pieceKey = "row\(row)-col\(col)"
+                let pieceImageName = "\(puzzleName)-\(pieceKey)"
+                guard let pieceJson = piecesJson[pieceKey] else { return nil }
+                
+                func direction(for key: String) -> PuzzlePiece.Direction? {
+                    guard let string = pieceJson[key] else { return nil }
+                    return PuzzlePiece.Direction.fromString(string)
+                }
+                
+                let piece = PuzzlePiece(topNubDirection: direction(for: "topNub"),
+                                        rightNubDirection: direction(for: "rightNub"),
+                                        bottomNubDirection: direction(for: "bottomNub"),
+                                        leftNubDirection: direction(for: "leftNub"),
+                                        row: row,
+                                        col: col,
+                                        imageName: pieceImageName)
+                
+                pieces[row][col] = piece
+                
             }
         }
         
+        self.rowCount = rows
+        self.colCount = cols
+        self.pixelSize = CGSize(width: pixelsWide, height: pixelsTall)
+        
         //reduce [[PuzzlePiece?]] to [[PuzzlePiece]]
-        self.pieces = puzzle.map { pieceRow in
+        self.pieces = pieces.map { pieceRow in
             return pieceRow.flatMap{ $0 }
         }
     }
+    
+    
     
 }
 
