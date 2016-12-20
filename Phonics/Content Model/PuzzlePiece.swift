@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PuzzlePiece {
     
@@ -34,7 +35,7 @@ struct PuzzlePiece {
     var imageName: String?
     var image: UIImage? {
         guard let imageName = self.imageName else { return nil }
-        guard let url = Bundle.main.url(forResource: imageName, withExtension: "jpng") else { return nil }
+        guard let url = Bundle.phonicsBundle?.url(forResource: imageName, withExtension: "jpng") else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         return UIImageWithJPNGData(data, 1.0, .up)
     }

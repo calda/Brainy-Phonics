@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Puzzle {
     
@@ -15,10 +16,17 @@ struct Puzzle {
     let colCount: Int
     let pixelSize: CGSize
     
+    init() {
+        self.pieces = []
+        self.rowCount = 0
+        self.colCount = 0
+        self.pixelSize = .zero
+    }
+    
     ///load from json spec (https://github.com/calda/Puzzle-Generator)
     init?(fromSpecForPuzzleNamed puzzleName: String) {
         let specName = "\(puzzleName)-spec"
-        guard let url = Bundle.main.url(forResource: specName, withExtension: "json") else { return nil }
+        guard let url = Bundle.phonicsBundle?.url(forResource: specName, withExtension: "json") else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         
         let unspecificJson = try? JSONSerialization.jsonObject(with: data, options: [])
@@ -76,7 +84,22 @@ struct Puzzle {
         }
     }
     
+}
+
+
+//required to support Bundle operations in Interface Builder
+extension Bundle {
     
+    @nonobjc static var phonicsBundle: Bundle? = {
+        for bundle in Bundle.allBundles {
+            //check for a known file
+            if bundle.url(forResource: "puzzle-A-AI-spec", withExtension: "json") != nil {
+                return bundle
+            }
+        }
+        
+        return nil
+    }()
     
 }
 

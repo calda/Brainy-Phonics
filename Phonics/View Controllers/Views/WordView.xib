@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WordView" customModule="Phonics" customModuleProvider="target">
@@ -19,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DtY-sA-gw4">
-                    <rect key="frame" x="0.0" y="202" width="230" height="28"/>
+                    <rect key="frame" x="23" y="202" width="184" height="28"/>
                     <attributedString key="attributedText">
                         <fragment content="lio">
                             <attributes>
@@ -29,7 +34,7 @@
                         </fragment>
                         <fragment content="n">
                             <attributes>
-                                <color key="NSColor" red="0.78639107939999997" green="0.10762608799999999" blue="0.075764290989999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" red="0.72941172122955322" green="0.0" blue="0.066666662693023682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <font key="NSFont" size="24" name="HelveticaNeue"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                             </attributes>
@@ -44,7 +49,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="W4B-68-zXT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gaB-WQ-0Cx" secondAttribute="leading" id="Hw7-GI-jGV"/>
@@ -55,7 +60,7 @@
                 <constraint firstAttribute="bottom" secondItem="DtY-sA-gw4" secondAttribute="bottom" priority="950" id="gli-qX-kIe"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W4B-68-zXT" secondAttribute="trailing" id="jne-Z2-LlS"/>
                 <constraint firstAttribute="bottom" secondItem="W4B-68-zXT" secondAttribute="bottom" priority="800" id="mfC-8w-JJR"/>
-                <constraint firstItem="DtY-sA-gw4" firstAttribute="width" secondItem="gaB-WQ-0Cx" secondAttribute="width" id="rHN-cs-4mr"/>
+                <constraint firstItem="DtY-sA-gw4" firstAttribute="width" secondItem="gaB-WQ-0Cx" secondAttribute="width" multiplier="0.8" id="rHN-cs-4mr"/>
                 <constraint firstItem="W4B-68-zXT" firstAttribute="centerX" secondItem="gaB-WQ-0Cx" secondAttribute="centerX" id="rvQ-eV-08R"/>
                 <constraint firstItem="DtY-sA-gw4" firstAttribute="centerX" secondItem="gaB-WQ-0Cx" secondAttribute="centerX" id="tjk-I3-FCI"/>
             </constraints>

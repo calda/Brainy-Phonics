@@ -73,7 +73,6 @@ class PuzzleView : UIView {
     }
     
     func originForPieceAt(row: Int, col: Int) -> CGPoint {
-        guard let puzzle = puzzle else { return .zero }
         let size = self.sizeOfPiece
         let offset = CGVector(dx: (size.width + spacing) * CGFloat(col),
                               dy: (size.height + spacing) * CGFloat(row))

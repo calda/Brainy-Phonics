@@ -192,8 +192,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" priority="950" constant="250" id="JPh-fm-IgX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="120"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="90"/>
+                                        <color key="textColor" red="0.061876085069444448" green="0.061876085069444448" blue="0.061876085069444448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBR-3a-Z52">
@@ -678,8 +678,9 @@
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="scaleToFitBasedOnSpacing" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-A-AI"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
