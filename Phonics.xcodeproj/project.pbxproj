@@ -2374,6 +2374,7 @@
 		2E07A0461E08728A00CBB113 /* zebra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E0797051E08728800CBB113 /* zebra.jpg */; };
 		2E07A0471E08728A00CBB113 /* zipper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E0797061E08728800CBB113 /* zipper.jpg */; };
 		2E07A0481E08728A00CBB113 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E0797081E08728800CBB113 /* correct.mp3 */; };
+		2E275F3A1E08DCD400B16C5E /* PuzzleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E275F391E08DCD400B16C5E /* PuzzleDetailViewController.swift */; };
 		2E383FC11E07454A00128351 /* JPNG.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E383FC01E07454A00128351 /* JPNG.m */; };
 		2E383FC41E077CA000128351 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75C1D63A06900978DD6 /* Puzzle.swift */; };
 		2E383FC51E077CA200128351 /* PuzzlePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75D1D63A06900978DD6 /* PuzzlePiece.swift */; };
@@ -4791,6 +4792,7 @@
 		2E0797051E08728800CBB113 /* zebra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zebra.jpg; sourceTree = "<group>"; };
 		2E0797061E08728800CBB113 /* zipper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zipper.jpg; sourceTree = "<group>"; };
 		2E0797081E08728800CBB113 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		2E275F391E08DCD400B16C5E /* PuzzleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleDetailViewController.swift; sourceTree = "<group>"; };
 		2E383FBE1E07454A00128351 /* Phonics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Phonics-Bridging-Header.h"; sourceTree = "<group>"; };
 		2E383FBF1E07454A00128351 /* JPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNG.h; sourceTree = "<group>"; };
 		2E383FC01E07454A00128351 /* JPNG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNG.m; sourceTree = "<group>"; };
@@ -8052,6 +8054,7 @@
 				2E6DE2801D639A1B00978DD6 /* LetterViewController.swift */,
 				2E6DE2821D639A1B00978DD6 /* QuizViewController.swift */,
 				2E8FFAD81D66520200B1E498 /* PuzzleViewController.swift */,
+				2E275F391E08DCD400B16C5E /* PuzzleDetailViewController.swift */,
 				2E6DE2831D639A1B00978DD6 /* Views */,
 			);
 			path = "View Controllers";
@@ -10558,6 +10561,7 @@
 				2E6DE7541D639A1C00978DD6 /* InterativeGrowViewController.swift in Sources */,
 				2E6DE7501D639A1C00978DD6 /* UniversalAudio.swift in Sources */,
 				2E6DE74E1D639A1C00978DD6 /* CoreSwift.swift in Sources */,
+				2E275F3A1E08DCD400B16C5E /* PuzzleDetailViewController.swift in Sources */,
 				2E6DE74C1D639A1C00978DD6 /* Word.swift in Sources */,
 				2E6DE7491D639A1C00978DD6 /* Letter.swift in Sources */,
 				2E6DE75E1D63A06900978DD6 /* Puzzle.swift in Sources */,

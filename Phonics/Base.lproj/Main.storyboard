@@ -359,7 +359,6 @@
                                         <state key="normal" image="button-question"/>
                                         <connections>
                                             <action selector="openQuiz:" destination="z1a-bP-YxR" eventType="touchUpInside" id="Sah-MV-d7q"/>
-                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="MJi-r3-eM9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -457,12 +456,32 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3G-hw-fNA" userLabel="sound view">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="320"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
-                                                <rect key="frame" x="50" y="107" width="101" height="106"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
+                                                <rect key="frame" x="55" y="180" width="90" height="120"/>
+                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Zje-sD-acS" secondAttribute="height" multiplier="3:4" id="420-ZC-YhE"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-T-TH"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uB9-12-asC">
+                                                <rect key="frame" x="0.0" y="172" width="200" height="148"/>
+                                                <connections>
+                                                    <action selector="puzzleTapped:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="QkQ-16-IBJ"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
+                                                <rect key="frame" x="47.5" y="20" width="106" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="950" constant="250" id="5vZ-GV-HNB"/>
+                                                    <constraint firstAttribute="height" constant="150" id="XAE-6W-OQ9"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="95"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="95"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
@@ -472,7 +491,7 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZT-WR-439" userLabel="sound repeat overlay">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="320"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="172"/>
                                                 <connections>
                                                     <action selector="repeatSound:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="11C-wL-0Iu"/>
                                                 </connections>
@@ -480,13 +499,23 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="eP8-VR-vpO" firstAttribute="centerY" secondItem="r3G-hw-fNA" secondAttribute="centerY" id="5yh-7v-B4O"/>
+                                            <constraint firstAttribute="trailing" secondItem="uB9-12-asC" secondAttribute="trailing" id="1Ke-Nh-2x8"/>
+                                            <constraint firstItem="eP8-VR-vpO" firstAttribute="centerY" secondItem="r3G-hw-fNA" secondAttribute="centerY" priority="500" constant="-100" id="5yh-7v-B4O"/>
                                             <constraint firstItem="eP8-VR-vpO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r3G-hw-fNA" secondAttribute="leading" constant="15" id="99y-S0-uJ4"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zje-sD-acS" secondAttribute="bottom" constant="20" id="GJ3-wX-f1e"/>
                                             <constraint firstItem="eP8-VR-vpO" firstAttribute="centerX" secondItem="r3G-hw-fNA" secondAttribute="centerX" id="HZh-CQ-orR"/>
+                                            <constraint firstItem="uB9-12-asC" firstAttribute="top" secondItem="OZT-WR-439" secondAttribute="bottom" id="JWC-2f-nZM"/>
+                                            <constraint firstItem="Zje-sD-acS" firstAttribute="top" secondItem="eP8-VR-vpO" secondAttribute="bottom" constant="10" id="Sfi-YZ-dca"/>
                                             <constraint firstItem="OZT-WR-439" firstAttribute="leading" secondItem="r3G-hw-fNA" secondAttribute="leading" id="T8i-zx-WPA"/>
+                                            <constraint firstItem="eP8-VR-vpO" firstAttribute="top" secondItem="r3G-hw-fNA" secondAttribute="top" constant="20" id="Vry-hb-Y1Q"/>
+                                            <constraint firstItem="Zje-sD-acS" firstAttribute="centerX" secondItem="r3G-hw-fNA" secondAttribute="centerX" id="VtR-xf-ghn"/>
+                                            <constraint firstItem="Zje-sD-acS" firstAttribute="top" secondItem="OZT-WR-439" secondAttribute="bottom" constant="8" id="bdT-Ad-aY9"/>
                                             <constraint firstAttribute="trailing" secondItem="OZT-WR-439" secondAttribute="trailing" id="cUy-JS-XZQ"/>
-                                            <constraint firstItem="OZT-WR-439" firstAttribute="top" secondItem="r3G-hw-fNA" secondAttribute="top" id="ma4-2J-d2m"/>
-                                            <constraint firstAttribute="bottom" secondItem="OZT-WR-439" secondAttribute="bottom" id="uWC-Gp-rDy"/>
+                                            <constraint firstItem="uB9-12-asC" firstAttribute="leading" secondItem="r3G-hw-fNA" secondAttribute="leading" id="go7-Qa-bQ3"/>
+                                            <constraint firstItem="Zje-sD-acS" firstAttribute="width" relation="lessThanOrEqual" secondItem="r3G-hw-fNA" secondAttribute="width" id="kNw-kH-hdB"/>
+                                            <constraint firstItem="OZT-WR-439" firstAttribute="top" secondItem="r3G-hw-fNA" secondAttribute="top" priority="950" id="ma4-2J-d2m"/>
+                                            <constraint firstAttribute="bottom" secondItem="uB9-12-asC" secondAttribute="bottom" id="qhp-h8-QZt"/>
+                                            <constraint firstAttribute="bottom" secondItem="OZT-WR-439" secondAttribute="bottom" priority="900" id="uWC-Gp-rDy"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eP8-VR-vpO" secondAttribute="trailing" constant="15" id="y8Y-VO-S4N"/>
                                         </constraints>
                                     </view>
@@ -574,6 +603,11 @@
                                             <constraint firstItem="ZrF-ur-OTM" firstAttribute="width" secondItem="G1M-lQ-h1R" secondAttribute="width" multiplier="0.475" id="qlK-Ez-CW5"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="sqG-8O-0oA"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="6gg-VC-Rhb"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -635,6 +669,7 @@
                     </view>
                     <connections>
                         <outlet property="fourthWord" destination="ody-ad-5QS" id="6x6-kA-M2p"/>
+                        <outlet property="puzzleView" destination="Zje-sD-acS" id="neW-2S-Dgh"/>
                         <outlet property="soundLabel" destination="eP8-VR-vpO" id="TZa-Ij-1DN"/>
                         <outlet property="topLeftWordLeading" destination="P9r-2p-cTJ" id="ExS-OY-WBm"/>
                         <outletCollection property="interactiveViews" destination="J6s-06-e3s" collectionClass="NSMutableArray" id="Qxj-hs-4Bl"/>
@@ -650,7 +685,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwm-5r-PgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="r0f-2z-x7N" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="324"/>
+            <point key="canvasLocation" x="1037.323943661972" y="322.5"/>
         </scene>
         <!--Puzzle View Controller-->
         <scene sceneID="SAF-lq-4yz">
@@ -671,12 +706,6 @@
                                     <constraint firstAttribute="width" secondItem="wPc-I0-VGo" secondAttribute="height" multiplier="1:1" id="zB8-Y9-uMA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rows">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cols">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="spacing">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>

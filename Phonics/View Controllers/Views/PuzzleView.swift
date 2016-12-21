@@ -15,7 +15,12 @@ class PuzzleView : UIView {
     
     //MARK: - Properties
     
-    @IBInspectable var puzzleName: String?
+    @IBInspectable var puzzleName: String? {
+        didSet {
+            self.reload()
+        }
+    }
+    
     private var puzzle: Puzzle?
     
     @IBInspectable var spacing: CGFloat = 0
@@ -81,6 +86,11 @@ class PuzzleView : UIView {
                        y: self.originOfPuzzle.y + offset.dy)
     }
     
+    func frameForPieceAt(row: Int, col: Int) -> CGRect {
+        let originOfPiece = self.originForPieceAt(row: row, col: col)
+        return CGRect(origin: originOfPiece, size: self.sizeOfPiece)
+    }
+    
     
     //MARK: - Layout Subviews
     
@@ -106,22 +116,27 @@ class PuzzleView : UIView {
             row.forEach { piece in
                 guard let pieceRow = piece.row, let pieceCol = piece.col else { return }
                 guard let pieceImage = piece.image else { return }
-                
-                let originOfPiece = self.originForPieceAt(row: pieceRow, col: pieceCol)
-                let frame = CGRect(origin: originOfPiece, size: self.sizeOfPiece)
-                
+
+                let frame = self.frameForPieceAt(row: pieceRow, col: pieceCol)
                 let pieceView = PuzzlePieceView(frame: frame, piece: piece, pieceImage: pieceImage)
+                
                 self.addSubview(pieceView)
             }
         }
     }
     
-    static var scaleForCurrentScreen: CGFloat {
-        #if TARGET_INTERFACE_BUILDER
-            return 2.0
-        #else
-            return UIScreen.main.scale
-        #endif
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layoutPieces(animate: true)
+    }
+    
+    func layoutPieces(animate: Bool = false) {
+        for subview in self.subviews {
+            guard let pieceView = subview as? PuzzlePieceView else { continue }
+            guard let row = pieceView.piece.row, let col = pieceView.piece.col else { continue }
+            let newFrame = self.frameForPieceAt(row: row, col: col)
+            pieceView.updateImageView(for: newFrame, animate: animate)
+        }
     }
     
 }
@@ -131,27 +146,39 @@ class PuzzleView : UIView {
 
 class PuzzlePieceView : UIView {
     
-    var piece: PuzzlePiece?
+    var piece: PuzzlePiece
     var imageView: UIImageView?
     
     init(frame: CGRect, piece: PuzzlePiece, pieceImage: UIImage) {
-        super.init(frame: frame)
         self.piece = piece
-        
+        super.init(frame: frame)
         self.clipsToBounds = false
         
-        let width = frame.size.width
-        let imageSize = piece.size(forWidth: width)
-        let imageOffset = piece.imageOrigin(relativeTo: .zero, forWidth: width)
-        
-        let imageFrame = CGRect(origin: imageOffset, size: imageSize)
-        self.imageView = UIImageView(frame: imageFrame)
+        self.imageView = UIImageView(frame: .zero)
         self.imageView!.image = pieceImage
+        self.updateImageView(for: frame, animate: false)
+        
         self.addSubview(imageView!)
     }
     
+    func updateImageView(for frame: CGRect, animate: Bool) {
+            UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.0, options: [.curveEaseIn], animations: {
+                self.frame = frame
+            }, completion: nil)
+        
+        let width = frame.size.width
+        let imageSize = self.piece.size(forWidth: width)
+        let imageOffset = self.piece.imageOrigin(relativeTo: .zero, forWidth: width)
+        
+        let imageFrame = CGRect(origin: imageOffset, size: imageSize)
+        
+            UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.0, options: [.curveEaseIn], animations: {
+                self.imageView?.frame = imageFrame
+            }, completion: nil)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        return nil
     }
     
 }

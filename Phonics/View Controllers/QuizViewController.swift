@@ -11,7 +11,7 @@ import UIKit
 
 class QuizViewController : InteractiveGrowViewController {
     
-    var letterPool: [Letter]!
+    var soundPool: [Sound]!
     var onlyShowThreeWords: Bool = false
     
     var currentLetter: Letter!
@@ -22,6 +22,8 @@ class QuizViewController : InteractiveGrowViewController {
     @IBOutlet var wordViews: [WordView]!
     @IBOutlet weak var topLeftWordLeading: NSLayoutConstraint!
     @IBOutlet weak var fourthWord: WordView!
+    
+    @IBOutlet weak var puzzleView: PuzzleView!
     
     var originalCenters = [WordView : CGPoint]()
     var timers = [Timer]()
@@ -34,9 +36,9 @@ class QuizViewController : InteractiveGrowViewController {
     
     //MARK: - Transition
     
-    static func presentQuizWithLetterPool(_ customLetterPool: [Letter]?, showingThreeWords: Bool, onController controller: UIViewController) {
+    static func presentQuizWithSoundPool(_ customSoundPool: [Sound]?, showingThreeWords: Bool, onController controller: UIViewController) {
         let quiz = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "quiz") as! QuizViewController
-        quiz.letterPool = customLetterPool
+        quiz.soundPool = customSoundPool
         quiz.onlyShowThreeWords = showingThreeWords
         controller.present(quiz, animated: true, completion: nil)
     }
@@ -46,8 +48,8 @@ class QuizViewController : InteractiveGrowViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if letterPool == nil {
-            letterPool = PHContent.letters.map{ (_, letter) in letter }
+        if soundPool == nil {
+            soundPool = PHContent.allSounds
         }
         
         if self.onlyShowThreeWords {
@@ -75,11 +77,14 @@ class QuizViewController : InteractiveGrowViewController {
     
     func setupForRandomSoundFromPool() {
         let isFirst = (currentSound == nil)
-        self.currentLetter = letterPool.random()
+        self.currentSound = soundPool.random()
+        self.currentLetter = PHContent[self.currentSound.sourceLetter]!
         self.currentSound = currentLetter.sounds.random()
         self.answerWord = currentSound.allWords.random()
         
-        soundLabel.text = self.currentSound.displayString
+        soundLabel.text = self.currentSound.displayString.lowercased()
+        
+        puzzleView.puzzleName = self.currentSound.puzzleName
         
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation
@@ -231,6 +236,10 @@ class QuizViewController : InteractiveGrowViewController {
             wordView.setShowingText(true, animated: true)
             shakeView(wordView)
         }
+    }
+    
+    @IBAction func puzzleTapped(_ sender: Any) {
+        PuzzleDetailViewController.present(for: self.currentSound, from: self.puzzleView, in: self)
     }
     
     func correctWordSelected(_ wordView: WordView) {
