@@ -24,8 +24,14 @@ class PuzzleView : UIView {
     private var puzzle: Puzzle?
     
     @IBInspectable var scaleToFitBasedOnSpacing: Bool = false
-    @IBInspectable var spacing: CGFloat = 0
-    var spacingConstraints = [NSLayoutConstraint]()
+    
+    @IBInspectable var spacing: CGFloat = 0 {
+        didSet {
+            self.reload()
+        }
+    }
+    
+    var spacingConstraints = [NSLayoutConstraint]() //not actually used for anything yet
     
     
     @IBInspectable var clipsPieces: Bool {
@@ -109,7 +115,9 @@ class PuzzleView : UIView {
                 
                 //width
                 if let topCornerPiece = pieceAt(0, 0) {
-                    piece.widthAnchor.constraint(equalTo: topCornerPiece.widthAnchor).isActive = true
+                    let matchWidthConstraint = piece.widthAnchor.constraint(equalTo: topCornerPiece.widthAnchor)
+                    matchWidthConstraint.priority = 900
+                    matchWidthConstraint.isActive = true
                 }
                 
                 //aspect ratio

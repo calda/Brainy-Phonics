@@ -10,11 +10,9 @@ import UIKit
 
 class PuzzleDetailViewController : UIViewController {
     
-    var puzzleView: PuzzleView!
-    var puzzleViewOriginalFrame: CGRect!
-    var puzzleViewOriginalSuperview: UIView!
-    
+    var oldPuzzleView: PuzzleView!
     var sound: Sound!
+    var animator: Animator?
     
     
     //MARK: - Presentation
@@ -22,58 +20,99 @@ class PuzzleDetailViewController : UIViewController {
     static func present(for sound: Sound, from puzzleView: PuzzleView, in source: UIViewController) {
         
         let puzzleDetail = PuzzleDetailViewController()
-        puzzleDetail.puzzleView = puzzleView
-        puzzleDetail.puzzleViewOriginalFrame = puzzleView.frame
-        puzzleDetail.puzzleViewOriginalSuperview = puzzleView.superview
+        puzzleDetail.oldPuzzleView = puzzleView
         puzzleDetail.sound = sound
         
         puzzleDetail.modalPresentationStyle = .overCurrentContext
         puzzleDetail.modalTransitionStyle = .coverVertical
         
-        source.present(puzzleDetail, animated: false) { _ in
-            return
-        }
+        source.present(puzzleDetail, animated: false, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.view.backgroundColor = .clear
         
-        //move puzzle view to this view controller
-        let translatedFrame = self.view.convert(puzzleView.bounds, from: puzzleView)
-        puzzleView.removeFromSuperview()
-        NSLayoutConstraint.deactivate(puzzleView.constraints)
-        self.view.addSubview(puzzleView)
-        puzzleView.frame = translatedFrame
+        //create new puzzle view
+        guard let oldPuzzleView = self.oldPuzzleView else { return }
+        let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
         
-        //create constraints because otherwise the view refuses to behave normally
-        func constrain(_ attribute: NSLayoutAttribute, to value: CGFloat, item: Any? = nil, attribute otherAttribute: NSLayoutAttribute = .notAnAttribute) -> NSLayoutConstraint {
-            return NSLayoutConstraint(item: puzzleView, attribute: attribute, relatedBy: .equal, toItem: item, attribute: otherAttribute, multiplier: 1.0, constant: value)
+        let newPuzzleView = PuzzleView(frame: translatedFrame)
+        newPuzzleView.puzzleName = oldPuzzleView.puzzleName
+        newPuzzleView.spacing = oldPuzzleView.spacing
+        newPuzzleView.puzzleName = oldPuzzleView.puzzleName
+        
+        oldPuzzleView.alpha = 0.0
+        self.view.addSubview(newPuzzleView)
+        
+        //manually animate this puzzle because UIView.animate isn't cutting it
+        
+        //animate to center
+        //UIView.animate(withDuration: 10.0) {
+        let newHeight = self.view.frame.height * 0.9
+        let puzzleRatio = newPuzzleView.frame.width / newPuzzleView.frame.height
+        let newWidth = puzzleRatio * newHeight
+    
+        let newX = self.view.frame.width / 2 - newWidth / 2
+        let newY = self.view.frame.height / 2 - newHeight / 2
+        
+        let newFrame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
+        self.animator = Animator(view: newPuzzleView, animateTo: newFrame, duration: 0.6)
+        //}
+        
+        
+    }
+    
+    
+    //MARK: - Animator
+    
+    @objc class Animator : NSObject {
+        
+        let view: UIView
+        let startFrame: CGRect
+        let endFrame: CGRect
+        let duration: TimeInterval
+        let startTime: Date
+        
+        var timer: Timer!
+        
+        init(view: UIView, animateTo endFrame: CGRect, duration: TimeInterval) {
+            self.view = view
+            self.startFrame = view.frame
+            self.endFrame = endFrame
+            self.duration = duration
+            self.startTime = Date()
+            
+            self.timer = nil
+            super.init()
+            
+            self.timer = Timer.scheduledTimer(timeInterval: 0.00001, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         }
         
-        let width = constrain(.width, to: puzzleView.frame.width)
-        let height = constrain(.height, to: puzzleView.frame.height)
-        let x = constrain(.left, to: puzzleView.frame.origin.x, item: self.view, attribute: .left)
-        let y = constrain(.top, to: puzzleView.frame.origin.y, item: self.view, attribute: .top)
-        
-        self.view.addConstraints([width, height, x, y])
-        
-        //update constraints to center view
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.curveEaseIn], animations: {
-            let newHeight = min(self.view.frame.height - 40, 600)
-            let newWidth = newHeight * (3/4)
+        @objc func update() {
+            let timeElapsed = Date().timeIntervalSince(startTime)
+            let uncurvedPercentage = min(timeElapsed / duration, 1.0)
             
-            let newX = self.view.frame.width / 2 - newWidth / 2
-            let newY = self.view.frame.height / 2 - newHeight / 2
+            if uncurvedPercentage >= 1.0 {
+                self.timer.invalidate()
+            }
             
-            height.constant = newHeight
-            width.constant = newWidth
-            x.constant = newX
-            y.constant = newY
+            //ease-in ease-out curve
+            let t = CGFloat(uncurvedPercentage)
+            let animationPercentage = pow(t,2) / (2 * (pow(t,2) - t) + 1)
             
-            self.puzzleView.spacing = 20.0
+            func interpolate(start: CGFloat, end: CGFloat) -> CGFloat {
+                let difference = end - start
+                return start + difference * animationPercentage
+            }
             
-            self.puzzleView.frame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
-        }, completion: nil)
+            let x = interpolate(start: startFrame.origin.x, end: endFrame.origin.x)
+            let y = interpolate(start: startFrame.origin.y, end: endFrame.origin.y)
+            let width = interpolate(start: startFrame.width, end: endFrame.width)
+            let height = interpolate(start: startFrame.height, end: endFrame.height)
+            
+            let currentFrame = CGRect(x: x, y: y, width: width, height: height)
+            self.view.frame = currentFrame
+         }
         
     }
     
