@@ -71,7 +71,6 @@ class PuzzleDetailViewController : UIViewController {
             y.constant = newY
             
             self.puzzleView.spacing = 20.0
-            self.puzzleView.layoutPieces(animate: true)
             
             self.puzzleView.frame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
         }, completion: nil)

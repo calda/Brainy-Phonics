@@ -44,30 +44,6 @@ struct PuzzlePiece {
     //MARK: - Relevant Geometry bits
     
     static let nubHeightRelativeToPieceWidth: CGFloat = 0.2
-    static let nubWidthRelativeToPieceWidth: CGFloat = 0.175
-    static let distanceBeforeNubRelativeToPieceWidth: CGFloat = (1.0 - nubWidthRelativeToPieceWidth) / 2.0
-    
-    func size(forWidth width: CGFloat) -> CGSize {
-        var size = CGSize(width: width, height: width)
-        let nubLength = width * PuzzlePiece.nubHeightRelativeToPieceWidth
-        
-        if topNubDirection    == .outside { size.height += nubLength }
-        if bottomNubDirection == .outside { size.height += nubLength }
-        if leftNubDirection   == .outside { size.width += nubLength }
-        if rightNubDirection  == .outside { size.width += nubLength }
-        
-        return size
-    }
-    
-    func imageOrigin(relativeTo pieceOrigin: CGPoint, forWidth width: CGFloat) -> CGPoint {
-        var imageOrigin = pieceOrigin
-        
-        let nubLength = width * PuzzlePiece.nubHeightRelativeToPieceWidth
-        if self.leftNubDirection == .outside { imageOrigin.x -= nubLength }
-        if self.topNubDirection  == .outside { imageOrigin.y -= nubLength }
-        
-        return imageOrigin
-    }
     
     
 }

@@ -460,7 +460,7 @@
                                                 <rect key="frame" x="55" y="180" width="90" height="120"/>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Zje-sD-acS" secondAttribute="height" multiplier="3:4" id="420-ZC-YhE"/>
+                                                    <constraint firstAttribute="width" secondItem="Zje-sD-acS" secondAttribute="height" multiplier="3:4" priority="800" id="420-ZC-YhE"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-T-TH"/>
@@ -700,10 +700,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-I0-VGo" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
-                                <rect key="frame" x="134" y="10" width="300" height="300"/>
+                                <rect key="frame" x="171.5" y="10" width="225" height="300"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="wPc-I0-VGo" secondAttribute="height" multiplier="1:1" id="zB8-Y9-uMA"/>
+                                    <constraint firstAttribute="width" secondItem="wPc-I0-VGo" secondAttribute="height" multiplier="3:4" priority="900" id="sBS-Rn-ANc"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="spacing">
@@ -745,12 +745,14 @@
                             <constraint firstItem="wPc-I0-VGo" firstAttribute="centerY" secondItem="Grw-aG-N2x" secondAttribute="centerY" id="7OZ-4o-7hY"/>
                             <constraint firstItem="7Sd-Fm-uSg" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="Bnj-nV-2I4"/>
                             <constraint firstItem="U1l-VR-5Vs" firstAttribute="top" secondItem="6fg-VW-giA" secondAttribute="bottom" constant="10" id="Bzh-sx-Lm6"/>
+                            <constraint firstItem="wPc-I0-VGo" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="topMargin" priority="900" constant="10" id="FUh-sN-lca"/>
                             <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="U1l-VR-5Vs" secondAttribute="bottom" constant="10" id="Ho4-cZ-0DC"/>
                             <constraint firstItem="7Sd-Fm-uSg" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Nqn-u2-cJu"/>
-                            <constraint firstItem="wPc-I0-VGo" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Oay-to-5LA"/>
+                            <constraint firstItem="wPc-I0-VGo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Oay-to-5LA"/>
+                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="wPc-I0-VGo" secondAttribute="bottom" priority="900" constant="10" id="Wu9-is-Oif"/>
                             <constraint firstItem="6fg-VW-giA" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="bsK-VP-tHW"/>
                             <constraint firstItem="wPc-I0-VGo" firstAttribute="centerX" secondItem="Grw-aG-N2x" secondAttribute="centerX" id="swi-Z6-RpB"/>
-                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="wPc-I0-VGo" secondAttribute="bottom" constant="10" id="zGY-qM-JHO"/>
+                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wPc-I0-VGo" secondAttribute="bottom" constant="10" id="zGY-qM-JHO"/>
                         </constraints>
                     </view>
                     <connections>

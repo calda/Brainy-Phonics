@@ -18,7 +18,6 @@ class PuzzleViewController : UIViewController {
     
     func configureForSound(_ sound: Sound) {
         puzzleView.puzzleName = sound.puzzleName
-        puzzleView.reload()
     }
     
     
