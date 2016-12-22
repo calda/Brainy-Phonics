@@ -24,10 +24,12 @@ class QuizViewController : InteractiveGrowViewController {
     @IBOutlet weak var fourthWord: WordView!
     
     @IBOutlet weak var puzzleView: PuzzleView!
+    @IBOutlet weak var puzzleShadow: UIView!
     
     var originalCenters = [WordView : CGPoint]()
     var timers = [Timer]()
     var state: QuizState = .waiting
+    var attempts = 0
     
     enum QuizState {
         case waiting, playingQuestion, transitioning
@@ -79,12 +81,8 @@ class QuizViewController : InteractiveGrowViewController {
         let isFirst = (currentSound == nil)
         self.currentSound = soundPool.random()
         self.currentLetter = PHContent[self.currentSound.sourceLetter]!
-        self.currentSound = currentLetter.sounds.random()
         self.answerWord = currentSound.allWords.random()
-        
-        soundLabel.text = self.currentSound.displayString.lowercased()
-        
-        puzzleView.puzzleName = self.currentSound.puzzleName
+        self.attempts = 0
         
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation
@@ -125,6 +123,22 @@ class QuizViewController : InteractiveGrowViewController {
             wordView.useWord(selectedWords[index], forSound: currentSound, ofLetter: currentLetter)
         }
         
+        soundLabel.text = self.currentSound.displayString.lowercased()
+        
+        //update puzzle
+        puzzleView.puzzleName = self.currentSound.puzzleName
+        
+        if let puzzle = puzzleView.puzzle {
+            let puzzleProgress = Player.current.progress(for: puzzle)
+            
+            puzzleView.isPieceVisible = { row, col in
+                let ownedPieces = puzzleProgress.ownedPieces
+                if row < 0 || row >= puzzle.rowCount { return true }
+                if col < 0 || col >= puzzle.colCount { return true }
+                return ownedPieces[row][col]
+            }
+        }
+        
         transitionToCurrentSound(isFirst: isFirst)
     }
     
@@ -134,7 +148,14 @@ class QuizViewController : InteractiveGrowViewController {
     func transitionToCurrentSound(isFirst: Bool) {
         //animate if not first
         if !isFirst {
-            for view in [wordViews.first!.superview!, self.soundLabel.superview!] {
+            var viewsToAnimate = [wordViews.first!.superview!]
+            
+            //only animate the sound label and puzzle if there is more than one sound in the pool
+            if self.soundPool.count != 1 {
+                viewsToAnimate.append(self.soundLabel.superview!)
+            }
+            
+            for view in viewsToAnimate {
                 playTransitionForView(view, duration: 0.5, transition: kCATransitionPush, subtype: kCATransitionFromTop,
                                       timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
             }
@@ -186,12 +207,12 @@ class QuizViewController : InteractiveGrowViewController {
         guard let word = wordView.word else { return }
         word.playAudio()
         
-        UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
+        UIView.animate(withDuration: 0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
             wordView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             wordView.alpha = 1.0
         })
         
-        UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
             wordView.transform = CGAffineTransform.identity
         })
     }
@@ -202,7 +223,6 @@ class QuizViewController : InteractiveGrowViewController {
             if stopAudio { UAHaltPlayback() }
             self.state = .waiting
         }
-        
     }
     
     
@@ -228,6 +248,7 @@ class QuizViewController : InteractiveGrowViewController {
     }
     
     func wordViewSelected(_ wordView: WordView) {
+        self.attempts += 1
         wordView.superview?.bringSubview(toFront: wordView)
 
         if wordView.word == answerWord {
@@ -239,13 +260,25 @@ class QuizViewController : InteractiveGrowViewController {
     }
     
     @IBAction func puzzleTapped(_ sender: Any) {
-        PuzzleDetailViewController.present(for: self.currentSound, from: self.puzzleView, in: self)
+        if self.state == .transitioning { return }
+        
+        self.view.isUserInteractionEnabled = false
+        PuzzleDetailViewController.present(
+            for: self.currentSound,
+            from: self.puzzleView,
+            with: self.puzzleShadow,
+            in: self,
+            onDismiss: {
+                self.view.isUserInteractionEnabled = true
+            }
+        )
     }
     
     func correctWordSelected(_ wordView: WordView) {
-        
         self.state = .transitioning
         self.wordViews.first!.superview!.isUserInteractionEnabled = false
+        
+        wordView.setShowingText(true, animated: true, duration: 0.5)
         
         func hideOtherWords() {
             UIView.animate(withDuration: 0.2, animations: {
@@ -254,17 +287,17 @@ class QuizViewController : InteractiveGrowViewController {
         }
         
         func animateAndContinue() {
-            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [UIViewAnimationOptions.beginFromCurrentState], animations: {
-                let superSize = wordView.superview!.bounds.size
-                let superCenter = CGPoint(x: superSize.width / 2, y: superSize.height / 2)
-                wordView.center = superCenter
-                }, completion: nil)
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [.beginFromCurrentState], animations: {
+                wordView.center = wordView.superview!.center
+            }, completion: nil)
             
             PHPlayer.play("correct", ofType: "mp3")
-            Timer.scheduleAfter(1.5, addToArray: &self.timers, handler: self.setupForRandomSoundFromPool)
+            
+            let pieceSpawnPoint = self.view.convert(wordView.center, from: wordView.superview)
+            Timer.scheduleAfter(0.8, addToArray: &self.timers, handler: self.addNewPuzzlePiece(spawningAt: pieceSpawnPoint))
+            
+            Timer.scheduleAfter(1.45, addToArray: &self.timers, handler: self.setupForRandomSoundFromPool)
         }
-        
-        wordView.setShowingText(true, animated: true, duration: 0.5)
         
         if (UAIsAudioPlaying()) {
             UAWhenDonePlayingAudio {
@@ -274,6 +307,70 @@ class QuizViewController : InteractiveGrowViewController {
         } else {
             Timer.scheduleAfter(0.45, addToArray: &self.timers, handler: hideOtherWords)
             Timer.scheduleAfter(0.55, addToArray: &self.timers, handler: animateAndContinue)
+        }
+    }
+    
+    
+    //MARK: - Puzzle Pieces
+    
+    //partial-application so it can passed as () -> () to Timer.scheduleAfter
+    func addNewPuzzlePiece(spawningAt spawnPoint: CGPoint) -> () -> () {
+        return {
+            guard let puzzle = self.puzzleView.puzzle else { return }
+            let progress = Player.current.progress(for: puzzle)
+            
+            func animate(piece newPiece: (row: Int, col: Int)) {
+                
+                //find subview for specific piece
+                guard let newPieceView = self.puzzleView.subviews.first(where: { subview in
+                    guard let pieceView = subview as? PuzzlePieceView else { return false }
+                    
+                    return (pieceView.piece.row == newPiece.row)
+                        && (pieceView.piece.col == newPiece.col)
+                }) as? PuzzlePieceView else { return }
+                
+                //set up initial state
+                guard let pieceImageView = newPieceView.imageView else { return }
+                let animationImage = UIImageView(image: pieceImageView.image)
+                
+                animationImage.alpha = 0.0
+                animationImage.frame.size = CGSize(width: pieceImageView.frame.width * 2,
+                                                   height: pieceImageView.frame.height * 2)
+                animationImage.center = spawnPoint
+                
+                self.view.addSubview(animationImage)
+                
+                //animate
+                UIView.animate(withDuration: 0.1) {
+                    animationImage.alpha = 1.0
+                }
+                
+                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+                
+                    let finalFrame = self.view.convert(pieceImageView.bounds, from: pieceImageView)
+                    animationImage.frame = finalFrame
+                    
+                }, completion: { _ in
+                    animationImage.removeFromSuperview()
+                    newPieceView.isHidden = false
+                })
+                
+                
+            }
+            
+            let numberOfPieces: Int
+            switch(self.attempts) {
+                case 0...1: numberOfPieces = 2
+                case 2: numberOfPieces = 1
+                default: numberOfPieces = 0
+            }
+            
+            for _ in 0 ..< numberOfPieces {
+                if let piece = progress.addRandomPiece() {
+                    animate(piece: piece)
+                }
+            }
+            
         }
     }
     
@@ -305,7 +402,7 @@ class QuizViewController : InteractiveGrowViewController {
     
     override func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
         if let wordView = view as? WordView, let duration = wordView.word?.audioInfo?.wordDuration {
-            if wordView.word == self.answerWord { return 3.0 }
+            if wordView.word == self.answerWord { return 4.0 }
             return duration + 0.5
         } else { return 1.0 }
     }

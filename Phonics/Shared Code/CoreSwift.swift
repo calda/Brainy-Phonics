@@ -24,16 +24,6 @@ func playTransitionForView(_ view: UIView, duration: Double, transition transiti
     transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
     transition.type = transitionName
     
-    //run fix for transition subtype
-    //subtypes don't take device orientation into account
-    //let orientation = UIApplication.sharedApplication().statusBarOrientation
-    //if orientation == .LandscapeLeft || orientation == .PortraitUpsideDown {
-    //if subtype == kCATransitionFromLeft { subtype = kCATransitionFromRight }
-    //else if subtype == kCATransitionFromRight { subtype = kCATransitionFromLeft }
-    //else if subtype == kCATransitionFromTop { subtype = kCATransitionFromBottom }
-    //else if subtype == kCATransitionFromBottom { subtype = kCATransitionFromTop }
-    //}
-    
     transition.subtype = subtype
     transition.timingFunction = timingFunction
     view.layer.add(transition, forKey: nil)
@@ -86,7 +76,7 @@ func shakeView(_ view: UIView) {
 }
 
 ///animates a back and forth rotation
-func pivotView(_ view: UIView, multiplier: CGFloat) {
+func pivotView(_ view: UIView, multiplier: CGFloat = 1.0) {
     let animations : [CGFloat] = [20.0, -20.0, 10.0, -10.0, 3.0, -3.0, 0]
     for i in 0 ..< animations.count {
         let transform = CGAffineTransform(rotationAngle: animations[i] * (CGFloat(M_PI) / 180.0) * 1.2 * multiplier)
@@ -95,10 +85,6 @@ func pivotView(_ view: UIView, multiplier: CGFloat) {
             view.transform = transform
             }, completion: nil)
     }
-}
-
-func pivotView(_ view: UIView) {
-    pivotView(view, multiplier: 1.0)
 }
 
 ///short-form function to run a block synchronously on the main queue
@@ -112,12 +98,6 @@ func async(_ closure: @escaping () -> ()) {
 }
 
 
-///open to this app's iOS Settings
-func openSettings() {
-    UIApplication.shared.openURL(URL(string:UIApplicationOpenSettingsURLString)!)
-}
-
-
 ///returns trus if the current device is an iPad
 func iPad() -> Bool {
     return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
@@ -126,12 +106,6 @@ func iPad() -> Bool {
 ///returns trus if the current device is an iPhone 4S
 func is4S() -> Bool {
     return UIScreen.main.bounds.height == 480.0
-}
-
-
-///a more succinct function call to post a notification
-func postNotification(_ name: String, object: AnyObject?) {
-    NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: object, userInfo: nil)
 }
 
 ///Determines the height required to display the text in the given label
@@ -190,6 +164,7 @@ func linesForCSV(_ fileName: String, usingNewlineMarker newline: String = "\r\n"
     }
 }
 
+
 //MARK: - Classes
 
 ///A touch gesture recognizer that sends events on both .Began (down) and .Ended (up)
@@ -245,7 +220,6 @@ class UINibView : UIView {
     }
     
     func setupNib() {
-        
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName(), bundle: bundle)
         nibView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
@@ -268,8 +242,11 @@ class UINibView : UIView {
 //MARK: - Standard Library Extensions
 
 extension Array {
+    
     ///Returns a copy of the array in random order
     func shuffled() -> [Element] {
+        if self.count <= 1 { return self }
+        
         var list = self
         for i in 0..<(list.count - 1) {
             let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
@@ -286,22 +263,6 @@ extension Array {
 }
 
 extension Int {
-    ///Converts an integer to a standardized three-character string. 1 -> 001. 99 -> 099. 123 -> 123.
-    func threeCharacterString() -> String {
-        let start = "\(self)"
-        let length = start.characters.count
-        if length == 1 { return "00\(start)" }
-        else if length == 2 { return "0\(start)" }
-        else { return start }
-    }
-    
-    func timeFormatted() -> String {
-        let seconds: Int = self % 60
-        let minutes: Int = (self / 60) % 60
-        let hours: Int = self / 3600
-        if hours == 0 { return String(format: "%d:%02d", minutes, seconds) }
-        return String(format: "%d:%02d:%02d", hours, minutes, seconds)
-    }
     
     var isEven: Bool {
         return self % 2 == 0
@@ -312,90 +273,9 @@ extension Int {
     }
 }
 
-extension NSObject {
-    ///Short-hand function to register a notification observer
-    func observeNotification(_ name: String, selector: Selector) {
-        NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: name), object: nil)
-    }
-}
-
-extension Date {
-    ///converts to a "10 seconds ago" / "1 day ago" syntax
-    func agoString() -> String {
-        let deltaTime = -self.timeIntervalSinceNow
-        
-        //in the past
-        if deltaTime > 0 {
-            if deltaTime < 60 {
-                return "just now"
-            }
-            if deltaTime < 3600 { //less than an hour
-                let amount = Int(deltaTime/60.0)
-                let plural = amount == 1 ? "" : "s"
-                return "\(amount) minute\(plural) ago"
-            }
-            else if deltaTime < 86400 { //less than a day
-                let amount = Int(deltaTime/3600.0)
-                let plural = amount == 1 ? "" : "s"
-                return "\(amount) hour\(plural) ago"
-            }
-            else if deltaTime < 432000 { //less than five days
-                let amount = Int(deltaTime/86400.0)
-                let plural = amount == 1 ? "" : "s"
-                if amount == 1 {
-                    return "Yesterday"
-                }
-                return "\(amount) day\(plural) ago"
-            }
-        }
-        
-        //in the future
-        if deltaTime < 0 {
-            if deltaTime > -60 {
-                return "just now"
-            }
-            if deltaTime > -3600 { //in less than an hour
-                let amount = -Int(deltaTime/60.0)
-                let plural = amount == 1 ? "" : "s"
-                return "in \(amount) minute\(plural)"
-            }
-            else if deltaTime > -86400 { //in less than a day
-                let amount = -Int(deltaTime/3600.0)
-                let plural = amount == 1 ? "" : "s"
-                return "in \(amount) hour\(plural)"
-            }
-            else if deltaTime > -432000 { //in less than five days
-                let amount = -Int(deltaTime/86400.0)
-                let plural = amount == 1 ? "" : "s"
-                if amount == 1 {
-                    return "Tomorrow"
-                }
-                return "in \(amount) day\(plural)"
-            }
-        }
-        
-        let dateString = DateFormatter.localizedString(from: self, dateStyle: .medium, timeStyle: .none)
-        return "on \(dateString)"
-        
-    }
-    
-}
-
-extension UITableViewCell {
-    //hides the line seperator of the cell
-    func hideSeparator() {
-        self.separatorInset = UIEdgeInsetsMake(0, self.frame.size.width * 2.0, 0, 0)
-    }
-    
-    //re-enables the line seperator of the cell
-    func showSeparator() {
-        self.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
-    }
-}
-
 extension UIView {
     
-    static func animateWithDuration(_ duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping damping: CGFloat, animations: @escaping () -> ()) {
+    static func animate(withDuration duration: TimeInterval, delay: TimeInterval, usingSpringWithDamping damping: CGFloat, animations: @escaping () -> ()) {
         UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: damping, initialSpringVelocity: 0.0, options: [], animations: animations, completion: nil)
     }
     
@@ -409,13 +289,6 @@ extension String {
     
     func asDouble() -> Double? {
         return NumberFormatter().number(from: self)?.doubleValue
-    }
-    
-    func percentStringAsDouble() -> Double? {
-        if let displayedNumber = (self as NSString).substring(to: self.length - 1).asDouble() {
-            return displayedNumber / 100.0
-        }
-        return nil
     }
     
     func isWhitespace() -> Bool {
@@ -487,20 +360,6 @@ extension UserDefaults {
             return NSKeyedUnarchiver.unarchiveObject(with: data) as AnyObject?
         }
         return nil
-    }
-    
-}
-
-extension NSString {
-    
-    func stringAtIndex(_ index: Int) -> String {
-        let char = self.character(at: index)
-        return "\(Character(UnicodeScalar(char)!))"
-    }
-    
-    func countOccurancesOfString(_ string: String) -> Int {
-        let strCount = self.length - self.replacingOccurrences(of: string, with: "").length
-        return strCount / string.length
     }
     
 }

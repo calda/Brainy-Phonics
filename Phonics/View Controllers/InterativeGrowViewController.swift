@@ -56,6 +56,8 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
     }
     
     fileprivate func touchRecognized(_ touch: UITouch, state: UIGestureRecognizerState) {
+        if !self.view.isUserInteractionEnabled { return }
+        
         for view in interactiveViews {
             if !interactiveGrowShouldHappenFor(view) { continue }
             
@@ -150,12 +152,12 @@ class InteractiveGrowViewController : UIViewController, UIGestureRecognizerDeleg
     
     //MARK: - Customization Points
     
-    ///There has been a touch over the view. What scale should the view grow to, at this time?
+    ///There has been a touch over the view. What scale should the view grow to?
     func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
         return 1.2
     }
     
-    ///There has been a touch over the view. Should the view grow, at this time?
+    ///There has been a touch over the view. Should the view grow?
     func interactiveGrowShouldHappenFor(_ view: UIView) -> Bool {
         return true
     }

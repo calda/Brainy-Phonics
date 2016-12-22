@@ -15,22 +15,25 @@ class PuzzleDetailViewController : UIViewController {
     @IBOutlet weak var backButton: UIButton!
     
     var oldPuzzleView: PuzzleView!
+    var puzzleShadow: UIView!
     var animationImage: UIImageView!
     var sound: Sound!
+    var notifyOfDismissal: (() -> Void)?
     
     
     //MARK: - Presentation
     
-    static func present(for sound: Sound, from puzzleView: PuzzleView, in source: UIViewController) {
+    static func present(for sound: Sound, from puzzleView: PuzzleView, with puzzleShadow: UIView, in source: UIViewController, onDismiss: (() -> Void)?) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let puzzleDetail = storyboard.instantiateViewController(withIdentifier: "puzzle detail") as? PuzzleDetailViewController else { return }
         
         puzzleDetail.oldPuzzleView = puzzleView
+        puzzleDetail.puzzleShadow = puzzleShadow
         puzzleDetail.sound = sound
+        puzzleDetail.notifyOfDismissal = onDismiss
         
         puzzleDetail.modalPresentationStyle = .overCurrentContext
-        puzzleDetail.modalTransitionStyle = .coverVertical
         
         source.present(puzzleDetail, animated: false, completion: nil)
     }
@@ -42,6 +45,7 @@ class PuzzleDetailViewController : UIViewController {
         
         if let oldPuzzle = self.oldPuzzleView {
             puzzleView.puzzleName = oldPuzzle.puzzleName
+            puzzleView.isPieceVisible = oldPuzzle.isPieceVisible
         }
         
     }
@@ -62,6 +66,7 @@ class PuzzleDetailViewController : UIViewController {
             
             self.backButton.alpha = 1.0
             self.scrim.alpha = 1.0
+            self.puzzleShadow.alpha = 0.0
             
             let newHeight = self.view.frame.height * 0.9
             let aspectRatio = self.animationImage.frame.width / self.animationImage.frame.height
@@ -100,10 +105,13 @@ class PuzzleDetailViewController : UIViewController {
             
             self.scrim.alpha = 0.0
             self.backButton.alpha = 0.0
+            self.puzzleShadow.alpha = 1.0
         
         }, completion: { _ in
             self.oldPuzzleView.alpha = 1.0
             self.dismiss(animated: false, completion: nil)
+            
+            self.notifyOfDismissal?()
         })
     }
     
@@ -116,10 +124,8 @@ extension UIView {
         let previousAlpha = self.alpha
         self.alpha = 1.0
         
-        UIGraphicsBeginImageContext(self.frame.size)
-        
         let deviceScale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, true, deviceScale)
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, deviceScale)
         
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
         

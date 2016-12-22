@@ -15,16 +15,11 @@ struct Puzzle {
     let rowCount: Int
     let colCount: Int
     let pixelSize: CGSize
-    
-    init() {
-        self.pieces = []
-        self.rowCount = 0
-        self.colCount = 0
-        self.pixelSize = .zero
-    }
+    let name: String
     
     ///load from json spec (https://github.com/calda/Puzzle-Generator)
     init?(fromSpecForPuzzleNamed puzzleName: String) {
+        self.name = puzzleName
         let specName = "\(puzzleName)-spec"
         guard let url = Bundle.phonicsBundle?.url(forResource: specName, withExtension: "json") else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }

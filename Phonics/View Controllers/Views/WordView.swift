@@ -55,7 +55,7 @@ class WordView : UINibView {
     func setShowingText(_ showingText: Bool, animated: Bool, duration: TimeInterval? = 0.5) {
         
         if let duration = duration, animated {
-            UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.8) {
+            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8) {
                 self.showingText = showingText
             }
         }

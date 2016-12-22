@@ -162,12 +162,12 @@ class LetterViewController : InteractiveGrowViewController {
         let word = wordView.word!
         word.playAudio()
         
-        UIView.animateWithDuration(0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
+        UIView.animate(withDuration: 0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
             wordView.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
             wordView.alpha = 1.0
         })
         
-        UIView.animateWithDuration(0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
             wordView.transform = CGAffineTransform.identity
         })
     }
@@ -175,7 +175,7 @@ class LetterViewController : InteractiveGrowViewController {
     func showQuizButton() {
         self.quizButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.65) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.65) {
             self.quizButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
             self.quizButton.isHidden = false
             self.quizButton.alpha = 1.0

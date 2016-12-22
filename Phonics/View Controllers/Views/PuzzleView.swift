@@ -15,33 +15,25 @@ class PuzzleView : UIView {
     
     //MARK: - Properties
     
+    var puzzle: Puzzle?
+    
+    //Whether or not the piece at the given (row, col) is visible. Defaults to true.
+    var isPieceVisible: ((Int, Int) -> Bool)? {
+        didSet {
+            self.updatePieceVisibility()
+        }
+    }
+    
     @IBInspectable var puzzleName: String? {
         didSet {
             self.reload()
         }
     }
     
-    private var puzzle: Puzzle?
-    
-    @IBInspectable var scaleToFitBasedOnSpacing: Bool = false
-    
     @IBInspectable var spacing: CGFloat = 0 {
         didSet {
             self.reload()
         }
-    }
-    
-    var spacingConstraints = [NSLayoutConstraint]() //not actually used for anything yet
-    
-    
-    @IBInspectable var clipsPieces: Bool {
-        set { self.clipsToBounds = clipsPieces }
-        get { return self.clipsToBounds }
-    }
-    
-    @IBInspectable var allowInteractionWithPieces: Bool {
-        set { self.isUserInteractionEnabled = allowInteractionWithPieces }
-        get { return self.isUserInteractionEnabled }
     }
     
     
@@ -52,7 +44,6 @@ class PuzzleView : UIView {
     }
     
     func reload() {
-        
         //remove all constraints that affect subviews
         for constraint in self.constraints {
             if let view1 = constraint.firstItem as? UIView,
@@ -66,6 +57,7 @@ class PuzzleView : UIView {
         
         self.subviews.forEach{ $0.removeFromSuperview() }
         self.createImageViews()
+        self.updatePieceVisibility()
     }
     
     func createImageViews() {
@@ -80,12 +72,11 @@ class PuzzleView : UIView {
         //create subviews
         puzzle.pieces.forEach { row in
             row.forEach { piece in
-                guard let pieceRow = piece.row, let pieceCol = piece.col else { return }
                 guard let pieceImage = piece.image else { return }
                 
                 let pieceView = PuzzlePieceView(piece: piece, pieceImage: pieceImage)
                 pieceView.translatesAutoresizingMaskIntoConstraints = false
-                pieceViews[pieceRow][pieceCol] = pieceView
+                pieceViews[piece.row][piece.col] = pieceView
                 self.addSubview(pieceView)
             }
         }
@@ -125,9 +116,7 @@ class PuzzleView : UIView {
                 
                 func constrain<T>(_ anchor: NSLayoutAnchor<T>, to pieceAnchor: NSLayoutAnchor<T>?, otherwise viewAnchor: NSLayoutAnchor<T>) {
                     if let pieceAnchor = pieceAnchor {
-                        let constraint = anchor.constraint(equalTo: pieceAnchor, constant: -self.spacing)
-                        constraint.isActive = true
-                        self.spacingConstraints.append(constraint)
+                        anchor.constraint(equalTo: pieceAnchor, constant: -self.spacing).isActive = true
                     } else {
                         anchor.constraint(equalTo: viewAnchor).isActive = true
                     }
@@ -156,6 +145,15 @@ class PuzzleView : UIView {
                 constrain(piece.rightAnchor,
                           to: pieceToRight?.leftAnchor,
                           otherwise: self.rightAnchor)
+            }
+        }
+    }
+    
+    func updatePieceVisibility() {
+        for subview in subviews {
+            if let pieceView = subview as? PuzzlePieceView {
+                let isVisible = self.isPieceVisible?(pieceView.piece.row, pieceView.piece.col) ?? true
+                pieceView.isHidden = !isVisible
             }
         }
     }

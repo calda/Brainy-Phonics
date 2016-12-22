@@ -29,8 +29,8 @@ struct PuzzlePiece {
     let bottomNubDirection: Direction?
     let leftNubDirection: Direction?
     
-    var row: Int?
-    var col: Int?
+    var row: Int
+    var col: Int
     
     var imageName: String?
     var image: UIImage? {

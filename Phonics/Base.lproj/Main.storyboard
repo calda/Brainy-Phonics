@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -456,14 +455,18 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3G-hw-fNA" userLabel="sound view">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="320"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-OS-URh" userLabel="Puzzle Shadow">
+                                                <rect key="frame" x="55" y="180" width="90" height="120"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="180" width="90" height="120"/>
-                                                <color key="backgroundColor" red="0.3559299045138889" green="0.3559299045138889" blue="0.3559299045138889" alpha="0.14490582191780821" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Zje-sD-acS" secondAttribute="height" multiplier="3:4" priority="900" id="420-ZC-YhE"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-T-TH"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-T-th"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="spacing">
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
@@ -476,7 +479,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
-                                                <rect key="frame" x="47.5" y="20" width="106" height="150"/>
+                                                <rect key="frame" x="47" y="20" width="106" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="950" constant="250" id="5vZ-GV-HNB"/>
                                                     <constraint firstAttribute="height" constant="150" id="XAE-6W-OQ9"/>
@@ -503,13 +506,16 @@
                                             <constraint firstItem="eP8-VR-vpO" firstAttribute="centerY" secondItem="r3G-hw-fNA" secondAttribute="centerY" priority="500" constant="-100" id="5yh-7v-B4O"/>
                                             <constraint firstItem="eP8-VR-vpO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r3G-hw-fNA" secondAttribute="leading" constant="15" id="99y-S0-uJ4"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zje-sD-acS" secondAttribute="bottom" constant="20" id="GJ3-wX-f1e"/>
+                                            <constraint firstItem="LNH-OS-URh" firstAttribute="centerY" secondItem="Zje-sD-acS" secondAttribute="centerY" id="GYR-fG-RXb"/>
                                             <constraint firstItem="eP8-VR-vpO" firstAttribute="centerX" secondItem="r3G-hw-fNA" secondAttribute="centerX" id="HZh-CQ-orR"/>
                                             <constraint firstItem="uB9-12-asC" firstAttribute="top" secondItem="OZT-WR-439" secondAttribute="bottom" id="JWC-2f-nZM"/>
                                             <constraint firstItem="Zje-sD-acS" firstAttribute="top" secondItem="eP8-VR-vpO" secondAttribute="bottom" constant="10" id="Sfi-YZ-dca"/>
                                             <constraint firstItem="OZT-WR-439" firstAttribute="leading" secondItem="r3G-hw-fNA" secondAttribute="leading" id="T8i-zx-WPA"/>
+                                            <constraint firstItem="LNH-OS-URh" firstAttribute="width" secondItem="Zje-sD-acS" secondAttribute="width" id="UIi-Pb-9vz"/>
                                             <constraint firstItem="eP8-VR-vpO" firstAttribute="top" secondItem="r3G-hw-fNA" secondAttribute="top" constant="20" id="Vry-hb-Y1Q"/>
                                             <constraint firstItem="Zje-sD-acS" firstAttribute="centerX" secondItem="r3G-hw-fNA" secondAttribute="centerX" id="VtR-xf-ghn"/>
                                             <constraint firstItem="Zje-sD-acS" firstAttribute="top" secondItem="OZT-WR-439" secondAttribute="bottom" constant="8" id="bdT-Ad-aY9"/>
+                                            <constraint firstItem="LNH-OS-URh" firstAttribute="height" secondItem="Zje-sD-acS" secondAttribute="height" id="cMn-8K-J3n"/>
                                             <constraint firstAttribute="trailing" secondItem="OZT-WR-439" secondAttribute="trailing" id="cUy-JS-XZQ"/>
                                             <constraint firstItem="uB9-12-asC" firstAttribute="leading" secondItem="r3G-hw-fNA" secondAttribute="leading" id="go7-Qa-bQ3"/>
                                             <constraint firstItem="Zje-sD-acS" firstAttribute="width" relation="lessThanOrEqual" secondItem="r3G-hw-fNA" secondAttribute="width" id="kNw-kH-hdB"/>
@@ -517,6 +523,7 @@
                                             <constraint firstAttribute="bottom" secondItem="uB9-12-asC" secondAttribute="bottom" id="qhp-h8-QZt"/>
                                             <constraint firstAttribute="bottom" secondItem="OZT-WR-439" secondAttribute="bottom" priority="900" id="uWC-Gp-rDy"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eP8-VR-vpO" secondAttribute="trailing" constant="15" id="y8Y-VO-S4N"/>
+                                            <constraint firstItem="LNH-OS-URh" firstAttribute="centerX" secondItem="Zje-sD-acS" secondAttribute="centerX" id="z45-FQ-zgD"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -534,7 +541,7 @@
                                 <rect key="frame" x="270" y="0.0" width="298" height="320"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="G1M-lQ-h1R" userLabel="words">
-                                        <rect key="frame" x="22" y="33" width="254" height="254"/>
+                                        <rect key="frame" x="22.5" y="33.5" width="253" height="253"/>
                                         <subviews>
                                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-06-e3s" userLabel="1" customClass="WordView" customModule="Phonics" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -549,7 +556,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ody-ad-5QS" userLabel="2 (optional)" customClass="WordView" customModule="Phonics" customModuleProvider="target">
-                                                <rect key="frame" x="134" y="0.0" width="120" height="120"/>
+                                                <rect key="frame" x="133" y="0.0" width="120" height="120"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ody-ad-5QS" secondAttribute="height" multiplier="1:1" id="hRQ-Yo-rT4"/>
@@ -561,7 +568,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQO-4g-pvd" userLabel="3" customClass="WordView" customModule="Phonics" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="134" width="120" height="120"/>
+                                                <rect key="frame" x="0.0" y="133" width="120" height="120"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BQO-4g-pvd" secondAttribute="height" multiplier="1:1" id="Yel-Df-jkQ"/>
@@ -572,7 +579,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrF-ur-OTM" userLabel="4" customClass="WordView" customModule="Phonics" customModuleProvider="target">
-                                                <rect key="frame" x="134" y="134" width="120" height="120"/>
+                                                <rect key="frame" x="133" y="133" width="120" height="120"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ZrF-ur-OTM" secondAttribute="height" multiplier="1:1" id="WZg-iX-OoP"/>
@@ -669,6 +676,7 @@
                     </view>
                     <connections>
                         <outlet property="fourthWord" destination="ody-ad-5QS" id="6x6-kA-M2p"/>
+                        <outlet property="puzzleShadow" destination="LNH-OS-URh" id="yCH-Gc-bQq"/>
                         <outlet property="puzzleView" destination="Zje-sD-acS" id="neW-2S-Dgh"/>
                         <outlet property="soundLabel" destination="eP8-VR-vpO" id="TZa-Ij-1DN"/>
                         <outlet property="topLeftWordLeading" destination="P9r-2p-cTJ" id="ExS-OY-WBm"/>
@@ -701,7 +709,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4H-nL-wWC" userLabel="scrim">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.787109375" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8F-c3-o0I" userLabel="home">
                                 <rect key="frame" x="10" y="10" width="50" height="50"/>
@@ -712,12 +720,12 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-lQ-4n1" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
                                 <rect key="frame" x="176.5" y="16" width="216" height="288"/>
-                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Nl-lQ-4n1" secondAttribute="height" multiplier="3:4" priority="900" id="IF7-c5-3oR"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-T-TH"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-T-th"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="spacing">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
@@ -769,7 +777,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="spacing">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="scaleToFitBasedOnSpacing" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-A-AI"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
