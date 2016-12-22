@@ -10,16 +10,22 @@ import UIKit
 
 class PuzzleDetailViewController : UIViewController {
     
+    @IBOutlet weak var puzzleView: PuzzleView!
+    @IBOutlet weak var scrim: UIView!
+    @IBOutlet weak var backButton: UIButton!
+    
     var oldPuzzleView: PuzzleView!
+    var animationImage: UIImageView!
     var sound: Sound!
-    var animator: Animator?
     
     
     //MARK: - Presentation
     
     static func present(for sound: Sound, from puzzleView: PuzzleView, in source: UIViewController) {
         
-        let puzzleDetail = PuzzleDetailViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let puzzleDetail = storyboard.instantiateViewController(withIdentifier: "puzzle detail") as? PuzzleDetailViewController else { return }
+        
         puzzleDetail.oldPuzzleView = puzzleView
         puzzleDetail.sound = sound
         
@@ -29,91 +35,96 @@ class PuzzleDetailViewController : UIViewController {
         source.present(puzzleDetail, animated: false, completion: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.view.backgroundColor = .clear
+    override func viewWillAppear(_ animated: Bool) {
+        backButton.alpha = 0.0
+        scrim.alpha = 0.0
+        puzzleView.alpha = 0.0
         
-        //create new puzzle view
+        if let oldPuzzle = self.oldPuzzleView {
+            puzzleView.puzzleName = oldPuzzle.puzzleName
+        }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        //create image and then animate
         guard let oldPuzzleView = self.oldPuzzleView else { return }
         let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
         
-        let newPuzzleView = PuzzleView(frame: translatedFrame)
-        newPuzzleView.puzzleName = oldPuzzleView.puzzleName
-        newPuzzleView.spacing = oldPuzzleView.spacing
-        newPuzzleView.puzzleName = oldPuzzleView.puzzleName
+        self.animationImage = UIImageView(image: oldPuzzleView.asImage)
+        animationImage.frame = translatedFrame
+        self.view.addSubview(animationImage)
         
         oldPuzzleView.alpha = 0.0
-        self.view.addSubview(newPuzzleView)
         
-        //manually animate this puzzle because UIView.animate isn't cutting it
-        
-        //animate to center
-        //UIView.animate(withDuration: 10.0) {
-        let newHeight = self.view.frame.height * 0.9
-        let puzzleRatio = newPuzzleView.frame.width / newPuzzleView.frame.height
-        let newWidth = puzzleRatio * newHeight
-    
-        let newX = self.view.frame.width / 2 - newWidth / 2
-        let newY = self.view.frame.height / 2 - newHeight / 2
-        
-        let newFrame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
-        self.animator = Animator(view: newPuzzleView, animateTo: newFrame, duration: 0.6)
-        //}
-        
-        
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+            
+            self.backButton.alpha = 1.0
+            self.scrim.alpha = 1.0
+            
+            let newHeight = self.view.frame.height * 0.9
+            let aspectRatio = self.animationImage.frame.width / self.animationImage.frame.height
+            let newWidth = newHeight * aspectRatio
+            self.animationImage.frame.size = CGSize(width: newWidth, height: newHeight)
+            
+            self.animationImage.center = self.view.center
+            
+        }, completion: { _ in
+            
+            self.puzzleView.alpha = 1.0
+            
+            UIView.animate(withDuration: 0.225, delay: 0.0, options: [], animations: {
+                self.animationImage.alpha = 0.0
+            }, completion: nil)
+        })
     }
     
     
-    //MARK: - Animator
+    //MARK: - User Interaction
     
-    @objc class Animator : NSObject {
+    @IBAction func backTapped(_ sender: Any) {
         
-        let view: UIView
-        let startFrame: CGRect
-        let endFrame: CGRect
-        let duration: TimeInterval
-        let startTime: Date
+        self.puzzleView.alpha = 0.0
+        self.animationImage.alpha = 1.0
         
-        var timer: Timer!
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
         
-        init(view: UIView, animateTo endFrame: CGRect, duration: TimeInterval) {
-            self.view = view
-            self.startFrame = view.frame
-            self.endFrame = endFrame
-            self.duration = duration
-            self.startTime = Date()
+            guard let oldPuzzleView = self.oldPuzzleView else { return }
+            let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
+            self.animationImage.frame = translatedFrame
             
-            self.timer = nil
-            super.init()
+            self.scrim.alpha = 0.0
+            self.backButton.alpha = 0.0
             
-            self.timer = Timer.scheduledTimer(timeInterval: 0.00001, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-        }
-        
-        @objc func update() {
-            let timeElapsed = Date().timeIntervalSince(startTime)
-            let uncurvedPercentage = min(timeElapsed / duration, 1.0)
+        }, completion: { _ in
             
-            if uncurvedPercentage >= 1.0 {
-                self.timer.invalidate()
-            }
-            
-            //ease-in ease-out curve
-            let t = CGFloat(uncurvedPercentage)
-            let animationPercentage = pow(t,2) / (2 * (pow(t,2) - t) + 1)
-            
-            func interpolate(start: CGFloat, end: CGFloat) -> CGFloat {
-                let difference = end - start
-                return start + difference * animationPercentage
-            }
-            
-            let x = interpolate(start: startFrame.origin.x, end: endFrame.origin.x)
-            let y = interpolate(start: startFrame.origin.y, end: endFrame.origin.y)
-            let width = interpolate(start: startFrame.width, end: endFrame.width)
-            let height = interpolate(start: startFrame.height, end: endFrame.height)
-            
-            let currentFrame = CGRect(x: x, y: y, width: width, height: height)
-            self.view.frame = currentFrame
-         }
-        
+            self.oldPuzzleView.alpha = 1.0
+            self.dismiss(animated: false, completion: nil)
+        })
     }
     
 }
+
+
+extension UIView {
+ 
+    var asImage: UIImage? {
+        UIGraphicsBeginImageContext(self.frame.size)
+        
+        let deviceScale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, true, deviceScale)
+        
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        
+        self.layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+}
+
+
+
