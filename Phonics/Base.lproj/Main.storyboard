@@ -458,7 +458,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="180" width="90" height="120"/>
-                                                <color key="backgroundColor" red="0.3559299045138889" green="0.3559299045138889" blue="0.3559299045138889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.3559299045138889" green="0.3559299045138889" blue="0.3559299045138889" alpha="0.14490582191780821" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Zje-sD-acS" secondAttribute="height" multiplier="3:4" priority="900" id="420-ZC-YhE"/>
                                                 </constraints>
@@ -712,7 +712,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-lQ-4n1" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
                                 <rect key="frame" x="176.5" y="16" width="216" height="288"/>
-                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Nl-lQ-4n1" secondAttribute="height" multiplier="3:4" priority="900" id="IF7-c5-3oR"/>
                                 </constraints>

@@ -52,10 +52,10 @@ class PuzzleDetailViewController : UIViewController {
         guard let oldPuzzleView = self.oldPuzzleView else { return }
         let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
         
-        self.animationImage = UIImageView(image: oldPuzzleView.asImage)
+        self.animationImage = UIImageView(image: puzzleView.asImage)
+        
         animationImage.frame = translatedFrame
         self.view.addSubview(animationImage)
-        
         oldPuzzleView.alpha = 0.0
         
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
@@ -88,6 +88,10 @@ class PuzzleDetailViewController : UIViewController {
         self.puzzleView.alpha = 0.0
         self.animationImage.alpha = 1.0
         
+        //grab new image
+        self.animationImage.image = self.oldPuzzleView.asImage
+        
+        //animate
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
         
             guard let oldPuzzleView = self.oldPuzzleView else { return }
@@ -96,9 +100,8 @@ class PuzzleDetailViewController : UIViewController {
             
             self.scrim.alpha = 0.0
             self.backButton.alpha = 0.0
-            
+        
         }, completion: { _ in
-            
             self.oldPuzzleView.alpha = 1.0
             self.dismiss(animated: false, completion: nil)
         })
@@ -110,6 +113,9 @@ class PuzzleDetailViewController : UIViewController {
 extension UIView {
  
     var asImage: UIImage? {
+        let previousAlpha = self.alpha
+        self.alpha = 1.0
+        
         UIGraphicsBeginImageContext(self.frame.size)
         
         let deviceScale = UIScreen.main.scale
@@ -121,6 +127,7 @@ extension UIView {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
+        self.alpha = previousAlpha
         return image
     }
     
