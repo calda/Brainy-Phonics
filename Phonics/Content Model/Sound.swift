@@ -32,12 +32,28 @@ struct Sound: Equatable {
         return words
     }
     
+    
+    //MARK: - Puzzle and Rhyme
+    
     var puzzleName: String {
         return "puzzle-\(sourceLetter)-\(soundId)"
     }
     
     var puzzle: Puzzle? {
         return Puzzle(fromSpecForPuzzleNamed: self.puzzleName)
+    }
+    
+    var rhymeText: String? {
+        let rhymeTextFile = "\(puzzleName)-rhymeText"
+        guard let url = Bundle.phonicsBundle?.url(forResource: rhymeTextFile, withExtension: "txt") else { return nil }
+        guard let text = try? String(contentsOf: url) else { return nil }
+        
+        //some old rhyme transcripts used ; in place of ,
+        return text.replacingOccurrences(of: ";", with: ",")
+    }
+    
+    var rhymeAudioName: String {
+        return "\(puzzleName)-rhyme"
     }
     
     

@@ -16,6 +16,10 @@ class PHContentTest: XCTestCase {
     func testAllSoundsHavePuzzles() {
         for sound in PHContent.allSounds {
             XCTAssertNotNil(sound.puzzle, "Puzzle \(sound.puzzleName) doesn't exist.")
+            XCTAssertNotNil(sound.rhymeText, "Missing rhyme text for \(sound.puzzleName).")
+            
+            let audioName = sound.rhymeAudioName
+            XCTAssert(UAFileExists(name: audioName, ofType: "mp3"), "Missing rhyme audio for \(sound.puzzleName).")
         }
     }
     
@@ -54,10 +58,6 @@ class PHContentTest: XCTestCase {
         for word in PHContent.allWordsNoDuplicates {
             XCTAssertNotNil(word.pronunciation, "\(word.text) has no IPA pronunciation.")
         }
-    }
-    
-    func testAllWordsHaveAudio() {
-        
     }
     
 }

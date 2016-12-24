@@ -14,7 +14,7 @@ var PHPlayer: UAPlayer {
     return UAPlayer()
 }
 
-private let UAAudioQueue = DispatchQueue(label: "com.hearatale.phonetics.audio", attributes: [])
+private let UAAudioQueue = DispatchQueue(label: "com.hearatale.phonics.audio", attributes: [])
 private var UAAudioIsPlaying = false
 private var UAShouldHaltPlayback = false
 
@@ -48,6 +48,11 @@ func UALengthOfFile(_ name: String, ofType type: String) -> TimeInterval {
         return TimeInterval(CMTimeGetSeconds(time))
     }
     return 0.0
+}
+
+func UAFileExists(name: String, ofType type: String) -> Bool {
+    let duration = UALengthOfFile(name, ofType: type)
+    return (duration == 0 ? false : true)
 }
 
 func UAWhenDonePlayingAudio(_ block: @escaping () -> ()) {
