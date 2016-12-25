@@ -11,8 +11,15 @@ import UIKit
 class PuzzleDetailViewController : UIViewController {
     
     @IBOutlet weak var puzzleView: PuzzleView!
+    @IBOutlet weak var puzzleViewCenterHorizontally: NSLayoutConstraint!
+    
+    @IBOutlet weak var rhymeText: UITextView!
+    @IBOutlet weak var rhymeTextHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var scrim: UIView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var repeatButton: UIButton!
     
     var oldPuzzleView: PuzzleView!
     var puzzleShadow: UIView!
@@ -39,13 +46,22 @@ class PuzzleDetailViewController : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        backButton.alpha = 0.0
-        scrim.alpha = 0.0
-        puzzleView.alpha = 0.0
+        self.view.layoutIfNeeded()
+        updateAccessoryViews(visible: false)
+        self.puzzleView.alpha = 0.0
         
-        if let oldPuzzle = self.oldPuzzleView {
-            puzzleView.puzzleName = oldPuzzle.puzzleName
-            puzzleView.isPieceVisible = oldPuzzle.isPieceVisible
+        if let oldPuzzleView = self.oldPuzzleView, let puzzle = oldPuzzleView.puzzle {
+            self.puzzleView.puzzleName = oldPuzzleView.puzzleName
+            self.puzzleView.isPieceVisible = oldPuzzleView.isPieceVisible
+            
+            if Player.current.progress(for: puzzle).isComplete, let rhymeText = self.sound.rhymeText {
+                self.prepareRhymeText(for: rhymeText)
+            } else {
+                //center the puzzle and hide the rhyme text
+                self.puzzleViewCenterHorizontally.priority = UILayoutPriorityDefaultHigh
+                self.rhymeText.isHidden = true
+                self.puzzleView.layoutIfNeeded()
+            }
         }
         
     }
@@ -62,27 +78,65 @@ class PuzzleDetailViewController : UIViewController {
         self.view.addSubview(animationImage)
         oldPuzzleView.alpha = 0.0
         
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
             
-            self.backButton.alpha = 1.0
-            self.scrim.alpha = 1.0
-            self.puzzleShadow.alpha = 0.0
-            
-            let newHeight = self.view.frame.height * 0.9
-            let aspectRatio = self.animationImage.frame.width / self.animationImage.frame.height
-            let newWidth = newHeight * aspectRatio
-            self.animationImage.frame.size = CGSize(width: newWidth, height: newHeight)
-            
-            self.animationImage.center = self.view.center
+            self.animationImage.frame = self.puzzleView.frame
+            self.updateAccessoryViews(visible: true)
             
         }, completion: { _ in
+            if let puzzle = self.puzzleView.puzzle,
+               Player.current.progress(for: puzzle).isComplete {
+                self.playAudio(self)
+            }
             
             self.puzzleView.alpha = 1.0
-            
             UIView.animate(withDuration: 0.225, delay: 0.0, options: [], animations: {
                 self.animationImage.alpha = 0.0
             }, completion: nil)
         })
+        
+        UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 1.0) {
+            self.rhymeText.transform = .identity
+        }
+    }
+    
+    func updateAccessoryViews(visible: Bool) {
+        let views: [UIView] = [scrim, backButton, repeatButton, blurView, rhymeText]
+        let commonAlpha: CGFloat = (visible ? 1.0 : 0.0)
+        
+        for view in views {
+            view.alpha = commonAlpha
+        }
+        
+        self.puzzleShadow.alpha = (visible ? 0.0 : 1.0)
+    }
+    
+    func prepareRhymeText(for text: String) {
+        //move down to prepare for animation
+        rhymeText.transform = CGAffineTransform(translationX: 0, y: 50)
+        
+        rhymeText.clipsToBounds = false
+        rhymeText.layer.masksToBounds = false
+        self.repeatButton.isHidden = false
+        
+        //build attributed string
+        let attributes = rhymeText.attributedText.attributes(at: 0, effectiveRange: nil)
+        let attributedText = NSAttributedString(string: text, attributes: attributes)
+        rhymeText.attributedText = attributedText
+        
+        //update height for
+        let idealHeight = heightForText(text, width: rhymeText.frame.width, attributes: attributes) + 10
+        let maxPossibleHeight = self.view.frame.height - 50 // 50 = padding on top/bottom
+        
+        if idealHeight < maxPossibleHeight {
+            rhymeTextHeight.constant = idealHeight
+            rhymeText.isUserInteractionEnabled = false
+        } else {
+            rhymeTextHeight.constant = maxPossibleHeight
+            rhymeText.isUserInteractionEnabled = true
+        }
+        
+        rhymeText.layoutIfNeeded()
     }
     
     
@@ -90,6 +144,7 @@ class PuzzleDetailViewController : UIViewController {
     
     @IBAction func backTapped(_ sender: Any) {
         
+        UAHaltPlayback()
         self.puzzleView.alpha = 0.0
         self.animationImage.alpha = 1.0
         
@@ -103,9 +158,7 @@ class PuzzleDetailViewController : UIViewController {
             let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
             self.animationImage.frame = translatedFrame
             
-            self.scrim.alpha = 0.0
-            self.backButton.alpha = 0.0
-            self.puzzleShadow.alpha = 1.0
+            self.updateAccessoryViews(visible: false)
         
         }, completion: { _ in
             self.oldPuzzleView.alpha = 1.0
@@ -114,6 +167,17 @@ class PuzzleDetailViewController : UIViewController {
             self.notifyOfDismissal?()
         })
     }
+    
+    @IBAction func playAudio(_ sender: Any) {
+        let audioName = sound.rhymeAudioName
+        PHPlayer.play(audioName, ofType: "mp3")
+        self.repeatButton.isEnabled = false
+        
+        UAWhenDonePlayingAudio {
+            self.repeatButton.isEnabled = true
+        }
+    }
+    
     
 }
 

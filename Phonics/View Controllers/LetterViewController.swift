@@ -70,7 +70,7 @@ class LetterViewController : InteractiveGrowViewController {
         }
         
         //set up view
-        self.letterLabel.text = sound.displayString
+        self.letterLabel.text = sound.displayString.lowercased()
         self.previousSoundButton.isEnabled = previousSound != nil
         self.nextSoundButton.isEnabled = nextSound != nil
         self.quizButton.isHidden = true

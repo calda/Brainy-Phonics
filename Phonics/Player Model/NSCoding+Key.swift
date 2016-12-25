@@ -16,11 +16,11 @@ protocol NSCodingKey {
 extension NSCoder {
     
     func value(forKey key: NSCodingKey) -> Any? {
-        return value(forKey: key.rawValue)
+        return decodeObject(forKey: key.rawValue)
     }
     
-    func setValue(_ value: Any?, forKey key: NSCodingKey) {
-        self.setValue(value, forKey: key.rawValue)
+    func setValue(_ value: Any?, for key: NSCodingKey) {
+        self.encode(value, forKey: key.rawValue)
     }
     
 }

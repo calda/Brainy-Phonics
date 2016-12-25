@@ -8,16 +8,30 @@
 
 import Foundation
 
-class PuzzleProgress: NSCoding {
+class PuzzleProgress: NSObject, NSCoding {
     
     let puzzleName: String
     var ownedPieces: [[Bool]]
+    
+    var isComplete: Bool {
+        var isComplete = true
+        
+        for column in ownedPieces {
+            for piece in column {
+                isComplete = piece && isComplete
+            }
+        }
+        
+        return isComplete
+    }
     
     init(newFor puzzle: Puzzle) {
         self.puzzleName = puzzle.name
         
         let emptyColumn = [Bool](repeating: false, count: puzzle.colCount)
         self.ownedPieces = [[Bool]](repeating: emptyColumn, count: puzzle.rowCount)
+        
+        super.init()
         
         //set one piece to be initially visible
         self.addRandomPiece()
@@ -59,14 +73,14 @@ class PuzzleProgress: NSCoding {
     }
     
     func encode(with encoder: NSCoder) {
-        encoder.setValue(self.puzzleName, forKey: Key.puzzleName)
-        encoder.setValue(self.ownedPieces, forKey: Key.ownedPieces)
+        encoder.setValue(self.puzzleName, for: Key.puzzleName)
+        encoder.setValue(self.ownedPieces, for: Key.ownedPieces)
     }
     
 }
 
 
-//MARK: - Helpers
+//MARK: - Accessor
 
 extension Player {
     
@@ -81,7 +95,3 @@ extension Player {
     }
     
 }
-
-
-
-

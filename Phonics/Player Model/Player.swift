@@ -8,16 +8,18 @@
 
 import Foundation
 
-class Player : NSCoding {
+class Player : NSObject, NSCoding {
     
-    static var current = Player()
+    static var current = Player.load(id: "default") ?? Player()
     
     
     //MARK: Properties
     
+    var id: String
     var puzzleProgress: [String : PuzzleProgress]
     
-    init() {
+    override init() {
+        self.id = "default"
         self.puzzleProgress = [:]
     }
     
@@ -25,15 +27,31 @@ class Player : NSCoding {
     //MARK: - NSCoding
     
     private enum Key: String, NSCodingKey {
+        case id = "Player.id"
         case puzzleProgress = "Player.puzzleProgress"
     }
     
     required init?(coder decoder: NSCoder) {
+        guard let id = (decoder.value(forKey: Key.id) as? String) else { return nil }
+        self.id = id
+        
         self.puzzleProgress = (decoder.value(forKey: Key.puzzleProgress) as? [String : PuzzleProgress]) ?? [:]
     }
     
     func encode(with encoder: NSCoder) {
-        encoder.setValue(self.puzzleProgress, forKey: Key.puzzleProgress)
+        encoder.setValue(self.id, for: Key.id)
+        encoder.setValue(self.puzzleProgress, for: Key.puzzleProgress)
+    }
+    
+    
+    //MARK: - Persistance
+    
+    func save() {
+        UserDefaults.standard.setCodedObject(self, forKey: "player.\(self.id)")
+    }
+    
+    static func load(id: String) -> Player? {
+        return UserDefaults.standard.codedObjectForKey("player.\(id)") as? Player
     }
     
 }

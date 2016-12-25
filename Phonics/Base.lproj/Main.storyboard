@@ -42,21 +42,12 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This screen needs to be designed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T28-6l-ysY">
-                                <rect key="frame" x="34" y="227" width="270" height="21"/>
+                                <rect key="frame" x="34" y="158" width="270" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.36112837357954547" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQI-HB-gnF">
-                                <rect key="frame" x="34" y="159" width="110" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Puzzles"/>
-                                <connections>
-                                    <segue destination="lR7-lD-hLC" kind="show" id="D1e-nA-U6V"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -98,8 +89,8 @@
                                                     <rect key="frame" x="12" y="12" width="142" height="142"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
-                                                            <rect key="frame" x="44" y="29" width="55" height="84"/>
-                                                            <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="75"/>
+                                                            <rect key="frame" x="46.5" y="28" width="50.5" height="86.5"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="75"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -639,7 +630,6 @@
                                         <rect key="frame" x="10" y="260" width="50" height="50"/>
                                         <state key="normal" image="button-repeat"/>
                                         <connections>
-                                            <action selector="repeatPressed:" destination="z1a-bP-YxR" eventType="touchUpInside" id="QV3-Lt-e4m"/>
                                             <action selector="repeatSound:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="ORO-k7-0e6"/>
                                         </connections>
                                     </button>
@@ -709,20 +699,61 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4H-nL-wWC" userLabel="scrim">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                             </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xP1-jd-FuW">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VuA-T7-osH">
+                                    <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cP-xu-h2z" userLabel="repeat">
+                                <rect key="frame" x="10" y="260" width="50" height="50"/>
+                                <state key="normal" image="button-repeat"/>
+                                <connections>
+                                    <action selector="playAudio:" destination="Lww-Qp-Quu" eventType="touchUpInside" id="nsf-K4-z1H"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8F-c3-o0I" userLabel="home">
                                 <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="bvl-it-nzE"/>
+                                </constraints>
                                 <state key="normal" image="button-back"/>
                                 <connections>
                                     <action selector="backTapped:" destination="Lww-Qp-Quu" eventType="touchUpInside" id="UMP-rb-NFv"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-lQ-4n1" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
-                                <rect key="frame" x="176.5" y="16" width="216" height="288"/>
+                            <textView verifyAmbiguity="ignoreSizes" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYT-3V-kl6">
+                                <rect key="frame" x="316" y="80" width="232" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="TQ5-xa-fBx"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Three wise men of Gotham
+Went to sea in a bowl,
+And if the bowl had been stronger,
+My song had been longer.
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-Medium"/>
+                                            <font key="NSOriginalFont" size="16" name="SFUIText-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="10" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-lQ-4n1" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
+                                <rect key="frame" x="80" y="16" width="216" height="288"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="1Nl-lQ-4n1" secondAttribute="height" multiplier="3:4" priority="900" id="IF7-c5-3oR"/>
+                                    <constraint firstAttribute="width" secondItem="1Nl-lQ-4n1" secondAttribute="height" multiplier="3:4" id="IF7-c5-3oR"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-T-th"/>
@@ -735,101 +766,40 @@
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1Nl-lQ-4n1" firstAttribute="height" secondItem="gtR-g8-a9n" secondAttribute="height" multiplier="0.9" id="2SF-4F-dos"/>
-                            <constraint firstItem="1Nl-lQ-4n1" firstAttribute="centerX" secondItem="gtR-g8-a9n" secondAttribute="centerX" id="Dvb-ru-Ydi"/>
+                            <constraint firstAttribute="trailing" secondItem="LYT-3V-kl6" secondAttribute="trailing" constant="20" id="3OG-Fc-pXd"/>
+                            <constraint firstItem="LYT-3V-kl6" firstAttribute="leading" secondItem="1Nl-lQ-4n1" secondAttribute="trailing" constant="20" id="5lb-V9-5JP"/>
+                            <constraint firstItem="1Nl-lQ-4n1" firstAttribute="leading" secondItem="O8F-c3-o0I" secondAttribute="trailing" priority="600" constant="20" id="7t5-Pf-Yno"/>
+                            <constraint firstItem="1Nl-lQ-4n1" firstAttribute="centerX" secondItem="gtR-g8-a9n" secondAttribute="centerX" priority="500" id="Dvb-ru-Ydi"/>
                             <constraint firstItem="1Nl-lQ-4n1" firstAttribute="centerY" secondItem="gtR-g8-a9n" secondAttribute="centerY" id="IwO-Mo-drd"/>
+                            <constraint firstItem="ukz-HO-Gmk" firstAttribute="top" secondItem="xP1-jd-FuW" secondAttribute="bottom" id="OBE-qo-ZA6"/>
                             <constraint firstItem="O8F-c3-o0I" firstAttribute="leading" secondItem="gtR-g8-a9n" secondAttribute="leading" constant="10" id="RLN-ZF-tRb"/>
                             <constraint firstItem="q4H-nL-wWC" firstAttribute="centerX" secondItem="gtR-g8-a9n" secondAttribute="centerX" id="Usr-R8-8lK"/>
                             <constraint firstItem="O8F-c3-o0I" firstAttribute="top" secondItem="gtR-g8-a9n" secondAttribute="top" constant="10" id="Vzy-fy-aJb"/>
+                            <constraint firstItem="xP1-jd-FuW" firstAttribute="leading" secondItem="gtR-g8-a9n" secondAttribute="leading" id="W7g-hB-IkR"/>
                             <constraint firstItem="q4H-nL-wWC" firstAttribute="height" secondItem="gtR-g8-a9n" secondAttribute="height" id="XZq-ww-pun"/>
                             <constraint firstItem="q4H-nL-wWC" firstAttribute="width" secondItem="gtR-g8-a9n" secondAttribute="width" id="YVc-6x-a4h"/>
                             <constraint firstItem="q4H-nL-wWC" firstAttribute="centerY" secondItem="gtR-g8-a9n" secondAttribute="centerY" id="cHx-69-g6o"/>
+                            <constraint firstAttribute="trailing" secondItem="xP1-jd-FuW" secondAttribute="trailing" id="cZj-L7-vDU"/>
+                            <constraint firstItem="xP1-jd-FuW" firstAttribute="top" secondItem="gtR-g8-a9n" secondAttribute="top" id="oZk-SF-E2f"/>
+                            <constraint firstItem="6cP-xu-h2z" firstAttribute="leading" secondItem="gtR-g8-a9n" secondAttribute="leading" constant="10" id="qH1-Db-xDS"/>
+                            <constraint firstItem="LYT-3V-kl6" firstAttribute="centerY" secondItem="gtR-g8-a9n" secondAttribute="centerY" id="sEL-f8-c1W"/>
+                            <constraint firstItem="ukz-HO-Gmk" firstAttribute="top" secondItem="6cP-xu-h2z" secondAttribute="bottom" constant="10" id="wgG-SO-fhL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="O8F-c3-o0I" id="Uu3-CZ-ehZ"/>
+                        <outlet property="blurView" destination="xP1-jd-FuW" id="PkZ-Uq-D8A"/>
                         <outlet property="puzzleView" destination="1Nl-lQ-4n1" id="rLx-ly-1va"/>
+                        <outlet property="puzzleViewCenterHorizontally" destination="Dvb-ru-Ydi" id="jjc-QI-rhe"/>
+                        <outlet property="repeatButton" destination="6cP-xu-h2z" id="MWZ-qT-Jgp"/>
+                        <outlet property="rhymeText" destination="LYT-3V-kl6" id="r31-iP-H8A"/>
+                        <outlet property="rhymeTextHeight" destination="TQ5-xa-fBx" id="H3N-ZR-J9h"/>
                         <outlet property="scrim" destination="q4H-nL-wWC" id="19q-Zt-Rq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bb-35-jR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037" y="1031"/>
-        </scene>
-        <!--Puzzle View Controller-->
-        <scene sceneID="SAF-lq-4yz">
-            <objects>
-                <viewController id="lR7-lD-hLC" customClass="PuzzleViewController" customModule="Phonics" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gDx-5N-1FC"/>
-                        <viewControllerLayoutGuide type="bottom" id="IpJ-Ly-bIe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Grw-aG-N2x">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPc-I0-VGo" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
-                                <rect key="frame" x="174" y="10" width="220" height="300"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wPc-I0-VGo" secondAttribute="height" multiplier="3:4" priority="900" id="sBS-Rn-ANc"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="puzzleName" value="puzzle-A-AI"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sd-Fm-uSg">
-                                <rect key="frame" x="10" y="10" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="WgR-oo-ulh"/>
-                                    <constraint firstAttribute="width" constant="50" id="zpX-tI-01y"/>
-                                </constraints>
-                                <state key="normal" image="button-home"/>
-                                <connections>
-                                    <segue destination="Vc7-WB-2M8" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="UMR-CC-liK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1l-VR-5Vs">
-                                <rect key="frame" x="10" y="280" width="106" height="30"/>
-                                <state key="normal" title="Random Puzzle"/>
-                                <connections>
-                                    <action selector="randomPuzzle:" destination="lR7-lD-hLC" eventType="touchUpInside" id="RPW-y5-NPV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fg-VW-giA">
-                                <rect key="frame" x="10" y="240" width="94" height="30"/>
-                                <state key="normal" title="Attach Pieces"/>
-                                <connections>
-                                    <action selector="togglePieces:" destination="lR7-lD-hLC" eventType="touchUpInside" id="YhO-e0-Uyp"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="U1l-VR-5Vs" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="5RX-FT-r9p"/>
-                            <constraint firstItem="wPc-I0-VGo" firstAttribute="centerY" secondItem="Grw-aG-N2x" secondAttribute="centerY" id="7OZ-4o-7hY"/>
-                            <constraint firstItem="7Sd-Fm-uSg" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="Bnj-nV-2I4"/>
-                            <constraint firstItem="U1l-VR-5Vs" firstAttribute="top" secondItem="6fg-VW-giA" secondAttribute="bottom" constant="10" id="Bzh-sx-Lm6"/>
-                            <constraint firstItem="wPc-I0-VGo" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="topMargin" priority="900" constant="10" id="FUh-sN-lca"/>
-                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="U1l-VR-5Vs" secondAttribute="bottom" constant="10" id="Ho4-cZ-0DC"/>
-                            <constraint firstItem="7Sd-Fm-uSg" firstAttribute="top" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Nqn-u2-cJu"/>
-                            <constraint firstItem="wPc-I0-VGo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Grw-aG-N2x" secondAttribute="top" constant="10" id="Oay-to-5LA"/>
-                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" secondItem="wPc-I0-VGo" secondAttribute="bottom" priority="900" constant="10" id="Wu9-is-Oif"/>
-                            <constraint firstItem="6fg-VW-giA" firstAttribute="leading" secondItem="Grw-aG-N2x" secondAttribute="leading" constant="10" id="bsK-VP-tHW"/>
-                            <constraint firstItem="wPc-I0-VGo" firstAttribute="centerX" secondItem="Grw-aG-N2x" secondAttribute="centerX" id="swi-Z6-RpB"/>
-                            <constraint firstItem="IpJ-Ly-bIe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wPc-I0-VGo" secondAttribute="bottom" constant="10" id="zGY-qM-JHO"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="puzzleView" destination="wPc-I0-VGo" id="ajZ-uS-v4v"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G4A-7Q-TGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Vc7-WB-2M8" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1703" y="323"/>
+            <point key="canvasLocation" x="1035.2112676056338" y="1029.375"/>
         </scene>
     </scenes>
     <resources>

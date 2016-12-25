@@ -109,10 +109,16 @@ func is4S() -> Bool {
 }
 
 ///Determines the height required to display the text in the given label
-func heightForText(_ text: String, width: CGFloat, font: UIFont) -> CGFloat {
+func heightForText(_ text: String, width: CGFloat, attributes: [String : Any]?) -> CGFloat {
     let context = NSStringDrawingContext()
     let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-    let rect = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: context)
+    
+    let rect = text.boundingRect(with: size,
+                                 options: [.usesLineFragmentOrigin,
+                                           .usesFontLeading,
+                                           .usesDeviceMetrics],
+                                 attributes: attributes,
+                                 context: context)
     return rect.height
 }
 

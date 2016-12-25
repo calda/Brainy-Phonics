@@ -371,6 +371,7 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
             
+            Player.current.save()
         }
     }
     
