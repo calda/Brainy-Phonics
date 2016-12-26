@@ -1,0 +1,4 @@
+How many d(ay)s has my baby to pl(ay)?
+Saturd(ay); Sund(ay); Mond(ay);
+Tuesd(ay); Wednesd(ay); Thursd(ay); Frid(ay);
+Saturd(ay); Sund(ay); Mond(ay).

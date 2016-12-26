@@ -44,7 +44,7 @@ class Player : NSObject, NSCoding {
     }
     
     
-    //MARK: - Persistance
+    //MARK: - Persistence
     
     func save() {
         UserDefaults.standard.setCodedObject(self, forKey: "player.\(self.id)")

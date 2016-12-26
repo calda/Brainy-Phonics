@@ -121,7 +121,10 @@ class PuzzleDetailViewController : UIViewController {
         
         //build attributed string
         let attributes = rhymeText.attributedText.attributes(at: 0, effectiveRange: nil)
-        let attributedText = NSAttributedString(string: text, attributes: attributes)
+        let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
+        
+        let redHighlightColor = UIColor(hue: 1.0, saturation: 1.0, brightness: 0.73, alpha: 1.0)
+        self.addHighlights(of: redHighlightColor, to: attributedText)
         rhymeText.attributedText = attributedText
         
         //update height for
@@ -137,6 +140,46 @@ class PuzzleDetailViewController : UIViewController {
         }
         
         rhymeText.layoutIfNeeded()
+    }
+    
+    func addHighlights(of color: UIColor, to attributedString: NSMutableAttributedString) {
+        let characters = Array(attributedString.string.characters)
+        
+        var rangesToHighlight = [NSRange]()
+        var startForRangeInProgress: Int? = nil
+        var parenthesisCount = 0
+        
+        //find ranges to highlight (knowning that the parenthesis will be removed later)
+        for (index, character) in characters.enumerated() {
+            
+            if character == Character("(") {
+                startForRangeInProgress = index - parenthesisCount
+                parenthesisCount += 1
+            }
+            
+            else if character == Character(")"), let rangeStart = startForRangeInProgress {
+                let rangeEnd = index - parenthesisCount
+                let rangeLength = rangeEnd - rangeStart
+                let newRange = NSMakeRange(rangeStart, rangeLength)
+                rangesToHighlight.append(newRange)
+                
+                parenthesisCount += 1
+                startForRangeInProgress = nil
+            }
+        }
+        
+        //remove parenthesis
+        let newString = attributedString.string
+            .replacingOccurrences(of: "(", with: "")
+            .replacingOccurrences(of: ")", with: "")
+        
+        let fullRange = NSMakeRange(0, attributedString.string.length)
+        attributedString.replaceCharacters(in: fullRange, with: newString)
+        
+        //apply highlights
+        for range in rangesToHighlight {
+            attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        }
     }
     
     

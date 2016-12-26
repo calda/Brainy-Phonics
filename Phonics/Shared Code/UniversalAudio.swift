@@ -80,12 +80,12 @@ class UAPlayer {
         self.name = name
         self.startTime = startTime
         self.endAfter = endAfter
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, with: [])
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [])
         
         if let path = Bundle.main.path(forResource: name, ofType: type), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
             
             do {
-               player = try AVAudioPlayer(data: data, fileTypeHint: nil)
+                player = try AVAudioPlayer(data: data, fileTypeHint: nil)
             } catch {
                 return false
             }
