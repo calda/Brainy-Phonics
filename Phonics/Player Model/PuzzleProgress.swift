@@ -14,6 +14,7 @@ class PuzzleProgress: NSObject, NSCoding {
     var ownedPieces: [[Bool]]
     
     var isComplete: Bool {
+        return true
         var isComplete = true
         
         for column in ownedPieces {
