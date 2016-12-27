@@ -13,7 +13,6 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     //MARK: - Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("LOADED PHCONTENT \(PHContent)")
         return PHLetters.count
     }
     
@@ -38,8 +37,8 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     //MARK: - User Interaction
-    
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.view.isUserInteractionEnabled = false
         
@@ -50,11 +49,10 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         }, completion: nil)
         
         //play audio for selection
-        guard let letter = PHContent[PHLetters[indexPath.item]] else { return true }
+        guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
         letter.playSound()
         
         UAWhenDonePlayingAudio {
-            //recursively call with a nonexistant index to hide the cell
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
                 cell?.transform = CGAffineTransform.identity
                 
@@ -63,8 +61,6 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
                 
             }, completion: nil)
         }
-        
-        return true
     }
 
 
@@ -75,6 +71,7 @@ class LetterCell : UICollectionViewCell {
     
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var letterLabel: UILabel!
+    @IBOutlet weak var progressBar: ProgressBar!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -83,10 +80,18 @@ class LetterCell : UICollectionViewCell {
     }
     
     func decorateForLetter(_ letter: String) {
+        cardView.layer.cornerRadius = cardView.frame.width * 0.15
+        letterLabel.text = letter.lowercased()
         
-        cardView.layer.cornerRadius = cardView.frame.width * 0.2
-        letterLabel.text = letter
+        let letter = PHContent[letter]
+        let numberOfSounds = letter?.sounds.count ?? 1
         
+        let completedSounds = letter?.sounds.filter { sound in
+            return Player.current.progress(forPuzzleNamed: sound.puzzleName)?.isComplete ?? false
+        }.count ?? 1
+        
+        progressBar.totalNumberOfSegments = numberOfSounds
+        progressBar.numberOfFilledSegments = completedSounds
     }
     
 }

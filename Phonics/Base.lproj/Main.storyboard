@@ -86,24 +86,61 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXT-ZE-SzT" userLabel="card">
-                                                    <rect key="frame" x="12" y="12" width="142" height="142"/>
+                                                    <rect key="frame" x="8.5" y="8.5" width="149" height="149"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
-                                                            <rect key="frame" x="46.5" y="28" width="50.5" height="86.5"/>
-                                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="75"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dm7-5a-EQO" userLabel="center guide">
+                                                            <rect key="frame" x="49.5" y="61" width="50" height="27"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Dm7-5a-EQO" secondAttribute="height" multiplier="15:8" id="DzS-fM-A84"/>
+                                                                <constraint firstAttribute="width" constant="50" id="xNO-rd-d1R"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
+                                                            <rect key="frame" x="56.5" y="37.5" width="36.5" height="75"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="65"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0W-KL-aLA" customClass="ProgressBar" customModule="Phonics" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="139" width="149" height="10"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="10" id="1yI-Al-s7t"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="totalNumberOfSegments">
+                                                                    <integer key="value" value="6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="numberOfFilledSegments">
+                                                                    <integer key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                                                    <color key="value" red="0.89762369791666663" green="0.89762369791666663" blue="0.89762369791666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                                    <color key="value" red="0.38785380125045776" green="0.75522118806838989" blue="0.41484102606773376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="Dm7-5a-EQO" firstAttribute="centerX" secondItem="WXT-ZE-SzT" secondAttribute="centerX" id="31E-YJ-wfi"/>
+                                                        <constraint firstAttribute="trailing" secondItem="P0W-KL-aLA" secondAttribute="trailing" id="DfQ-cx-M6s"/>
+                                                        <constraint firstItem="Dm7-5a-EQO" firstAttribute="centerY" secondItem="WXT-ZE-SzT" secondAttribute="centerY" id="IIp-7z-AKc"/>
                                                         <constraint firstItem="nuo-RG-4Dr" firstAttribute="centerY" secondItem="WXT-ZE-SzT" secondAttribute="centerY" id="R5B-N3-lZt"/>
                                                         <constraint firstAttribute="width" secondItem="WXT-ZE-SzT" secondAttribute="height" multiplier="1:1" id="clF-Q3-hpb"/>
+                                                        <constraint firstItem="P0W-KL-aLA" firstAttribute="leading" secondItem="WXT-ZE-SzT" secondAttribute="leading" id="fxc-kN-i7w"/>
+                                                        <constraint firstAttribute="bottom" secondItem="P0W-KL-aLA" secondAttribute="bottom" id="w31-n2-YLB"/>
                                                         <constraint firstItem="nuo-RG-4Dr" firstAttribute="centerX" secondItem="WXT-ZE-SzT" secondAttribute="centerX" id="yUd-M7-R4T"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="20"/>
+                                                            <integer key="value" value="5"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -112,11 +149,12 @@
                                         <constraints>
                                             <constraint firstItem="WXT-ZE-SzT" firstAttribute="centerX" secondItem="qKT-gB-QYW" secondAttribute="centerX" id="3ZW-sU-Hch"/>
                                             <constraint firstItem="WXT-ZE-SzT" firstAttribute="centerY" secondItem="qKT-gB-QYW" secondAttribute="centerY" id="Lbr-xi-a45"/>
-                                            <constraint firstItem="WXT-ZE-SzT" firstAttribute="width" secondItem="qKT-gB-QYW" secondAttribute="width" multiplier="0.85" id="tv8-fS-8kw"/>
+                                            <constraint firstItem="WXT-ZE-SzT" firstAttribute="width" secondItem="qKT-gB-QYW" secondAttribute="width" multiplier="0.9" id="tv8-fS-8kw"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="cardView" destination="WXT-ZE-SzT" id="xSc-Kv-pu0"/>
                                             <outlet property="letterLabel" destination="nuo-RG-4Dr" id="CeG-VH-qN0"/>
+                                            <outlet property="progressBar" destination="P0W-KL-aLA" id="dwB-h6-lPG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -447,11 +485,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="320"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-OS-URh" userLabel="Puzzle Shadow">
-                                                <rect key="frame" x="55" y="180" width="90" height="120"/>
+                                                <rect key="frame" x="100" y="180" width="0.0" height="0.0"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
-                                                <rect key="frame" x="55" y="180" width="90" height="120"/>
+                                                <rect key="frame" x="100" y="180" width="0.0" height="0.0"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Zje-sD-acS" secondAttribute="height" multiplier="3:4" priority="900" id="420-ZC-YhE"/>

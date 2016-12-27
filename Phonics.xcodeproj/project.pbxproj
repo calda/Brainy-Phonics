@@ -121,6 +121,7 @@
 		2E871C261E10D20300B6313D /* words-Y-i.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E871BD01E10D20300B6313D /* words-Y-i.mp3 */; };
 		2E871C271E10D20300B6313D /* words-Y-yuh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E871BD11E10D20300B6313D /* words-Y-yuh.mp3 */; };
 		2E871C281E10D20300B6313D /* words-Z-zzz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E871BD21E10D20300B6313D /* words-Z-zzz.mp3 */; };
+		2E871C2A1E124F0900B6313D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E871C291E124F0900B6313D /* ProgressBar.swift */; };
 		2E8FFADA1D67A14100B1E498 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2701D639A1B00978DD6 /* Letter.swift */; };
 		2E8FFADB1D67A14100B1E498 /* PHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2711D639A1B00978DD6 /* PHContent.swift */; };
 		2E8FFADC1D67A14100B1E498 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2721D639A1B00978DD6 /* Sound.swift */; };
@@ -2672,6 +2673,7 @@
 		2E871BD01E10D20300B6313D /* words-Y-i.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "words-Y-i.mp3"; sourceTree = "<group>"; };
 		2E871BD11E10D20300B6313D /* words-Y-yuh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "words-Y-yuh.mp3"; sourceTree = "<group>"; };
 		2E871BD21E10D20300B6313D /* words-Z-zzz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "words-Z-zzz.mp3"; sourceTree = "<group>"; };
+		2E871C291E124F0900B6313D /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2ED0E9851E10AA84006DB993 /* letter-A.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "letter-A.mp3"; sourceTree = "<group>"; };
 		2ED0E9861E10AA84006DB993 /* letter-B.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "letter-B.mp3"; sourceTree = "<group>"; };
 		2ED0E9871E10AA84006DB993 /* letter-C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "letter-C.mp3"; sourceTree = "<group>"; };
@@ -5201,6 +5203,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6DE7601D63A90100978DD6 /* PuzzleView.swift */,
+				2E871C291E124F0900B6313D /* ProgressBar.swift */,
 				2E6DE2851D639A1B00978DD6 /* WordView.swift */,
 				2E6DE2861D639A1B00978DD6 /* WordView.xib */,
 			);
@@ -11168,6 +11171,7 @@
 				2E6DE7551D639A1C00978DD6 /* LettersViewController.swift in Sources */,
 				2E6DE7581D639A1C00978DD6 /* QuizViewController.swift in Sources */,
 				2E6DE74F1D639A1C00978DD6 /* LongestCommonSubsequence.swift in Sources */,
+				2E871C2A1E124F0900B6313D /* ProgressBar.swift in Sources */,
 				2E383FC11E07454A00128351 /* JPNG.m in Sources */,
 				2E6DE75A1D639A1C00978DD6 /* WordView.swift in Sources */,
 				2E6DE7561D639A1C00978DD6 /* LetterViewController.swift in Sources */,

@@ -82,13 +82,17 @@ class PuzzleProgress: NSObject, NSCoding {
 extension Player {
     
     func progress(for puzzle: Puzzle) -> PuzzleProgress {
-        if let progress = self.puzzleProgress[puzzle.name] {
+        if let progress = self.progress(forPuzzleNamed: puzzle.name) {
             return progress
         } else {
             let newProgress = PuzzleProgress(newFor: puzzle)
             self.puzzleProgress[puzzle.name] = newProgress
             return newProgress
         }
+    }
+    
+    func progress(forPuzzleNamed name: String) -> PuzzleProgress? {
+        return self.puzzleProgress[name]
     }
     
 }

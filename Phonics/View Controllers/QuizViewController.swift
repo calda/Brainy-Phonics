@@ -392,8 +392,8 @@ class QuizViewController : InteractiveGrowViewController {
                 let animationImage = UIImageView(image: pieceImageView.image)
                 
                 animationImage.alpha = 0.0
-                animationImage.frame.size = CGSize(width: pieceImageView.frame.width * 2,
-                                                   height: pieceImageView.frame.height * 2)
+                animationImage.frame.size = CGSize(width: pieceImageView.frame.width * 2.5,
+                                                   height: pieceImageView.frame.height * 2.5)
                 animationImage.center = spawnPoint
                 
                 self.view.addSubview(animationImage)
@@ -403,7 +403,7 @@ class QuizViewController : InteractiveGrowViewController {
                     animationImage.alpha = 1.0
                 }
                 
-                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
                 
                     let finalFrame = self.view.convert(pieceImageView.bounds, from: pieceImageView)
                     animationImage.frame = finalFrame
