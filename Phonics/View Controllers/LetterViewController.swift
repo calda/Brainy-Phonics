@@ -221,7 +221,7 @@ class LetterViewController : InteractiveGrowViewController {
     }
     
     @IBAction func openQuiz(_ sender: AnyObject) {
-        QuizViewController.presentQuizWithSoundPool([self.sound], showingThreeWords: true, onController: self)
+        QuizViewController.presentQuiz(customSound: self.sound, showingThreeWords: true, onController: self)
     }
     
     

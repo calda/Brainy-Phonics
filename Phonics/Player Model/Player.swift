@@ -8,9 +8,11 @@
 
 import Foundation
 
+let PHDefaultPlayerKey = "defaultPlayer"
+
 class Player : NSObject, NSCoding {
     
-    static var current = Player.load(id: "default") ?? Player()
+    static var current = Player.load(id: PHDefaultPlayerKey) ?? Player()
     
     
     //MARK: Properties
@@ -19,7 +21,7 @@ class Player : NSObject, NSCoding {
     var puzzleProgress: [String : PuzzleProgress]
     
     override init() {
-        self.id = "default"
+        self.id = PHDefaultPlayerKey
         self.puzzleProgress = [:]
     }
     

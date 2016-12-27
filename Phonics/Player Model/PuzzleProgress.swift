@@ -14,7 +14,6 @@ class PuzzleProgress: NSObject, NSCoding {
     var ownedPieces: [[Bool]]
     
     var isComplete: Bool {
-        return true
         var isComplete = true
         
         for column in ownedPieces {
@@ -33,9 +32,6 @@ class PuzzleProgress: NSObject, NSCoding {
         self.ownedPieces = [[Bool]](repeating: emptyColumn, count: puzzle.rowCount)
         
         super.init()
-        
-        //set one piece to be initially visible
-        self.addRandomPiece()
     }
     
     @discardableResult func addRandomPiece() -> (row: Int, col: Int)? {

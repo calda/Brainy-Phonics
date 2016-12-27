@@ -446,11 +446,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3G-hw-fNA" userLabel="sound view">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="320"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-OS-URh" userLabel="Puzzle Shadow">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-OS-URh" userLabel="Puzzle Shadow">
                                                 <rect key="frame" x="55" y="180" width="90" height="120"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="180" width="90" height="120"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -466,7 +466,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uB9-12-asC">
                                                 <rect key="frame" x="0.0" y="172" width="200" height="148"/>
                                                 <connections>
-                                                    <action selector="puzzleTapped:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="QkQ-16-IBJ"/>
+                                                    <action selector="showPuzzleDetail:" destination="3Pw-CV-PhU" eventType="touchUpInside" id="oND-46-KhE"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">

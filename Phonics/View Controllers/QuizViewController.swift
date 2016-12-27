@@ -11,8 +11,12 @@ import UIKit
 
 class QuizViewController : InteractiveGrowViewController {
     
-    var soundPool: [Sound]!
+    var sound: Sound?
+    var totalAnswerWordPool: [Word]!
+    var remainingAnswerWordPool: [Word]!
+    
     var onlyShowThreeWords: Bool = false
+    var setupForNewSoundOnReturnFromModal = false
     
     var currentLetter: Letter!
     var currentSound: Sound!
@@ -38,9 +42,9 @@ class QuizViewController : InteractiveGrowViewController {
     
     //MARK: - Transition
     
-    static func presentQuizWithSoundPool(_ customSoundPool: [Sound]?, showingThreeWords: Bool, onController controller: UIViewController) {
+    static func presentQuiz(customSound: Sound, showingThreeWords: Bool, onController controller: UIViewController) {
         let quiz = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "quiz") as! QuizViewController
-        quiz.soundPool = customSoundPool
+        quiz.sound = customSound
         quiz.onlyShowThreeWords = showingThreeWords
         controller.present(quiz, animated: true, completion: nil)
     }
@@ -49,9 +53,9 @@ class QuizViewController : InteractiveGrowViewController {
     //MARK: - Content Setup
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        if soundPool == nil {
-            soundPool = PHContent.allSounds
+        if let sound = self.sound {
+            totalAnswerWordPool = sound.allWords
+            remainingAnswerWordPool = totalAnswerWordPool
         }
         
         if self.onlyShowThreeWords {
@@ -79,10 +83,40 @@ class QuizViewController : InteractiveGrowViewController {
     
     func setupForRandomSoundFromPool() {
         let isFirst = (currentSound == nil)
-        self.currentSound = soundPool.random()
-        self.currentLetter = PHContent[self.currentSound.sourceLetter]!
-        self.answerWord = currentSound.allWords.random()
         self.attempts = 0
+        
+        //if there is one specific sound, 
+        if let sound = self.sound {
+            self.currentSound = sound
+            self.currentLetter = PHContent[self.currentSound.sourceLetter]!
+            
+            //refill word pool if necessary
+            if self.remainingAnswerWordPool.count == 0 {
+                self.remainingAnswerWordPool = self.totalAnswerWordPool
+                
+                //remove previous word from pool so the same word never plays twice
+                if let previousWord = self.answerWord,
+                   let index = self.remainingAnswerWordPool.index(of: previousWord) {
+                    self.remainingAnswerWordPool.remove(at: index)
+                }
+            }
+            
+            self.answerWord = self.remainingAnswerWordPool.random()
+            
+            //remove word from pool of remaining words
+            if let answerWord = self.answerWord {
+                let index = self.remainingAnswerWordPool.index(of: answerWord)
+                self.remainingAnswerWordPool.remove(at: index!)
+            }
+        }
+        
+        else {
+            let randomLetter = PHLetters.random()!
+            self.currentLetter = PHContent[randomLetter]
+            self.currentSound = self.currentLetter.sounds.random()
+            self.answerWord = self.currentSound.allWords.random()
+        }
+        
         
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation
@@ -150,8 +184,8 @@ class QuizViewController : InteractiveGrowViewController {
         if !isFirst {
             var viewsToAnimate = [wordViews.first!.superview!]
             
-            //only animate the sound label and puzzle if there is more than one sound in the pool
-            if self.soundPool.count != 1 {
+            //only transition the sound label and puzzle if animating from all sounds
+            if self.sound == nil {
                 viewsToAnimate.append(self.soundLabel.superview!)
             }
             
@@ -259,8 +293,9 @@ class QuizViewController : InteractiveGrowViewController {
         }
     }
     
-    @IBAction func puzzleTapped(_ sender: Any) {
-        if self.state == .transitioning { return }
+    @IBAction func showPuzzleDetail(_ sender: Any) {
+        //don't allow the user to show the puzzle during a transition (but allow if spawned from other action)
+        if sender is UIButton && self.state == .transitioning { return }
         
         self.view.isUserInteractionEnabled = false
         PuzzleDetailViewController.present(
@@ -270,6 +305,11 @@ class QuizViewController : InteractiveGrowViewController {
             in: self,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
+                
+                if self.setupForNewSoundOnReturnFromModal {
+                    self.setupForNewSoundOnReturnFromModal = false
+                    self.setupForRandomSoundFromPool()
+                }
             }
         )
     }
@@ -288,7 +328,7 @@ class QuizViewController : InteractiveGrowViewController {
         
         func animateAndContinue() {
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [.beginFromCurrentState], animations: {
-                wordView.center = wordView.superview!.center
+                wordView.center = wordView.superview!.superview!.convert(wordView.superview!.center, to: wordView.superview!)
             }, completion: nil)
             
             PHPlayer.play("correct", ofType: "mp3")
@@ -296,7 +336,25 @@ class QuizViewController : InteractiveGrowViewController {
             let pieceSpawnPoint = self.view.convert(wordView.center, from: wordView.superview)
             Timer.scheduleAfter(0.8, addToArray: &self.timers, handler: self.addNewPuzzlePiece(spawningAt: pieceSpawnPoint))
             
-            Timer.scheduleAfter(1.45, addToArray: &self.timers, handler: self.setupForRandomSoundFromPool)
+            var puzzleWasAlreadyComplete = false
+            if let puzzle = self.puzzleView.puzzle {
+                puzzleWasAlreadyComplete = Player.current.progress(for: puzzle).isComplete
+            }
+            
+            //if the puzzle goes from Incomplete to Complete, show the puzzle detail
+            //Otherwise continue to next sound
+            Timer.scheduleAfter(1.45, addToArray: &self.timers, handler: {
+                
+                if !puzzleWasAlreadyComplete, let puzzle = self.puzzleView.puzzle {
+                    if Player.current.progress(for: puzzle).isComplete {
+                        self.setupForNewSoundOnReturnFromModal = true
+                        self.showPuzzleDetail(self)
+                        return
+                    }
+                }
+                
+                self.setupForRandomSoundFromPool()
+            })
         }
         
         if (UAIsAudioPlaying()) {
