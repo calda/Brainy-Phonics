@@ -15,7 +15,7 @@ protocol NSCodingKey {
 
 extension NSCoder {
     
-    func value(forKey key: NSCodingKey) -> Any? {
+    func value(for key: NSCodingKey) -> Any? {
         return decodeObject(forKey: key.rawValue)
     }
     

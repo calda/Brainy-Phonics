@@ -78,7 +78,7 @@ class PuzzleDetailViewController : UIViewController {
         self.view.addSubview(animationImage)
         oldPuzzleView.alpha = 0.0
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.curveEaseIn], animations: {
             
             self.animationImage.frame = self.puzzleView.frame
             self.updateAccessoryViews(visible: true)

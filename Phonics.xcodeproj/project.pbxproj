@@ -8542,9 +8542,9 @@
 		2EECD5611E0BBA4800C667DE /* Player Model */ = {
 			isa = PBXGroup;
 			children = (
+				2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */,
 				2EECD5621E0BBA4800C667DE /* Player.swift */,
 				2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */,
-				2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */,
 			);
 			path = "Player Model";
 			sourceTree = "<group>";

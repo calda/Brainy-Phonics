@@ -76,7 +76,7 @@ class ProgressBar : UIView {
             self.fillView.alpha = 1.0
         }
         
-        fillView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: max(0.01,widthRatio)).isActive = true
+        fillView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: widthRatio).isActive = true
         
         updateColors()
         self.fillView.layoutIfNeeded()

@@ -14,15 +14,21 @@ class PuzzleProgress: NSObject, NSCoding {
     var ownedPieces: [[Bool]]
     
     var isComplete: Bool {
-        var isComplete = true
-        
-        for column in ownedPieces {
-            for piece in column {
-                isComplete = piece && isComplete
+        return numberOfPieces == numberOfOwnedPieces
+    }
+    
+    var numberOfPieces: Int {
+        return ownedPieces.reduce(0) { previous, column in
+            return column.count + previous
+        }
+    }
+    
+    var numberOfOwnedPieces: Int {
+        return ownedPieces.reduce(0) { previousForRow, column in
+            return previousForRow + column.reduce(0) { previousForCol, piece in
+                return previousForCol + (piece ? 1 : 0)
             }
         }
-        
-        return isComplete
     }
     
     init(newFor puzzle: Puzzle) {
@@ -62,10 +68,10 @@ class PuzzleProgress: NSObject, NSCoding {
     }
     
     required init?(coder decoder: NSCoder) {
-        guard let puzzleName = decoder.value(forKey: Key.puzzleName) as? String else { return nil }
+        guard let puzzleName = decoder.value(for: Key.puzzleName) as? String else { return nil }
         self.puzzleName = puzzleName
         
-        guard let ownedPieces = decoder.value(forKey: Key.ownedPieces) as? [[Bool]] else { return nil }
+        guard let ownedPieces = decoder.value(for: Key.ownedPieces) as? [[Bool]] else { return nil }
         self.ownedPieces = ownedPieces
     }
     

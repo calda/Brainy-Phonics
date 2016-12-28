@@ -10,6 +10,13 @@ import UIKit
 
 class LettersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
+    
     //MARK: - Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -45,7 +52,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         //animate selection
         let cell = collectionView.cellForItem(at: indexPath)
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
-            cell?.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            cell?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }, completion: nil)
         
         //play audio for selection
@@ -63,7 +70,6 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
 
-
 }
 
 
@@ -80,18 +86,20 @@ class LetterCell : UICollectionViewCell {
     }
     
     func decorateForLetter(_ letter: String) {
-        cardView.layer.cornerRadius = cardView.frame.width * 0.2
+        cardView.layer.cornerRadius = cardView.frame.width * 0.15
         letterLabel.text = letter.lowercased()
         
         guard let letter = PHContent[letter] else { return }
-        let numberOfSounds = letter.sounds.count
         
-        let completedSounds = letter.sounds.filter { sound in
-            return Player.current.progress(forPuzzleNamed: sound.puzzleName)?.isComplete ?? false
-        }.count
+        let totalNumberOfPieces = 12 * letter.sounds.count
         
-        progressBar.totalNumberOfSegments = numberOfSounds
-        progressBar.numberOfFilledSegments = completedSounds
+        let totalNumberOfOwnedPieces = letter.sounds.reduce(0) { previousResult, sound in
+            let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
+            return previousResult + (progress?.numberOfOwnedPieces ?? 0)
+        }
+        
+        progressBar.totalNumberOfSegments = totalNumberOfPieces
+        progressBar.numberOfFilledSegments = totalNumberOfOwnedPieces
     }
     
 }

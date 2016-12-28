@@ -22,15 +22,6 @@ struct Word: Equatable {
     init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo?) {
         
         guard let wordText = wordText else { return nil }
-        
-        if pronunciation == nil {
-            print("NO PRONUNCIATION FOR \(wordText)")
-        }
-        
-        if audioInfo == nil {
-            print("NO AUDIO FOR \(wordText)")
-        }
-        
         var text = wordText.lowercased()
         
         //remove padding spaces, if exist

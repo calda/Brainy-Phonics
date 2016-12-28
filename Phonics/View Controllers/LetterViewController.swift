@@ -11,6 +11,7 @@ import UIKit
 class LetterViewController : InteractiveGrowViewController {
     
     @IBOutlet weak var letterLabel: UILabel!
+    @IBOutlet weak var checkmark: UIView!
     @IBOutlet weak var previousSoundButton: UIButton!
     @IBOutlet weak var nextSoundButton: UIButton!
     @IBOutlet weak var quizButton: UIButton!
@@ -23,14 +24,23 @@ class LetterViewController : InteractiveGrowViewController {
     var timers = [Timer]()
     var currentlyPlaying = false
     
+    var puzzleForSoundIsComplete: Bool {
+        let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
+        return progress?.isComplete ?? false
+    }
+    
+    var currentIndex: Int {
+        return letter.sounds.index(of: sound)!
+    }
+    
     var previousSound: Sound? {
-        let prev = (letter.sounds.index(of: sound)! - 1)
+        let prev = self.currentIndex - 1
         if prev < 0 { return nil }
         return letter.sounds[prev]
     }
     
     var nextSound: Sound? {
-        let next = (letter.sounds.index(of: sound)! + 1)
+        let next = self.currentIndex + 1
         if next >= letter.sounds.count { return nil }
         return letter.sounds[next]
     }
@@ -41,7 +51,12 @@ class LetterViewController : InteractiveGrowViewController {
     static func presentForLetter(_ letter: Letter, inController other: UIViewController) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "letter") as! LetterViewController
         controller.letter = letter
-        controller.sound = controller.letter.sounds.first
+
+        controller.sound = letter.sounds.first(where: { sound in
+            let puzzleProgress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
+            return puzzleProgress?.isComplete == false
+        })
+        
         other.present(controller, animated: true, completion: nil)
     }
     
@@ -59,36 +74,29 @@ class LetterViewController : InteractiveGrowViewController {
     }
     
     func decorateForCurrentSound(withTransition transition: Bool = false, withAnimationDelay: Bool = true, animationSubtype: String? = nil) {
-        if currentlyPlaying {
-            //cancel view animations to avoid overlap
-            for view in wordViews {
-                view.layer.removeAllAnimations()
-            }
-            self.letterLabel.layer.removeAllAnimations()
-            self.timers.forEach { $0.invalidate() }
-            self.timers = []
+        
+        //cancel view animations to avoid overlap
+        for view in wordViews {
+            view.layer.removeAllAnimations()
         }
+        
+        self.letterLabel.layer.removeAllAnimations()
+        self.timers.forEach { $0.invalidate() }
+        self.timers = []
         
         //set up view
         self.letterLabel.text = sound.displayString.lowercased()
+        self.checkmark.isHidden = !self.puzzleForSoundIsComplete
         self.previousSoundButton.isEnabled = previousSound != nil
         self.nextSoundButton.isEnabled = nextSound != nil
-        self.quizButton.isHidden = true
         
         self.wordViews.forEach{ $0.alpha = 0.0 }
         
-        if self.sound.primaryWords.count == 1 {
-            let wordView = wordViews[1]
+        for i in 0 ..< min(3, self.sound.primaryWords.count) {
+            let wordView = wordViews[i]
             wordView.alpha = withAnimationDelay ? 0.0 : 1.0
-            wordView.useWord(self.sound.primaryWords[0], forSound: self.sound, ofLetter: self.letter)
-        } else {
-            for i in 0 ..< min(3, self.sound.primaryWords.count) {
-                let wordView = wordViews[i]
-                wordView.alpha = withAnimationDelay ? 0.0 : 1.0
-                wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
-            }
+            wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
         }
-        
         
         //play audio, cue animations
         if !withAnimationDelay {
@@ -99,12 +107,30 @@ class LetterViewController : InteractiveGrowViewController {
             }
         }
         
+        //play push transition for content
         if transition {
-            let views: [UIView] = [letterLabel, wordsView]
+            let views: [UIView] = [letterLabel, checkmark, wordsView]
             for view in views {
-                playTransitionForView(view, duration: 0.5, transition: kCATransitionPush, subtype: animationSubtype,
-                                      timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+                let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                
+                playTransitionForView(view,
+                                      duration: 0.5,
+                                      transition: kCATransitionPush,
+                                      subtype: animationSubtype,
+                                      timingFunction: timingFunction)
             }
+        }
+        
+        //reset quiz button
+        let updateQuizButton = {
+            self.quizButton.alpha = 0.0
+            self.quizButton.transform = .identity
+        }
+        
+        if transition || !withAnimationDelay {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.beginFromCurrentState], animations: updateQuizButton, completion: nil)
+        } else {
+            updateQuizButton()
         }
     }
     
@@ -114,74 +140,67 @@ class LetterViewController : InteractiveGrowViewController {
     func playSoundAnimation() {
         
         self.currentlyPlaying = true
-        var startTime: TimeInterval = 0.0
+        var startTime: TimeInterval = 0.3
         let timeBetween = 0.85
         
-        /*if let sourceLetterInfo = self.sound.sourceLetterTiming {
-            PHContent.playAudioForInfo(sourceLetterInfo)
-            startTime += sourceLetterInfo.wordDuration + timeBetween
-        }*/
-        
         Timer.scheduleAfter(startTime, addToArray: &timers) { _ in
-            shakeView(self.letterLabel)
-        }
-        
-        Timer.scheduleAfter(startTime - 0.3, addToArray: &timers) { _ in
-            PHContent.playAudioForInfo(self.sound.pronunciationTiming)
+            let soundAudioInfo = self.sound.pronunciationTiming
+            PHContent.playAudioForInfo(soundAudioInfo)
+            self.playSoundAnimation(on: self.letterLabel, for: soundAudioInfo)
         }
         
         startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
         
         for (wordIndex, word) in self.sound.primaryWords.enumerated() {
-            var wordViewIndex = wordIndex
-            
-            //only animate the middle word if there is only one word
-            if self.sound.primaryWords.count == 1 {
-                wordViewIndex = 1
-            }
             
             Timer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
-                self.playSoundAnimationForWordView(self.wordViews[wordViewIndex], delayAnimationBy: 0.3)
+                let wordView = self.wordViews[wordIndex]
+                wordView.word?.playAudio()
+                self.playSoundAnimation(on: wordView, for: wordView.word?.audioInfo)
             }
             
             startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
             
             if (word == self.sound.primaryWords.last) {
                 Timer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
-                    if self.nextSound == nil {
-                        Timer.scheduleAfter(0.3, addToArray: &self.timers, handler: self.showQuizButton)
-                    } else {
-                        self.currentlyPlaying = false
-                    }
+                    self.currentlyPlaying = false
+                    self.showQuizButton()
                 }
             }
         }
     }
     
-    func playSoundAnimationForWordView(_ wordView: WordView, delayAnimationBy delay: TimeInterval = 0.0, extendAnimationBy extend: TimeInterval = 0.0) {
-        let word = wordView.word!
-        word.playAudio()
-        
-        UIView.animate(withDuration: 0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
-            wordView.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
-            wordView.alpha = 1.0
+    func playSoundAnimation(on view: UIView, for audioInfo: AudioInfo?) {
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, animations: {
+            view.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            view.alpha = 1.0
         })
         
-        UIView.animate(withDuration: 0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
-            wordView.transform = CGAffineTransform.identity
+        UIView.animate(withDuration: 0.5, delay: (audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+            view.transform = .identity
         })
     }
     
     func showQuizButton() {
         self.quizButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.65) {
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0) {
             self.quizButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
-            self.quizButton.isHidden = false
             self.quizButton.alpha = 1.0
         }
         
-        self.currentlyPlaying = false
+        Timer.scheduleAfter(0.4, addToArray: &self.timers, handler: self.animateQuizButtonLoop(to: 0.95, then: 1.15))
+        
+    }
+    
+    func animateQuizButtonLoop(to scale: CGFloat, then nextScale: CGFloat) -> () -> () {
+        return {
+            UIView.animate(withDuration: 1.5, delay: 0.0, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+                self.quizButton.transform = CGAffineTransform(scaleX: scale, y: scale)
+            }, completion: nil)
+            
+            Timer.scheduleAfter(1.5, addToArray: &self.timers, handler: self.animateQuizButtonLoop(to: nextScale, then: scale))
+        }
     }
     
     
@@ -205,8 +224,9 @@ class LetterViewController : InteractiveGrowViewController {
         if (sender.tag == 0) {
             decorateForCurrentSound(withTransition: false, withAnimationDelay: false, animationSubtype: kCATransitionFade)
         } else if sender.tag == 1 {
-            PHContent.playAudioForInfo(sound.pronunciationTiming)
-            shakeView(self.letterLabel)
+            let audioInfo = sound.pronunciationTiming
+            PHContent.playAudioForInfo(audioInfo)
+            self.playSoundAnimation(on: self.letterLabel, for: audioInfo)
         }
     }
     

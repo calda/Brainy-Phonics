@@ -16,7 +16,6 @@ class WordView : UINibView {
     @IBOutlet weak var labelBottom: NSLayoutConstraint!
     var word: Word?
     
-   
     
     //MARK: - IBInspectables
     

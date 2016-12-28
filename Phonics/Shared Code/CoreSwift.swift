@@ -287,6 +287,23 @@ extension UIView {
     
 }
 
+extension UIButton {
+        
+    func animateImage(to image: UIImage?, duration: CFTimeInterval) {
+        guard let imageView = self.imageView, let currentImage = imageView.image, let newImage = image else { return }
+        
+        let crossFade: CABasicAnimation = CABasicAnimation(keyPath: "contents")
+        crossFade.duration = duration
+        crossFade.fromValue = currentImage.cgImage
+        crossFade.toValue = newImage.cgImage
+        crossFade.isRemovedOnCompletion = false
+        
+        crossFade.fillMode = kCAFillModeForwards
+        imageView.layer.add(crossFade, forKey: "animateContents")
+    }
+    
+}
+
 extension String {
     
     var length: Int {
@@ -349,23 +366,6 @@ extension String {
             currentString = currentString.replacingOccurrences(of: special, with: replace)
         }
         return currentString
-    }
-    
-}
-
-///Add dedicated NSCoding methods to cut down on boilerplate everywhere else
-extension UserDefaults {
-    
-    func setCodedObject(_ value: NSCoding, forKey key: String) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: value)
-        set(data, forKey: key)
-    }
-    
-    func codedObjectForKey(_ key: String) -> AnyObject? {
-        if let data = object(forKey: key) as? Data {
-            return NSKeyedUnarchiver.unarchiveObject(with: data) as AnyObject?
-        }
-        return nil
     }
     
 }
