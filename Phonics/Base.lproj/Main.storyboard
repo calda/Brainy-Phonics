@@ -96,11 +96,18 @@
                                                                 <constraint firstAttribute="width" constant="50" id="xNO-rd-d1R"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
-                                                            <rect key="frame" x="56.5" y="37.5" width="36.5" height="75"/>
-                                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="65"/>
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ape.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qZe-DD-zLl">
+                                                            <rect key="frame" x="15" y="15" width="119" height="119"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="qZe-DD-zLl" secondAttribute="height" multiplier="1:1" id="U3W-XO-Fgr"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr" customClass="UIOutlinedLabel" customModule="Phonics" customModuleProvider="target">
+                                                            <rect key="frame" x="58" y="40.5" width="33" height="69"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="60"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="1" height="1"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0W-KL-aLA" customClass="ProgressBar" customModule="Phonics" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="139" width="149" height="10"/>
@@ -121,9 +128,6 @@
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
                                                                     <color key="value" red="0.38785380125045776" green="0.75522118806838989" blue="0.41484102606773376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                                    <real key="value" value="0.0"/>
-                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
@@ -133,7 +137,10 @@
                                                         <constraint firstAttribute="trailing" secondItem="P0W-KL-aLA" secondAttribute="trailing" id="DfQ-cx-M6s"/>
                                                         <constraint firstItem="Dm7-5a-EQO" firstAttribute="centerY" secondItem="WXT-ZE-SzT" secondAttribute="centerY" id="IIp-7z-AKc"/>
                                                         <constraint firstItem="nuo-RG-4Dr" firstAttribute="centerY" secondItem="WXT-ZE-SzT" secondAttribute="centerY" id="R5B-N3-lZt"/>
+                                                        <constraint firstItem="qZe-DD-zLl" firstAttribute="centerY" secondItem="WXT-ZE-SzT" secondAttribute="centerY" id="URg-bu-lyE"/>
+                                                        <constraint firstItem="qZe-DD-zLl" firstAttribute="height" secondItem="WXT-ZE-SzT" secondAttribute="height" multiplier="0.8" id="atb-Kf-U5g"/>
                                                         <constraint firstAttribute="width" secondItem="WXT-ZE-SzT" secondAttribute="height" multiplier="1:1" id="clF-Q3-hpb"/>
+                                                        <constraint firstItem="qZe-DD-zLl" firstAttribute="centerX" secondItem="WXT-ZE-SzT" secondAttribute="centerX" id="fsD-XC-jvu"/>
                                                         <constraint firstItem="P0W-KL-aLA" firstAttribute="leading" secondItem="WXT-ZE-SzT" secondAttribute="leading" id="fxc-kN-i7w"/>
                                                         <constraint firstAttribute="bottom" secondItem="P0W-KL-aLA" secondAttribute="bottom" id="w31-n2-YLB"/>
                                                         <constraint firstItem="nuo-RG-4Dr" firstAttribute="centerX" secondItem="WXT-ZE-SzT" secondAttribute="centerX" id="yUd-M7-R4T"/>
@@ -842,6 +849,7 @@ My song had been longer.
     </scenes>
     <resources>
         <image name="anchor.jpg" width="256" height="256"/>
+        <image name="ape.jpg" width="256" height="256"/>
         <image name="button-back" width="50" height="50"/>
         <image name="button-forward" width="50" height="50"/>
         <image name="button-home" width="50" height="50"/>

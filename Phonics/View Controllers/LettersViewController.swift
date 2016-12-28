@@ -80,15 +80,15 @@ class LetterCell : UICollectionViewCell {
     }
     
     func decorateForLetter(_ letter: String) {
-        cardView.layer.cornerRadius = cardView.frame.width * 0.15
+        cardView.layer.cornerRadius = cardView.frame.width * 0.2
         letterLabel.text = letter.lowercased()
         
-        let letter = PHContent[letter]
-        let numberOfSounds = letter?.sounds.count ?? 1
+        guard let letter = PHContent[letter] else { return }
+        let numberOfSounds = letter.sounds.count
         
-        let completedSounds = letter?.sounds.filter { sound in
+        let completedSounds = letter.sounds.filter { sound in
             return Player.current.progress(forPuzzleNamed: sound.puzzleName)?.isComplete ?? false
-        }.count ?? 1
+        }.count
         
         progressBar.totalNumberOfSegments = numberOfSounds
         progressBar.numberOfFilledSegments = completedSounds

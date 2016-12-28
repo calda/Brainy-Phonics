@@ -13,19 +13,13 @@ class ProgressBar : UIView {
     
     @IBInspectable var totalNumberOfSegments: Int = 5 {
         didSet {
-            reloadStackView()
+            reloadFillView()
         }
     }
     
     @IBInspectable var numberOfFilledSegments: Int = 2 {
         didSet {
-            updateColors()
-        }
-    }
-    
-    @IBInspectable var spacing: CGFloat = 1 {
-        didSet {
-            stackView.spacing = spacing
+            reloadFillView()
         }
     }
     
@@ -41,56 +35,56 @@ class ProgressBar : UIView {
         }
     }
     
-    private var stackView: UIStackView!
+    private var fillView: UIView!
     
     
     //MARK: - Configure view
     
     override func prepareForInterfaceBuilder() {
-        self.reloadStackView()
+        self.reloadFillView()
     }
     
-    private func reloadStackView() {
-        if stackView == nil {
-            stackView = UIStackView()
-            stackView.axis = .horizontal
-            stackView.distribution = .fillEqually
-            stackView.backgroundColor = .clear
-            stackView.spacing = self.spacing
-            self.addSubview(stackView)
+    private func reloadFillView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if fillView == nil {
+            fillView = UIView()
+            fillView.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(fillView)
             
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-            stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-            stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        } else {
-            stackView.arrangedSubviews.forEach(stackView.removeArrangedSubview)
+            fillView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+            fillView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+            fillView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         }
         
-        for index in 0 ..< totalNumberOfSegments {
-            let view = UIView()
-            view.tag = index
-            stackView.addArrangedSubview(view)
-            
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.heightAnchor.constraint(equalTo: stackView.heightAnchor).isActive = true
+        //remove old width constraints
+        self.constraints.forEach { constraint in
+            if constraint.firstAttribute == .width
+                && (constraint.firstItem as? UIView == fillView
+                    || constraint.secondItem as? UIView == fillView) {
+                
+                self.removeConstraint(constraint)
+            }
         }
+        
+        //add new constraint
+        let widthRatio = CGFloat(self.numberOfFilledSegments) / CGFloat(max(1, self.totalNumberOfSegments))
+        
+        if widthRatio == 0.0 {
+            self.fillView.alpha = 0.0
+        } else {
+            self.fillView.alpha = 1.0
+        }
+        
+        fillView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: max(0.01,widthRatio)).isActive = true
         
         updateColors()
-        self.layoutIfNeeded()
+        self.fillView.layoutIfNeeded()
     }
     
     private func updateColors() {
-        for view in stackView.arrangedSubviews {
-            let index = view.tag
-            
-            if index < numberOfFilledSegments {
-                view.backgroundColor = self.fillColor
-            } else {
-                view.backgroundColor = self.emptyColor
-            }
-        }
+        self.backgroundColor = self.emptyColor
+        self.fillView.backgroundColor = self.fillColor
     }
     
 }
