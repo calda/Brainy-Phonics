@@ -10,6 +10,7 @@ import UIKit
 
 class LetterViewController : InteractiveGrowViewController {
     
+    @IBOutlet weak var letterContainer: UIView!
     @IBOutlet weak var letterLabel: UILabel!
     @IBOutlet weak var checkmark: UIView!
     @IBOutlet weak var previousSoundButton: UIButton!
@@ -103,7 +104,7 @@ class LetterViewController : InteractiveGrowViewController {
         
         //play push transition for content
         if transition {
-            let views: [UIView] = [letterLabel, checkmark, wordsView]
+            let views: [UIView] = [letterContainer, wordsView]
             for view in views {
                 let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 
@@ -170,7 +171,7 @@ class LetterViewController : InteractiveGrowViewController {
             view.alpha = 1.0
         })
         
-        UIView.animate(withDuration: 0.5, delay: (audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, delay: (audioInfo?.wordDuration ?? 0.2) + 0.3, usingSpringWithDamping: 1.0, animations: {
             view.transform = .identity
         })
     }
