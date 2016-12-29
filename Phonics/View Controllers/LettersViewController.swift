@@ -58,7 +58,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         //play audio for selection
         guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
         letter.playSound()
-        
+         
         UAWhenDonePlayingAudio {
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
                 cell?.transform = CGAffineTransform.identity
@@ -78,6 +78,9 @@ class LetterCell : UICollectionViewCell {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var letterLabel: UILabel!
     @IBOutlet weak var progressBar: ProgressBar!
+    @IBOutlet weak var checkmark: UIButton!
+    
+    static var backgroundThread = DispatchQueue(label: "LetterCellBackground", qos: .background)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -100,6 +103,8 @@ class LetterCell : UICollectionViewCell {
         
         progressBar.totalNumberOfSegments = totalNumberOfPieces
         progressBar.numberOfFilledSegments = totalNumberOfOwnedPieces
+        
+        checkmark.alpha = (totalNumberOfPieces == totalNumberOfOwnedPieces) ? 1.0 : 0.0
     }
     
 }

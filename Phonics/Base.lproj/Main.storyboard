@@ -95,6 +95,14 @@
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="1" height="1"/>
                                                         </label>
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hn-sY-vyl" userLabel="checkmark">
+                                                            <rect key="frame" x="119" y="107" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="FH1-sO-dKS"/>
+                                                                <constraint firstAttribute="width" constant="25" id="tEm-ND-ogT"/>
+                                                            </constraints>
+                                                            <state key="normal" image="button-check"/>
+                                                        </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0W-KL-aLA" customClass="ProgressBar" customModule="Phonics" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="137" width="149" height="12"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,10 +127,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="4Hn-sY-vyl" secondAttribute="trailing" constant="5" id="Dc2-YP-Ul3"/>
                                                         <constraint firstAttribute="trailing" secondItem="P0W-KL-aLA" secondAttribute="trailing" id="DfQ-cx-M6s"/>
                                                         <constraint firstItem="nuo-RG-4Dr" firstAttribute="centerY" secondItem="WXT-ZE-SzT" secondAttribute="centerY" id="R5B-N3-lZt"/>
                                                         <constraint firstAttribute="width" secondItem="WXT-ZE-SzT" secondAttribute="height" multiplier="1:1" id="clF-Q3-hpb"/>
                                                         <constraint firstItem="P0W-KL-aLA" firstAttribute="leading" secondItem="WXT-ZE-SzT" secondAttribute="leading" id="fxc-kN-i7w"/>
+                                                        <constraint firstItem="P0W-KL-aLA" firstAttribute="top" secondItem="4Hn-sY-vyl" secondAttribute="bottom" constant="5" id="mVy-Mi-n4a"/>
                                                         <constraint firstAttribute="bottom" secondItem="P0W-KL-aLA" secondAttribute="bottom" id="w31-n2-YLB"/>
                                                         <constraint firstItem="nuo-RG-4Dr" firstAttribute="centerX" secondItem="WXT-ZE-SzT" secondAttribute="centerX" id="yUd-M7-R4T"/>
                                                     </constraints>
@@ -141,6 +151,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="cardView" destination="WXT-ZE-SzT" id="xSc-Kv-pu0"/>
+                                            <outlet property="checkmark" destination="4Hn-sY-vyl" id="Dh3-ao-aY7"/>
                                             <outlet property="letterLabel" destination="nuo-RG-4Dr" id="CeG-VH-qN0"/>
                                             <outlet property="progressBar" destination="P0W-KL-aLA" id="dwB-h6-lPG"/>
                                         </connections>

@@ -24,11 +24,6 @@ class LetterViewController : InteractiveGrowViewController {
     var timers = [Timer]()
     var currentlyPlaying = false
     
-    var puzzleForSoundIsComplete: Bool {
-        let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
-        return progress?.isComplete ?? false
-    }
-    
     var currentIndex: Int {
         return letter.sounds.index(of: sound)!
     }
@@ -53,9 +48,8 @@ class LetterViewController : InteractiveGrowViewController {
         controller.letter = letter
 
         controller.sound = letter.sounds.first(where: { sound in
-            let puzzleProgress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
-            return puzzleProgress?.isComplete == false
-        })
+            return !sound.puzzleIsComplete
+        }) ?? letter.sounds.first
         
         other.present(controller, animated: true, completion: nil)
     }
@@ -86,7 +80,7 @@ class LetterViewController : InteractiveGrowViewController {
         
         //set up view
         self.letterLabel.text = sound.displayString.lowercased()
-        self.checkmark.isHidden = !self.puzzleForSoundIsComplete
+        self.checkmark.isHidden = !self.sound.puzzleIsComplete
         self.previousSoundButton.isEnabled = previousSound != nil
         self.nextSoundButton.isEnabled = nextSound != nil
         

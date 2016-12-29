@@ -15,6 +15,17 @@ struct Letter: Equatable {
         return sounds.filter{ $0.soundId == soundId }.first
     }
     
+    var isComplete: Bool {
+        for sound in sounds {
+            if !sound.puzzleIsComplete {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    
     func playSound() {
         var info: AudioInfo?
         

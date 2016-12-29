@@ -56,6 +56,11 @@ struct Sound: Equatable {
         return "\(puzzleName)-rhyme"
     }
     
+    var puzzleIsComplete: Bool {
+        let progress = Player.current.progress(forPuzzleNamed: self.puzzleName)
+        return progress?.isComplete == true
+    }
+    
     
     //MARK: - Helper Methods
     

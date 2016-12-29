@@ -68,9 +68,10 @@ class ProgressBar : UIView {
         }
         
         //add new constraint
-        let widthRatio = CGFloat(self.numberOfFilledSegments) / CGFloat(max(1, self.totalNumberOfSegments))
+        var widthRatio = CGFloat(self.numberOfFilledSegments) / CGFloat(max(1, self.totalNumberOfSegments))
         
         if widthRatio == 0.0 {
+            widthRatio = 1.0
             self.fillView.alpha = 0.0
         } else {
             self.fillView.alpha = 1.0

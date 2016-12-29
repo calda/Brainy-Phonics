@@ -16,7 +16,7 @@ class QuizViewController : InteractiveGrowViewController {
     var remainingAnswerWordPool: [Word]!
     
     var onlyShowThreeWords: Bool = false
-    var setupForNewSoundOnReturnFromModal = false
+    var dismissOnReturnFromModal = false
     
     var currentLetter: Letter!
     var currentSound: Sound!
@@ -241,14 +241,15 @@ class QuizViewController : InteractiveGrowViewController {
         guard let word = wordView.word else { return }
         word.playAudio()
         
-        UIView.animate(withDuration: 0.4, delay: delay, usingSpringWithDamping: 0.8, animations: {
+        UIView.animate(withDuration: 0.5, delay: delay, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [.allowUserInteraction], animations: {
             wordView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             wordView.alpha = 1.0
-        })
+        }, completion: nil)
         
-        UIView.animate(withDuration: 0.5, delay: delay + extend + (word.audioInfo?.wordDuration ?? 0.5), usingSpringWithDamping: 1.0, animations: {
+        let shrinkDelay = delay + extend + (word.audioInfo?.wordDuration ?? 0.5)
+        UIView.animate(withDuration: 0.5, delay: shrinkDelay, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.allowUserInteraction], animations: {
             wordView.transform = CGAffineTransform.identity
-        })
+        }, completion: nil)
     }
     
     func stopAnimations(stopAudio: Bool = true) {
@@ -306,9 +307,8 @@ class QuizViewController : InteractiveGrowViewController {
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
                 
-                if self.setupForNewSoundOnReturnFromModal {
-                    self.setupForNewSoundOnReturnFromModal = false
-                    self.setupForRandomSoundFromPool()
+                if self.dismissOnReturnFromModal {
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         )
@@ -347,7 +347,7 @@ class QuizViewController : InteractiveGrowViewController {
                 
                 if !puzzleWasAlreadyComplete, let puzzle = self.puzzleView.puzzle {
                     if Player.current.progress(for: puzzle).isComplete {
-                        self.setupForNewSoundOnReturnFromModal = true
+                        self.dismissOnReturnFromModal = true
                         self.showPuzzleDetail(self)
                         return
                     }
