@@ -11,6 +11,7 @@
 		2E383FC11E07454A00128351 /* JPNG.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E383FC01E07454A00128351 /* JPNG.m */; };
 		2E383FC41E077CA000128351 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75C1D63A06900978DD6 /* Puzzle.swift */; };
 		2E383FC51E077CA200128351 /* PuzzlePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75D1D63A06900978DD6 /* PuzzlePiece.swift */; };
+		2E5B33AB1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */; };
 		2E6DE2871D639A1B00978DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA61D639A1600978DD6 /* AppDelegate.swift */; };
 		2E6DE2881D639A1B00978DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA81D639A1600978DD6 /* Assets.xcassets */; };
 		2E6DE28A1D639A1B00978DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDAB1D639A1600978DD6 /* LaunchScreen.storyboard */; };
@@ -2562,6 +2563,7 @@
 		2E383FBF1E07454A00128351 /* JPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNG.h; sourceTree = "<group>"; };
 		2E383FC01E07454A00128351 /* JPNG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNG.m; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleCollectionViewController.swift; sourceTree = "<group>"; };
 		2E6DDDA61D639A1600978DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E6DDDA81D639A1600978DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets/Assets.xcassets; sourceTree = "<group>"; };
 		2E6DDDAC1D639A1600978DD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -5194,6 +5196,7 @@
 				2E6DE2801D639A1B00978DD6 /* LetterViewController.swift */,
 				2E6DE2821D639A1B00978DD6 /* QuizViewController.swift */,
 				2E275F391E08DCD400B16C5E /* PuzzleDetailViewController.swift */,
+				2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */,
 				2E6DE2831D639A1B00978DD6 /* Views */,
 			);
 			path = "View Controllers";
@@ -11157,6 +11160,7 @@
 				2E6DE2871D639A1B00978DD6 /* AppDelegate.swift in Sources */,
 				2E6DE74A1D639A1C00978DD6 /* PHContent.swift in Sources */,
 				2E6DE75F1D63A06900978DD6 /* PuzzlePiece.swift in Sources */,
+				2E5B33AB1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift in Sources */,
 				2E6DE7541D639A1C00978DD6 /* InterativeGrowViewController.swift in Sources */,
 				2EECD5661E0BBA4800C667DE /* Player.swift in Sources */,
 				2E6DE7501D639A1C00978DD6 /* UniversalAudio.swift in Sources */,

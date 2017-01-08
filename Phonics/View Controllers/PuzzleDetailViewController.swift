@@ -72,7 +72,10 @@ class PuzzleDetailViewController : UIViewController {
         guard let oldPuzzleView = self.oldPuzzleView else { return }
         let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
         
-        self.animationImage = UIImageView(image: puzzleView.asImage)
+        let puzzleImage = puzzleView.asImage
+        self.animationImage = UIImageView(image: puzzleImage)
+        self.saveAnimationImage(puzzleImage)
+        
         
         animationImage.frame = translatedFrame
         self.view.addSubview(animationImage)
@@ -110,6 +113,9 @@ class PuzzleDetailViewController : UIViewController {
         
         self.puzzleShadow.alpha = (visible ? 0.0 : 1.0)
     }
+    
+    
+    //MARK: - Rhyme
     
     func prepareRhymeText(for text: String) {
         //move down to prepare for animation
@@ -222,22 +228,29 @@ class PuzzleDetailViewController : UIViewController {
     }
     
     
+    //MARK: - Save Image to Disk
+    //this will help decrease the load when displaying puzzles in a collection view
+    
+    func saveAnimationImage(_ image: UIImage) {
+        if !Puzzle.imageExists(forPuzzleNamed: sound.puzzleName) {
+            Puzzle.save(image: image, asPuzzleNamed: sound.puzzleName)
+        }
+    }
 }
 
 
 extension UIView {
  
-    var asImage: UIImage? {
+    var asImage: UIImage {
         let previousAlpha = self.alpha
         self.alpha = 1.0
         
         let deviceScale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(self.frame.size, false, deviceScale)
         
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        
+        let context = UIGraphicsGetCurrentContext()!
         self.layer.render(in: context)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
         
         UIGraphicsEndImageContext()
         self.alpha = previousAlpha

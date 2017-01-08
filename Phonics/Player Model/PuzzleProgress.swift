@@ -101,4 +101,11 @@ extension Player {
         return self.puzzleProgress[name]
     }
     
+    var soundsWithCompletedPuzzles: [Sound] {
+        return PHContent.allSounds.filter { sound in
+            guard let progress = self.progress(forPuzzleNamed: sound.puzzleName) else { return false }
+            return progress.isComplete
+        }
+    }
+    
 }

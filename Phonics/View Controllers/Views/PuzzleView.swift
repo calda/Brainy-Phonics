@@ -26,6 +26,7 @@ class PuzzleView : UIView {
     
     @IBInspectable var puzzleName: String? {
         didSet {
+            self.puzzle = nil
             self.reload()
         }
     }
@@ -45,15 +46,19 @@ class PuzzleView : UIView {
     
     func reload() {
         //remove all constraints that affect subviews
+        var constraintsToRemove = [NSLayoutConstraint]()
+        
         for constraint in self.constraints {
             if let view1 = constraint.firstItem as? UIView,
                let view2 = constraint.secondItem as? UIView {
                 
                 if view1.superview == self || view2.superview == self {
-                    self.removeConstraint(constraint)
+                    constraintsToRemove.append(constraint)
                 }
             }
         }
+        
+        self.removeConstraints(constraintsToRemove)
         
         self.subviews.forEach{ $0.removeFromSuperview() }
         self.createImageViews()
@@ -61,8 +66,10 @@ class PuzzleView : UIView {
     }
     
     func createImageViews() {
-        guard let puzzleName = self.puzzleName else { return }
-        self.puzzle = Puzzle(fromSpecForPuzzleNamed: puzzleName)
+        if self.puzzle == nil {
+            guard let puzzleName = self.puzzleName else { return }
+            self.puzzle = Puzzle(fromSpecForPuzzleNamed: puzzleName)
+        }
         
         guard let puzzle = self.puzzle else { return }
         

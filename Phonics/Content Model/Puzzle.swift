@@ -79,6 +79,32 @@ struct Puzzle {
         }
     }
     
+    
+    //MARK: - Saving Puzzle Renders to the app bundle
+    
+    private static func path(forPuzzleNamed puzzleName: String) -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        return "\(paths[0])/\(puzzleName).png"
+    }
+    
+    static func save(image: UIImage, asPuzzleNamed puzzleName: String) {
+        let imageData = UIImagePNGRepresentation(image)
+        let savePath = Puzzle.path(forPuzzleNamed: puzzleName)
+        try? imageData?.write(to: URL(fileURLWithPath: savePath), options: [.atomic])
+    }
+    
+    static func imageExists(forPuzzleNamed puzzleName: String) -> Bool {
+        let path = Puzzle.path(forPuzzleNamed: puzzleName)
+        return FileManager().fileExists(atPath: path)
+    }
+    
+    static func completedImage(forPuzzleNamed puzzleName: String) -> UIImage? {
+        let path = Puzzle.path(forPuzzleNamed: puzzleName)
+        let url = URL(fileURLWithPath: path)
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        return UIImage(data: data)
+    }
+    
 }
 
 

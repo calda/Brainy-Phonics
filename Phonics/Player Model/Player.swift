@@ -8,7 +8,7 @@
 
 import Foundation
 
-let PHDefaultPlayerKey = "defaultPlayer"
+let PHDefaultPlayerKey = "defaultPlayer-2"
 
 class Player : NSObject, NSCoding {
     
