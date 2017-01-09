@@ -59,6 +59,15 @@ class PuzzleProgress: NSObject, NSCoding {
         return piece
     }
     
+    func isPieceOwned(row: Int, col: Int) -> Bool {
+        let rowCount = self.ownedPieces.count
+        let colCount = self.ownedPieces.first?.count ?? 0
+        
+        if row < 0 || row >= rowCount { return false }
+        if col < 0 || col >= colCount { return false }
+        return self.ownedPieces[row][col]
+    }
+    
     
     //MARK: - NSCoding
     
@@ -101,11 +110,20 @@ extension Player {
         return self.puzzleProgress[name]
     }
     
-    var soundsWithCompletedPuzzles: [Sound] {
-        return PHContent.allSounds.filter { sound in
+    var soundsByPuzzleCompletion: (complete: [Sound], incomplete: [Sound]) {
+        let allSounds = PHContent.allSoundsSorted
+        
+        let complete = allSounds.filter { sound in
             guard let progress = self.progress(forPuzzleNamed: sound.puzzleName) else { return false }
             return progress.isComplete
         }
+        
+        let incomplete = allSounds.filter { sound in
+            guard let progress = self.progress(forPuzzleNamed: sound.puzzleName) else { return true }
+            return !progress.isComplete
+        }
+        
+        return (complete, incomplete)
     }
     
 }

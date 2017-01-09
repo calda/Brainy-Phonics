@@ -63,7 +63,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
                 cell?.transform = CGAffineTransform.identity
                 
-                LetterViewController.presentForLetter(letter, inController: self)
+                LetterViewController.present(for: letter, inController: self)
                 self.view.isUserInteractionEnabled = true
                 
             }, completion: nil)

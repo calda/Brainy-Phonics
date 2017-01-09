@@ -160,6 +160,12 @@ class PHContentManager {
         return sounds
     }
     
+    var allSoundsSorted: [Sound] {
+        return self.allSounds.sorted(by: { left, right in
+            return left.displayString.compare(right.displayString) == .orderedAscending
+        })
+    }
+    
     var allWords: [Word] {
         var words = [Word]()
         

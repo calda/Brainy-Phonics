@@ -165,12 +165,7 @@ class QuizViewController : InteractiveGrowViewController {
         if let puzzle = puzzleView.puzzle {
             let puzzleProgress = Player.current.progress(for: puzzle)
             
-            puzzleView.isPieceVisible = { row, col in
-                let ownedPieces = puzzleProgress.ownedPieces
-                if row < 0 || row >= puzzle.rowCount { return true }
-                if col < 0 || col >= puzzle.colCount { return true }
-                return ownedPieces[row][col]
-            }
+            puzzleView.isPieceVisible = puzzleProgress.isPieceOwned
         }
         
         transitionToCurrentSound(isFirst: isFirst)
@@ -302,7 +297,7 @@ class QuizViewController : InteractiveGrowViewController {
         PuzzleDetailViewController.present(
             for: self.currentSound,
             from: self.puzzleView,
-            with: self.puzzleShadow,
+            withPuzzleShadow: self.puzzleShadow,
             in: self,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true

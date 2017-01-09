@@ -44,13 +44,17 @@ class LetterViewController : InteractiveGrowViewController {
     
     //MARK: - Presentation
     
-    static func presentForLetter(_ letter: Letter, inController other: UIViewController) {
+    static func present(for letter: Letter, inController other: UIViewController, initialSound: Sound? = nil) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "letter") as! LetterViewController
         controller.letter = letter
 
-        controller.sound = letter.sounds.first(where: { sound in
-            return !sound.puzzleIsComplete
-        }) ?? letter.sounds.first
+        if let firstSound = initialSound {
+            controller.sound = firstSound
+        } else {
+            controller.sound = letter.sounds.first(where: { sound in
+                return !sound.puzzleIsComplete
+            }) ?? letter.sounds.first
+        }
         
         other.present(controller, animated: true, completion: nil)
     }

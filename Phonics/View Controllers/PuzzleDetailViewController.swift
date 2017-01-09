@@ -21,7 +21,7 @@ class PuzzleDetailViewController : UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var repeatButton: UIButton!
     
-    var oldPuzzleView: PuzzleView!
+    var oldPuzzleView: UIView!
     var puzzleShadow: UIView!
     var animationImage: UIImageView!
     var sound: Sound!
@@ -30,7 +30,7 @@ class PuzzleDetailViewController : UIViewController {
     
     //MARK: - Presentation
     
-    static func present(for sound: Sound, from puzzleView: PuzzleView, with puzzleShadow: UIView, in source: UIViewController, onDismiss: (() -> Void)?) {
+    static func present(for sound: Sound, from puzzleView: UIView, withPuzzleShadow puzzleShadow: UIView, in source: UIViewController, onDismiss: (() -> Void)?) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let puzzleDetail = storyboard.instantiateViewController(withIdentifier: "puzzle detail") as? PuzzleDetailViewController else { return }
@@ -50,11 +50,13 @@ class PuzzleDetailViewController : UIViewController {
         updateAccessoryViews(visible: false)
         self.puzzleView.alpha = 0.0
         
-        if let oldPuzzleView = self.oldPuzzleView, let puzzle = oldPuzzleView.puzzle {
-            self.puzzleView.puzzleName = oldPuzzleView.puzzleName
-            self.puzzleView.isPieceVisible = oldPuzzleView.isPieceVisible
+        if let puzzle = self.sound.puzzle {
+            self.puzzleView.puzzleName = self.sound.puzzleName
             
-            if Player.current.progress(for: puzzle).isComplete, let rhymeText = self.sound.rhymeText {
+            let progress = Player.current.progress(for: puzzle)
+            self.puzzleView.isPieceVisible = progress.isPieceOwned
+            
+            if progress.isComplete, let rhymeText = self.sound.rhymeText {
                 self.prepareRhymeText(for: rhymeText)
             } else {
                 //center the puzzle and hide the rhyme text

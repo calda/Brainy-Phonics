@@ -764,38 +764,47 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="puzzle" id="dFk-d6-rVR" customClass="PuzzleCollectionCell" customModule="Phonics" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6" width="238" height="289"/>
+                                        <rect key="frame" x="0.0" y="5.5" width="238" height="289"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="238" height="289"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgi-hf-qxd">
-                                                    <rect key="frame" x="43.5" y="70.5" width="152.5" height="202.5"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-AN-avJ" userLabel="puzzleShadow">
+                                                    <rect key="frame" x="10" y="-0.5" width="217" height="289"/>
+                                                    <color key="backgroundColor" red="0.92834995226401107" green="0.95866352319717407" blue="0.9266524713505836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <imageView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="lgi-hf-qxd">
+                                                    <rect key="frame" x="10.5" y="0.0" width="217" height="289"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="lgi-hf-qxd" secondAttribute="height" multiplier="3:4" id="ep1-EJ-fEa"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgK-I6-iyI">
-                                                    <rect key="frame" x="105" y="8" width="28" height="57.5"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="50"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-IG-hzZ">
+                                                    <rect key="frame" x="109.5" y="124" width="19" height="41"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="fgK-I6-iyI" firstAttribute="centerX" secondItem="dFk-d6-rVR" secondAttribute="centerX" id="Oor-Ja-TET"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lgi-hf-qxd" secondAttribute="trailing" constant="10" id="axp-pD-o8A"/>
-                                            <constraint firstItem="fgK-I6-iyI" firstAttribute="top" secondItem="dFk-d6-rVR" secondAttribute="topMargin" id="dtT-EO-uJS"/>
-                                            <constraint firstAttribute="bottom" secondItem="lgi-hf-qxd" secondAttribute="bottom" constant="16" id="gSg-TQ-yzq"/>
+                                            <constraint firstItem="lgi-hf-qxd" firstAttribute="centerY" secondItem="dFk-d6-rVR" secondAttribute="centerY" id="2DH-9f-xuf"/>
+                                            <constraint firstItem="nx7-AN-avJ" firstAttribute="centerY" secondItem="lgi-hf-qxd" secondAttribute="centerY" id="94c-xP-GDJ"/>
+                                            <constraint firstItem="nx7-AN-avJ" firstAttribute="centerX" secondItem="lgi-hf-qxd" secondAttribute="centerX" id="F7b-g9-7gd"/>
+                                            <constraint firstItem="W7T-IG-hzZ" firstAttribute="centerY" secondItem="dFk-d6-rVR" secondAttribute="centerY" id="FDa-8a-6oS"/>
+                                            <constraint firstItem="nx7-AN-avJ" firstAttribute="height" secondItem="lgi-hf-qxd" secondAttribute="height" id="KP6-sl-kfP"/>
+                                            <constraint firstItem="nx7-AN-avJ" firstAttribute="width" secondItem="lgi-hf-qxd" secondAttribute="width" id="SSy-Xl-QDW"/>
+                                            <constraint firstItem="W7T-IG-hzZ" firstAttribute="centerX" secondItem="dFk-d6-rVR" secondAttribute="centerX" id="afv-P5-eLw"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lgi-hf-qxd" secondAttribute="trailing" id="axp-pD-o8A"/>
+                                            <constraint firstAttribute="bottom" secondItem="lgi-hf-qxd" secondAttribute="bottom" priority="900" id="gSg-TQ-yzq"/>
                                             <constraint firstItem="lgi-hf-qxd" firstAttribute="centerX" secondItem="dFk-d6-rVR" secondAttribute="centerX" id="jK4-DZ-B41"/>
-                                            <constraint firstItem="lgi-hf-qxd" firstAttribute="top" secondItem="fgK-I6-iyI" secondAttribute="bottom" constant="5" id="xWG-Zg-eI2"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="puzzleImage" destination="lgi-hf-qxd" id="Da7-zH-CrY"/>
-                                            <outlet property="soundLabel" destination="fgK-I6-iyI" id="rZI-8W-unJ"/>
+                                            <outlet property="puzzleShadow" destination="nx7-AN-avJ" id="0MK-Gp-1ge"/>
+                                            <outlet property="soundLabel" destination="W7T-IG-hzZ" id="Oaf-9P-JcV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -835,6 +844,9 @@
                             <constraint firstItem="s2F-Am-9M6" firstAttribute="top" secondItem="053-Wl-WFQ" secondAttribute="bottom" id="yDr-gA-dtR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Ecw-ac-YLi" id="XtL-d2-XsY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xu3-HT-3X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
