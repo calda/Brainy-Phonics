@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="gTf-hK-SWa">
             <objects>
-                <viewController storyboardIdentifier="home" id="lDx-yU-Mr0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="lDx-yU-Mr0" customClass="HomeViewController" customModule="Phonics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wGv-UQ-x2t"/>
                         <viewControllerLayoutGuide type="bottom" id="egf-Se-oJ4"/>
@@ -502,11 +502,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3G-hw-fNA" userLabel="sound view">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="320"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-OS-URh" userLabel="Puzzle Shadow">
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-OS-URh" userLabel="Puzzle Shadow">
                                                 <rect key="frame" x="55" y="180" width="90" height="120"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zje-sD-acS" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="180" width="90" height="120"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1097C71E25E112003CB8BB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5621E0BBA4800C667DE /* Player.swift */; };
+		2E1097C81E25E115003CB8BB /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
+		2E1097C91E25E117003CB8BB /* NSCoding+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */; };
 		2E275F3A1E08DCD400B16C5E /* PuzzleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E275F391E08DCD400B16C5E /* PuzzleDetailViewController.swift */; };
 		2E383FC11E07454A00128351 /* JPNG.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E383FC01E07454A00128351 /* JPNG.m */; };
 		2E383FC41E077CA000128351 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75C1D63A06900978DD6 /* Puzzle.swift */; };
@@ -11187,15 +11190,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1097C71E25E112003CB8BB /* Player.swift in Sources */,
 				2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */,
 				2E8FFADB1D67A14100B1E498 /* PHContent.swift in Sources */,
 				2E8FFAE01D67A1E400B1E498 /* UniversalAudio.swift in Sources */,
+				2E1097C91E25E117003CB8BB /* NSCoding+Key.swift in Sources */,
 				2E8FFADE1D67A1E400B1E498 /* CoreSwift.swift in Sources */,
 				2E8FFADD1D67A14100B1E498 /* Word.swift in Sources */,
 				2E8FFADA1D67A14100B1E498 /* Letter.swift in Sources */,
 				2E383FC51E077CA200128351 /* PuzzlePiece.swift in Sources */,
 				2E383FC41E077CA000128351 /* Puzzle.swift in Sources */,
 				2E8FFADF1D67A1E400B1E498 /* LongestCommonSubsequence.swift in Sources */,
+				2E1097C81E25E115003CB8BB /* PuzzleProgress.swift in Sources */,
 				2E8FFADC1D67A14100B1E498 /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

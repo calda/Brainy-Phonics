@@ -41,9 +41,11 @@ struct Word: Equatable {
     
     func attributedText(forSound sound: Sound, ofLetter letter: Letter) -> NSAttributedString {
         
+        // [Word : OccurenceOfSoundToExclude]
         let explicitExclusions: [String : Int] = [
             "eagle" : 2,
-            "skis" : 1
+            "skis" : 1,
+            "volcano" : 1
         ]
         
         var soundText = sound.displayString
