@@ -128,7 +128,9 @@ func linesForFile(_ fileName: String, ofType type: String, usingNewlineMarker ne
     
     do {
         let text = try NSString(contentsOfFile: file, encoding: String.Encoding.utf8.rawValue)
-        return text.components(separatedBy: newline)
+        let lines = text.components(separatedBy: newline)
+        let linesWithoutComments = lines.filter({ !$0.hasPrefix("//") })
+        return linesWithoutComments
     } catch {
         return nil;
     }

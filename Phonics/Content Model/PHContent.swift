@@ -14,6 +14,7 @@ let PHContent = PHContentManager()
 
 typealias FileName = String
 typealias WordName = String
+typealias SoundID = String
 typealias Pronunciation = String
 typealias AudioInfo = (fileName: String, wordStart: Double, wordDuration: Double)
 
@@ -24,8 +25,8 @@ class PHContentManager {
     
     //MARK: - Static Init Helpers
     
-    static func parseAudioTimings() -> [FileName : [WordName : AudioInfo]]! {
-        guard let audioLines = linesForCSV("Audio Timings") else { return nil }
+    static func parseAudioTimings() -> [FileName : [WordName : AudioInfo]] {
+        guard let audioLines = linesForCSV("Audio Timings") else { return [:] }
         var audioTimings = [FileName : [WordName : AudioInfo]]()
         
         for line in audioLines {
@@ -47,8 +48,8 @@ class PHContentManager {
         return audioTimings
     }
     
-    static func parsePronunciations() -> [WordName : Pronunciation]! {
-        guard let pronunciationLines = linesForFile("Pronunciations", ofType:"txt", usingNewlineMarker:"\n") else { return nil }
+    static func parsePronunciationsFile(named name: String) -> [String : Pronunciation] {
+        guard let pronunciationLines = linesForFile(name, ofType:"txt", usingNewlineMarker:"\n") else { return [:] }
         var pronunciations = [WordName : Pronunciation]()
         
         for line in pronunciationLines {
@@ -57,14 +58,16 @@ class PHContentManager {
             
             let word = components[0]
             let pronunciation = components[1]
+            if pronunciation.isEmpty || pronunciation.isWhitespace() { continue }
+            
             pronunciations[word] = pronunciation
         }
         
         return pronunciations
     }
     
-    static func parseLetters(audioTimings: [FileName : [WordName : AudioInfo]], pronunciations: [WordName : Pronunciation]) -> [String : Letter]! {
-        guard let letterLines = linesForCSV("Sound List") else { return nil }
+    static func parseLetters(audioTimings: [FileName : [WordName : AudioInfo]], wordPronunciations: [WordName : Pronunciation], soundPronunciations: [SoundID : Pronunciation]) -> [String : Letter] {
+        guard let letterLines = linesForCSV("Sound List") else { return [:] }
         
         //put each line in a bucket for its letter
         var linesPerLetter = [String : [[String]]]()
@@ -86,14 +89,16 @@ class PHContentManager {
             for line in lines {
                 let soundId = line[1]
                 let displayString = line[2]
-                let ipaPronunciation = displayString.lowercased() //TODO: fix IPA pronunciations
-                let soundInfo = audioTimings["words-\(letter)-\(soundId)"] ?? [:]
+                
+                let globalIdentifier = "\(letter)-\(soundId)"
+                let ipaPronunciation = soundPronunciations[globalIdentifier]
+                let soundInfo = audioTimings["words-\(globalIdentifier)"] ?? [:]
                 
                 func wordForString(_ text: String) -> Word? {
-                    return Word(text:text, pronunciation: pronunciations[text], audioInfo: soundInfo[text])
+                    return Word(text:text, pronunciation: wordPronunciations[text], audioInfo: soundInfo[text])
                 }
                 
-                let primaryWords = [line[3], line[4], line[5]].flatMap{ wordForString($0) }
+                let primaryWords = [line[3], line[4], line[5]].flatMap(wordForString)
                 
                 var quizWords = [Word]()
                 let quizWordsString = line[6]
@@ -125,8 +130,11 @@ class PHContentManager {
     
     init() {
         let audioTimings = PHContentManager.parseAudioTimings()
-        let pronunciations = PHContentManager.parsePronunciations()
-        self.letters = PHContentManager.parseLetters(audioTimings: audioTimings!, pronunciations: pronunciations!)
+        let wordPronunciations = PHContentManager.parsePronunciationsFile(named: "Word Pronunciations")
+        let soundPronunciations = PHContentManager.parsePronunciationsFile(named: "Sound Pronunciations")
+        self.letters = PHContentManager.parseLetters(audioTimings: audioTimings,
+                                                     wordPronunciations: wordPronunciations,
+                                                     soundPronunciations: soundPronunciations)
     }
     
     

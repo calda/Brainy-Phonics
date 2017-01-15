@@ -111,7 +111,15 @@ class PuzzleCollectionViewController : UIViewController, UICollectionViewDelegat
             let difference = puzzleFrame.minX - collectionViewLeft
             
             let presentNow = {
-                PuzzleDetailViewController.present(for: sound, from: cell.puzzleImage, withPuzzleShadow: cell.puzzleShadow, in: self, onDismiss: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+                    cell.cornerLabelView.alpha = 0.0
+                })
+                
+                PuzzleDetailViewController.present(for: sound, from: cell.puzzleImage, withPuzzleShadow: cell.puzzleShadow, in: self, onDismiss: {
+                    UIView.animate(withDuration: 0.3, animations: {
+                        cell.cornerLabelView.alpha = 1.0
+                    })
+                })
             }
             
             if difference < 0 {
@@ -145,15 +153,26 @@ class PuzzleCollectionCell : UICollectionViewCell {
     @IBOutlet weak var puzzleImage: UIImageView!
     @IBOutlet weak var puzzleShadow: UIView!
     @IBOutlet weak var soundLabel: UILabel!
+    @IBOutlet weak var cornerLabelView: UIView!
+    @IBOutlet weak var cornerLabel: UILabel!
     
     func decorate(for sound: Sound, complete: Bool) {
         
-        self.puzzleImage.alpha = 0.0
-        
         if complete {
+            self.alpha = 0.0 //will fade in once images loads
+            self.puzzleImage.alpha = 1.0
+            
             self.soundLabel.alpha = 0.0
-        } else {
+            self.cornerLabelView.alpha = 1.0
+            self.cornerLabel.text = sound.displayString.lowercased()
+        }
+        
+        else {
+            self.alpha = 1.0
+            self.puzzleImage.alpha = 0.0
+            
             self.soundLabel.alpha = 1.0
+            self.cornerLabelView.alpha = 0.0
             self.soundLabel.text = sound.displayString.lowercased()
             return
         }
@@ -166,7 +185,10 @@ class PuzzleCollectionCell : UICollectionViewCell {
             
             DispatchQueue.main.sync {
                 self.puzzleImage.image = image
-                self.puzzleImage.alpha = 1.0
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.alpha = 1.0
+                })
             }
         }
         

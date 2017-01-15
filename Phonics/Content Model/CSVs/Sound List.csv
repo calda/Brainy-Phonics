@@ -1,3 +1,6 @@
+//
+// letter, sound ID, display string, word1, word2, word3, "quiz word1, quizWord2"
+//
 A,long,A,ape,tail,jay,"skate, suitcase, crayons, baby, grape, playground, crane, cradle, face, whale"
 A,short,A,bat,cat,wagon,"axe, taxi, wagon, clam, hamster, raccoons, camel, rabbit, cactus, statue"
 A,ahh,A,swan,father,squash,"saw, swan, fall, hawk, walnuts, fall, draw, walrus, ball"
@@ -54,7 +57,7 @@ O,long,O,old,mole,polar bear,"yo-yo, nose, sofa, gold, dozer, toe, throne, armad
 O,short,O,ostrich,pot,trolley,"fox, hot, boxer, drop, sandbox, rocket, moth, frog, trolley, crayon"
 O,uh,O,onion,oven,wagon,"love, monkey, glove, mother, shovel, monkey wrench, grandmother, monkey bars"
 O,ew,OO,spoon,raccoons,boots,"kangaroo, poodle, goose, school bus, balloon, moon, broom, stool, coonskin cap, tool belt"
-O,uuh,OO,cookies,wood,foot,
+O,uuh,OO,cookies,wood,foot,"football, crook, crooked, footstool, bookcase, book"
 O,OA,OA,goat,boat,coat,"soap, soccer goal, toaster, boat trailer, front loader"
 O,OI,OI,poison,coin,noise,"toilet, five-point-star, fencing foil, toilet paper, six-point-star"
 O,OY,OY,boy,toys,oyster,"cowboy, joy, boyfriend, royal"

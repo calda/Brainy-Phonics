@@ -23,6 +23,12 @@ class PHContentTest: XCTestCase {
         }
     }
     
+    func testAllSoundsHavePronunciations() {
+        for sound in PHContent.allSoundsSorted {
+            XCTAssertNotNil(sound.ipaPronunciation, "\(sound.sourceLetter) (\(sound.soundId)) has no IPA pronunciation.")
+        }
+    }
+    
     
     //MARK: - Words
     
@@ -32,7 +38,7 @@ class PHContentTest: XCTestCase {
         }
     }
     
-    /*func testForUnusedWordImages() {
+    func testForUnusedWordImages() {
         
         let images = Bundle.main.paths(forResourcesOfType: "jpg", inDirectory: nil, forLocalization: nil)
         let allWords = PHContent.allWords
@@ -47,12 +53,12 @@ class PHContentTest: XCTestCase {
         for imageName in imageNames {
             let hasMatchingWord = allWords.contains(where: { $0.text == imageName })
             
-            if !hasMatchingWord { print(imageName) }
+            if !hasMatchingWord { print("\(imageName).jpg") }
             
-            XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")
+            //XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")
         }
         
-    }*/
+    }
     
     func testAllWordsHavePronunciations() {
         for word in PHContent.allWordsNoDuplicates {

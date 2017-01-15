@@ -1,7 +1,10 @@
 func lComSubStr(_ w1: String, _ w2: String) -> String {
     
-    var (len, end) = (0, 0)
+    if w1.length == 0 || w2.length == 0 {
+        return ""
+    }
     
+    var (len, end) = (0, 0)
     
     let empty = Array(repeating: 0, count: w2.length + 1)
     var mat: [[Int]] = Array(repeating: empty, count: w1.length + 1)
