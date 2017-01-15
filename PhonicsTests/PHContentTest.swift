@@ -38,8 +38,13 @@ class PHContentTest: XCTestCase {
         }
     }
     
+    func testAllWordsHavePronunciations() {
+        for word in PHContent.allWordsNoDuplicates {
+            XCTAssertNotNil(word.pronunciation, "\(word.text) has no IPA pronunciation.")
+        }
+    }
+    
     func testForUnusedWordImages() {
-        
         let images = Bundle.main.paths(forResourcesOfType: "jpg", inDirectory: nil, forLocalization: nil)
         let allWords = PHContent.allWords
         
@@ -52,17 +57,7 @@ class PHContentTest: XCTestCase {
         
         for imageName in imageNames {
             let hasMatchingWord = allWords.contains(where: { $0.text == imageName })
-            
-            if !hasMatchingWord { print("\(imageName).jpg") }
-            
-            //XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")
-        }
-        
-    }
-    
-    func testAllWordsHavePronunciations() {
-        for word in PHContent.allWordsNoDuplicates {
-            XCTAssertNotNil(word.pronunciation, "\(word.text) has no IPA pronunciation.")
+            XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")
         }
     }
     
