@@ -4,77 +4,77 @@
     "row3-col2" : {
       "rightNub" : "none",
       "bottomNub" : "none",
-      "topNub" : "outside",
+      "topNub" : "inside",
       "leftNub" : "outside"
     },
     "row1-col2" : {
       "rightNub" : "none",
       "bottomNub" : "outside",
       "topNub" : "inside",
-      "leftNub" : "inside"
+      "leftNub" : "outside"
     },
     "row1-col1" : {
-      "rightNub" : "outside",
-      "bottomNub" : "outside",
-      "topNub" : "inside",
-      "leftNub" : "inside"
+      "rightNub" : "inside",
+      "bottomNub" : "inside",
+      "topNub" : "outside",
+      "leftNub" : "outside"
     },
     "row0-col2" : {
       "rightNub" : "none",
       "bottomNub" : "outside",
       "topNub" : "none",
-      "leftNub" : "outside"
+      "leftNub" : "inside"
     },
     "row2-col0" : {
       "rightNub" : "outside",
       "bottomNub" : "outside",
-      "topNub" : "inside",
+      "topNub" : "outside",
       "leftNub" : "none"
     },
     "row0-col0" : {
       "rightNub" : "inside",
-      "bottomNub" : "outside",
+      "bottomNub" : "inside",
       "topNub" : "none",
       "leftNub" : "none"
     },
     "row1-col0" : {
-      "rightNub" : "outside",
-      "bottomNub" : "outside",
-      "topNub" : "inside",
+      "rightNub" : "inside",
+      "bottomNub" : "inside",
+      "topNub" : "outside",
       "leftNub" : "none"
     },
     "row2-col1" : {
       "rightNub" : "inside",
       "bottomNub" : "inside",
-      "topNub" : "inside",
+      "topNub" : "outside",
       "leftNub" : "inside"
     },
     "row3-col1" : {
       "rightNub" : "inside",
       "bottomNub" : "none",
       "topNub" : "outside",
-      "leftNub" : "inside"
+      "leftNub" : "outside"
     },
     "row0-col1" : {
-      "rightNub" : "inside",
-      "bottomNub" : "outside",
+      "rightNub" : "outside",
+      "bottomNub" : "inside",
       "topNub" : "none",
       "leftNub" : "outside"
     },
     "row3-col0" : {
-      "rightNub" : "outside",
+      "rightNub" : "inside",
       "bottomNub" : "none",
       "topNub" : "inside",
       "leftNub" : "none"
     },
     "row2-col2" : {
       "rightNub" : "none",
-      "bottomNub" : "inside",
+      "bottomNub" : "outside",
       "topNub" : "inside",
       "leftNub" : "outside"
     }
   },
-  "pixelsTall" : 1152,
+  "pixelsTall" : 874,
   "rows" : 4,
-  "pixelsWide" : 864
+  "pixelsWide" : 656
 }

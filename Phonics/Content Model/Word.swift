@@ -46,7 +46,8 @@ struct Word: Equatable {
             "eagle" : 2,
             "skis" : 1,
             "volcano" : 1,
-            "footstool" : 2
+            "footstool" : 2,
+            "dune buggy" : 2
         ]
         
         var soundText = sound.displayString
