@@ -95,7 +95,7 @@ class PHContentManager {
                 let soundInfo = audioTimings["words-\(globalIdentifier)"] ?? [:]
                 
                 func wordForString(_ text: String) -> Word? {
-                    return Word(text:text, pronunciation: wordPronunciations[text], audioInfo: soundInfo[text])
+                    return Word(text:text, pronunciation: wordPronunciations[text], timedAudioInfo: soundInfo[text])
                 }
                 
                 let primaryWords = [line[3], line[4], line[5]].flatMap(wordForString)

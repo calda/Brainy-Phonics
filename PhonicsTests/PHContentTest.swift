@@ -24,8 +24,14 @@ class PHContentTest: XCTestCase {
     }
     
     func testAllSoundsHavePronunciations() {
-        for sound in PHContent.allSoundsSorted {
+        for sound in PHContent.allSounds {
             XCTAssertNotNil(sound.ipaPronunciation, "\(sound.sourceLetter) (\(sound.soundId)) has no IPA pronunciation.")
+        }
+    }
+    
+    func testAllSoundsHaveWordSetAudio() {
+        for sound in PHContent.allSounds {
+            XCTAssert(sound.lengthForAudio(withWords: true) != 0, "\(sound.sourceLetter) (\(sound.soundId)) has no Word Set audio")
         }
     }
     
@@ -44,21 +50,49 @@ class PHContentTest: XCTestCase {
         }
     }
     
+    func testAllWordsHaveAudio() {
+        for word in PHContent.allWordsNoDuplicates {
+            XCTAssertNotNil(word.audioInfo, "\(word.text) has no audio")
+        }
+    }
+    
     func testForUnusedWordImages() {
-        let images = Bundle.main.paths(forResourcesOfType: "jpg", inDirectory: nil, forLocalization: nil)
         let allWords = PHContent.allWords
         
-        let imageNames = images.map { filePath -> String in
+        for imageName in allFilesWithExtension("jpg") {
+            let hasMatchingWord = allWords.contains(where: { $0.text == imageName })
+            XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")
+        }
+    }
+    
+    func testForUnusedWordAudio() {
+        let allWords = PHContent.allWords
+        
+        for audioName in allFilesWithExtension("mp3", inDirectory: "Words") {
+            let hasMatchingWord = allWords.contains(where: { $0.text == audioName })
+            XCTAssert(hasMatchingWord, "\(audioName).mp3 is unused.")
+            
+            if !hasMatchingWord {
+                print("\(audioName).mp3")
+            }
+        }
+    }
+    
+    
+    
+    //MARK: - Helpers
+    
+    func allFilesWithExtension(_ ext: String, inDirectory directory: String? = nil) -> [String] {
+        let files = Bundle.main.paths(forResourcesOfType: ext, inDirectory: directory, forLocalization: nil)
+        
+        let fileNames = files.map { filePath -> String in
             let pathParts = filePath.components(separatedBy: "/")
             guard let fileName = pathParts.last else { return filePath }
             guard let withoutExtension: String = fileName.components(separatedBy: ".").first else { return fileName }
             return withoutExtension
         }
         
-        for imageName in imageNames {
-            let hasMatchingWord = allWords.contains(where: { $0.text == imageName })
-            XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")
-        }
+        return fileNames
     }
     
 }

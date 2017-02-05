@@ -13,13 +13,27 @@ struct Word: Equatable {
     
     let text: String
     let pronunciation: String?
-    let audioInfo: AudioInfo?
+    let timedAudioInfo: AudioInfo?
+    
+    var audioInfo: AudioInfo? {
+        if let timedAudioInfo = self.timedAudioInfo {
+            return timedAudioInfo
+        }
+        
+        let possibleStandaloneFile = "Words/\(text)"
+        if Bundle.phonicsBundle?.url(forResource: possibleStandaloneFile, withExtension: "mp3") != nil {
+            let length = UALengthOfFile("Words/\(text)", ofType: "mp3")
+            return (fileName: possibleStandaloneFile, wordStart: 0, wordDuration: length)
+        }
+        
+        return nil
+    }
     
     var image: UIImage? {
         return UIImage(named: "\(text).jpg")
     }
     
-    init?(text wordText: String?, pronunciation: String?, audioInfo: AudioInfo?) {
+    init?(text wordText: String?, pronunciation: String?, timedAudioInfo: AudioInfo?) {
         
         guard let wordText = wordText else { return nil }
         var text = wordText.lowercased()
@@ -35,7 +49,7 @@ struct Word: Equatable {
         
         self.text = text
         self.pronunciation = pronunciation
-        self.audioInfo = audioInfo
+        self.timedAudioInfo = timedAudioInfo
     }
     
     
@@ -82,6 +96,8 @@ struct Word: Equatable {
     func playAudio(withConcurrencyMode concurrencyMode: UAConcurrentAudioMode = .interrupt) {
         if let audioInfo = audioInfo {
             PHContent.playAudioForInfo(audioInfo, concurrentcyMode: concurrencyMode)
+        } else {
+            print("NO AUDIO FOR \(self.text)")
         }
     }
     
