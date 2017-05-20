@@ -84,10 +84,9 @@ struct Sound: Equatable {
         let url = Bundle.main.url(forResource: self.audioName(withWords: true), withExtension: "mp3")
         
         let audioFile = try! AVAudioFile(forReading: url!)
-        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: audioFile.fileFormat.sampleRate, channels: 1, interleaved: false)
         
         //get raw data for sounds
-        let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: 900000)
+        let buf = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: 900000)
         try! audioFile.read(into: buf)
         let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
         

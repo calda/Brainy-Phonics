@@ -11,7 +11,7 @@ struct Letter: Equatable {
     let text: String
     let sounds: [Sound]
     
-    subscript(soundId: String) -> Sound? {
+    subscript(soundId: String) -> Sound! {
         return sounds.filter{ $0.soundId == soundId }.first
     }
     
@@ -23,6 +23,10 @@ struct Letter: Equatable {
         }
         
         return true
+    }
+    
+    var icon: UIImage {
+        return UIImage(named: "letter-icon-\(text.lowercased()).jpg")!
     }
     
     

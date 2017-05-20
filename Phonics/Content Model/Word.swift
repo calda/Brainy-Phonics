@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 struct Word: Equatable {
     
@@ -132,6 +133,74 @@ struct Word: Equatable {
             }
             
         }.resume()
+    }
+    
+    func printAudioTimings() {
+        guard let url = Bundle.main.url(forResource: "Words/\(text)", withExtension: "mp3") else { return }
+        guard let audioFile = try? AVAudioFile(forReading: url) else { return }
+        
+        //get raw data for sounds
+        let buf = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: 900000)
+        try? audioFile.read(into: buf)
+        
+        let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
+        
+        //average together 100 audio frames in little buckets
+        var bucketArray = [Float]()
+        for i in 0..<(floatArray.count / 100) {
+            let start = i * 100;
+            let end = start + 100;
+            var sum: Float = 0.0
+            
+            for j in start..<end {
+                sum += abs(floatArray[j])
+            }
+            
+            bucketArray.append(sum / 100.0)
+        }
+        
+        var ranges = [(start: Double, duration: Double)]()
+        var currentStart: Int?
+        var belowThresholdCount = 0
+        
+        //convert buckets to ranges using volume thresholds
+        for i in 0..<bucketArray.count {
+            
+            if bucketArray[i] > 0.1 && currentStart == nil {
+                currentStart = i * 100
+                belowThresholdCount = 0
+            }
+                
+            else if bucketArray[i] < 0.005 && currentStart != nil {
+                belowThresholdCount += 1
+                
+                if belowThresholdCount == 350 || i == (bucketArray.count - 1) {
+                    let currentEnd = (i - belowThresholdCount) * 100
+                    ranges.append((Double(currentStart!) / audioFile.fileFormat.sampleRate, Double(currentEnd - currentStart!) / audioFile.fileFormat.sampleRate))
+                    currentStart = nil
+                }
+            }
+            
+        }
+        
+        if ranges.count > 1 || ranges.count == 0 {
+            //print("LITTLE PROBLEM with \(self.text)")
+        }
+        
+        else {
+            let current = ("\(ranges[0].start)" as NSString).substring(to: min(6, "\(ranges[0].start)".length))
+            let duration = ("\(ranges[0].duration)" as NSString).substring(to: min(6, "\(ranges[0].duration)".length))
+            print("\("Words/\(text)"),\(text)=\(current)/\(duration)")
+        }
+        
+        /*var csvLine = "\(self.audioName(withWords: true)),"
+        
+        for i in 0..<spokenWords.count {
+         
+        }
+        
+        //print without the last ", "
+        print(csvLine.substring(to: csvLine.index(csvLine.endIndex, offsetBy: -2)))*/
     }
     
 }

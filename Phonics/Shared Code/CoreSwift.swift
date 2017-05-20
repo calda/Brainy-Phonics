@@ -79,7 +79,7 @@ func shakeView(_ view: UIView) {
 func pivotView(_ view: UIView, multiplier: CGFloat = 1.0) {
     let animations : [CGFloat] = [20.0, -20.0, 10.0, -10.0, 3.0, -3.0, 0]
     for i in 0 ..< animations.count {
-        let transform = CGAffineTransform(rotationAngle: animations[i] * (CGFloat(M_PI) / 180.0) * 1.2 * multiplier)
+        let transform = CGAffineTransform(rotationAngle: animations[i] * (.pi / 180.0) * 1.2 * multiplier)
         
         UIView.animate(withDuration: 0.1, delay: TimeInterval(0.1 * Double(i)), options: [], animations: {
             view.transform = transform

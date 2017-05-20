@@ -31,7 +31,11 @@ class PHContentTest: XCTestCase {
     
     func testAllSoundsHaveWordSetAudio() {
         for sound in PHContent.allSounds {
-            XCTAssert(sound.lengthForAudio(withWords: true) != 0, "\(sound.sourceLetter) (\(sound.soundId)) has no Word Set audio")
+            //XCTAssert(sound.lengthForAudio(withWords: true) != 0, "\(sound.sourceLetter) (\(sound.soundId)) has no Word Set audio")
+            
+            if sound.lengthForAudio(withWords: true) == 0 {
+                print("\(sound.sourceLetter) (\(sound.soundId)): \(sound.primaryWords[0].text), \(sound.primaryWords[1].text), \(sound.primaryWords[2].text)")
+            }
         }
     }
     
@@ -78,6 +82,12 @@ class PHContentTest: XCTestCase {
         }
     }
     
+    func testGenerateTimings() {
+        PHContent["I"]["ee"].printAudioTimings()
+        PHContent["U"]["long"].printAudioTimings()
+        PHContent["U"]["uu"].printAudioTimings()
+        PHContent["I"]["ie"].printAudioTimings()
+    }
     
     
     //MARK: - Helpers

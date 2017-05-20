@@ -30,8 +30,8 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.view.bounds.width - 90) / 4
-        return CGSize(width: width, height: width)
+        let width = (self.view.bounds.width - 90) / 3
+        return CGSize(width: width, height: width * 0.75)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -52,7 +52,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         //animate selection
         let cell = collectionView.cellForItem(at: indexPath)
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
-            cell?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            cell?.transform = CGAffineTransform(scaleX: 1.075, y: 1.075)
         }, completion: nil)
         
         //play audio for selection
@@ -77,6 +77,7 @@ class LetterCell : UICollectionViewCell {
     
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var letterLabel: UILabel!
+    @IBOutlet weak var letterIcon: UIImageView!
     @IBOutlet weak var progressBar: ProgressBar!
     @IBOutlet weak var checkmark: UIButton!
     
@@ -89,11 +90,24 @@ class LetterCell : UICollectionViewCell {
     }
     
     func decorateForLetter(_ letter: String) {
-        cardView.layer.cornerRadius = cardView.frame.width * 0.15
+        cardView.layer.cornerRadius = cardView.frame.height * 0.1
         letterLabel.text = letter.lowercased()
         
-        guard let letter = PHContent[letter] else { return }
+        guard let letter = PHContent[letter.uppercased()] else { return }
         
+        //update image icon with correct image and aspect ratio
+        let letterIconImage = letter.icon
+        let aspectRatioToUse = max(1, letterIconImage.size.height / letterIconImage.size.width)
+        
+        letterIcon.removeConstraints(letterIcon.constraints)
+        let newConstraint = letterIcon.heightAnchor.constraint(equalTo: letterIcon.widthAnchor, multiplier: aspectRatioToUse)
+        newConstraint.priority = 900
+        newConstraint.isActive = true
+        
+        letterIcon.image = letterIconImage
+        layoutIfNeeded()
+        
+        //update progress bar
         let totalNumberOfPieces = 12 * letter.sounds.count
         
         let totalNumberOfOwnedPieces = letter.sounds.reduce(0) { previousResult, sound in
