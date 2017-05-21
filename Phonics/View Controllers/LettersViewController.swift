@@ -57,7 +57,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         
         //play audio for selection
         guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
-        letter.playSound()
+        letter.playAudio()
          
         UAWhenDonePlayingAudio {
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {

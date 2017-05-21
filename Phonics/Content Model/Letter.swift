@@ -29,18 +29,19 @@ struct Letter: Equatable {
         return UIImage(named: "letter-icon-\(text.lowercased()).jpg")!
     }
     
-    
-    func playSound() {
-        var info: AudioInfo?
-        
-        sounds.forEach{ word in
-            if let timing = word.sourceLetterTiming {
-                info = timing
-            }
+    var audioInfo: AudioInfo? {
+        if let soundWithAudioForLetter = sounds.first(where: { $0.sourceLetterTiming != nil }) {
+            return soundWithAudioForLetter.sourceLetterTiming
+        } else {
+            return nil
         }
-        
-        if let info = info {
-            PHContent.playAudioForInfo(info)
+    }
+    
+    func playAudio() {
+        if let audioInfo = self.audioInfo {
+            PHContent.playAudioForInfo(audioInfo)
+        } else {
+            print("No audio for \(self.text.uppercased())")
         }
     }
     

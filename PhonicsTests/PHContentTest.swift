@@ -31,7 +31,7 @@ class PHContentTest: XCTestCase {
     
     func testAllSoundsHaveWordSetAudio() {
         for sound in PHContent.allSounds {
-            //XCTAssert(sound.lengthForAudio(withWords: true) != 0, "\(sound.sourceLetter) (\(sound.soundId)) has no Word Set audio")
+            XCTAssert(sound.lengthForAudio(withWords: true) != 0, "\(sound.sourceLetter) (\(sound.soundId)) has no Word Set audio")
             
             if sound.lengthForAudio(withWords: true) == 0 {
                 print("\(sound.sourceLetter) (\(sound.soundId)): \(sound.primaryWords[0].text), \(sound.primaryWords[1].text), \(sound.primaryWords[2].text)")
@@ -64,6 +64,10 @@ class PHContentTest: XCTestCase {
         let allWords = PHContent.allWords
         
         for imageName in allFilesWithExtension("jpg") {
+            
+            //ignore certain images
+            if imageName.hasPrefix("letter-icon-") { continue }
+            
             let hasMatchingWord = allWords.contains(where: { $0.text == imageName })
             XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")
         }
@@ -75,20 +79,27 @@ class PHContentTest: XCTestCase {
         for audioName in allFilesWithExtension("mp3", inDirectory: "Words") {
             let hasMatchingWord = allWords.contains(where: { $0.text == audioName })
             XCTAssert(hasMatchingWord, "\(audioName).mp3 is unused.")
-            
-            if !hasMatchingWord {
-                print("\(audioName).mp3")
-            }
         }
     }
     
     func testGenerateTimings() {
-        PHContent["I"]["ee"].printAudioTimings()
-        PHContent["U"]["long"].printAudioTimings()
-        PHContent["U"]["uu"].printAudioTimings()
-        PHContent["I"]["ie"].printAudioTimings()
+        //PHContent["I"]["IGH"].printAudioTimings()
     }
     
+    
+    //MARK: - Letters
+    
+    func testAllLettersHaveIcons() {
+        for letter in PHContent.letters.values {
+            XCTAssertNotNil(letter.icon, "No image icon for letter \(letter.text.uppercased())")
+        }
+    }
+    
+    func testAllLettersHaveAudio() {
+        for letter in PHContent.letters.values {
+            XCTAssertNotNil(letter.audioInfo, "No audio for letter \(letter.text.uppercased())")
+        }
+    }
     
     //MARK: - Helpers
     
