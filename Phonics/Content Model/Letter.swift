@@ -30,8 +30,17 @@ struct Letter: Equatable {
     }
     
     var audioInfo: AudioInfo? {
+        //most letters exist through the sound files -- check if that exists
         if let soundWithAudioForLetter = sounds.first(where: { $0.sourceLetterTiming != nil }) {
             return soundWithAudioForLetter.sourceLetterTiming
+        }
+        
+        //if the letter doesn't exist in the sound files, it should be in "Assets > Audio > Sounds > Extra Letters"
+        let extraLetterAudioFile = "extra-letter-\(self.text.uppercased())"
+        let duration = UALengthOfFile(extraLetterAudioFile, ofType: "mp3")
+        
+        if duration != 0 {
+            return (fileName: extraLetterAudioFile, wordStart: 0.0, wordDuration: duration)
         } else {
             return nil
         }
