@@ -10,9 +10,10 @@ import XCTest
 
 class PHContentTest: XCTestCase {
     
+    
     //MARK: - Sounds
     
-    /*func testAllSoundsHavePuzzles() {
+    func testAllSoundsHavePuzzles() {
         for sound in PHContent.allSounds {
             XCTAssertNotNil(sound.puzzle, "Puzzle \(sound.puzzleName) doesn't exist.")
             XCTAssertNotNil(sound.rhymeText, "Missing rhyme text for \(sound.puzzleName).")
@@ -98,7 +99,7 @@ class PHContentTest: XCTestCase {
         for letter in PHContent.letters.values {
             XCTAssertNotNil(letter.audioInfo, "No audio for letter \(letter.text.uppercased())")
         }
-    }*/
+    }
     
     
     //MARK: - Sight Words
@@ -108,7 +109,7 @@ class PHContentTest: XCTestCase {
         XCTAssert(preKCount == 40, "Pre-K Sight Words has \(preKCount) words, not 40. (some image or audio must not be configured correctly)")
         
         let kindergartenCount = PHContent.sightWordsKindergarten.words.count
-        XCTAssert(kindergartenCount == 40, "Kindergarten Sight Words has \(kindergartenCount) words, not 40. (some image or audio must not be configured correctly)")
+        XCTAssert(kindergartenCount == 52, "Kindergarten Sight Words has \(kindergartenCount) words, not 52. (some image or audio must not be configured correctly)")
     }
     
     

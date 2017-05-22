@@ -10,7 +10,8 @@ import Foundation
 
 class SightWordsManager {
     
-    //MARK: - Category
+    
+    //MARK: - Categories
     
     public enum Category {
         case preK, kindergarten
@@ -18,7 +19,7 @@ class SightWordsManager {
         private var folderNamePrefix: String {
             switch(self) {
             case .preK: return "Pre-K Sight Words "
-            case .kindergarten: return "Kindergarten Sight Words"
+            case .kindergarten: return "Kindergarten Sight Words "
             }
         }
         
@@ -52,8 +53,6 @@ class SightWordsManager {
         let imageFiles = (try? FileManager.default.contentsOfDirectory(atPath: imageFolder)) ?? []
         
         self.words = SightWordsManager.buildSightWords(fromAudio: audioFiles, andImages: imageFiles, for: category)
-        print(self.words)
-        print(self.words.count)
     }
     
     static func buildSightWords(fromAudio audioFiles: [String],
@@ -86,9 +85,18 @@ class SightWordsManager {
             if let otherSentence = temporarySentences[highlightWord] {
                 let newSightWord = SightWord(word: highlightWord, sentence1: otherSentence, sentence2: newSentence)
                 completedWords.append(newSightWord)
+                temporarySentences.removeValue(forKey: highlightWord)
             } else {
                 temporarySentences[highlightWord] = newSentence
             }
+        }
+        
+        if temporarySentences.count != 0 {
+            print("\nSOME TEMPORARY SENTENCES WEREN'T ASSIGNED TO WORDS (missing their partner):")
+            temporarySentences.forEach {
+                print("\($0.key): \($0.value.text)")
+            }
+            print()
         }
         
         return completedWords
