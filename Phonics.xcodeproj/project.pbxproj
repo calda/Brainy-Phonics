@@ -2212,6 +2212,7 @@
 		2E8FFADE1D67A1E400B1E498 /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2761D639A1B00978DD6 /* CoreSwift.swift */; };
 		2E8FFADF1D67A1E400B1E498 /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2771D639A1B00978DD6 /* LongestCommonSubsequence.swift */; };
 		2E8FFAE01D67A1E400B1E498 /* UniversalAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2781D639A1B00978DD6 /* UniversalAudio.swift */; };
+		2EBB18AC1ED2BCFB0078D951 /* SentencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */; };
 		2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */; };
 		2EECD55C1E0BB95E00C667DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EECD55B1E0BB95E00C667DE /* CoreData.framework */; };
 		2EECD5661E0BBA4800C667DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5621E0BBA4800C667DE /* Player.swift */; };
@@ -4424,6 +4425,7 @@
 		2E73FFDD1E2B292C0055AAAD /* SelectCornerRadiusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCornerRadiusView.swift; sourceTree = "<group>"; };
 		2E80484B1ED29DEA001F4EF6 /* SightWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordsViewController.swift; sourceTree = "<group>"; };
 		2E871C291E124F0900B6313D /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentencesViewController.swift; sourceTree = "<group>"; };
 		2EDBFA2B1D5C0CE600C1451F /* PhonicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhonicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHContentTest.swift; sourceTree = "<group>"; };
 		2EDBFA2F1D5C0CE600C1451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -7543,6 +7545,7 @@
 				2E275F391E08DCD400B16C5E /* PuzzleDetailViewController.swift */,
 				2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */,
 				2E80484B1ED29DEA001F4EF6 /* SightWordsViewController.swift */,
+				2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */,
 				2E6DE2831D639A1B00978DD6 /* Views */,
 			);
 			path = "View Controllers";
@@ -9857,6 +9860,7 @@
 				2E6DE2871D639A1B00978DD6 /* AppDelegate.swift in Sources */,
 				2E6DE74A1D639A1C00978DD6 /* PHContent.swift in Sources */,
 				2E6DE75F1D63A06900978DD6 /* PuzzlePiece.swift in Sources */,
+				2EBB18AC1ED2BCFB0078D951 /* SentencesViewController.swift in Sources */,
 				2E5B33AB1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift in Sources */,
 				2E6DE7541D639A1C00978DD6 /* InterativeGrowViewController.swift in Sources */,
 				2EECD5661E0BBA4800C667DE /* Player.swift in Sources */,

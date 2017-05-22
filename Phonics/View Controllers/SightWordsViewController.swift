@@ -97,6 +97,12 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
         sightWord.playAudio()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            SentencesViewController.present(from: self, for: sightWord, in: self.sightWords)
+            
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+                cell?.transform = .identity
+            }, completion: nil)
+            
             self.view.isUserInteractionEnabled = true
         }
     }
