@@ -165,6 +165,21 @@ class PuzzleCollectionCell : UICollectionViewCell {
             self.soundLabel.alpha = 0.0
             self.cornerLabelView.alpha = 1.0
             self.cornerLabel.text = sound.displayString.lowercased()
+            
+            PuzzleCollectionCell.backgroundQueue.async {
+                //this might be a little fragile
+                //the completed image only exists if the user has previously viewed
+                //the PuzzleDetailController on this device. (AKA has completed the puzzle)
+                let image = Puzzle.completedImage(forPuzzleNamed: sound.puzzleName)
+                
+                DispatchQueue.main.sync {
+                    self.puzzleImage.image = image
+                    
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.alpha = 1.0
+                    })
+                }
+            }
         }
         
         else {
@@ -176,22 +191,6 @@ class PuzzleCollectionCell : UICollectionViewCell {
             self.soundLabel.text = sound.displayString.lowercased()
             return
         }
-        
-        PuzzleCollectionCell.backgroundQueue.async {
-            //this might be a little fragile
-            //the completed image only exists if the user has previously viewed
-            //the PuzzleDetailController on this device. (AKA has completed the puzzle)
-            let image = Puzzle.completedImage(forPuzzleNamed: sound.puzzleName)
-            
-            DispatchQueue.main.sync {
-                self.puzzleImage.image = image
-                
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.alpha = 1.0
-                })
-            }
-        }
-        
     }
     
 }

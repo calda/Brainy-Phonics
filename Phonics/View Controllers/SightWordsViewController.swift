@@ -32,6 +32,21 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
         self.view.backgroundColor = self.sightWords.category.color
     }
     
+    /*override func viewDidAppear(_ animated: Bool) {
+        playWords(wordsToPlay: self.sightWords.words.reversed())
+    }*/
+    
+    func playWords(wordsToPlay: [SightWord]) {
+        var words = wordsToPlay
+        if let nextWord = words.popLast() {
+            nextWord.playAudio()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.playWords(wordsToPlay: words)
+            })
+        }
+    }
+    
     
     //MARK: - Collection View Delegate
     
@@ -79,7 +94,11 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
         
         //play audio for selection
         let sightWord = self.sightWords.words[indexPath.item]
-        print(sightWord.text)
+        sightWord.playAudio()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            self.view.isUserInteractionEnabled = true
+        }
     }
     
 }

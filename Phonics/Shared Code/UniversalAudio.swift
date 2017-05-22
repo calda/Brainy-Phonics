@@ -71,15 +71,21 @@ class UAPlayer {
     var shouldHalt = false
     var startTime: TimeInterval?
     var endAfter: TimeInterval?
+    var endWithFade: Bool?
+    var fadeDuration: TimeInterval?
     
     @discardableResult func play(_ name: String, ofType type: String,
               ifConcurrent mode: UAConcurrentAudioMode = .interrupt,
               startTime: TimeInterval = 0.0,
-              endAfter: TimeInterval? = nil) -> Bool {
+              endAfter: TimeInterval? = nil,
+              endWithFade: Bool = false,
+              fadeDuration: TimeInterval = 1.0) -> Bool {
         
         self.name = name
         self.startTime = startTime
         self.endAfter = endAfter
+        self.endWithFade = endWithFade
+        self.fadeDuration = fadeDuration
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [])
         
         if let path = Bundle.main.path(forResource: name, ofType: type), let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
@@ -129,9 +135,15 @@ class UAPlayer {
             }
             
             if let endAfter = endAfter {
+                
                 delay(endAfter) {
-                    player.stop()
-                    UAAudioIsPlaying = false
+                    
+                    if self.endWithFade == true {
+                        UAHaltPlayback()
+                    } else {
+                        player.stop()
+                        UAAudioIsPlaying = false
+                    }
                 }
             }
             
@@ -167,7 +179,7 @@ class UAPlayer {
         if let player = player {
             if player.volume > 0.1 {
                 player.volume = player.volume - 0.1
-                delay(0.1) {
+                delay(0.1 * (self.fadeDuration ?? 1.0)) {
                     self.doVolumeFade()
                 }
             } else {

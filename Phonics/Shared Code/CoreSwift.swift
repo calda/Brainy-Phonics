@@ -291,7 +291,7 @@ extension UIView {
 
 extension UIImageView {
     
-    func update(on queue: DispatchQueue, withImage loadImage: @escaping () -> (UIImage)) {
+    func update(on queue: DispatchQueue, withImage loadImage: @escaping () -> (UIImage?)) {
         self.alpha = 0.0
         
         queue.async {
