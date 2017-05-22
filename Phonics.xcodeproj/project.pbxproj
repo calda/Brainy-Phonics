@@ -2203,6 +2203,7 @@
 		2E6DE7611D63A90100978DD6 /* PuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE7601D63A90100978DD6 /* PuzzleView.swift */; };
 		2E7307771E2B4BE30055AAAD /* Sound Pronunciations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E7307761E2B4BE30055AAAD /* Sound Pronunciations.txt */; };
 		2E73FFDE1E2B292C0055AAAD /* SelectCornerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E73FFDD1E2B292C0055AAAD /* SelectCornerRadiusView.swift */; };
+		2E80484C1ED29DEA001F4EF6 /* SightWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80484B1ED29DEA001F4EF6 /* SightWordsViewController.swift */; };
 		2E871C2A1E124F0900B6313D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E871C291E124F0900B6313D /* ProgressBar.swift */; };
 		2E8FFADA1D67A14100B1E498 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2701D639A1B00978DD6 /* Letter.swift */; };
 		2E8FFADB1D67A14100B1E498 /* PHContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2711D639A1B00978DD6 /* PHContent.swift */; };
@@ -4421,6 +4422,7 @@
 		2E6DE7601D63A90100978DD6 /* PuzzleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleView.swift; sourceTree = "<group>"; };
 		2E7307761E2B4BE30055AAAD /* Sound Pronunciations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Sound Pronunciations.txt"; sourceTree = "<group>"; };
 		2E73FFDD1E2B292C0055AAAD /* SelectCornerRadiusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCornerRadiusView.swift; sourceTree = "<group>"; };
+		2E80484B1ED29DEA001F4EF6 /* SightWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordsViewController.swift; sourceTree = "<group>"; };
 		2E871C291E124F0900B6313D /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2EDBFA2B1D5C0CE600C1451F /* PhonicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhonicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHContentTest.swift; sourceTree = "<group>"; };
@@ -7540,6 +7542,7 @@
 				2E6DE2821D639A1B00978DD6 /* QuizViewController.swift */,
 				2E275F391E08DCD400B16C5E /* PuzzleDetailViewController.swift */,
 				2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */,
+				2E80484B1ED29DEA001F4EF6 /* SightWordsViewController.swift */,
 				2E6DE2831D639A1B00978DD6 /* Views */,
 			);
 			path = "View Controllers";
@@ -9866,6 +9869,7 @@
 				2E6DE7491D639A1C00978DD6 /* Letter.swift in Sources */,
 				2E6DE75E1D63A06900978DD6 /* Puzzle.swift in Sources */,
 				2E6DE7611D63A90100978DD6 /* PuzzleView.swift in Sources */,
+				2E80484C1ED29DEA001F4EF6 /* SightWordsViewController.swift in Sources */,
 				2E6DE7531D639A1C00978DD6 /* HomeViewController.swift in Sources */,
 				2E0D53F61ED2670F00EF3706 /* SightWordsManager.swift in Sources */,
 				2E6DE7551D639A1C00978DD6 /* LettersViewController.swift in Sources */,

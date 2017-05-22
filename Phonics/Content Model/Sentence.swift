@@ -16,4 +16,8 @@ struct Sentence {
     var audioFileName: String
     var imageFileName: String
     
+    var image: UIImage {
+        return UIImage(named: imageFileName)!
+    }
+    
 }

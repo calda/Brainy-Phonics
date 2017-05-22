@@ -16,6 +16,13 @@ class SightWordsManager {
     public enum Category {
         case preK, kindergarten
         
+        var color: UIColor {
+            switch(self) {
+            case .preK: return #colorLiteral(red: 0.5109489352, green: 0.7969939907, blue: 0.6771487374, alpha: 1)
+            case .kindergarten: return #colorLiteral(red: 0.5696855614, green: 0.8092797134, blue: 0.5067765564, alpha: 1)
+            }
+        }
+        
         private var folderNamePrefix: String {
             switch(self) {
             case .preK: return "Pre-K Sight Words "
@@ -83,7 +90,7 @@ class SightWordsManager {
             
             //build completed SightWord
             if let otherSentence = temporarySentences[highlightWord] {
-                let newSightWord = SightWord(word: highlightWord, sentence1: otherSentence, sentence2: newSentence)
+                let newSightWord = SightWord(text: highlightWord, sentence1: otherSentence, sentence2: newSentence)
                 completedWords.append(newSightWord)
                 temporarySentences.removeValue(forKey: highlightWord)
             } else {
@@ -99,7 +106,9 @@ class SightWordsManager {
             print()
         }
         
-        return completedWords
+        return completedWords.sorted(by: { left, right in
+            left.text.lowercased() < right.text.lowercased()
+        })
     }
     
 }

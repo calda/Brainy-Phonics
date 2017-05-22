@@ -10,7 +10,7 @@ import Foundation
 
 struct SightWord {
     
-    var word: String
+    var text: String
     var sentence1: Sentence
     var sentence2: Sentence
     

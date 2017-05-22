@@ -289,6 +289,26 @@ extension UIView {
     
 }
 
+extension UIImageView {
+    
+    func update(on queue: DispatchQueue, withImage loadImage: @escaping () -> (UIImage)) {
+        self.alpha = 0.0
+        
+        queue.async {
+            let image = loadImage()
+            
+            DispatchQueue.main.sync {
+                self.image = image
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.alpha = 1.0
+                })
+            }
+        }
+    }
+    
+}
+
 extension UIButton {
         
     func animateImage(to image: UIImage?, duration: CFTimeInterval) {

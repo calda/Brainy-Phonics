@@ -15,4 +15,12 @@ class HomeViewController : UIViewController {
         return
     }
     
+    @IBAction func presentPreKSightWords(_ sender: Any) {
+        SightWordsViewController.present(from: self, using: PHContent.sightWordsPreK)
+    }
+    
+    @IBAction func presentKindergartenSightWords(_ sender: Any) {
+        SightWordsViewController.present(from: self, using: PHContent.sightWordsKindergarten)
+    }
+    
 }
