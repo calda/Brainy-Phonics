@@ -21,6 +21,8 @@ typealias AudioInfo = (fileName: String, wordStart: Double, wordDuration: Double
 class PHContentManager {
     
     let letters: [String : Letter]
+    let sightWordsPreK: SightWordsManager
+    let sightWordsKindergarten: SightWordsManager
     
     
     //MARK: - Static Init Helpers
@@ -137,6 +139,9 @@ class PHContentManager {
         self.letters = PHContentManager.parseLetters(audioTimings: audioTimings,
                                                      wordPronunciations: wordPronunciations,
                                                      soundPronunciations: soundPronunciations)
+        
+        self.sightWordsPreK = SightWordsManager(category: .preK)
+        self.sightWordsKindergarten = SightWordsManager(category: .kindergarten)
     }
     
     

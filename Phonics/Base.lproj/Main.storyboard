@@ -10,6 +10,14 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ComicNeue-Regular.otf">
+            <string>ComicNeue</string>
+        </array>
+        <array key="ComicNeue_Bold.otf">
+            <string>ComicNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="gTf-hK-SWa">
@@ -97,18 +105,18 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXT-ZE-SzT" userLabel="card">
                                                     <rect key="frame" x="9" y="6" width="223" height="154"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-65-8dj">
-                                                            <rect key="frame" x="32" y="17" width="160" height="111.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-65-8dj">
+                                                            <rect key="frame" x="27.5" y="21" width="169" height="103.5"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" image="ape.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-Rj-ZGY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="111.5" height="111.5"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" image="letter-icon-a.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-Rj-ZGY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100.5" height="103.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="PDG-Rj-ZGY" secondAttribute="height" multiplier="1:1" priority="900" id="rQA-Gk-AU5"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
-                                                                    <rect key="frame" x="126.5" y="0.0" width="33.5" height="111.5"/>
-                                                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="60"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Aa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
+                                                                    <rect key="frame" x="112.5" y="0.0" width="56.5" height="103.5"/>
+                                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="50"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <size key="shadowOffset" width="1" height="1"/>
@@ -150,9 +158,10 @@
                                                         <constraint firstItem="mgX-65-8dj" firstAttribute="centerX" secondItem="WXT-ZE-SzT" secondAttribute="centerX" id="8VT-ox-Kas"/>
                                                         <constraint firstAttribute="trailing" secondItem="4Hn-sY-vyl" secondAttribute="trailing" constant="5" id="Dc2-YP-Ul3"/>
                                                         <constraint firstAttribute="trailing" secondItem="P0W-KL-aLA" secondAttribute="trailing" id="DfQ-cx-M6s"/>
-                                                        <constraint firstItem="PDG-Rj-ZGY" firstAttribute="width" relation="lessThanOrEqual" secondItem="WXT-ZE-SzT" secondAttribute="width" multiplier="0.5" id="U5b-de-YQE"/>
+                                                        <constraint firstItem="PDG-Rj-ZGY" firstAttribute="width" relation="lessThanOrEqual" secondItem="WXT-ZE-SzT" secondAttribute="width" multiplier="0.45" id="U5b-de-YQE"/>
                                                         <constraint firstItem="P0W-KL-aLA" firstAttribute="leading" secondItem="WXT-ZE-SzT" secondAttribute="leading" id="fxc-kN-i7w"/>
-                                                        <constraint firstItem="PDG-Rj-ZGY" firstAttribute="height" secondItem="WXT-ZE-SzT" secondAttribute="height" multiplier="0.725" id="g3b-bP-Ba6"/>
+                                                        <constraint firstItem="PDG-Rj-ZGY" firstAttribute="height" secondItem="WXT-ZE-SzT" secondAttribute="height" multiplier="0.675" id="g3b-bP-Ba6"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mgX-65-8dj" secondAttribute="trailing" constant="10" id="hAL-Mh-N53"/>
                                                         <constraint firstItem="P0W-KL-aLA" firstAttribute="top" secondItem="4Hn-sY-vyl" secondAttribute="bottom" constant="5" id="mVy-Mi-n4a"/>
                                                         <constraint firstItem="mgX-65-8dj" firstAttribute="centerY" secondItem="WXT-ZE-SzT" secondAttribute="centerY" constant="-4" id="ru0-1t-iEF"/>
                                                         <constraint firstAttribute="bottom" secondItem="P0W-KL-aLA" secondAttribute="bottom" id="w31-n2-YLB"/>
@@ -244,13 +253,13 @@
                                         <rect key="frame" x="124" y="20" width="250" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWW-Mn-36k">
-                                                <rect key="frame" x="102" y="16.5" width="47" height="97"/>
-                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="84"/>
+                                                <rect key="frame" x="104" y="23" width="42.5" height="84"/>
+                                                <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="84"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-BJ-uKI" userLabel="checkmark">
-                                                <rect key="frame" x="154" y="74" width="30" height="30"/>
+                                                <rect key="frame" x="151.5" y="66" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Kg-g2-goa"/>
                                                     <constraint firstAttribute="width" constant="30" id="cg1-SV-LXF"/>
@@ -540,12 +549,12 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
-                                                <rect key="frame" x="47" y="20" width="106" height="150"/>
+                                                <rect key="frame" x="45.5" y="20" width="109.5" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="950" constant="250" id="5vZ-GV-HNB"/>
                                                     <constraint firstAttribute="height" constant="150" id="XAE-6W-OQ9"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="95"/>
+                                                <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="95"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
@@ -796,8 +805,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-IG-hzZ">
-                                                    <rect key="frame" x="60.5" y="71" width="19" height="41"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
+                                                    <rect key="frame" x="60.5" y="73" width="19" height="37"/>
+                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="37"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -805,8 +814,8 @@
                                                     <rect key="frame" x="105" y="148" width="35" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="i7h-f6-JNH">
-                                                            <rect key="frame" x="8" y="5.5" width="22" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <rect key="frame" x="8" y="6.5" width="22" height="22"/>
+                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1023,7 +1032,6 @@ My song had been longer.
     </scenes>
     <resources>
         <image name="anchor.jpg" width="256" height="256"/>
-        <image name="ape.jpg" width="256" height="256"/>
         <image name="button-back" width="50" height="50"/>
         <image name="button-check" width="50" height="50"/>
         <image name="button-forward" width="50" height="50"/>
@@ -1031,6 +1039,7 @@ My song had been longer.
         <image name="button-list" width="50" height="50"/>
         <image name="button-question" width="50" height="50"/>
         <image name="button-repeat" width="50" height="50"/>
+        <image name="letter-icon-a.jpg" width="192" height="256"/>
         <image name="lion.jpg" width="256" height="256"/>
         <image name="run.jpg" width="256" height="256"/>
         <image name="shadow-right" width="9" height="598"/>

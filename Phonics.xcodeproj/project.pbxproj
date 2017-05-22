@@ -119,6 +119,26 @@
 		2E0D53261ED2419A00EF3706 /* extra-letter-R.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D531F1ED2419A00EF3706 /* extra-letter-R.mp3 */; };
 		2E0D53271ED2419A00EF3706 /* extra-letter-U.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53201ED2419A00EF3706 /* extra-letter-U.mp3 */; };
 		2E0D53281ED2419A00EF3706 /* extra-letter-X.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53211ED2419A00EF3706 /* extra-letter-X.mp3 */; };
+		2E0D53361ED2479100EF3706 /* ComicNeue_Bold_Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D532A1ED2479100EF3706 /* ComicNeue_Bold_Oblique.otf */; };
+		2E0D53371ED2479100EF3706 /* ComicNeue_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D532B1ED2479100EF3706 /* ComicNeue_Bold.otf */; };
+		2E0D53381ED2479100EF3706 /* ComicNeue_Light_Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D532C1ED2479100EF3706 /* ComicNeue_Light_Oblique.otf */; };
+		2E0D53391ED2479100EF3706 /* ComicNeue_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D532D1ED2479100EF3706 /* ComicNeue_Light.otf */; };
+		2E0D533A1ED2479100EF3706 /* ComicNeue_Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D532E1ED2479100EF3706 /* ComicNeue_Oblique.otf */; };
+		2E0D533B1ED2479100EF3706 /* ComicNeue-Angular_Bold_Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D532F1ED2479100EF3706 /* ComicNeue-Angular_Bold_Oblique.otf */; };
+		2E0D533C1ED2479100EF3706 /* ComicNeue-Angular_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53301ED2479100EF3706 /* ComicNeue-Angular_Bold.otf */; };
+		2E0D533D1ED2479100EF3706 /* ComicNeue-Angular_Light_Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53311ED2479100EF3706 /* ComicNeue-Angular_Light_Oblique.otf */; };
+		2E0D533E1ED2479100EF3706 /* ComicNeue-Angular_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53321ED2479100EF3706 /* ComicNeue-Angular_Light.otf */; };
+		2E0D533F1ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53331ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf */; };
+		2E0D53401ED2479100EF3706 /* ComicNeue-Angular-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53341ED2479100EF3706 /* ComicNeue-Angular-Regular.otf */; };
+		2E0D53411ED2479100EF3706 /* ComicNeue-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53351ED2479100EF3706 /* ComicNeue-Regular.otf */; };
+		2E0D53511ED2665B00EF3706 /* Pre-K Sight Words Sentences in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53501ED2665B00EF3706 /* Pre-K Sight Words Sentences */; };
+		2E0D53F41ED2668000EF3706 /* Pre-K Sight Words Art in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53F31ED2668000EF3706 /* Pre-K Sight Words Art */; };
+		2E0D53F61ED2670F00EF3706 /* SightWordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53F51ED2670F00EF3706 /* SightWordsManager.swift */; };
+		2E0D53F81ED267D900EF3706 /* SightWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53F71ED267D900EF3706 /* SightWord.swift */; };
+		2E0D53FC1ED2682B00EF3706 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53FB1ED2682B00EF3706 /* Sentence.swift */; };
+		2E0D53FD1ED26A4900EF3706 /* SightWordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53F51ED2670F00EF3706 /* SightWordsManager.swift */; };
+		2E0D53FE1ED26A4B00EF3706 /* SightWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53F71ED267D900EF3706 /* SightWord.swift */; };
+		2E0D53FF1ED26A4E00EF3706 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53FB1ED2682B00EF3706 /* Sentence.swift */; };
 		2E1097C71E25E112003CB8BB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5621E0BBA4800C667DE /* Player.swift */; };
 		2E1097C81E25E115003CB8BB /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
 		2E1097C91E25E117003CB8BB /* NSCoding+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */; };
@@ -2319,6 +2339,23 @@
 		2E0D531F1ED2419A00EF3706 /* extra-letter-R.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "extra-letter-R.mp3"; sourceTree = "<group>"; };
 		2E0D53201ED2419A00EF3706 /* extra-letter-U.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "extra-letter-U.mp3"; sourceTree = "<group>"; };
 		2E0D53211ED2419A00EF3706 /* extra-letter-X.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "extra-letter-X.mp3"; sourceTree = "<group>"; };
+		2E0D532A1ED2479100EF3706 /* ComicNeue_Bold_Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicNeue_Bold_Oblique.otf; path = Fonts/ComicNeue_Bold_Oblique.otf; sourceTree = "<group>"; };
+		2E0D532B1ED2479100EF3706 /* ComicNeue_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicNeue_Bold.otf; path = Fonts/ComicNeue_Bold.otf; sourceTree = "<group>"; };
+		2E0D532C1ED2479100EF3706 /* ComicNeue_Light_Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicNeue_Light_Oblique.otf; path = Fonts/ComicNeue_Light_Oblique.otf; sourceTree = "<group>"; };
+		2E0D532D1ED2479100EF3706 /* ComicNeue_Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicNeue_Light.otf; path = Fonts/ComicNeue_Light.otf; sourceTree = "<group>"; };
+		2E0D532E1ED2479100EF3706 /* ComicNeue_Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicNeue_Oblique.otf; path = Fonts/ComicNeue_Oblique.otf; sourceTree = "<group>"; };
+		2E0D532F1ED2479100EF3706 /* ComicNeue-Angular_Bold_Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular_Bold_Oblique.otf"; path = "Fonts/ComicNeue-Angular_Bold_Oblique.otf"; sourceTree = "<group>"; };
+		2E0D53301ED2479100EF3706 /* ComicNeue-Angular_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular_Bold.otf"; path = "Fonts/ComicNeue-Angular_Bold.otf"; sourceTree = "<group>"; };
+		2E0D53311ED2479100EF3706 /* ComicNeue-Angular_Light_Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular_Light_Oblique.otf"; path = "Fonts/ComicNeue-Angular_Light_Oblique.otf"; sourceTree = "<group>"; };
+		2E0D53321ED2479100EF3706 /* ComicNeue-Angular_Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular_Light.otf"; path = "Fonts/ComicNeue-Angular_Light.otf"; sourceTree = "<group>"; };
+		2E0D53331ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular_Oblique.otf"; path = "Fonts/ComicNeue-Angular_Oblique.otf"; sourceTree = "<group>"; };
+		2E0D53341ED2479100EF3706 /* ComicNeue-Angular-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular-Regular.otf"; path = "Fonts/ComicNeue-Angular-Regular.otf"; sourceTree = "<group>"; };
+		2E0D53351ED2479100EF3706 /* ComicNeue-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Regular.otf"; path = "Fonts/ComicNeue-Regular.otf"; sourceTree = "<group>"; };
+		2E0D53501ED2665B00EF3706 /* Pre-K Sight Words Sentences */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words Sentences"; sourceTree = "<group>"; };
+		2E0D53F31ED2668000EF3706 /* Pre-K Sight Words Art */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words Art"; sourceTree = "<group>"; };
+		2E0D53F51ED2670F00EF3706 /* SightWordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordsManager.swift; sourceTree = "<group>"; };
+		2E0D53F71ED267D900EF3706 /* SightWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWord.swift; sourceTree = "<group>"; };
+		2E0D53FB1ED2682B00EF3706 /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		2E1459F51E46F14E00BD6C2C /* puzzle-A-ahh-rhymeText.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puzzle-A-ahh-rhymeText.txt"; sourceTree = "<group>"; };
 		2E1459F61E46F14E00BD6C2C /* puzzle-A-AI-rhymeText.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puzzle-A-AI-rhymeText.txt"; sourceTree = "<group>"; };
 		2E1459F71E46F14E00BD6C2C /* puzzle-A-AN-rhymeText.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puzzle-A-AN-rhymeText.txt"; sourceTree = "<group>"; };
@@ -4423,9 +4460,29 @@
 			path = "Extra Letters";
 			sourceTree = "<group>";
 		};
+		2E0D53291ED2478200EF3706 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2E0D532A1ED2479100EF3706 /* ComicNeue_Bold_Oblique.otf */,
+				2E0D532B1ED2479100EF3706 /* ComicNeue_Bold.otf */,
+				2E0D532C1ED2479100EF3706 /* ComicNeue_Light_Oblique.otf */,
+				2E0D532D1ED2479100EF3706 /* ComicNeue_Light.otf */,
+				2E0D532E1ED2479100EF3706 /* ComicNeue_Oblique.otf */,
+				2E0D532F1ED2479100EF3706 /* ComicNeue-Angular_Bold_Oblique.otf */,
+				2E0D53301ED2479100EF3706 /* ComicNeue-Angular_Bold.otf */,
+				2E0D53311ED2479100EF3706 /* ComicNeue-Angular_Light_Oblique.otf */,
+				2E0D53321ED2479100EF3706 /* ComicNeue-Angular_Light.otf */,
+				2E0D53331ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf */,
+				2E0D53351ED2479100EF3706 /* ComicNeue-Regular.otf */,
+				2E0D53341ED2479100EF3706 /* ComicNeue-Angular-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		2E1459F01E46F14E00BD6C2C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2E0D53291ED2478200EF3706 /* Fonts */,
 				2E1459F21E46F14E00BD6C2C /* Audio */,
 				2E145D491E46F15000BD6C2C /* Images */,
 				2E1464471E46F15300BD6C2C /* Sounds */,
@@ -4440,6 +4497,7 @@
 				2E146E3A1E46F1AB00BD6C2C /* Words */,
 				2E1459F31E46F14E00BD6C2C /* Rhymes */,
 				2E145AAF1E46F14F00BD6C2C /* Sounds */,
+				2E0D53501ED2665B00EF3706 /* Pre-K Sight Words Sentences */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -4779,6 +4837,7 @@
 			children = (
 				2E145D4A1E46F15000BD6C2C /* Puzzles */,
 				2E1462611E46F15200BD6C2C /* Words */,
+				2E0D53F31ED2668000EF3706 /* Pre-K Sight Words Art */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -7434,6 +7493,9 @@
 				2E6DE2731D639A1B00978DD6 /* Word.swift */,
 				2E6DE75C1D63A06900978DD6 /* Puzzle.swift */,
 				2E6DE75D1D63A06900978DD6 /* PuzzlePiece.swift */,
+				2E0D53F51ED2670F00EF3706 /* SightWordsManager.swift */,
+				2E0D53F71ED267D900EF3706 /* SightWord.swift */,
+				2E0D53FB1ED2682B00EF3706 /* Sentence.swift */,
 			);
 			path = "Content Model";
 			sourceTree = "<group>";
@@ -8019,6 +8081,7 @@
 				2E14651A1E46F15400BD6C2C /* sound-D.mp3 in Resources */,
 				2E146BE21E46F15500BD6C2C /* puzzle-U-uu-row1-col0.jpng in Resources */,
 				2E1464FE1E46F15400BD6C2C /* puzzle-W-wuh-rhyme.mp3 in Resources */,
+				2E0D533C1ED2479100EF3706 /* ComicNeue-Angular_Bold.otf in Resources */,
 				2E1467B51E46F15400BD6C2C /* puzzle-A-AN-row0-col0.jpng in Resources */,
 				2E14685F1E46F15400BD6C2C /* puzzle-C-CR-row0-col1.jpng in Resources */,
 				2E1464F51E46F15400BD6C2C /* puzzle-T-the-rhyme.mp3 in Resources */,
@@ -8113,6 +8176,7 @@
 				2E146C6D1E46F15600BD6C2C /* bed.jpg in Resources */,
 				2E1469DD1E46F15500BD6C2C /* puzzle-K-kuh-row2-col0.jpng in Resources */,
 				2E1468D91E46F15500BD6C2C /* puzzle-E-long-row2-col0.jpng in Resources */,
+				2E0D53391ED2479100EF3706 /* ComicNeue_Light.otf in Resources */,
 				2E14683C1E46F15400BD6C2C /* puzzle-B-buh-row1-col2.jpng in Resources */,
 				2E1465261E46F15400BD6C2C /* sound-ER.mp3 in Resources */,
 				2E1469311E46F15500BD6C2C /* puzzle-G-GR-row1-col0.jpng in Resources */,
@@ -8185,6 +8249,7 @@
 				2E1469F81E46F15500BD6C2C /* puzzle-L-lll-row2-col1.jpng in Resources */,
 				2E1468B31E46F15500BD6C2C /* puzzle-E-ER-row2-col1.jpng in Resources */,
 				2E146AA21E46F15500BD6C2C /* puzzle-O-ow-row2-col2.jpng in Resources */,
+				2E0D53F41ED2668000EF3706 /* Pre-K Sight Words Art in Resources */,
 				2E146B411E46F15500BD6C2C /* puzzle-S-SL-row3-col2.jpng in Resources */,
 				2E146E091E46F15600BD6C2C /* tricycle.jpg in Resources */,
 				2E0D52ED1ED1676A00EF3706 /* words-O-OA.mp3 in Resources */,
@@ -8738,6 +8803,7 @@
 				2E146BC41E46F15500BD6C2C /* puzzle-U-long-spec.json in Resources */,
 				2E1465521E46F15400BD6C2C /* sound-PR.mp3 in Resources */,
 				2E1465081E46F15400BD6C2C /* sound-AH.mp3 in Resources */,
+				2E0D53511ED2665B00EF3706 /* Pre-K Sight Words Sentences in Resources */,
 				2E146DC91E46F15600BD6C2C /* spies.jpg in Resources */,
 				2E146D6F1E46F15600BD6C2C /* old.jpg in Resources */,
 				2E146DEA1E46F15600BD6C2C /* t-square.jpg in Resources */,
@@ -8910,6 +8976,7 @@
 				2E146E051E46F15600BD6C2C /* traffic light.jpg in Resources */,
 				2E1465421E46F15400BD6C2C /* sound-ND.mp3 in Resources */,
 				2E1465221E46F15400BD6C2C /* sound-EER.mp3 in Resources */,
+				2E0D533A1ED2479100EF3706 /* ComicNeue_Oblique.otf in Resources */,
 				2E146A9F1E46F15500BD6C2C /* puzzle-O-ow-row1-col2.jpng in Resources */,
 				2E146C611E46F15600BD6C2C /* ball.jpg in Resources */,
 				2E1468E91E46F15500BD6C2C /* puzzle-E-schwa-row3-col0.jpng in Resources */,
@@ -8942,6 +9009,7 @@
 				2E146DD71E46F15600BD6C2C /* stilts.jpg in Resources */,
 				2E1469CD1E46F15500BD6C2C /* puzzle-J-juh-row1-col0.jpng in Resources */,
 				2E146D001E46F15600BD6C2C /* foot.jpg in Resources */,
+				2E0D533E1ED2479100EF3706 /* ComicNeue-Angular_Light.otf in Resources */,
 				2E1469CF1E46F15500BD6C2C /* puzzle-J-juh-row1-col2.jpng in Resources */,
 				2E146E391E46F15600BD6C2C /* correct.mp3 in Resources */,
 				2E146DDA1E46F15600BD6C2C /* storm.jpg in Resources */,
@@ -9041,6 +9109,7 @@
 				2E1469B31E46F15500BD6C2C /* puzzle-I-schwa-row1-col0.jpng in Resources */,
 				2E1467F11E46F15400BD6C2C /* puzzle-A-AY-row2-col2.jpng in Resources */,
 				2E146A901E46F15500BD6C2C /* puzzle-O-OU-row1-col0.jpng in Resources */,
+				2E0D53381ED2479100EF3706 /* ComicNeue_Light_Oblique.otf in Resources */,
 				2E146BB31E46F15500BD6C2C /* puzzle-T-tttt-row2-col2.jpng in Resources */,
 				2E146BB51E46F15500BD6C2C /* puzzle-T-tttt-row3-col1.jpng in Resources */,
 				2E1468D01E46F15500BD6C2C /* puzzle-E-EW-row3-col1.jpng in Resources */,
@@ -9224,6 +9293,7 @@
 				2E146C1E1E46F15600BD6C2C /* puzzle-X-ks-row3-col2.jpng in Resources */,
 				2E146C031E46F15500BD6C2C /* puzzle-W-WH-row3-col1.jpng in Resources */,
 				2E146C651E46F15600BD6C2C /* barn.jpg in Resources */,
+				2E0D533D1ED2479100EF3706 /* ComicNeue-Angular_Light_Oblique.otf in Resources */,
 				2E146D211E46F15600BD6C2C /* grandfather.jpg in Resources */,
 				2E0D52B71ED1676A00EF3706 /* words-A-AU.mp3 in Resources */,
 				2E146D0D1E46F15600BD6C2C /* front loader.jpg in Resources */,
@@ -9293,6 +9363,7 @@
 				2E146BD21E46F15500BD6C2C /* puzzle-U-UR-row0-col0.jpng in Resources */,
 				2E1465091E46F15400BD6C2C /* sound-AK.mp3 in Resources */,
 				2E1468111E46F15400BD6C2C /* puzzle-A-short-row0-col1.jpng in Resources */,
+				2E0D53361ED2479100EF3706 /* ComicNeue_Bold_Oblique.otf in Resources */,
 				2E14652B1E46F15400BD6C2C /* sound-FL.mp3 in Resources */,
 				2E14682D1E46F15400BD6C2C /* puzzle-B-BR-row1-col0.jpng in Resources */,
 				2E1469DA1E46F15500BD6C2C /* puzzle-K-kuh-row1-col0.jpng in Resources */,
@@ -9304,6 +9375,7 @@
 				2E146A8C1E46F15500BD6C2C /* puzzle-O-OR-spec.json in Resources */,
 				2E1467D01E46F15400BD6C2C /* puzzle-A-AU-row0-col1.jpng in Resources */,
 				2E146B031E46F15500BD6C2C /* puzzle-Q-qwuh-row0-col1.jpng in Resources */,
+				2E0D533B1ED2479100EF3706 /* ComicNeue-Angular_Bold_Oblique.otf in Resources */,
 				2E146B9E1E46F15500BD6C2C /* puzzle-T-TR-row0-col0.jpng in Resources */,
 				2E1467F61E46F15400BD6C2C /* puzzle-A-long-row0-col0.jpng in Resources */,
 				2E1469581E46F15500BD6C2C /* puzzle-H-huh-row1-col0.jpng in Resources */,
@@ -9474,6 +9546,7 @@
 				2E1468B11E46F15500BD6C2C /* puzzle-E-ER-row1-col2.jpng in Resources */,
 				2E146BFD1E46F15500BD6C2C /* puzzle-W-WH-row1-col1.jpng in Resources */,
 				2E146BD31E46F15500BD6C2C /* puzzle-U-UR-row0-col1.jpng in Resources */,
+				2E0D53371ED2479100EF3706 /* ComicNeue_Bold.otf in Resources */,
 				2E146CFE1E46F15600BD6C2C /* flying carpet.jpg in Resources */,
 				2E146C0C1E46F15500BD6C2C /* puzzle-W-wuh-row2-col0.jpng in Resources */,
 				2E14697A1E46F15500BD6C2C /* puzzle-I-ie-row3-col2.jpng in Resources */,
@@ -9576,6 +9649,7 @@
 				2E146C4E1E46F15600BD6C2C /* puzzle-Z-zzz-row2-col1.jpng in Resources */,
 				2E0D52EC1ED1676A00EF3706 /* words-O-long.mp3 in Resources */,
 				2E1468B91E46F15500BD6C2C /* puzzle-E-ET-row0-col0.jpng in Resources */,
+				2E0D533F1ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf in Resources */,
 				2E146CF01E46F15600BD6C2C /* fish.jpg in Resources */,
 				2E14684A1E46F15400BD6C2C /* puzzle-C-CH-row2-col0.jpng in Resources */,
 				2E146CDA1E46F15600BD6C2C /* drill.jpg in Resources */,
@@ -9611,6 +9685,7 @@
 				2E146BFB1E46F15500BD6C2C /* puzzle-W-WH-row0-col2.jpng in Resources */,
 				2E1469F91E46F15500BD6C2C /* puzzle-L-lll-row2-col2.jpng in Resources */,
 				2E146A861E46F15500BD6C2C /* puzzle-O-OR-row2-col0.jpng in Resources */,
+				2E0D53401ED2479100EF3706 /* ComicNeue-Angular-Regular.otf in Resources */,
 				2E0D52E41ED1676A00EF3706 /* words-L-LE.mp3 in Resources */,
 				2E1464711E46F15300BD6C2C /* puzzle-I-IR-rhymeText.txt in Resources */,
 				2E1469721E46F15500BD6C2C /* puzzle-I-ie-row1-col0.jpng in Resources */,
@@ -9640,6 +9715,7 @@
 				2E14655B1E46F15400BD6C2C /* sound-S-z.mp3 in Resources */,
 				2E14684C1E46F15400BD6C2C /* puzzle-C-CH-row2-col2.jpng in Resources */,
 				2E146DB91E46F15600BD6C2C /* skunk.jpg in Resources */,
+				2E0D53411ED2479100EF3706 /* ComicNeue-Regular.otf in Resources */,
 				2E146C6C1E46F15600BD6C2C /* beaver.jpg in Resources */,
 				2E1469171E46F15500BD6C2C /* puzzle-F-fuh-row1-col0.jpng in Resources */,
 				2E14687D1E46F15400BD6C2C /* puzzle-C-sss-row1-col2.jpng in Resources */,
@@ -9774,6 +9850,7 @@
 				2E6DE7541D639A1C00978DD6 /* InterativeGrowViewController.swift in Sources */,
 				2EECD5661E0BBA4800C667DE /* Player.swift in Sources */,
 				2E6DE7501D639A1C00978DD6 /* UniversalAudio.swift in Sources */,
+				2E0D53F81ED267D900EF3706 /* SightWord.swift in Sources */,
 				2E6DE74E1D639A1C00978DD6 /* CoreSwift.swift in Sources */,
 				2EECD56A1E0BBF5F00C667DE /* NSCoding+Key.swift in Sources */,
 				2E275F3A1E08DCD400B16C5E /* PuzzleDetailViewController.swift in Sources */,
@@ -9782,6 +9859,7 @@
 				2E6DE75E1D63A06900978DD6 /* Puzzle.swift in Sources */,
 				2E6DE7611D63A90100978DD6 /* PuzzleView.swift in Sources */,
 				2E6DE7531D639A1C00978DD6 /* HomeViewController.swift in Sources */,
+				2E0D53F61ED2670F00EF3706 /* SightWordsManager.swift in Sources */,
 				2E6DE7551D639A1C00978DD6 /* LettersViewController.swift in Sources */,
 				2E6DE7581D639A1C00978DD6 /* QuizViewController.swift in Sources */,
 				2E6DE74F1D639A1C00978DD6 /* LongestCommonSubsequence.swift in Sources */,
@@ -9789,6 +9867,7 @@
 				2E383FC11E07454A00128351 /* JPNG.m in Sources */,
 				2E6DE75A1D639A1C00978DD6 /* WordView.swift in Sources */,
 				2E6DE7561D639A1C00978DD6 /* LetterViewController.swift in Sources */,
+				2E0D53FC1ED2682B00EF3706 /* Sentence.swift in Sources */,
 				2E6DE74B1D639A1C00978DD6 /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -9803,6 +9882,7 @@
 				2E8FFAE01D67A1E400B1E498 /* UniversalAudio.swift in Sources */,
 				2E1097C91E25E117003CB8BB /* NSCoding+Key.swift in Sources */,
 				2E8FFADE1D67A1E400B1E498 /* CoreSwift.swift in Sources */,
+				2E0D53FE1ED26A4B00EF3706 /* SightWord.swift in Sources */,
 				2E8FFADD1D67A14100B1E498 /* Word.swift in Sources */,
 				2E8FFADA1D67A14100B1E498 /* Letter.swift in Sources */,
 				2E383FC51E077CA200128351 /* PuzzlePiece.swift in Sources */,
@@ -9810,6 +9890,8 @@
 				2E8FFADF1D67A1E400B1E498 /* LongestCommonSubsequence.swift in Sources */,
 				2E1097C81E25E115003CB8BB /* PuzzleProgress.swift in Sources */,
 				2E8FFADC1D67A14100B1E498 /* Sound.swift in Sources */,
+				2E0D53FF1ED26A4E00EF3706 /* Sentence.swift in Sources */,
+				2E0D53FD1ED26A4900EF3706 /* SightWordsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -91,7 +91,7 @@ class LetterCell : UICollectionViewCell {
     
     func decorateForLetter(_ letter: String) {
         cardView.layer.cornerRadius = cardView.frame.height * 0.1
-        letterLabel.text = letter.lowercased()
+        letterLabel.text = letter.uppercased() + letter.lowercased()
         
         guard let letter = PHContent[letter.uppercased()] else { return }
         
