@@ -570,7 +570,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
-                                                <rect key="frame" x="46" y="20" width="109.5" height="150"/>
+                                                <rect key="frame" x="45.5" y="20" width="109.5" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="950" constant="250" id="5vZ-GV-HNB"/>
                                                     <constraint firstAttribute="height" constant="150" id="XAE-6W-OQ9"/>
@@ -826,7 +826,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-IG-hzZ">
-                                                    <rect key="frame" x="60.5" y="73" width="19" height="37"/>
+                                                    <rect key="frame" x="60.5" y="73.5" width="19" height="37"/>
                                                     <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="37"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1164,16 +1164,16 @@
                                 <rect key="frame" x="70" y="148" width="478" height="152"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="INw-3G-Fml">
-                                        <rect key="frame" x="72" y="0.0" width="334" height="152"/>
+                                        <rect key="frame" x="102" y="15" width="274" height="122"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxer.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CEl-cd-2cR">
-                                                <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="122" height="122"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CEl-cd-2cR" secondAttribute="height" multiplier="1:1" id="h3f-6S-pDo"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JHu-82-910">
-                                                <rect key="frame" x="182" y="0.0" width="152" height="152"/>
+                                                <rect key="frame" x="152" y="0.0" width="122" height="122"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="JHu-82-910" secondAttribute="height" multiplier="1:1" id="YP6-3D-Aqo"/>
                                                 </constraints>
@@ -1252,10 +1252,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Sdo-h5-LhL" firstAttribute="leading" secondItem="c3J-gO-vNE" secondAttribute="leading" constant="20" id="6KT-qa-nvZ"/>
-                                    <constraint firstItem="INw-3G-Fml" firstAttribute="top" secondItem="c3J-gO-vNE" secondAttribute="top" id="95z-oA-AIA"/>
+                                    <constraint firstItem="INw-3G-Fml" firstAttribute="top" secondItem="c3J-gO-vNE" secondAttribute="top" constant="15" id="95z-oA-AIA"/>
                                     <constraint firstItem="INw-3G-Fml" firstAttribute="centerX" secondItem="c3J-gO-vNE" secondAttribute="centerX" id="Bd5-KH-fke"/>
                                     <constraint firstAttribute="trailing" secondItem="Sdo-h5-LhL" secondAttribute="trailing" constant="20" id="KYP-h9-CeP"/>
-                                    <constraint firstAttribute="bottom" secondItem="INw-3G-Fml" secondAttribute="bottom" id="nLc-wH-N5k"/>
+                                    <constraint firstAttribute="bottom" secondItem="INw-3G-Fml" secondAttribute="bottom" constant="15" id="nLc-wH-N5k"/>
                                     <constraint firstItem="Sdo-h5-LhL" firstAttribute="top" secondItem="c3J-gO-vNE" secondAttribute="top" id="ry2-Xc-dsV"/>
                                     <constraint firstAttribute="bottom" secondItem="Sdo-h5-LhL" secondAttribute="bottom" id="wW1-T4-0RQ"/>
                                 </constraints>

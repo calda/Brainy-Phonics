@@ -67,7 +67,7 @@ class SentencesViewController : InteractiveGrowViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        Timer.scheduleAfter(0.3, addToArray: &self.timers) {
+        Timer.scheduleAfter(0.4, addToArray: &self.timers) {
             self.animateForCurrentWord()
         }
     }
@@ -103,53 +103,154 @@ class SentencesViewController : InteractiveGrowViewController {
         self.timers.forEach { $0.invalidate() }
         self.timers = []
         
+        self.currentlyAnimating = true
         self.repeatButton.isEnabled = false
+        self.focusedSentenceTextField.alpha = 1.0
         
-        //play sentences
         var startTime = 0.0
         
-        for sentence in [self.currentWord.sentence1, self.currentWord.sentence2] {
+        //show first sentence
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.focusedSentenceTextField.attributedText = self.currentWord.sentence1.attributedText
+            self.animateImage(from: self.firstSentenceImageView, to: self.focusedSentenceImageView, duration: 0.65)
             
-            //animate to new sentence
-            Timer.scheduleAfter(startTime, addToArray: &self.timers) {
+            UIView.animate(withDuration: 0.3) {
                 self.focusedSentenceContainer.alpha = 1.0
-                self.focusedSentenceImageView.image = sentence.image
-                self.focusedSentenceTextField.attributedText = sentence.attributedText
-                
-                playTransitionForView(self.bottomContentContainer,
-                                      duration: 0.5,
-                                      transition: kCATransitionPush,
-                                      subtype: kCATransitionFromRight,
-                                      timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
             }
-            
-            startTime += 0.5 + 0.4
-            
-            //play audio for sentence
-            Timer.scheduleAfter(startTime, addToArray: &self.timers) {
-                self.pulseMainWordLabel()
-                PHPlayer.play(sentence.audioFileName, ofType: "mp3")
-            }
-            
-            startTime += UALengthOfFile(sentence.audioFileName, ofType: "mp3") + 1.0
-        }
-        
-        //return to normal view
-        Timer.scheduleAfter(startTime, addToArray: &self.timers) {
-            self.focusedSentenceContainer.alpha = 0.0
-            
-            playTransitionForView(self.bottomContentContainer,
-                                  duration: 0.5,
-                                  transition: kCATransitionPush,
-                                  subtype: kCATransitionFromRight,
-                                  timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
-        }
+        })
         
         startTime += 0.5
         
-        Timer.scheduleAfter(startTime, addToArray: &self.timers) {
-            self.repeatButton.isEnabled = true
+        //play first sentence
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.pulseMainWordLabel()
+            PHPlayer.play(self.currentWord.sentence1.audioFileName, ofType: "mp3")
+        })
+        
+        startTime += UALengthOfFile(self.currentWord.sentence1.audioFileName, ofType: "mp3") + 1.0
+        
+        //show second sentence
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.focusedSentenceImageView.image = self.currentWord.sentence2.image
+            self.focusedSentenceTextField.attributedText = self.currentWord.sentence2.attributedText
+            
+            self.animateContentView(direction: .left, duration: 0.5)
+        })
+        
+        startTime += 0.5
+        
+        //play second sentence
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.pulseMainWordLabel()
+            PHPlayer.play(self.currentWord.sentence2.audioFileName, ofType: "mp3")
+        })
+        
+        startTime += UALengthOfFile(self.currentWord.sentence2.audioFileName, ofType: "mp3") + 1.0
+        
+        //animate to regular state
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.animateImage(from: self.focusedSentenceImageView, to: self.secondSentenceImageView, duration: 0.65)
+            
+            UIView.animate(withDuration: 0.3) {
+                self.focusedSentenceContainer.alpha = 0.0
+                self.focusedSentenceTextField.alpha = 0.0
+                self.repeatButton.isEnabled = true
+                self.currentlyAnimating = false
+            }
+        })
+    }
+    
+    func animateSentence(for imageView: UIImageView) {
+        guard imageView == self.firstSentenceImageView || imageView == self.secondSentenceImageView else {
+            return
         }
+        
+        let sentence = (imageView == self.firstSentenceImageView)
+                        ? self.currentWord.sentence1
+                        : self.currentWord.sentence2
+        
+        self.currentlyAnimating = true
+        self.repeatButton.isEnabled = false
+        self.focusedSentenceTextField.alpha = 1.0
+        
+        var startTime = 0.0
+        
+        //show sentence
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.focusedSentenceTextField.attributedText = sentence.attributedText
+            self.animateImage(from: imageView, to: self.focusedSentenceImageView, duration: 0.65)
+            
+            UIView.animate(withDuration: 0.3) {
+                self.focusedSentenceContainer.alpha = 1.0
+            }
+        })
+        
+        startTime += 0.5
+        
+        //play sentence
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.pulseMainWordLabel()
+            PHPlayer.play(sentence.audioFileName, ofType: "mp3")
+        })
+        
+        startTime += UALengthOfFile(sentence.audioFileName, ofType: "mp3") + 1.0
+        
+        //hide sentence
+        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.animateImage(from: self.focusedSentenceImageView, to: imageView, duration: 0.65)
+            
+            UIView.animate(withDuration: 0.3) {
+                self.focusedSentenceContainer.alpha = 0.0
+                self.focusedSentenceTextField.alpha = 0.0
+                self.repeatButton.isEnabled = true
+                self.currentlyAnimating = false
+            }
+        })
+    }
+    
+    
+    //MARK: Animation Helpers
+    
+    enum Direction: String {
+        case left
+        case right
+        
+        var animationSubtype: String {
+            switch(self) {
+            case .left: return kCATransitionFromRight
+            case .right: return kCATransitionFromLeft
+            }
+        }
+    }
+    
+    func animateContentView(direction: Direction, duration: TimeInterval) {
+        playTransitionForView(self.bottomContentContainer,
+                              duration: duration,
+                              transition: kCATransitionPush,
+                              subtype: direction.animationSubtype,
+                              timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+    }
+    
+    func animateImage(from origin: UIImageView, to destination: UIImageView, duration: TimeInterval) {
+        let originFrame = origin.convert(origin.bounds, to: self.view)
+        let destinationFrame = destination.convert(destination.bounds, to: self.view)
+        
+        let temporaryImageView = UIImageView(image: origin.image)
+        temporaryImageView.contentMode = .scaleAspectFit
+        self.view.addSubview(temporaryImageView)
+        temporaryImageView.frame = originFrame
+        
+        origin.alpha = 0.0
+        destination.alpha = 0.0
+        
+        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.85, initialSpringVelocity: 0.0, options: [], animations: {
+            temporaryImageView.frame = destinationFrame
+        }, completion: { _ in
+            temporaryImageView.removeFromSuperview()
+            origin.alpha = 1.0
+            destination.alpha = 1.0
+            destination.image = origin.image
+        })
     }
     
     func pulseMainWordLabel(duration: TimeInterval = 0.5) {
@@ -164,21 +265,7 @@ class SentencesViewController : InteractiveGrowViewController {
     }
     
     
-    
     //MARK: - User Interaction
-    
-    override func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
-        return 1.125
-    }
-    
-    override func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
-        return 0.3
-    }
-    
-    override func touchUpForInteractiveView(_ view: UIView) {
-        print(view)
-    }
-    
     
     @IBAction func backPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -191,10 +278,14 @@ class SentencesViewController : InteractiveGrowViewController {
     @IBAction func previousWordPressed(_ sender: Any) {
         guard let previousWord = self.previousWord else { return }
         self.currentWord = previousWord
-        self.decorateForCurrentWord()
+        
+        self.timers.forEach{ $0.invalidate() }
         UAHaltPlayback()
         
-        Timer.scheduleAfter(0.3, addToArray: &self.timers) {
+        self.decorateForCurrentWord()
+        self.animateContentView(direction: .right, duration: 0.5)
+        
+        Timer.scheduleAfter(0.75, addToArray: &self.timers) {
             self.animateForCurrentWord()
         }
     }
@@ -202,11 +293,35 @@ class SentencesViewController : InteractiveGrowViewController {
     @IBAction func nextWordPressed(_ sender: Any) {
         guard let nextWord = self.nextWord else { return }
         self.currentWord = nextWord
-        self.decorateForCurrentWord()
+        
+        self.timers.forEach{ $0.invalidate() }
         UAHaltPlayback()
         
-        Timer.scheduleAfter(0.3, addToArray: &self.timers) {
+        self.decorateForCurrentWord()
+        self.animateContentView(direction: .left, duration: 0.5)
+        
+        Timer.scheduleAfter(0.75, addToArray: &self.timers) {
             self.animateForCurrentWord()
         }
     }
+    
+    
+    //MARK: InteractiveGrowViewController Interaction
+    
+    override func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
+        return 1.125
+    }
+    
+    override func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
+        return 0.3
+    }
+    
+    override func touchUpForInteractiveView(_ view: UIView) {
+        guard !currentlyAnimating else { return }
+        
+        if let imageView = view as? UIImageView {
+            self.animateSentence(for: imageView)
+        }
+    }
+    
 }
