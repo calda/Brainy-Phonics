@@ -82,6 +82,10 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func playQuiz(_ sender: Any) {
+        SightWordsQuizViewController.present(from: self, using: self.sightWords)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.view.isUserInteractionEnabled = false

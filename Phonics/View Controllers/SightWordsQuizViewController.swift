@@ -11,6 +11,7 @@ import UIKit
 struct InstructionsContent {
     static let listen = InstructionsContent(text: "Listen...", image: #imageLiteral(resourceName: "listen"))
     static let chooseWord = InstructionsContent(text: "Choose the word", image: #imageLiteral(resourceName: "button-question"))
+    static let correct = InstructionsContent(text: "Correct! Good job!", image: #imageLiteral(resourceName: "correct"))
     
     let text: String
     let image: UIImage
@@ -21,15 +22,30 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     //MARK: - Presentation
     
+    static let storyboardId = "sightWordsQuiz"
+    
+    static func present(from source: UIViewController, using sightWords: SightWordsManager) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardId) as! SightWordsQuizViewController
+        controller.sightWords = sightWords
+        source.present(controller, animated: true, completion: nil)
+    }
+    
     
     //MARK: - Setup
     
-    var sightWords: SightWordsManager! = PHContent.sightWordsKindergarten
+    var sightWords: SightWordsManager!
     var remainingWords: [SightWord] = []
     var currentWord: SightWord?
+    
+    var currentlyAnimating = false
     var timers = [Timer]()
     
     @IBOutlet var answerLabels: [UILabel]!
+    var originalCenters = [UIView : CGPoint]()
+    
+    @IBOutlet weak var answersView: UIView!
+    @IBOutlet weak var buttonArea: UIView!
+    
     @IBOutlet weak var instructionsPill: UIView!
     @IBOutlet weak var instructionsImage: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
@@ -37,12 +53,18 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.view.layoutIfNeeded()
         self.view.backgroundColor = sightWords.category.color
+        self.buttonArea.backgroundColor = sightWords.category.color
+        
+        for label in answerLabels {
+            guard let superview = label.superview else { continue }
+            self.originalCenters[superview] = superview.center
+        }
         
         self.updateInstructions(with: .listen, animate: false)
-        self.setupForNewWord()
+        self.setupForNewWord(animateTransition: false)
     }
     
-    func setupForNewWord() {
+    func setupForNewWord(animateTransition: Bool) {
         if self.remainingWords.count < 4 {
             self.remainingWords = sightWords.words.shuffled()
         }
@@ -59,15 +81,40 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         
         for (label, word) in zip(self.answerLabels, answerWords.shuffled()) {
             label.text = word.text
+            
+            if let superview = label.superview {
+                superview.alpha = 1.0
+                superview.center = self.originalCenters[superview] ?? superview.center
+            }
         }
         
-        self.animateForCurrentWord()
+        self.updateInstructions(with: .listen, animate: true)
+        
+        if animateTransition {
+            animateTransitionToNewWord(then: self.animateForCurrentWord)
+        } else {
+            self.animateForCurrentWord()
+        }
     }
     
     
     //MARK: - Animations
     
+    func animateTransitionToNewWord(then completion: @escaping () -> ()) {
+        playTransitionForView(self.answersView,
+                              duration: 0.5,
+                              transition: kCATransitionPush,
+                              subtype: kCATransitionFromRight,
+                              timingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+        
+        Timer.scheduleAfter(0.5, addToArray: &self.timers, handler: {
+            completion()
+        })
+    }
+    
     func animateForCurrentWord() {
+        self.currentlyAnimating = true
+        
         self.updateInstructions(with: .listen, animate: true)
         
         Timer.scheduleAfter(0.4, addToArray: &self.timers, handler: {
@@ -76,6 +123,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         
         Timer.scheduleAfter(0.4 + 0.75 + 0.5, addToArray: &self.timers, handler: {
             self.updateInstructions(with: .chooseWord, animate: true)
+            self.currentlyAnimating = false
         })
     }
     
@@ -106,44 +154,85 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         })
     }
     
-    
-    //MARK: - User Interaction
-    
     func userSelectedCorrectWord(from view: UIView) {
+        self.currentlyAnimating = true
         PHPlayer.play("correct", ofType: "mp3")
+        self.updateInstructions(with: .correct, animate: true)
+        
+        UIView.animate(withDuration: 0.2) {
+            for answerLabel in self.answerLabels {
+                if answerLabel.superview != view {
+                    answerLabel.superview?.alpha = 0.0
+                }
+            }
+        }
+        
+        UIView.animate(withDuration: 0.45, delay: 0.0, usingSpringWithDamping: 0.8, animations: {
+            let relativeCenter = view.superview!.convert(self.answersView.center, from: self.answersView.superview!)
+            view.center = relativeCenter
+        })
         
         Timer.scheduleAfter(1.0, addToArray: &self.timers) {
             self.currentWord?.playAudio()
         }
         
         Timer.scheduleAfter(2.0, addToArray: &self.timers) {
-            self.setupForNewWord()
+            self.setupForNewWord(animateTransition: true)
+            self.currentlyAnimating = false
         }
     }
     
     func userSelectedIncorrectWord(_ word: SightWord, from view: UIView) {
+        self.currentlyAnimating = true
         shakeView(view)
-        word.playAudio()
+        PHPlayer.play("incorrect", ofType: "mp3")
         
-        UIView.animate(withDuration: 0.4, delay: 0.75, options: [], animations: {
+        UIView.animate(withDuration: 0.4) {
             view.alpha = 0.4
-        }, completion: nil)
+        }
+        
+        Timer.scheduleAfter(0.5, addToArray: &self.timers, handler: {
+            self.updateInstructions(with: .listen, animate: true)
+        })
+        
+        Timer.scheduleAfter(0.5 + 0.1, addToArray: &self.timers, handler: {
+            self.currentWord?.playAudio()
+        })
+        
+        Timer.scheduleAfter(0.5 + 0.1 + 1.0, addToArray: &self.timers, handler: {
+            self.currentlyAnimating = false
+        })
+        
+        Timer.scheduleAfter(0.5 + 0.1 + 1.5, addToArray: &self.timers, handler: {
+            self.updateInstructions(with: .chooseWord, animate: true)
+        })
+        
     }
+    
+    
+    //MARK: - User Interaction
     
     @IBAction func repeatTapped(_ sender: Any) {
         self.animateForCurrentWord()
     }
     
+    @IBAction func backTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     //MARK: Interactive Growing
+    
+    override func interactiveGrowShouldHappenFor(_ view: UIView) -> Bool {
+        let hasBeenSelectedAlready = (view.alpha != 1.0)
+        return !currentlyAnimating && !hasBeenSelectedAlready
+    }
     
     override func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
         return 1.075
     }
     
     override func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
-        let selectedText = (view.subviews.first as? UILabel)?.text
-        return (selectedText == self.currentWord?.text) ? 2.0 : 0.75
+        return 0.25
     }
     
     override func touchUpForInteractiveView(_ view: UIView) {
