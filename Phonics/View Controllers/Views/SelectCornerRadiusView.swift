@@ -49,3 +49,18 @@ class SelectCornerRadiusView : UIView {
     }
     
 }
+
+@IBDesignable
+class CornerRadiusView : UIView {
+    
+    @IBInspectable var cornerRadius: Double = -1 {
+        didSet {
+            if cornerRadius == -1 {
+                self.layer.cornerRadius = self.frame.width / 2
+            } else {
+                self.layer.cornerRadius = CGFloat(cornerRadius)
+            }
+        }
+    }
+    
+}
