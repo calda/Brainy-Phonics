@@ -29,13 +29,22 @@ struct Sentence {
         
         let matchColor = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
         
-        while lowercaseSentence.contains(matchWord) {
-            let range = (lowercaseSentence as NSString).range(of: matchWord)
-            attributedSentence.addAttributes([NSForegroundColorAttributeName : matchColor], range: range)
-            
-            let replacement = String(repeating: "_", count: matchWord.length)
-            lowercaseSentence = (lowercaseSentence as NSString).replacingCharacters(in: range, with: replacement)
+        func highlight(instancesOf matchString: String, rangeOffset: Int) {
+            while lowercaseSentence.contains(matchString) {
+                let range = (lowercaseSentence as NSString).range(of: matchWord)
+                
+                let rangeInActualSentence = NSMakeRange(range.location + rangeOffset, range.length)
+                attributedSentence.addAttributes([NSForegroundColorAttributeName : matchColor], range: rangeInActualSentence)
+                
+                let replacement = String(repeating: "_", count: matchString.length)
+                lowercaseSentence = (lowercaseSentence as NSString).replacingCharacters(in: range, with: replacement)
+            }
         }
+        
+        //pad with spaces so we can highlight instances of the word that start and end with spaces
+        // AKA ignore instances of the word that are actually just parts of a larger word
+        lowercaseSentence = " " + lowercaseSentence + " "
+        highlight(instancesOf: " " + matchWord + " ", rangeOffset: -1)
         
         return attributedSentence
     }

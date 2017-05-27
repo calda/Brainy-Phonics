@@ -293,6 +293,7 @@ extension UIImageView {
     
     func update(on queue: DispatchQueue, withImage loadImage: @escaping () -> (UIImage?)) {
         self.alpha = 0.0
+        self.image = nil
         
         queue.async {
             let image = loadImage()
@@ -300,9 +301,11 @@ extension UIImageView {
             DispatchQueue.main.sync {
                 self.image = image
                 
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.alpha = 1.0
-                })
+                if image != nil {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.alpha = 1.0
+                    })
+                }
             }
         }
     }

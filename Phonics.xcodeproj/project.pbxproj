@@ -2176,6 +2176,7 @@
 		2E3F0A6A1ED016B600C1BC42 /* letter-icon-x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F0A501ED016B600C1BC42 /* letter-icon-x.jpg */; };
 		2E3F0A6B1ED016B600C1BC42 /* letter-icon-y.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F0A511ED016B600C1BC42 /* letter-icon-y.jpg */; };
 		2E3F0A6C1ED016B600C1BC42 /* letter-icon-z.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F0A521ED016B600C1BC42 /* letter-icon-z.jpg */; };
+		2E4B00A51ED92EE300834D45 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B00A41ED92EE300834D45 /* HomeButton.swift */; };
 		2E5B33AB1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */; };
 		2E6DE2871D639A1B00978DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA61D639A1600978DD6 /* AppDelegate.swift */; };
 		2E6DE2881D639A1B00978DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA81D639A1600978DD6 /* Assets.xcassets */; };
@@ -4396,6 +4397,7 @@
 		2E3F0A501ED016B600C1BC42 /* letter-icon-x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "letter-icon-x.jpg"; sourceTree = "<group>"; };
 		2E3F0A511ED016B600C1BC42 /* letter-icon-y.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "letter-icon-y.jpg"; sourceTree = "<group>"; };
 		2E3F0A521ED016B600C1BC42 /* letter-icon-z.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "letter-icon-z.jpg"; sourceTree = "<group>"; };
+		2E4B00A41ED92EE300834D45 /* HomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleCollectionViewController.swift; sourceTree = "<group>"; };
 		2E6DDDA61D639A1600978DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -7565,6 +7567,7 @@
 				2E6DE2851D639A1B00978DD6 /* WordView.swift */,
 				2E6DE2861D639A1B00978DD6 /* WordView.xib */,
 				2E73FFDD1E2B292C0055AAAD /* SelectCornerRadiusView.swift */,
+				2E4B00A41ED92EE300834D45 /* HomeButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -9878,6 +9881,7 @@
 				2EECD56A1E0BBF5F00C667DE /* NSCoding+Key.swift in Sources */,
 				2E275F3A1E08DCD400B16C5E /* PuzzleDetailViewController.swift in Sources */,
 				2E6DE74C1D639A1C00978DD6 /* Word.swift in Sources */,
+				2E4B00A51ED92EE300834D45 /* HomeButton.swift in Sources */,
 				2E6DE7491D639A1C00978DD6 /* Letter.swift in Sources */,
 				2E6DE75E1D63A06900978DD6 /* Puzzle.swift in Sources */,
 				2E6DE7611D63A90100978DD6 /* PuzzleView.swift in Sources */,

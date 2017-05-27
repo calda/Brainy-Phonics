@@ -130,11 +130,20 @@ class SightWordCell : UICollectionViewCell {
         self.cardView.layer.cornerRadius = self.cardView.frame.height * 0.1
         self.wordLabel.text = sightWord.text
         
+        //WHAT is going on here
+        func shouldIgnoreImageUpdate() -> Bool {
+            //ignore the image update if the text has already changed to a different word
+            //(the cells can be resused faster than the images are loaded)
+            return false
+        }
+        
         self.leftImageView.update(on: SightWordCell.backgroundThread, withImage: {
+            guard !shouldIgnoreImageUpdate() else { return nil }
             return sightWord.sentence1.image
         })
         
         self.rightImageView.update(on: SightWordCell.backgroundThread, withImage: {
+            guard !shouldIgnoreImageUpdate() else { return nil }
             return sightWord.sentence2.image
         })
     }

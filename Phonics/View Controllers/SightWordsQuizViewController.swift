@@ -176,7 +176,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.currentWord?.playAudio()
         }
         
-        Timer.scheduleAfter(2.0, addToArray: &self.timers) {
+        Timer.scheduleAfter(2.5, addToArray: &self.timers) {
             self.setupForNewWord(animateTransition: true)
             self.currentlyAnimating = false
         }
