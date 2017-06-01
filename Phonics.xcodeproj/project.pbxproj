@@ -131,7 +131,6 @@
 		2E0D533F1ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53331ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf */; };
 		2E0D53401ED2479100EF3706 /* ComicNeue-Angular-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53341ED2479100EF3706 /* ComicNeue-Angular-Regular.otf */; };
 		2E0D53411ED2479100EF3706 /* ComicNeue-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53351ED2479100EF3706 /* ComicNeue-Regular.otf */; };
-		2E0D53511ED2665B00EF3706 /* Pre-K Sight Words Sentences in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53501ED2665B00EF3706 /* Pre-K Sight Words Sentences */; };
 		2E0D53F41ED2668000EF3706 /* Pre-K Sight Words Art in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D53F31ED2668000EF3706 /* Pre-K Sight Words Art */; };
 		2E0D53F61ED2670F00EF3706 /* SightWordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53F51ED2670F00EF3706 /* SightWordsManager.swift */; };
 		2E0D53F81ED267D900EF3706 /* SightWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53F71ED267D900EF3706 /* SightWord.swift */; };
@@ -140,7 +139,6 @@
 		2E0D53FE1ED26A4B00EF3706 /* SightWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53F71ED267D900EF3706 /* SightWord.swift */; };
 		2E0D53FF1ED26A4E00EF3706 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D53FB1ED2682B00EF3706 /* Sentence.swift */; };
 		2E0D54011ED2859F00EF3706 /* Kindergarten Sight Words Art in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D54001ED2859F00EF3706 /* Kindergarten Sight Words Art */; };
-		2E0D54031ED285AB00EF3706 /* Kindergarten Sight Words Sentences in Resources */ = {isa = PBXBuildFile; fileRef = 2E0D54021ED285AB00EF3706 /* Kindergarten Sight Words Sentences */; };
 		2E1097C71E25E112003CB8BB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5621E0BBA4800C667DE /* Player.swift */; };
 		2E1097C81E25E115003CB8BB /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
 		2E1097C91E25E117003CB8BB /* NSCoding+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */; };
@@ -2177,6 +2175,8 @@
 		2E3F0A6B1ED016B600C1BC42 /* letter-icon-y.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F0A511ED016B600C1BC42 /* letter-icon-y.jpg */; };
 		2E3F0A6C1ED016B600C1BC42 /* letter-icon-z.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F0A521ED016B600C1BC42 /* letter-icon-z.jpg */; };
 		2E4B00A51ED92EE300834D45 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B00A41ED92EE300834D45 /* HomeButton.swift */; };
+		2E4B00A81EDFE6BB00834D45 /* Kindergarten Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */; };
+		2E4B00A91EDFE6BB00834D45 /* Pre-K Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */; };
 		2E5B33AB1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */; };
 		2E6DE2871D639A1B00978DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA61D639A1600978DD6 /* AppDelegate.swift */; };
 		2E6DE2881D639A1B00978DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA81D639A1600978DD6 /* Assets.xcassets */; };
@@ -2358,13 +2358,11 @@
 		2E0D53331ED2479100EF3706 /* ComicNeue-Angular_Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular_Oblique.otf"; path = "Fonts/ComicNeue-Angular_Oblique.otf"; sourceTree = "<group>"; };
 		2E0D53341ED2479100EF3706 /* ComicNeue-Angular-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Angular-Regular.otf"; path = "Fonts/ComicNeue-Angular-Regular.otf"; sourceTree = "<group>"; };
 		2E0D53351ED2479100EF3706 /* ComicNeue-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ComicNeue-Regular.otf"; path = "Fonts/ComicNeue-Regular.otf"; sourceTree = "<group>"; };
-		2E0D53501ED2665B00EF3706 /* Pre-K Sight Words Sentences */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words Sentences"; sourceTree = "<group>"; };
 		2E0D53F31ED2668000EF3706 /* Pre-K Sight Words Art */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words Art"; sourceTree = "<group>"; };
 		2E0D53F51ED2670F00EF3706 /* SightWordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordsManager.swift; sourceTree = "<group>"; };
 		2E0D53F71ED267D900EF3706 /* SightWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWord.swift; sourceTree = "<group>"; };
 		2E0D53FB1ED2682B00EF3706 /* Sentence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		2E0D54001ED2859F00EF3706 /* Kindergarten Sight Words Art */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Kindergarten Sight Words Art"; sourceTree = "<group>"; };
-		2E0D54021ED285AB00EF3706 /* Kindergarten Sight Words Sentences */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Kindergarten Sight Words Sentences"; sourceTree = "<group>"; };
 		2E1459F51E46F14E00BD6C2C /* puzzle-A-ahh-rhymeText.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puzzle-A-ahh-rhymeText.txt"; sourceTree = "<group>"; };
 		2E1459F61E46F14E00BD6C2C /* puzzle-A-AI-rhymeText.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puzzle-A-AI-rhymeText.txt"; sourceTree = "<group>"; };
 		2E1459F71E46F14E00BD6C2C /* puzzle-A-AN-rhymeText.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puzzle-A-AN-rhymeText.txt"; sourceTree = "<group>"; };
@@ -4398,6 +4396,8 @@
 		2E3F0A511ED016B600C1BC42 /* letter-icon-y.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "letter-icon-y.jpg"; sourceTree = "<group>"; };
 		2E3F0A521ED016B600C1BC42 /* letter-icon-z.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "letter-icon-z.jpg"; sourceTree = "<group>"; };
 		2E4B00A41ED92EE300834D45 /* HomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Kindergarten Sight Words"; sourceTree = "<group>"; };
+		2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words"; sourceTree = "<group>"; };
 		2E584C031D04E79C003E3C87 /* Phonics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phonics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleCollectionViewController.swift; sourceTree = "<group>"; };
 		2E6DDDA61D639A1600978DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -4511,8 +4511,8 @@
 				2E146E3A1E46F1AB00BD6C2C /* Words */,
 				2E1459F31E46F14E00BD6C2C /* Rhymes */,
 				2E145AAF1E46F14F00BD6C2C /* Sounds */,
-				2E0D53501ED2665B00EF3706 /* Pre-K Sight Words Sentences */,
-				2E0D54021ED285AB00EF3706 /* Kindergarten Sight Words Sentences */,
+				2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */,
+				2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -7723,6 +7723,7 @@
 				2E14657B1E46F15400BD6C2C /* sound-YE.mp3 in Resources */,
 				2E0D53241ED2419A00EF3706 /* extra-letter-H.mp3 in Resources */,
 				2E1468791E46F15400BD6C2C /* puzzle-C-sss-row0-col1.jpng in Resources */,
+				2E4B00A81EDFE6BB00834D45 /* Kindergarten Sight Words in Resources */,
 				2E146B161E46F15500BD6C2C /* puzzle-R-ruh-row2-col1.jpng in Resources */,
 				2E146DC71E46F15600BD6C2C /* sombrero.jpg in Resources */,
 				2E1467B91E46F15400BD6C2C /* puzzle-A-AN-row1-col1.jpng in Resources */,
@@ -8078,7 +8079,6 @@
 				2E146A801E46F15500BD6C2C /* puzzle-O-OR-row0-col0.jpng in Resources */,
 				2E146CC11E46F15600BD6C2C /* crook.jpg in Resources */,
 				2E146C431E46F15600BD6C2C /* puzzle-Y-yuh-row3-col0.jpng in Resources */,
-				2E0D54031ED285AB00EF3706 /* Kindergarten Sight Words Sentences in Resources */,
 				2E1468081E46F15400BD6C2C /* puzzle-A-schwa-row1-col2.jpng in Resources */,
 				2E1464791E46F15300BD6C2C /* puzzle-M-mmm-rhymeText.txt in Resources */,
 				2E146DFF1E46F15600BD6C2C /* toilet paper.jpg in Resources */,
@@ -8626,6 +8626,7 @@
 				2E1469E41E46F15500BD6C2C /* puzzle-L-LE-row0-col0.jpng in Resources */,
 				2E1464E31E46F15400BD6C2C /* puzzle-O-OY-rhyme.mp3 in Resources */,
 				2E146D121E46F15600BD6C2C /* gazelle.jpg in Resources */,
+				2E4B00A91EDFE6BB00834D45 /* Pre-K Sight Words in Resources */,
 				2E1465591E46F15400BD6C2C /* sound-RN.mp3 in Resources */,
 				2E146C2A1E46F15600BD6C2C /* puzzle-Y-e-row3-col1.jpng in Resources */,
 				2E146E211E46F15600BD6C2C /* watermelon.jpg in Resources */,
@@ -8827,7 +8828,6 @@
 				2E146BC41E46F15500BD6C2C /* puzzle-U-long-spec.json in Resources */,
 				2E1465521E46F15400BD6C2C /* sound-PR.mp3 in Resources */,
 				2E1465081E46F15400BD6C2C /* sound-AH.mp3 in Resources */,
-				2E0D53511ED2665B00EF3706 /* Pre-K Sight Words Sentences in Resources */,
 				2E146DC91E46F15600BD6C2C /* spies.jpg in Resources */,
 				2E146D6F1E46F15600BD6C2C /* old.jpg in Resources */,
 				2E146DEA1E46F15600BD6C2C /* t-square.jpg in Resources */,

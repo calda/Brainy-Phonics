@@ -104,12 +104,21 @@ class PHContentTest: XCTestCase {
     
     //MARK: - Sight Words
     
-    func testSightWords() {
+    func testSightWords_categoriesHaveCorrectWordCounts() {
         let preKCount = PHContent.sightWordsPreK.words.count
         XCTAssert(preKCount == 40, "Pre-K Sight Words has \(preKCount) words, not 40. (some image or audio must not be configured correctly)")
         
         let kindergartenCount = PHContent.sightWordsKindergarten.words.count
         XCTAssert(kindergartenCount == 52, "Kindergarten Sight Words has \(kindergartenCount) words, not 52. (some image or audio must not be configured correctly)")
+    }
+    
+    func testSightWords_allWordsHaveSounds() {
+        for manager in [PHContent.sightWordsPreK, PHContent.sightWordsKindergarten] {
+            for word in manager.words {
+                let expectedAudioFile = manager.category.individualAudioFilePath(for: word)
+                XCTAssert(UALengthOfFile(expectedAudioFile, ofType: "mp3") > 0, "Sight Word \(word.text) does not have an individual audio file")
+            }
+        }
     }
     
     

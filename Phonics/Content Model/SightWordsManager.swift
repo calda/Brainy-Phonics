@@ -25,17 +25,21 @@ class SightWordsManager {
         
         private var folderNamePrefix: String {
             switch(self) {
-            case .preK: return "Pre-K Sight Words "
-            case .kindergarten: return "Kindergarten Sight Words "
+            case .preK: return "Pre-K Sight Words"
+            case .kindergarten: return "Kindergarten Sight Words"
             }
         }
         
         var audioFolderName: String {
-            return self.folderNamePrefix + "Sentences"
+            return self.folderNamePrefix
         }
         
         var imageFolderName: String {
-            return self.folderNamePrefix + "Art"
+            return self.folderNamePrefix + " Art"
+        }
+        
+        func individualAudioFilePath(for word: SightWord) -> String {
+            return self.audioFolderName + "/Individual Words/" + word.text.lowercased()
         }
     }
     
