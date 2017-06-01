@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Sentence {
+public struct Sentence {
     
     var text: String
     var highlightWord: String
@@ -21,30 +21,41 @@ struct Sentence {
     }
     
     var attributedText: NSAttributedString {
-        
-        var lowercaseSentence = self.text.lowercased()
+        var processingSentence = self.text.lowercased()
         let matchWord = self.highlightWord.lowercased()
         let attributedSentence = NSMutableAttributedString(string: self.text,
                                                            attributes: [NSForegroundColorAttributeName : UIColor.black])
         
         let matchColor = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
         
-        func highlight(instancesOf matchString: String, rangeOffset: Int) {
-            while lowercaseSentence.contains(matchString) {
-                let range = (lowercaseSentence as NSString).range(of: matchWord)
+        func highlight(instancesOf matchString: String, locationOffset: Int, lengthOffset: Int) {
+            while processingSentence.contains(matchString) {
+                let range = (processingSentence as NSString).range(of: matchString)
                 
-                let rangeInActualSentence = NSMakeRange(range.location + rangeOffset, range.length)
+                var rangeInActualSentence = NSMakeRange(range.location + locationOffset, range.length + lengthOffset)
+                
+                if rangeInActualSentence.location < 0 {
+                    //happens sometimes in practice (ex: match is at index 0, location becomes -1)
+                    let difference = -rangeInActualSentence.location
+                    rangeInActualSentence = NSMakeRange(0, rangeInActualSentence.length - difference)
+                }
+                
                 attributedSentence.addAttributes([NSForegroundColorAttributeName : matchColor], range: rangeInActualSentence)
                 
                 let replacement = String(repeating: "_", count: matchString.length)
-                lowercaseSentence = (lowercaseSentence as NSString).replacingCharacters(in: range, with: replacement)
+                processingSentence = (processingSentence as NSString).replacingCharacters(in: range, with: replacement)
             }
         }
         
         //pad with spaces so we can highlight instances of the word that start and end with spaces
         // AKA ignore instances of the word that are actually just parts of a larger word
-        lowercaseSentence = " " + lowercaseSentence + " "
-        highlight(instancesOf: " " + matchWord + " ", rangeOffset: -1)
+        // also replace punctuation with spaces so they are ignored
+        processingSentence = " " + processingSentence + " "
+        for punctuation in [".", ",", "?", "!", "-"] {
+            processingSentence = processingSentence.replacingOccurrences(of: punctuation, with: " ")
+        }
+        
+        highlight(instancesOf: " " + matchWord + " ", locationOffset: -1, lengthOffset: -1)
         
         return attributedSentence
     }

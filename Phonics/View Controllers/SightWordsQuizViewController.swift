@@ -24,16 +24,16 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     static let storyboardId = "sightWordsQuiz"
     
-    static func present(from source: UIViewController, using sightWords: SightWordsManager) {
+    static func present(from source: UIViewController, using sightWordsManager: SightWordsManager) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardId) as! SightWordsQuizViewController
-        controller.sightWords = sightWords
+        controller.sightWordsManager = sightWordsManager
         source.present(controller, animated: true, completion: nil)
     }
     
     
     //MARK: - Setup
     
-    var sightWords: SightWordsManager!
+    var sightWordsManager: SightWordsManager!
     var remainingWords: [SightWord] = []
     var currentWord: SightWord?
     
@@ -52,8 +52,8 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.view.layoutIfNeeded()
-        self.view.backgroundColor = sightWords.category.color
-        self.buttonArea.backgroundColor = sightWords.category.color
+        self.view.backgroundColor = sightWordsManager.category.color
+        self.buttonArea.backgroundColor = sightWordsManager.category.color
         
         for label in answerLabels {
             guard let superview = label.superview else { continue }
@@ -66,7 +66,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     func setupForNewWord(animateTransition: Bool) {
         if self.remainingWords.count < 4 {
-            self.remainingWords = sightWords.words.shuffled()
+            self.remainingWords = sightWordsManager.words.shuffled()
         }
         
         self.currentWord = self.remainingWords.popLast()
@@ -79,6 +79,11 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.remainingWords.popLast()!
         ]
         
+        guard !SightWord.arrayHasHomophoneConflicts(answerWords) else {
+            setupForNewWord(animateTransition: animateTransition) //just try again -- this should be rare
+            return
+        }
+        
         for (label, word) in zip(self.answerLabels, answerWords.shuffled()) {
             label.text = word.text
             
@@ -88,12 +93,15 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             }
         }
         
-        self.updateInstructions(with: .listen, animate: true)
+        let animateForNewWord = {
+            self.updateInstructions(with: .listen, animate: true)
+            self.animateForCurrentWord()
+        }
         
         if animateTransition {
-            animateTransitionToNewWord(then: self.animateForCurrentWord)
+            animateTransitionToNewWord(then: animateForNewWord)
         } else {
-            self.animateForCurrentWord()
+            animateForNewWord()
         }
     }
     
@@ -118,7 +126,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         self.updateInstructions(with: .listen, animate: true)
         
         Timer.scheduleAfter(0.4, addToArray: &self.timers, handler: {
-            self.currentWord?.playAudio()
+            self.currentWord?.playAudio(using: self.sightWordsManager)
         })
         
         Timer.scheduleAfter(0.4 + 0.75 + 0.5, addToArray: &self.timers, handler: {
@@ -141,13 +149,13 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             return
         }
         
-        UIView.animate(withDuration: 0.2, animations: {
+        /*UIView.animate(withDuration: 0.2, animations: {
             self.instructionsLabel.alpha = 0.5
         })
-        
+ 
         UIView.animate(withDuration: 0.3, delay: 0.15, options: [], animations: {
             self.instructionsLabel.alpha = 1.0
-        }, completion: nil)
+        }, completion: nil)*/
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, animations: {
             self.instructionsPill.layoutIfNeeded()
@@ -173,7 +181,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         })
         
         Timer.scheduleAfter(1.0, addToArray: &self.timers) {
-            self.currentWord?.playAudio()
+            self.currentWord?.playAudio(using: self.sightWordsManager)
         }
         
         Timer.scheduleAfter(2.5, addToArray: &self.timers) {
@@ -196,7 +204,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         })
         
         Timer.scheduleAfter(0.5 + 0.1, addToArray: &self.timers, handler: {
-            self.currentWord?.playAudio()
+            self.currentWord?.playAudio(using: self.sightWordsManager)
         })
         
         Timer.scheduleAfter(0.5 + 0.1 + 1.0, addToArray: &self.timers, handler: {
@@ -238,7 +246,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     override func touchUpForInteractiveView(_ view: UIView) {
         let selectedText = (view.subviews.first as? UILabel)?.text
         
-        guard let sightWord = sightWords.words.first(where: { $0.text == selectedText }) else {
+        guard let sightWord = sightWordsManager.words.first(where: { $0.text == selectedText }) else {
             return
         }
         

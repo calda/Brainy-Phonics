@@ -291,7 +291,7 @@ extension UIView {
 
 extension UIImageView {
     
-    func update(on queue: DispatchQueue, withImage loadImage: @escaping () -> (UIImage?)) {
+    func update(on queue: DispatchQueue, withImage loadImage: @escaping () -> (UIImage?), shouldIgnoreUpdateIf ignoreUpdate: @escaping () -> (Bool)) {
         self.alpha = 0.0
         self.image = nil
         
@@ -301,7 +301,7 @@ extension UIImageView {
             DispatchQueue.main.sync {
                 self.image = image
                 
-                if image != nil {
+                if image != nil && !ignoreUpdate() {
                     UIView.animate(withDuration: 0.2, animations: {
                         self.alpha = 1.0
                     })

@@ -121,6 +121,22 @@ class PHContentTest: XCTestCase {
         }
     }
     
+    func testSightWords_disallowHomophoneConflicts() {
+        func word(_ text: String) -> SightWord {
+            let emptySentence = Sentence(text: "", highlightWord: "", audioFileName: "", imageFileName: "")
+            return SightWord(text: text, sentence1: emptySentence, sentence2: emptySentence)
+        }
+        
+        let words = [
+            word("too"),
+            word("not a homophone"),
+            word("also not a homophone"),
+            word("totally not a homophone"),
+            word("two")
+        ]
+        
+        XCTAssert(SightWord.arrayHasHomophoneConflicts(words), "Array is incorrectly marked as not having homophone conflicts.")
+    }
     
     //MARK: - Helpers
     

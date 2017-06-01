@@ -64,12 +64,7 @@ class SentencesViewController : InteractiveGrowViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.decorateForCurrentWord()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        Timer.scheduleAfter(0.4, addToArray: &self.timers) {
-            self.animateForCurrentWord()
-        }
+        self.animateForCurrentWord(immediatelyStartWithFirstSentenceVisible: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,7 +87,7 @@ class SentencesViewController : InteractiveGrowViewController {
     
     //MARK: - Animation
     
-    func animateForCurrentWord() {
+    func animateForCurrentWord(immediatelyStartWithFirstSentenceVisible: Bool = false) {
         
         //cancel view animations to avoid overlap
         for view in [firstSentenceImageView, secondSentenceImageView] {
@@ -109,17 +104,25 @@ class SentencesViewController : InteractiveGrowViewController {
         
         var startTime = 0.0
         
-        //show first sentence
-        Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+        //show the first sentence -- either with or without an animation
+        if immediatelyStartWithFirstSentenceVisible {
             self.focusedSentenceTextField.attributedText = self.currentWord.sentence1.attributedText
-            self.animateImage(from: self.firstSentenceImageView, to: self.focusedSentenceImageView, duration: 0.65)
+            self.focusedSentenceImageView.image = self.currentWord.sentence1.image
+            self.focusedSentenceContainer.alpha = 1.0
             
-            UIView.animate(withDuration: 0.3) {
-                self.focusedSentenceContainer.alpha = 1.0
-            }
-        })
-        
-        startTime += 0.5
+            startTime += 0.6
+        } else {
+            Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+                self.focusedSentenceTextField.attributedText = self.currentWord.sentence1.attributedText
+                self.animateImage(from: self.firstSentenceImageView, to: self.focusedSentenceImageView, duration: 0.65)
+                
+                UIView.animate(withDuration: 0.3) {
+                    self.focusedSentenceContainer.alpha = 1.0
+                }
+            })
+            
+            startTime += 0.5
+        }
         
         //play first sentence
         Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
@@ -276,33 +279,23 @@ class SentencesViewController : InteractiveGrowViewController {
     }
     
     @IBAction func previousWordPressed(_ sender: Any) {
-        guard let previousWord = self.previousWord else { return }
-        self.currentWord = previousWord
-        
-        self.timers.forEach{ $0.invalidate() }
-        UAHaltPlayback()
-        
-        self.decorateForCurrentWord()
-        self.animateContentView(direction: .right, duration: 0.5)
-        
-        Timer.scheduleAfter(0.75, addToArray: &self.timers) {
-            self.animateForCurrentWord()
-        }
+        transition(to: self.previousWord, animate: .right)
     }
     
     @IBAction func nextWordPressed(_ sender: Any) {
-        guard let nextWord = self.nextWord else { return }
-        self.currentWord = nextWord
+        transition(to: self.nextWord, animate: .left)
+    }
+    
+    func transition(to newWord: SightWord?, animate direction: Direction) {
+        guard let newWord = newWord else { return }
+        self.currentWord = newWord
         
         self.timers.forEach{ $0.invalidate() }
         UAHaltPlayback()
         
         self.decorateForCurrentWord()
-        self.animateContentView(direction: .left, duration: 0.5)
-        
-        Timer.scheduleAfter(0.75, addToArray: &self.timers) {
-            self.animateForCurrentWord()
-        }
+        self.animateForCurrentWord(immediatelyStartWithFirstSentenceVisible: true)
+        self.animateContentView(direction: direction, duration: 0.5)
     }
     
     

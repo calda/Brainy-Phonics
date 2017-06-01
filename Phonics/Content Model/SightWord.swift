@@ -9,22 +9,48 @@
 import Foundation
 import AVFoundation
 
-struct SightWord : Equatable {
+public struct SightWord : Equatable {
     
     var text: String
     var sentence1: Sentence
     var sentence2: Sentence
     
-    func playAudio() {
-        PHPlayer.play(sentence2.audioFileName, ofType: "mp3", ifConcurrent: .interrupt,
-                      startTime: 0.0,
-                      endAfter: 0.465,
-                      endWithFade: true,
-                      fadeDuration: 0.2)
+    func playAudio(using manager: SightWordsManager) {
+        let audioPath = manager.category.individualAudioFilePath(for: self)
+        PHPlayer.play(audioPath, ofType: "mp3")
+    }
+    
+    
+    //MARK: - Homophone analysis
+    
+    static let homophoneGroups = [
+        ["to", "too", "two"]
+    ]
+    
+    func hasHomophoneConflict(withWords otherWords: [SightWord]) -> Bool {
+        if let homophoneGroup = SightWord.homophoneGroups.first(where: { $0.contains(text) }) {
+            for homophone in homophoneGroup {
+                if homophone != self.text && otherWords.contains(where: { $0.text == homophone }) {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
+    
+    static func arrayHasHomophoneConflicts(_ array: [SightWord]) -> Bool {
+        for word in array {
+            if word.hasHomophoneConflict(withWords: array) {
+                return true
+            }
+        }
+        
+        return false
     }
 
 }
 
-func ==(left: SightWord, right: SightWord) -> Bool {
+public func ==(left: SightWord, right: SightWord) -> Bool {
     return left.text == right.text
 }
