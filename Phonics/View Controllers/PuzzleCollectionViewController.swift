@@ -10,8 +10,24 @@ import UIKit
 
 class PuzzleCollectionViewController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    //MARK: - Presentation
+    
+    static let storyboardId = "puzzles"
+    
+    static func present(with difficulty: Letter.Difficulty, from source: UIViewController) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardId) as! PuzzleCollectionViewController
+        controller.difficulty = difficulty
+        source.present(controller, animated: true, completion: nil)
+    }
+    
+    //MARK: - Setup
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    var (soundsWithCompletedPuzzles, soundsWithIncompletePuzzles) = Player.current.soundsByPuzzleCompletion
+    @IBOutlet weak var buttonArea: UIView!
+    
+    var difficulty: Letter.Difficulty!
+    var soundsWithCompletedPuzzles = [Sound]()
+    var soundsWithIncompletePuzzles = [Sound]()
     
     lazy var cellSize: CGSize = {
         let height = (self.view.frame.height / 2) - 32
@@ -21,8 +37,9 @@ class PuzzleCollectionViewController : UIViewController, UICollectionViewDelegat
     
     
     override func viewWillAppear(_ animated: Bool) {
-        (soundsWithCompletedPuzzles, soundsWithIncompletePuzzles) = Player.current.soundsByPuzzleCompletion
+        (soundsWithCompletedPuzzles, soundsWithIncompletePuzzles) = Player.current.soundsByPuzzleCompletion(with: difficulty)
         self.collectionView.reloadData()
+        self.buttonArea.backgroundColor = difficulty.color
     }
     
     
@@ -94,7 +111,7 @@ class PuzzleCollectionViewController : UIViewController, UICollectionViewDelegat
     
     //MARK: - User Interaction
     
-    @IBAction func homePressed() {
+    @IBAction func backPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -138,7 +155,7 @@ class PuzzleCollectionViewController : UIViewController, UICollectionViewDelegat
         else {
             let sound = self.soundsWithIncompletePuzzles[indexPath.item]
             guard let letter = PHContent[sound.sourceLetter] else { return }
-            LetterViewController.present(for: letter, inController: self, initialSound: sound)
+            LetterViewController.present(for: letter, with: .standardDifficulty, inController: self, initialSound: sound)
         }
         
     }

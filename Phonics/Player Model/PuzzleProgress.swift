@@ -110,8 +110,8 @@ extension Player {
         return self.puzzleProgress[name]
     }
     
-    var soundsByPuzzleCompletion: (complete: [Sound], incomplete: [Sound]) {
-        let allSounds = PHContent.allSoundsSorted
+    func soundsByPuzzleCompletion(with difficulty: Letter.Difficulty) -> (complete: [Sound], incomplete: [Sound]) {
+        let allSounds = PHContent.allSoundsSorted(with: difficulty)
         
         let complete = allSounds.filter { sound in
             guard let progress = self.progress(forPuzzleNamed: sound.puzzleName) else { return false }

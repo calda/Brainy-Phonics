@@ -163,11 +163,11 @@ class PHContentManager {
         return letters[string]
     }
     
-    var allSounds: [Sound] {
+    func allSounds(with difficulty: Letter.Difficulty) -> [Sound] {
         var sounds = [Sound]()
         
         for letter in letters.values {
-            for sound in letter.sounds {
+            for sound in letter.sounds(for: difficulty) {
                 sounds.append(sound)
             }
         }
@@ -175,8 +175,8 @@ class PHContentManager {
         return sounds
     }
     
-    var allSoundsSorted: [Sound] {
-        return self.allSounds.sorted(by: { left, right in
+    func allSoundsSorted(with difficulty: Letter.Difficulty) -> [Sound] {
+    return self.allSounds(with: difficulty).sorted(by: { left, right in
             return left.displayString.compare(right.displayString) == .orderedAscending
         })
     }
@@ -184,7 +184,7 @@ class PHContentManager {
     var allWords: [Word] {
         var words = [Word]()
         
-        for sound in allSounds {
+        for sound in allSounds(with: .standardDifficulty) {
             for word in sound.allWords {
                 words.append(word)
             }

@@ -8,8 +8,35 @@
 
 struct Letter: Equatable {
     
+    enum Difficulty {
+        case easyDifficulty //only show the first sound
+        case standardDifficulty //show all sounds
+        
+        var color: UIColor {
+            switch(self) {
+            case .easyDifficulty: return #colorLiteral(red: 0.5357292676, green: 0.8299978375, blue: 0.8111645962, alpha: 1)
+            case .standardDifficulty: return #colorLiteral(red: 0.4300910234, green: 0.7802823782, blue: 0.8299978375, alpha: 1)
+            }
+        }
+    }
+    
+    
     let text: String
-    let sounds: [Sound]
+    private let sounds: [Sound]
+    
+    init(text: String, sounds: [Sound]) {
+        self.text = text
+        self.sounds = sounds
+    }
+    
+    
+    func sounds(for difficulty: Difficulty) -> [Sound] {
+        if difficulty == .easyDifficulty {
+            return [self.sounds.first!]
+        } else {
+            return self.sounds
+        }
+    }
     
     subscript(soundId: String) -> Sound! {
         return sounds.filter{ $0.soundId == soundId }.first

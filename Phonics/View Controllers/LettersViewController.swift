@@ -10,10 +10,26 @@ import UIKit
 
 class LettersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    
+    //MARK: - Presentation
+    
+    static let storyboardId = "letters"
+    
+    static func present(from source: UIViewController, with difficulty: Letter.Difficulty) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardId) as! LettersViewController
+        controller.difficulty = difficulty
+        source.present(controller, animated: true, completion: nil)
+    }
+    
+    
+    //MARK: - Setup
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    var difficulty: Letter.Difficulty!
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
+        self.collectionView.backgroundColor = self.difficulty.color
     }
     
     
@@ -25,7 +41,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "letter", for: indexPath) as! LetterCell
-        cell.decorateForLetter(PHLetters[indexPath.item])
+        cell.decorateForLetter(PHLetters[indexPath.item], difficulty: difficulty)
         return cell
     }
     
@@ -45,6 +61,10 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     //MARK: - User Interaction
 
+    @IBAction func puzzleButtonPressed(_ sender: Any) {
+        PuzzleCollectionViewController.present(with: difficulty, from: self)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.view.isUserInteractionEnabled = false
@@ -63,7 +83,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
                 cell?.transform = CGAffineTransform.identity
                 
-                LetterViewController.present(for: letter, inController: self)
+                LetterViewController.present(for: letter, with: self.difficulty, inController: self)
                 self.view.isUserInteractionEnabled = true
                 
             }, completion: nil)
@@ -89,7 +109,7 @@ class LetterCell : UICollectionViewCell {
         cardView.clipsToBounds = true
     }
     
-    func decorateForLetter(_ letter: String) {
+    func decorateForLetter(_ letter: String, difficulty: Letter.Difficulty) {
         cardView.layer.cornerRadius = cardView.frame.height * 0.1
         letterLabel.text = letter.uppercased() + letter.lowercased()
         
@@ -108,9 +128,9 @@ class LetterCell : UICollectionViewCell {
         layoutIfNeeded()
         
         //update progress bar
-        let totalNumberOfPieces = 12 * letter.sounds.count
+        let totalNumberOfPieces = 12 * letter.sounds(for: difficulty).count
         
-        let totalNumberOfOwnedPieces = letter.sounds.reduce(0) { previousResult, sound in
+        let totalNumberOfOwnedPieces = letter.sounds(for: difficulty).reduce(0) { previousResult, sound in
             let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
             return previousResult + (progress?.numberOfOwnedPieces ?? 0)
         }

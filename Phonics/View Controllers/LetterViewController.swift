@@ -17,43 +17,46 @@ class LetterViewController : InteractiveGrowViewController {
     @IBOutlet weak var nextSoundButton: UIButton!
     @IBOutlet weak var quizButton: UIButton!
     @IBOutlet weak var wordsView: UIView!
+    @IBOutlet weak var buttonArea: UIView!
     
     @IBOutlet var wordViews: [WordView]!
     
     var letter: Letter!
+    var difficulty: Letter.Difficulty!
     var sound: Sound!
     var timers = [Timer]()
     var currentlyPlaying = false
     
     var currentIndex: Int {
-        return letter.sounds.index(of: sound)!
+        return letter.sounds(for: difficulty).index(of: sound)!
     }
     
     var previousSound: Sound? {
         let prev = self.currentIndex - 1
         if prev < 0 { return nil }
-        return letter.sounds[prev]
+        return letter.sounds(for: difficulty)[prev]
     }
     
     var nextSound: Sound? {
         let next = self.currentIndex + 1
-        if next >= letter.sounds.count { return nil }
-        return letter.sounds[next]
+        if next >= letter.sounds(for: difficulty).count { return nil }
+        return letter.sounds(for: difficulty)[next]
     }
     
     
     //MARK: - Presentation
     
-    static func present(for letter: Letter, inController other: UIViewController, initialSound: Sound? = nil) {
+    static func present(for letter: Letter, with difficulty: Letter.Difficulty, inController other: UIViewController, initialSound: Sound? = nil) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "letter") as! LetterViewController
         controller.letter = letter
+        controller.difficulty = difficulty
 
         if let firstSound = initialSound {
             controller.sound = firstSound
         } else {
-            controller.sound = letter.sounds.first(where: { sound in
+            controller.sound = letter.sounds(for: difficulty).first(where: { sound in
                 return !sound.puzzleIsComplete
-            }) ?? letter.sounds.first
+            }) ?? letter.sounds(for: difficulty).first
         }
         
         other.present(controller, animated: true, completion: nil)
@@ -65,6 +68,14 @@ class LetterViewController : InteractiveGrowViewController {
     override func viewWillAppear(_ animated: Bool) {
         decorateForCurrentSound()
         sortOutletCollectionByTag(&wordViews)
+        
+        self.buttonArea.backgroundColor = difficulty.color
+        
+        //easy difficulty only has one sound per letter
+        if difficulty == .easyDifficulty {
+            self.nextSoundButton.isHidden = true
+            self.previousSoundButton.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -240,7 +251,7 @@ class LetterViewController : InteractiveGrowViewController {
     }
     
     @IBAction func openQuiz(_ sender: AnyObject) {
-        QuizViewController.presentQuiz(customSound: self.sound, showingThreeWords: true, onController: self)
+        QuizViewController.presentQuiz(customSound: self.sound, showingThreeWords: true, difficulty: self.difficulty, onController: self)
     }
     
     

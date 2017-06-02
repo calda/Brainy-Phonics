@@ -17,6 +17,7 @@ class QuizViewController : InteractiveGrowViewController {
     
     var onlyShowThreeWords: Bool = false
     var dismissOnReturnFromModal = false
+    var difficulty: Letter.Difficulty?
     
     var currentLetter: Letter!
     var currentSound: Sound!
@@ -42,10 +43,11 @@ class QuizViewController : InteractiveGrowViewController {
     
     //MARK: - Transition
     
-    static func presentQuiz(customSound: Sound, showingThreeWords: Bool, onController controller: UIViewController) {
+    static func presentQuiz(customSound: Sound, showingThreeWords: Bool, difficulty: Letter.Difficulty?, onController controller: UIViewController) {
         let quiz = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "quiz") as! QuizViewController
         quiz.sound = customSound
         quiz.onlyShowThreeWords = showingThreeWords
+        quiz.difficulty = difficulty
         controller.present(quiz, animated: true, completion: nil)
     }
     
@@ -55,7 +57,13 @@ class QuizViewController : InteractiveGrowViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let sound = self.sound {
             totalAnswerWordPool = sound.allWords
-            remainingAnswerWordPool = totalAnswerWordPool
+            
+            //start initially with the three "simple" words
+            remainingAnswerWordPool = sound.primaryWords
+        }
+        
+        if let difficulty = self.difficulty {
+            self.view.backgroundColor = difficulty.color
         }
         
         if self.onlyShowThreeWords {
@@ -110,10 +118,11 @@ class QuizViewController : InteractiveGrowViewController {
             }
         }
         
+        //if global quiz
         else {
             let randomLetter = PHLetters.random()!
             self.currentLetter = PHContent[randomLetter]
-            self.currentSound = self.currentLetter.sounds.random()
+            self.currentSound = self.currentLetter.sounds(for: .standardDifficulty).random()
             self.answerWord = self.currentSound.allWords.random()
         }
         
@@ -256,6 +265,10 @@ class QuizViewController : InteractiveGrowViewController {
     
     
     //MARK: - User Interaction
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func repeatSound(_ sender: UIButton) {
         if self.state == .playingQuestion { return }

@@ -11,8 +11,12 @@ import UIKit
 
 class HomeViewController : UIViewController {
     
-    @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        return
+    @IBAction func presentEasyPhonics(_ sender: Any) {
+        LettersViewController.present(from: self, with: .easyDifficulty)
+    }
+    
+    @IBAction func presentStandardPhonics(_ sender: Any) {
+        LettersViewController.present(from: self, with: .standardDifficulty)
     }
     
     @IBAction func presentPreKSightWords(_ sender: Any) {

@@ -14,7 +14,7 @@ class PHContentTest: XCTestCase {
     //MARK: - Sounds
     
     func testAllSoundsHavePuzzles() {
-        for sound in PHContent.allSounds {
+        for sound in PHContent.allSounds(with: .standardDifficulty) {
             XCTAssertNotNil(sound.puzzle, "Puzzle \(sound.puzzleName) doesn't exist.")
             XCTAssertNotNil(sound.rhymeText, "Missing rhyme text for \(sound.puzzleName).")
             
@@ -24,13 +24,13 @@ class PHContentTest: XCTestCase {
     }
     
     func testAllSoundsHavePronunciations() {
-        for sound in PHContent.allSounds {
+        for sound in PHContent.allSounds(with: .standardDifficulty) {
             XCTAssertNotNil(sound.ipaPronunciation, "\(sound.sourceLetter) (\(sound.soundId)) has no IPA pronunciation.")
         }
     }
     
     func testAllSoundsHaveWordSetAudio() {
-        for sound in PHContent.allSounds {
+        for sound in PHContent.allSounds(with: .standardDifficulty) {
             XCTAssert(sound.lengthForAudio(withWords: true) != 0, "\(sound.sourceLetter) (\(sound.soundId)) has no Word Set audio")
             
             if sound.lengthForAudio(withWords: true) == 0 {
