@@ -61,6 +61,22 @@ struct Sound: Equatable {
         return progress?.isComplete == true
     }
     
+    var blacklistedLetters: [String] {
+        var blacklist = self.displayString.lowercased().characters.map { "\($0)" }
+        
+        let additionalBlacklists = [
+            "g" : ["j"],
+            "j" : ["g"],
+            "c" : ["s"],
+            "s" : ["c"],
+            "o" : ["a"]
+        ]
+        
+        blacklist.insert(contentsOf: additionalBlacklists[self.displayString.lowercased()] ?? [], at: 0)
+        return blacklist
+    }
+    
+    
     
     //MARK: - Helper Methods
     

@@ -60,9 +60,9 @@ struct Word: Equatable {
         let explicitExclusions: [String : Int] = [
             "eagle" : 2,
             "skis" : 1,
-            "volcano" : 1,
             "footstool" : 2,
-            "dune buggy" : 2
+            "dune buggy" : 2,
+            "ice cream" : 2
         ]
         
         var soundText = sound.displayString

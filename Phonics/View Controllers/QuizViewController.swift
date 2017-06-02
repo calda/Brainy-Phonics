@@ -120,7 +120,7 @@ class QuizViewController : InteractiveGrowViewController {
         
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation ?? currentSound.displayString.lowercased()
-        let blacklistedLetter = currentSound.sourceLetter.lowercased()
+        let blacklistedLetters = currentSound.blacklistedLetters
         let possibleWords = allWords.filter{ word in
             
             for character in blacklistedSound.characters {
@@ -129,14 +129,13 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
             
-            for character in blacklistedLetter.characters {
-                if word.text.lowercased().contains("\(character)") {
+            for letter in blacklistedLetters {
+                if word.text.lowercased().contains(letter) {
                     return false
                 }
             }
             
             return true
-            
         }
         
         var selectedWords: [Word] = [answerWord]
