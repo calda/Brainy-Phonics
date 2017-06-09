@@ -80,7 +80,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050353167808219176" colorSpace="calibratedRGB"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Brainy Phonics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2F-28-xb5">
-                                        <rect key="frame" x="133.5" y="30" width="302.5" height="40"/>
+                                        <rect key="frame" x="134" y="30" width="302" height="40"/>
                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="45"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -109,7 +109,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.95999999999999996" green="0.95999999999999996" blue="0.95999999999999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95999999999999996" green="0.95999999999999996" blue="0.95999999999999996" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="J5w-JP-bbT" firstAttribute="top" secondItem="XHW-nE-6dh" secondAttribute="bottom" id="2at-S5-09w"/>
                             <constraint firstItem="XHW-nE-6dh" firstAttribute="top" secondItem="6DV-0m-B50" secondAttribute="bottom" constant="20" id="AT7-HF-Zrq"/>
@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGQ-qQ-txV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037.323943661972" y="-570"/>
+            <point key="canvasLocation" x="1280" y="-585"/>
         </scene>
         <!--Letters View Controller-->
         <scene sceneID="iQk-xz-ewT">
@@ -1808,6 +1808,6 @@ My song had been longer.
         <image name="zebra.jpg" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ud5-hW-UDI"/>
+        <segue reference="tf4-Vl-l65"/>
     </inferredMetricsTieBreakers>
 </document>
