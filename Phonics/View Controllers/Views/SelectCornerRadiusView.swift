@@ -60,6 +60,9 @@ class CornerRadiusView : UIView {
             } else {
                 self.layer.cornerRadius = CGFloat(cornerRadius)
             }
+            
+            self.clipsToBounds = true
+            self.layer.masksToBounds = true
         }
     }
     

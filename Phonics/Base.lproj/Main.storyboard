@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lDx-yU-Mr0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lDx-yU-Mr0">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -31,53 +31,111 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04b-E9-qBv">
-                                <rect key="frame" x="27" y="28" width="198" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Phonics - Easy"/>
-                                <connections>
-                                    <action selector="presentEasyPhonics:" destination="lDx-yU-Mr0" eventType="touchUpInside" id="vVB-MI-t9E"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This screen needs to be designed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T28-6l-ysY">
-                                <rect key="frame" x="34" y="211" width="270" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.36112837357954547" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3V-XU-m2B">
-                                <rect key="frame" x="295" y="28" width="253" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Sight Words - PreK"/>
-                                <connections>
-                                    <action selector="presentPreKSightWords:" destination="lDx-yU-Mr0" eventType="touchUpInside" id="m4K-PI-4PM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-Ao-ILb">
-                                <rect key="frame" x="332" y="87" width="216" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Sight Words - K"/>
-                                <connections>
-                                    <action selector="presentKindergartenSightWords:" destination="lDx-yU-Mr0" eventType="touchUpInside" id="ige-BE-g9O"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OI8-f4-UnP">
-                                <rect key="frame" x="27" y="87" width="255" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Phonics - Standard"/>
-                                <connections>
-                                    <action selector="presentStandardPhonics:" destination="lDx-yU-Mr0" eventType="touchUpInside" id="RDh-ck-kab"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5w-JP-bbT" customClass="CornerRadiusView" customModule="Phonics" customModuleProvider="target">
+                                <rect key="frame" x="60" y="270" width="184" height="10"/>
+                                <color key="backgroundColor" red="0.52230602502822876" green="0.83271211385726929" blue="0.81365519762039185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="uy1-zZ-14D"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-sr-DMO" customClass="CornerRadiusView" customModule="Phonics" customModuleProvider="target">
+                                <rect key="frame" x="324" y="270" width="184" height="10"/>
+                                <color key="backgroundColor" red="0.51581829786300659" green="0.82944208383560181" blue="0.43668061494827271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="7hz-yh-Vgd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-nE-6dh">
+                                <rect key="frame" x="20" y="110" width="528" height="160"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="yDG-3v-xWN">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="160"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sight-words" translatesAutoresizingMaskIntoConstraints="NO" id="EXg-2H-mxE">
+                                        <rect key="frame" x="264" y="0.0" width="264" height="160"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow-bottom" translatesAutoresizingMaskIntoConstraints="NO" id="xOi-bk-TK0">
+                                <rect key="frame" x="0.0" y="87" width="568" height="9"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6DV-0m-B50" userLabel="header">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="90"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="vfX-WC-CdO">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="90"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6H-5P-XLz">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="90"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050353167808219176" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Brainy Phonics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2F-28-xb5">
+                                        <rect key="frame" x="133.5" y="30" width="302.5" height="40"/>
+                                        <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="45"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.54473986710929623" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="q2F-28-xb5" firstAttribute="centerX" secondItem="6DV-0m-B50" secondAttribute="centerX" id="1Gq-6v-XV7"/>
+                                    <constraint firstAttribute="bottom" secondItem="vfX-WC-CdO" secondAttribute="bottom" id="8NG-5N-0nK"/>
+                                    <constraint firstItem="q2F-28-xb5" firstAttribute="top" secondItem="6DV-0m-B50" secondAttribute="top" constant="30" id="DFc-1O-ftf"/>
+                                    <constraint firstItem="vfX-WC-CdO" firstAttribute="top" secondItem="6DV-0m-B50" secondAttribute="top" id="HES-2I-h4H"/>
+                                    <constraint firstAttribute="trailing" secondItem="P6H-5P-XLz" secondAttribute="trailing" id="QnH-zm-3Gj"/>
+                                    <constraint firstItem="q2F-28-xb5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6DV-0m-B50" secondAttribute="leading" constant="20" id="Xrk-15-GeM"/>
+                                    <constraint firstAttribute="bottom" secondItem="q2F-28-xb5" secondAttribute="bottom" constant="20" id="aYD-Df-jOu"/>
+                                    <constraint firstAttribute="trailing" secondItem="vfX-WC-CdO" secondAttribute="trailing" id="brK-hn-2vG"/>
+                                    <constraint firstItem="vfX-WC-CdO" firstAttribute="leading" secondItem="6DV-0m-B50" secondAttribute="leading" id="luf-mW-Ead"/>
+                                    <constraint firstAttribute="bottom" secondItem="P6H-5P-XLz" secondAttribute="bottom" id="mWC-Ls-bK9"/>
+                                    <constraint firstAttribute="height" constant="90" id="rv9-Wa-asr"/>
+                                    <constraint firstItem="P6H-5P-XLz" firstAttribute="leading" secondItem="6DV-0m-B50" secondAttribute="leading" id="vPN-hh-QJc"/>
+                                    <constraint firstItem="P6H-5P-XLz" firstAttribute="top" secondItem="6DV-0m-B50" secondAttribute="top" id="xFU-pa-Ifm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95999999999999996" green="0.95999999999999996" blue="0.95999999999999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="J5w-JP-bbT" firstAttribute="top" secondItem="XHW-nE-6dh" secondAttribute="bottom" id="2at-S5-09w"/>
+                            <constraint firstItem="XHW-nE-6dh" firstAttribute="top" secondItem="6DV-0m-B50" secondAttribute="bottom" constant="20" id="AT7-HF-Zrq"/>
+                            <constraint firstItem="xOi-bk-TK0" firstAttribute="top" secondItem="6DV-0m-B50" secondAttribute="bottom" constant="-3" id="G2p-5e-OlZ"/>
+                            <constraint firstAttribute="trailing" secondItem="XHW-nE-6dh" secondAttribute="trailing" constant="20" id="LDm-RQ-xFh"/>
+                            <constraint firstItem="6DV-0m-B50" firstAttribute="top" secondItem="rCQ-mO-5BD" secondAttribute="top" id="W7B-w7-XtA"/>
+                            <constraint firstItem="Ucw-sr-DMO" firstAttribute="leading" secondItem="EXg-2H-mxE" secondAttribute="leading" constant="40" id="WA2-1E-fuQ"/>
+                            <constraint firstItem="6DV-0m-B50" firstAttribute="width" secondItem="rCQ-mO-5BD" secondAttribute="width" id="a8k-UL-SaK"/>
+                            <constraint firstItem="egf-Se-oJ4" firstAttribute="top" secondItem="XHW-nE-6dh" secondAttribute="bottom" constant="50" id="bSd-xo-H7c"/>
+                            <constraint firstItem="6DV-0m-B50" firstAttribute="centerX" secondItem="rCQ-mO-5BD" secondAttribute="centerX" id="cgk-TG-bF1"/>
+                            <constraint firstItem="J5w-JP-bbT" firstAttribute="leading" secondItem="yDG-3v-xWN" secondAttribute="leading" constant="40" id="eV0-A4-Xhu"/>
+                            <constraint firstItem="XHW-nE-6dh" firstAttribute="leading" secondItem="rCQ-mO-5BD" secondAttribute="leading" constant="20" id="fFc-Xr-gT0"/>
+                            <constraint firstAttribute="trailing" secondItem="xOi-bk-TK0" secondAttribute="trailing" id="hV1-GY-EPk"/>
+                            <constraint firstItem="Ucw-sr-DMO" firstAttribute="trailing" secondItem="EXg-2H-mxE" secondAttribute="trailing" constant="-40" id="lfx-fK-Nn4"/>
+                            <constraint firstItem="J5w-JP-bbT" firstAttribute="trailing" secondItem="yDG-3v-xWN" secondAttribute="trailing" constant="-40" id="qO0-Xs-Uea"/>
+                            <constraint firstItem="xOi-bk-TK0" firstAttribute="leading" secondItem="rCQ-mO-5BD" secondAttribute="leading" id="r6S-5z-C8p"/>
+                            <constraint firstItem="Ucw-sr-DMO" firstAttribute="top" secondItem="XHW-nE-6dh" secondAttribute="bottom" id="rMu-uC-bbZ"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="brainyPhonicsLabel" destination="q2F-28-xb5" id="duY-W5-2NB"/>
+                        <outlet property="phonicsView" destination="yDG-3v-xWN" id="cZt-uN-Czy"/>
+                        <outlet property="sightWordsView" destination="EXg-2H-mxE" id="gNx-Ez-gcU"/>
+                        <outletCollection property="interactiveViews" destination="yDG-3v-xWN" collectionClass="NSMutableArray" id="wIc-HE-ZeO"/>
+                        <outletCollection property="interactiveViews" destination="EXg-2H-mxE" collectionClass="NSMutableArray" id="XcW-KI-gVD"/>
+                        <outletCollection property="interactiveViews" destination="q2F-28-xb5" collectionClass="NSMutableArray" id="g9h-cq-2Pn"/>
                         <segue destination="rgJ-6e-cRF" kind="show" identifier="blep" id="YyJ-Kh-uba"/>
                         <segue destination="gVI-GJ-uq9" kind="show" identifier="home to letters" id="84K-c1-bz7"/>
                     </connections>
@@ -568,7 +626,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
-                                                <rect key="frame" x="45.5" y="20" width="109.5" height="150"/>
+                                                <rect key="frame" x="46" y="20" width="109.5" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="950" constant="250" id="5vZ-GV-HNB"/>
                                                     <constraint firstAttribute="height" constant="150" id="XAE-6W-OQ9"/>
@@ -824,7 +882,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-IG-hzZ">
-                                                    <rect key="frame" x="60.5" y="73.5" width="19" height="37"/>
+                                                    <rect key="frame" x="60.5" y="73" width="19" height="37"/>
                                                     <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="37"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1368,7 +1426,7 @@
                                 <rect key="frame" x="70" y="0.0" width="498" height="320"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLF-V1-WmC" userLabel="listen pill" customClass="CornerRadiusView" customModule="Phonics" customModuleProvider="target">
-                                        <rect key="frame" x="153.5" y="30" width="192.5" height="70"/>
+                                        <rect key="frame" x="153" y="30" width="192.5" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NNn-dj-qdH">
                                                 <rect key="frame" x="20" y="10" width="152.5" height="50"/>
@@ -1438,7 +1496,7 @@
                                                                 <rect key="frame" x="0.0" y="92.5" width="191" height="77.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H8t-dQ-Ndc">
-                                                                        <rect key="frame" x="69.5" y="21.5" width="52.5" height="35"/>
+                                                                        <rect key="frame" x="70" y="21.5" width="52.5" height="35"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="35"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1470,7 +1528,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="191" height="77.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cLk-FR-xwF">
-                                                                        <rect key="frame" x="59.5" y="21.5" width="73.5" height="35"/>
+                                                                        <rect key="frame" x="59" y="21.5" width="73.5" height="35"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="35"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1494,7 +1552,7 @@
                                                                 <rect key="frame" x="0.0" y="92.5" width="191" height="77.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="came" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RaZ-Dz-E39">
-                                                                        <rect key="frame" x="53" y="21.5" width="86" height="35"/>
+                                                                        <rect key="frame" x="52.5" y="21.5" width="86" height="35"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="35"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1735,11 +1793,15 @@ My song had been longer.
         <image name="button-puzzle" width="50" height="50"/>
         <image name="button-question" width="50" height="50"/>
         <image name="button-repeat" width="50" height="50"/>
+        <image name="gradient" width="1000" height="523"/>
         <image name="hat.jpg" width="256" height="256"/>
         <image name="horn.jpg" width="256" height="256"/>
         <image name="letter-icon-a.jpg" width="192" height="256"/>
         <image name="lion.jpg" width="256" height="256"/>
         <image name="listen" width="569" height="610"/>
+        <image name="logo-phonics" width="1152" height="1152"/>
+        <image name="logo-sight-words" width="1152" height="1152"/>
+        <image name="shadow-bottom" width="598" height="9"/>
         <image name="shadow-right" width="9" height="598"/>
         <image name="spider.jpg" width="256" height="256"/>
         <image name="yo-yo.jpg" width="256" height="256"/>
