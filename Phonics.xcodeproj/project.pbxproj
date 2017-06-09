@@ -2213,6 +2213,7 @@
 		2E8FFADE1D67A1E400B1E498 /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2761D639A1B00978DD6 /* CoreSwift.swift */; };
 		2E8FFADF1D67A1E400B1E498 /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2771D639A1B00978DD6 /* LongestCommonSubsequence.swift */; };
 		2E8FFAE01D67A1E400B1E498 /* UniversalAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE2781D639A1B00978DD6 /* UniversalAudio.swift */; };
+		2E97A5431EEA661600860196 /* unicorn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E97A5421EEA661600860196 /* unicorn.jpg */; };
 		2EAAF06F1ED5545E00D2B13B /* SightWordsQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAAF06E1ED5545E00D2B13B /* SightWordsQuizViewController.swift */; };
 		2EAAF0711ED5694900D2B13B /* incorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EAAF0701ED5694900D2B13B /* incorrect.mp3 */; };
 		2EBB18AC1ED2BCFB0078D951 /* SentencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */; };
@@ -4429,6 +4430,7 @@
 		2E73FFDD1E2B292C0055AAAD /* SelectCornerRadiusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCornerRadiusView.swift; sourceTree = "<group>"; };
 		2E80484B1ED29DEA001F4EF6 /* SightWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordsViewController.swift; sourceTree = "<group>"; };
 		2E871C291E124F0900B6313D /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		2E97A5421EEA661600860196 /* unicorn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unicorn.jpg; sourceTree = "<group>"; };
 		2EAAF06E1ED5545E00D2B13B /* SightWordsQuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordsQuizViewController.swift; sourceTree = "<group>"; };
 		2EAAF0701ED5694900D2B13B /* incorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect.mp3; sourceTree = "<group>"; };
 		2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentencesViewController.swift; sourceTree = "<group>"; };
@@ -6822,6 +6824,7 @@
 			isa = PBXGroup;
 			children = (
 				2E4B00D61EE115E900834D45 /* Letter Icons */,
+				2E97A5421EEA661600860196 /* unicorn.jpg */,
 				2E4B00F11EE115E900834D45 /* afraid.jpg */,
 				2E4B00F21EE115E900834D45 /* airplane.jpg */,
 				2E4B00F31EE115E900834D45 /* ambulance.jpg */,
@@ -9457,6 +9460,7 @@
 				2E4B04191EE115EC00834D45 /* pie man.jpg in Resources */,
 				2E1469CA1E46F15500BD6C2C /* puzzle-J-juh-row0-col0.jpng in Resources */,
 				2E14657C1E46F15400BD6C2C /* sound-Z.mp3 in Resources */,
+				2E97A5431EEA661600860196 /* unicorn.jpg in Resources */,
 				2E4B043D1EE115EC00834D45 /* sauce pan.jpg in Resources */,
 				2E4B02DD1EE115EB00834D45 /* letter-icon-h.jpg in Resources */,
 				2E4B03521EE115EB00834D45 /* coonskin cap.jpg in Resources */,

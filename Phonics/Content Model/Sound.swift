@@ -69,7 +69,8 @@ struct Sound: Equatable {
             "j" : ["g"],
             "c" : ["s"],
             "s" : ["c"],
-            "o" : ["a"]
+            "o" : ["a"],
+            "e" : ["ing"]
         ]
         
         blacklist.insert(contentsOf: additionalBlacklists[self.displayString.lowercased()] ?? [], at: 0)

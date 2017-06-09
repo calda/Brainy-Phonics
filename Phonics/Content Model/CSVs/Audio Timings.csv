@@ -13,8 +13,8 @@ words-E-short,short=0.0408/0.4399,elf=2.5668/0.5034,bed=5.1632/0.4761,net=7.7709
 words-E-ER,ER=0.0362/0.3968,boxer=2.5736/0.5532,catcher=5.3265/0.4761,teeter-totter=8.0385/0.702
 words-E-ET,ET=0.0997/0.1950,net=2.7029/0.3809,pet=5.4376/0.2108,rocket=7.9478/0.376
 words-E-LE,LE=0.0294/0.4285,tricycle=1.7687/0.8843,whale=3.9546/0.6077,poodle=5.7074/0.578
-words-U-long,long=0.0544/0.4444,u=2.6145/0.3673,unicycle=5.1043/0.7551,binoculars=7.9818/0.8321,utility knife=11.126/0.707
-words-U-uu,uu=0.0687/0.4625,blue=2.6437/0.6416,tuba=5.4791/0.4583,statue=8.2625/0.558
+words-U-long,long=0.0544/0.4444,unicycle=1.2/1.28,binoculars=3.09/1.29,unicorn=4.88/1.22
+words-U-uu,uu=0.0687/0.4625,blue=1.46/0.6416,tuba=2.7/0.7,dune buggy=3.9/1.1
 words-U-short,short=0.0204/0.3673,bug=2.5034/0.4263,bucket=5.2834/0.4126,chipmunk=7.9478/0.564
 words-U-UG,UG=0.0204/0.4036,hug=2.6303/0.3945,bug=5.1224/0.4489,plug=7.7346/0.376
 words-U-UL,UL=0.0612/0.4603,bull=2.7165/0.4285,bulldog=5.3129/0.6916,seagull=8.2426/0.628

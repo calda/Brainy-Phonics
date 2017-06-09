@@ -518,6 +518,7 @@ turkey='tɜrki
 turtle='tɜrtəl
 umbrellas=əm'brɛlə
 unicycle='junɪ,saɪkəl
+unicorn='junɪkɔrn
 utility knife=ju'tɪlɪti_naɪf
 van=vɑn
 volcano=vɑl'keɪnoʊ
