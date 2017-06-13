@@ -77,7 +77,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="222" height="375"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-brainy-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="TpO-Wc-zDO">
-                                                <rect key="frame" x="22.5" y="99" width="178" height="177"/>
+                                                <rect key="frame" x="22.5" y="98.5" width="178" height="178"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="TpO-Wc-zDO" secondAttribute="height" multiplier="1:1" id="68g-jq-T7z"/>
                                                 </constraints>
@@ -793,7 +793,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQO-4g-pvd" userLabel="3" customClass="WordView" customModule="Phonics" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="156.5" width="141" height="141.5"/>
+                                                <rect key="frame" x="0.0" y="157" width="141" height="141"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BQO-4g-pvd" secondAttribute="height" multiplier="1:1" id="Yel-Df-jkQ"/>
