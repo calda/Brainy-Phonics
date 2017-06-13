@@ -84,6 +84,19 @@ class SentencesViewController : InteractiveGrowViewController {
         self.focusedSentenceContainer.alpha = 0
     }
     
+    func updateSentenceLabel(for sentence: Sentence) {
+        self.focusedSentenceTextField.attributedText = sentence.attributedText
+        
+        //bump up the font size a bit on iPad (the attributed text doesn't seem to respond correctly to size classes)
+        if iPad() {
+            if let text = self.focusedSentenceTextField.attributedText?.mutableCopy() as? NSMutableAttributedString {
+                let fullRange = NSMakeRange(0, text.length)
+                text.addAttributes([NSFontAttributeName: self.focusedSentenceTextField.font.withSize(35)], range: fullRange)
+                self.focusedSentenceTextField.attributedText = text
+            }
+        }
+    }
+    
     
     //MARK: - Animation
     
@@ -106,14 +119,14 @@ class SentencesViewController : InteractiveGrowViewController {
         
         //show the first sentence -- either with or without an animation
         if immediatelyStartWithFirstSentenceVisible {
-            self.focusedSentenceTextField.attributedText = self.currentWord.sentence1.attributedText
+            updateSentenceLabel(for: self.currentWord.sentence1)
             self.focusedSentenceImageView.image = self.currentWord.sentence1.image
             self.focusedSentenceContainer.alpha = 1.0
             
             startTime += 0.6
         } else {
             Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
-                self.focusedSentenceTextField.attributedText = self.currentWord.sentence1.attributedText
+                self.updateSentenceLabel(for: self.currentWord.sentence1)
                 self.animateImage(from: self.firstSentenceImageView, to: self.focusedSentenceImageView, duration: 0.65)
                 
                 UIView.animate(withDuration: 0.3) {
@@ -134,8 +147,8 @@ class SentencesViewController : InteractiveGrowViewController {
         
         //show second sentence
         Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
+            self.updateSentenceLabel(for: self.currentWord.sentence2)
             self.focusedSentenceImageView.image = self.currentWord.sentence2.image
-            self.focusedSentenceTextField.attributedText = self.currentWord.sentence2.attributedText
             
             self.animateContentView(direction: .left, duration: 0.5)
         })
@@ -180,7 +193,7 @@ class SentencesViewController : InteractiveGrowViewController {
         
         //show sentence
         Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
-            self.focusedSentenceTextField.attributedText = sentence.attributedText
+            self.updateSentenceLabel(for: sentence)
             self.animateImage(from: imageView, to: self.focusedSentenceImageView, duration: 0.65)
             
             UIView.animate(withDuration: 0.3) {
