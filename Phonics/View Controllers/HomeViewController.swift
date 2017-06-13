@@ -11,9 +11,53 @@ import UIKit
 
 class HomeViewController : InteractiveGrowViewController {
     
+    
+    //TODO: create assets that are more appropriately sizes / don't rasterize poorly
+    
+    @IBOutlet weak var alphabetLettersView: UIImageView!
     @IBOutlet weak var phonicsView: UIImageView!
-    @IBOutlet weak var sightWordsView: UIImageView!
-    @IBOutlet weak var brainyPhonicsLabel: UILabel!
+    @IBOutlet weak var prekSightWordsView: UIImageView!
+    @IBOutlet weak var kindergartenSightWordsView: UIImageView!
+    @IBOutlet weak var brainyPhonicsView: UIImageView!
+    
+    
+    
+    //MARK: - Content
+    
+    struct Launcher {
+        let audioFileName: String
+        let onTapBlock: ((UIViewController) -> ())?
+        
+        static let brainyPhonics = Launcher(audioFileName: "brainy phonics", onTapBlock: nil)
+        
+        static let alphabetLetters = Launcher(audioFileName: "alphabet letters", onTapBlock: { vc in
+            LettersViewController.present(from: vc, with: .easyDifficulty)
+        })
+        
+        static let phonics = Launcher(audioFileName: "phonics", onTapBlock: { vc in
+            LettersViewController.present(from: vc, with: .standardDifficulty)
+        })
+        
+        static let prekSightWords = Launcher(audioFileName: "pre-k sight words", onTapBlock: { vc in
+            SightWordsViewController.present(from: vc, using: PHContent.sightWordsPreK)
+        })
+        
+        static let kindergartenSightWords = Launcher(audioFileName: "kindergarten sight words", onTapBlock: { vc in
+            SightWordsViewController.present(from: vc, using: PHContent.sightWordsKindergarten)
+        })
+    }
+    
+    func launcher(for view: UIView) -> Launcher? {
+        switch(view) {
+            case brainyPhonicsView: return .brainyPhonics
+            case alphabetLettersView: return .alphabetLetters
+            case phonicsView: return .phonics
+            case prekSightWordsView: return .prekSightWords
+            case kindergartenSightWordsView: return .kindergartenSightWords
+            default: return nil
+        }
+    }
+    
     
     //MARK: - User Interaction
     
@@ -22,12 +66,8 @@ class HomeViewController : InteractiveGrowViewController {
     }
     
     override func totalDurationForInterruptedAnimationOn(_ view: UIView) -> TimeInterval? {
-        if view == phonicsView {
-            return UALengthOfFile("phonics", ofType: "mp3")
-        } else if view == sightWordsView  {
-            return UALengthOfFile("sight words", ofType: "mp3")
-        } else if view == brainyPhonicsLabel {
-            return UALengthOfFile("brainy phonics", ofType: "mp3")
+        if let launcher = launcher(for: view) {
+            return UALengthOfFile(launcher.audioFileName, ofType: "mp3")
         } else {
             return 0
         }
@@ -39,57 +79,19 @@ class HomeViewController : InteractiveGrowViewController {
             return
         }
         
-        if view == phonicsView {
-            PHPlayer.play("phonics", ofType: "mp3")
-        } else if view == sightWordsView  {
-            PHPlayer.play("sight words", ofType: "mp3")
-        } else if view == brainyPhonicsLabel {
-            PHPlayer.play("brainy phonics", ofType: "mp3")
+        if let launcher = launcher(for: view) {
+            PHPlayer.play(launcher.audioFileName, ofType: "mp3")
         }
     }
     
     override func touchUpForInteractiveView(_ view: UIView) {
+        guard let launcher = launcher(for: view) else {
+            return
+        }
+        
         UAWhenDonePlayingAudio {
-            if view == self.phonicsView {
-                self.presentPhonics()
-            } else if view == self.sightWordsView {
-                self.presentSightWords()
-            }
+            launcher.onTapBlock?(self)
         }
     }
     
-    
-    //MARK: - Transitions
-    
-    func presentPhonics() {
-        let alert = UIAlertController(title: "Phonics Difficulty", message: "This probably shouldn't be here. I imagine the player's age/grade will be set somewhere else, like on first launch / in settings, and then this automatically opens the correct content.", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Simple (Pre-K?)", style: .default, handler: { _ in
-            LettersViewController.present(from: self, with: .easyDifficulty)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Regular (Kindergarten?)", style: .default, handler: { _ in
-            LettersViewController.present(from: self, with: .standardDifficulty)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func presentSightWords() {
-        let alert = UIAlertController(title: "Sight Words Level", message: "This probably shouldn't be here. I imagine the player's age/grade will be set somewhere else, like on first launch / in settings, and then this automatically opens the correct content.", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Pre-K", style: .default, handler: { _ in
-            SightWordsViewController.present(from: self, using: PHContent.sightWordsPreK)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Kindergarten", style: .default, handler: { _ in
-            SightWordsViewController.present(from: self, using: PHContent.sightWordsKindergarten)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
 }
