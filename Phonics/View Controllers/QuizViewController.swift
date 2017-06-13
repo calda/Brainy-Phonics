@@ -398,9 +398,10 @@ class QuizViewController : InteractiveGrowViewController {
                 guard let pieceImageView = newPieceView.imageView else { return }
                 let animationImage = UIImageView(image: pieceImageView.image)
                 
+                let pieceScale: CGFloat = iPad() ? 1.5 : 2.25
                 animationImage.alpha = 0.0
-                animationImage.frame.size = CGSize(width: pieceImageView.frame.width * 2.5,
-                                                   height: pieceImageView.frame.height * 2.5)
+                animationImage.frame.size = CGSize(width: pieceImageView.frame.width * pieceScale,
+                                                   height: pieceImageView.frame.height * pieceScale)
                 animationImage.center = spawnPoint
                 
                 self.view.addSubview(animationImage)

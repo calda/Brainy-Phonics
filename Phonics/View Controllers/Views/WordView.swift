@@ -87,6 +87,15 @@ class WordView : UINibView {
         if let sound = sound, let letter = letter {
             self.label.attributedText = word.attributedText(forSound: sound, ofLetter: letter)
         }
+        
+        //bump up the font size a bit on iPad (the nib doesn't seem to respond correctly to size classes)
+        if iPad() {
+            if let text = self.label.attributedText?.mutableCopy() as? NSMutableAttributedString {
+                let fullRange = NSMakeRange(0, text.length)
+                text.addAttributes([NSFontAttributeName: self.label.font.withSize(35)], range: fullRange)
+                self.label.attributedText = text
+            }
+        }
     }
     
 }

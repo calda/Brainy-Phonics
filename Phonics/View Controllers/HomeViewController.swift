@@ -34,6 +34,11 @@ class HomeViewController : InteractiveGrowViewController {
     }
     
     override func interactiveViewWilGrow(_ view: UIView) {
+        //there's a very interesting bug where this will get triggered from the PuzzleDetailViewController later in the chain... not sure how that happens, but this should stop it.
+        guard self.presentedViewController == nil else {
+            return
+        }
+        
         if view == phonicsView {
             PHPlayer.play("phonics", ofType: "mp3")
         } else if view == sightWordsView  {
@@ -57,7 +62,7 @@ class HomeViewController : InteractiveGrowViewController {
     //MARK: - Transitions
     
     func presentPhonics() {
-        let alert = UIAlertController(title: "Phonics Difficulty", message: "This probably shouldn't be here. I imagine the player's age/grade will be set somewhere else, like on first launch / in settings, and then this automatically opens the correct content.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Phonics Difficulty", message: "This probably shouldn't be here. I imagine the player's age/grade will be set somewhere else, like on first launch / in settings, and then this automatically opens the correct content.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Simple (Pre-K?)", style: .default, handler: { _ in
             LettersViewController.present(from: self, with: .easyDifficulty)
@@ -73,7 +78,7 @@ class HomeViewController : InteractiveGrowViewController {
     }
     
     func presentSightWords() {
-        let alert = UIAlertController(title: "Sight Words Level", message: "This probably shouldn't be here. I imagine the player's age/grade will be set somewhere else, like on first launch / in settings, and then this automatically opens the correct content.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Sight Words Level", message: "This probably shouldn't be here. I imagine the player's age/grade will be set somewhere else, like on first launch / in settings, and then this automatically opens the correct content.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Pre-K", style: .default, handler: { _ in
             SightWordsViewController.present(from: self, using: PHContent.sightWordsPreK)
