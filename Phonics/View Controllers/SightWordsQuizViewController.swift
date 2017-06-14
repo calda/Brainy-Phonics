@@ -17,6 +17,45 @@ struct InstructionsContent {
     let image: UIImage
 }
 
+enum SightWordsQuizMode {
+    case singleWord(SightWord)
+    case allWords
+    
+    func allAvailableOptionWords(from sightWordsManager: SightWordsManager) -> [SightWord] {
+        var words = sightWordsManager.words
+        
+        switch(self) {
+        case .singleWord(let specificWord):
+            if let indexOfSpecificWord = words.index(of: specificWord) {
+                words.remove(at: indexOfSpecificWord)
+            }
+        case .allWords:
+            break
+        }
+        
+        return words
+    }
+    
+    func selectNextAnswerWord(from availableWords: inout [SightWord]) -> SightWord? {
+        switch(self) {
+        case .singleWord(let specificWord):
+            return specificWord
+        case .allWords:
+            return availableWords.popLast()
+        }
+    }
+    
+    func selectNextIncorrectWords(from availableWords: inout [SightWord]) -> [SightWord] {
+        return [
+            availableWords.popLast(),
+            availableWords.popLast(),
+            availableWords.popLast()
+        ].flatMap{ $0 }
+    }
+    
+}
+
+
 class SightWordsQuizViewController : InteractiveGrowViewController {
     
     
@@ -24,9 +63,10 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     static let storyboardId = "sightWordsQuiz"
     
-    static func present(from source: UIViewController, using sightWordsManager: SightWordsManager) {
+    static func present(from source: UIViewController, using sightWordsManager: SightWordsManager, mode: SightWordsQuizMode) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardId) as! SightWordsQuizViewController
         controller.sightWordsManager = sightWordsManager
+        controller.mode = mode
         source.present(controller, animated: true, completion: nil)
     }
     
@@ -34,6 +74,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     //MARK: - Setup
     
     var sightWordsManager: SightWordsManager!
+    var mode: SightWordsQuizMode = .allWords
     var remainingWords: [SightWord] = []
     var currentWord: SightWord?
     
@@ -66,25 +107,23 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     func setupForNewWord(animateTransition: Bool) {
         if self.remainingWords.count < 4 {
-            self.remainingWords = sightWordsManager.words.shuffled()
+            self.remainingWords = mode.allAvailableOptionWords(from: sightWordsManager).shuffled()
         }
         
-        self.currentWord = self.remainingWords.popLast()
+        self.currentWord = mode.selectNextAnswerWord(from: &remainingWords)
         guard let currentWord = self.currentWord else { return }
         
-        let answerWords = [
-            currentWord,
-            self.remainingWords.popLast()!,
-            self.remainingWords.popLast()!,
-            self.remainingWords.popLast()!
-        ]
+        let incorrectWords = mode.selectNextIncorrectWords(from: &remainingWords)
+        let wordsForQuizRound = [currentWord] + incorrectWords
         
-        guard !SightWord.arrayHasHomophoneConflicts(answerWords) else {
+        guard !SightWord.arrayHasHomophoneConflicts(wordsForQuizRound)
+            && wordsForQuizRound.count == 4 else
+        {
             setupForNewWord(animateTransition: animateTransition) //just try again -- this should be rare
             return
         }
         
-        for (label, word) in zip(self.answerLabels, answerWords.shuffled()) {
+        for (label, word) in zip(self.answerLabels, wordsForQuizRound.shuffled()) {
             label.text = word.text
             
             if let superview = label.superview {

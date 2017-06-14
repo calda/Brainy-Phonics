@@ -30,7 +30,6 @@ class SentencesViewController : InteractiveGrowViewController {
     
     var currentlyAnimating = false
     var timers = [Timer]()
-
     
     var currentIndex: Int? {
         return sightWords.words.index(of: currentWord)
@@ -53,6 +52,7 @@ class SentencesViewController : InteractiveGrowViewController {
     @IBOutlet weak var nextWordButton: UIButton!
     @IBOutlet weak var mainButtonArea: UIView!
     @IBOutlet weak var repeatButton: UIButton!
+    @IBOutlet weak var quizButton: UIButton!
     
     @IBOutlet weak var firstSentenceImageView: UIImageView!
     @IBOutlet weak var secondSentenceImageView: UIImageView!
@@ -63,6 +63,7 @@ class SentencesViewController : InteractiveGrowViewController {
     @IBOutlet weak var focusedSentenceTextField: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
+        self.hideQuizButton(animated: false)
         self.decorateForCurrentWord()
         self.animateForCurrentWord(immediatelyStartWithFirstSentenceVisible: true)
     }
@@ -118,6 +119,8 @@ class SentencesViewController : InteractiveGrowViewController {
         var startTime = 0.0
         
         //show the first sentence -- either with or without an animation
+        self.hideQuizButton(animated: true)
+        
         if immediatelyStartWithFirstSentenceVisible {
             updateSentenceLabel(for: self.currentWord.sentence1)
             self.focusedSentenceImageView.image = self.currentWord.sentence1.image
@@ -166,6 +169,7 @@ class SentencesViewController : InteractiveGrowViewController {
         //animate to regular state
         Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
             self.animateImage(from: self.focusedSentenceImageView, to: self.secondSentenceImageView, duration: 0.65)
+            self.showQuizButton(delay: 0.5)
             
             UIView.animate(withDuration: 0.3) {
                 self.focusedSentenceContainer.alpha = 0.0
@@ -192,6 +196,8 @@ class SentencesViewController : InteractiveGrowViewController {
         var startTime = 0.0
         
         //show sentence
+        self.hideQuizButton(animated: true)
+        
         Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
             self.updateSentenceLabel(for: sentence)
             self.animateImage(from: imageView, to: self.focusedSentenceImageView, duration: 0.65)
@@ -214,6 +220,7 @@ class SentencesViewController : InteractiveGrowViewController {
         //hide sentence
         Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
             self.animateImage(from: self.focusedSentenceImageView, to: imageView, duration: 0.65)
+            self.showQuizButton(delay: 0.5)
             
             UIView.animate(withDuration: 0.3) {
                 self.focusedSentenceContainer.alpha = 0.0
@@ -280,6 +287,41 @@ class SentencesViewController : InteractiveGrowViewController {
         })
     }
     
+    func showQuizButton(delay: TimeInterval) {
+        self.quizButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        
+        UIView.animate(withDuration: 0.4 + delay, delay: 0.0, usingSpringWithDamping: 1.0) {
+            self.quizButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            self.quizButton.alpha = 1.0
+        }
+        
+        Timer.scheduleAfter(0.4 + delay, addToArray: &self.timers, handler: self.animateQuizButtonLoop(to: 0.95, then: 1.15))
+        
+    }
+    
+    func animateQuizButtonLoop(to scale: CGFloat, then nextScale: CGFloat) -> () -> () {
+        return {
+            UIView.animate(withDuration: 1.5, delay: 0.0, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+                self.quizButton.transform = CGAffineTransform(scaleX: scale, y: scale)
+            }, completion: nil)
+            
+            Timer.scheduleAfter(1.5, addToArray: &self.timers, handler: self.animateQuizButtonLoop(to: nextScale, then: scale))
+        }
+    }
+    
+    func hideQuizButton(animated: Bool) {
+        let updateQuizButton = {
+            self.quizButton.alpha = 0.0
+            self.quizButton.transform = .identity
+        }
+        
+        if animated {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.beginFromCurrentState], animations: updateQuizButton, completion: nil)
+        } else {
+            updateQuizButton()
+        }
+    }
+    
     
     //MARK: - User Interaction
     
@@ -289,6 +331,10 @@ class SentencesViewController : InteractiveGrowViewController {
     
     @IBAction func repeatButtonPressed(_ sender: Any) {
         self.animateForCurrentWord()
+    }
+    
+    @IBAction func quizButtonPressed(_ sender: Any) {
+        SightWordsQuizViewController.present(from: self, using: sightWords, mode: .singleWord(currentWord))
     }
     
     @IBAction func previousWordPressed(_ sender: Any) {
@@ -309,6 +355,7 @@ class SentencesViewController : InteractiveGrowViewController {
         self.decorateForCurrentWord()
         self.animateForCurrentWord(immediatelyStartWithFirstSentenceVisible: true)
         self.animateContentView(direction: direction, duration: 0.5)
+        self.hideQuizButton(animated: true)
     }
     
     

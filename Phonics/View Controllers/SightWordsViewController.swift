@@ -83,7 +83,7 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
     }
     
     @IBAction func playQuiz(_ sender: Any) {
-        SightWordsQuizViewController.present(from: self, using: self.sightWordsManager)
+        SightWordsQuizViewController.present(from: self, using: self.sightWordsManager, mode: .allWords)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
