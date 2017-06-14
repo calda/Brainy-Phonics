@@ -10,7 +10,7 @@ import UIKit
 
 struct InstructionsContent {
     static let listen = InstructionsContent(text: "Listen...", image: #imageLiteral(resourceName: "listen"))
-    static let chooseWord = InstructionsContent(text: "Choose the word", image: #imageLiteral(resourceName: "button-question"))
+    static let chooseWord = InstructionsContent(text: "Choose the word", image: #imageLiteral(resourceName: "button-question-big"))
     static let correct = InstructionsContent(text: "Correct! Good job!", image: #imageLiteral(resourceName: "correct"))
     
     let text: String
@@ -187,14 +187,6 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.instructionsPill.layoutIfNeeded()
             return
         }
-        
-        /*UIView.animate(withDuration: 0.2, animations: {
-            self.instructionsLabel.alpha = 0.5
-        })
- 
-        UIView.animate(withDuration: 0.3, delay: 0.15, options: [], animations: {
-            self.instructionsLabel.alpha = 1.0
-        }, completion: nil)*/
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, animations: {
             self.instructionsPill.layoutIfNeeded()
