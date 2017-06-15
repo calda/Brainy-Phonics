@@ -1866,6 +1866,7 @@
                         <outletCollection property="interactiveViews" destination="AlC-gE-XIf" collectionClass="NSMutableArray" id="IA9-dQ-bGH"/>
                         <outletCollection property="answerLabels" destination="H8t-dQ-Ndc" collectionClass="NSMutableArray" id="J9d-O8-fFR"/>
                         <outletCollection property="answerLabels" destination="CJL-Na-OTN" collectionClass="NSMutableArray" id="Lzv-oc-sXz"/>
+                        <segue destination="9sw-It-P5L" kind="show" identifier="quizToBank" id="mmy-6e-FTP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0O-30-TxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2025,6 +2026,126 @@ My song had been longer.
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bb-35-jR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036.5" y="2244.5"/>
+        </scene>
+        <!--Bank-->
+        <scene sceneID="pEP-H6-A00">
+            <objects>
+                <viewController storyboardIdentifier="bank" title="Bank" id="9sw-It-P5L" customClass="BankViewController" customModule="WordWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U3F-5Z-QF2"/>
+                        <viewControllerLayoutGuide type="bottom" id="NQt-XA-yXV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cbY-MB-sQj">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58F-vE-svi">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WT-eN-UF3">
+                                        <rect key="frame" x="176" y="145" width="315" height="84"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="Ih3-A7-6ZR"/>
+                                            <constraint firstAttribute="width" constant="61" id="PBm-CM-E6e"/>
+                                            <constraint firstAttribute="height" constant="64" id="a8d-6H-Iy4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <state key="normal" title="no coins yet">
+                                            <color key="titleColor" red="0.20784313730000001" green="0.56078431370000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Ih3-A7-6ZR"/>
+                                                <exclude reference="PBm-CM-E6e"/>
+                                                <exclude reference="a8d-6H-Iy4"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="6WT-eN-UF3" secondAttribute="centerY" id="HPc-Ga-KhS"/>
+                                    <constraint firstAttribute="centerX" secondItem="6WT-eN-UF3" secondAttribute="centerX" id="h0B-6A-ivF"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-r0-ZW3" userLabel="list">
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                <state key="normal" image="button-back"/>
+                                <connections>
+                                    <action selector="back:" destination="9sw-It-P5L" eventType="touchUpInside" id="DRl-wW-0jJ"/>
+                                    <action selector="backTapped:" destination="Irn-te-UcC" eventType="touchUpInside" id="Jv3-0l-9TN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzT-Lu-kso">
+                                <rect key="frame" x="160.5" y="71.5" width="346" height="232"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0 ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99624025821685791" green="0.81428295373916626" blue="0.115150086581707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="200" name="DINCondensed-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="+">
+                                        <attributes>
+                                            <color key="NSColor" red="0.10980392156862745" green="0.62352941176470589" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="200" name="DINCondensed-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99624025821685791" green="0.81428295373916626" blue="0.115150086581707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="200" name="DINCondensed-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="0">
+                                        <attributes>
+                                            <color key="NSColor" red="0.89983391761779785" green="0.89977270364761353" blue="0.89980852603912354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="200" name="DINCondensed-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.40999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NQt-XA-yXV" firstAttribute="top" secondItem="58F-vE-svi" secondAttribute="bottom" id="2a3-te-7xL"/>
+                            <constraint firstAttribute="trailing" secondItem="58F-vE-svi" secondAttribute="trailing" id="3yU-xm-gYX"/>
+                            <constraint firstAttribute="centerX" secondItem="fzT-Lu-kso" secondAttribute="centerX" id="79u-Pl-qB6"/>
+                            <constraint firstItem="58F-vE-svi" firstAttribute="top" secondItem="cbY-MB-sQj" secondAttribute="top" id="99t-qZ-0vw"/>
+                            <constraint firstItem="58F-vE-svi" firstAttribute="top" secondItem="U3F-5Z-QF2" secondAttribute="bottom" id="C9f-lz-bXs"/>
+                            <constraint firstAttribute="trailing" secondItem="58F-vE-svi" secondAttribute="trailing" id="Dyc-QR-kn2"/>
+                            <constraint firstAttribute="centerY" secondItem="fzT-Lu-kso" secondAttribute="centerY" id="Gyo-qY-e9v"/>
+                            <constraint firstItem="NQt-XA-yXV" firstAttribute="top" secondItem="58F-vE-svi" secondAttribute="bottom" id="JYR-Sy-rjo"/>
+                            <constraint firstItem="p8d-r0-ZW3" firstAttribute="top" secondItem="cbY-MB-sQj" secondAttribute="top" constant="10" id="May-rE-GzY"/>
+                            <constraint firstItem="58F-vE-svi" firstAttribute="leading" secondItem="cbY-MB-sQj" secondAttribute="leading" id="gVT-Q9-Euh"/>
+                            <constraint firstItem="p8d-r0-ZW3" firstAttribute="leading" secondItem="cbY-MB-sQj" secondAttribute="leading" constant="10" id="hXF-CD-mWa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C9f-lz-bXs"/>
+                                <exclude reference="Dyc-QR-kn2"/>
+                                <exclude reference="JYR-Sy-rjo"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="p8d-r0-ZW3" id="Bby-mC-grm"/>
+                        <outlet property="coinCount" destination="fzT-Lu-kso" id="s0W-xz-zJ1"/>
+                        <outlet property="coinView" destination="58F-vE-svi" id="ki2-FA-eS2"/>
+                        <outlet property="noCoins" destination="6WT-eN-UF3" id="dY0-ek-OZu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0EA-Qq-xzq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2836" y="1282"/>
         </scene>
     </scenes>
     <resources>

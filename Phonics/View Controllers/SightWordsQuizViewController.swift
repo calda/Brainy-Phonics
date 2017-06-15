@@ -285,7 +285,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             })
             
             //pulse piggybank
-            UIView.animate(withDuration: 0.25, delay: 0.3, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+            UIView.animate(withDuration: 0.25, delay: 0.2, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
                 self.bankButton.transform = CGAffineTransform(scaleX: 1.35, y: 1.35)
             }, completion: nil)
             
@@ -306,11 +306,18 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     }
     
     @IBAction func bankButtonPressed(_ sender: Any) {
+        BankViewController.present(from: self, goldCount: 10, silverCount: 5)
+        self.timers.forEach{ $0.invalidate() }
+        UAHaltPlayback()
     }
     
     //MARK: Interactive Growing
     
     override func interactiveGrowShouldHappenFor(_ view: UIView) -> Bool {
+        guard self.presentedViewController == nil else {
+            return false
+        }
+        
         let hasBeenSelectedAlready = (view.alpha != 1.0)
         return !currentlyAnimating && !hasBeenSelectedAlready
     }
