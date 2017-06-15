@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -342,7 +341,7 @@
                                         <rect key="frame" x="173.5" y="20" width="250" height="157.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWW-Mn-36k">
-                                                <rect key="frame" x="103.5" y="37" width="43" height="85"/>
+                                                <rect key="frame" x="103.5" y="36.5" width="43" height="85"/>
                                                 <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="85"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -351,7 +350,7 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-BJ-uKI" userLabel="checkmark">
-                                                <rect key="frame" x="151.5" y="81" width="30" height="30"/>
+                                                <rect key="frame" x="151.5" y="80.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Kg-g2-goa"/>
                                                     <constraint firstAttribute="width" constant="30" id="cg1-SV-LXF"/>
@@ -673,7 +672,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
-                                                <rect key="frame" x="54.5" y="20" width="92" height="150"/>
+                                                <rect key="frame" x="54" y="20" width="92" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="950" constant="250" id="5vZ-GV-HNB"/>
                                                     <constraint firstAttribute="height" constant="150" id="XAE-6W-OQ9"/>
@@ -968,7 +967,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-IG-hzZ">
-                                                    <rect key="frame" x="60.5" y="73.5" width="19" height="37"/>
+                                                    <rect key="frame" x="60.5" y="73" width="19" height="37"/>
                                                     <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="37"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1264,7 +1263,7 @@
                                         <rect key="frame" x="173.5" y="20" width="250" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="big" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sit-ud-vO3">
-                                                <rect key="frame" x="94" y="21.5" width="62" height="50"/>
+                                                <rect key="frame" x="94.5" y="22" width="62" height="50"/>
                                                 <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1641,7 +1640,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="241" height="99"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="big" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-Na-OTN">
-                                                                        <rect key="frame" x="100.5" y="34.5" width="40.5" height="30"/>
+                                                                        <rect key="frame" x="101" y="34.5" width="40.5" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1831,13 +1830,22 @@
                                     <constraint firstItem="r8s-xy-5k7" firstAttribute="top" secondItem="FA7-sK-2Jc" secondAttribute="top" constant="10" id="udv-75-pDC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1d-Sd-vlA" userLabel="bank">
+                                <rect key="frame" x="10" y="255" width="50" height="50"/>
+                                <state key="normal" image="button-bank"/>
+                                <connections>
+                                    <action selector="bankButtonPressed:" destination="Irn-te-UcC" eventType="touchUpInside" id="zwh-2J-bPv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.51581829786300659" green="0.82944208383560181" blue="0.43668061494827271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FA7-sK-2Jc" firstAttribute="leading" secondItem="5QW-Bo-bbX" secondAttribute="leading" id="48E-kA-CsW"/>
+                            <constraint firstItem="B1d-Sd-vlA" firstAttribute="leading" secondItem="5QW-Bo-bbX" secondAttribute="leading" constant="10" id="Mzy-Ug-UYX"/>
                             <constraint firstItem="FA7-sK-2Jc" firstAttribute="top" secondItem="5QW-Bo-bbX" secondAttribute="top" id="OhU-E9-zVf"/>
                             <constraint firstItem="p7j-Qh-1PD" firstAttribute="leading" secondItem="FA7-sK-2Jc" secondAttribute="trailing" id="TLm-wm-rJQ"/>
                             <constraint firstItem="p7j-Qh-1PD" firstAttribute="top" secondItem="5QW-Bo-bbX" secondAttribute="top" id="Z4l-76-5oY"/>
+                            <constraint firstItem="3Tc-JA-LQo" firstAttribute="top" secondItem="B1d-Sd-vlA" secondAttribute="bottom" constant="70" id="bVk-ov-cFj"/>
                             <constraint firstItem="3Tc-JA-LQo" firstAttribute="top" secondItem="FA7-sK-2Jc" secondAttribute="bottom" id="ccf-64-Bnf"/>
                             <constraint firstItem="3Tc-JA-LQo" firstAttribute="top" secondItem="p7j-Qh-1PD" secondAttribute="bottom" id="skC-YM-wwf"/>
                             <constraint firstAttribute="trailing" secondItem="p7j-Qh-1PD" secondAttribute="trailing" id="xu5-FF-c2E"/>
@@ -1845,6 +1853,7 @@
                     </view>
                     <connections>
                         <outlet property="answersView" destination="7mR-xa-7RM" id="oIV-OZ-uz9"/>
+                        <outlet property="bankButton" destination="B1d-Sd-vlA" id="e9a-GG-gfq"/>
                         <outlet property="buttonArea" destination="FA7-sK-2Jc" id="XDW-PE-shD"/>
                         <outlet property="instructionsImage" destination="AWx-tj-Nxg" id="FvA-cK-T95"/>
                         <outlet property="instructionsLabel" destination="TOY-4a-WNv" id="w2J-JI-HhE"/>
@@ -1861,7 +1870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0O-30-TxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="353"/>
+            <point key="canvasLocation" x="2835.832083958021" y="352.80000000000001"/>
         </scene>
         <!--Puzzle Detail View Controller-->
         <scene sceneID="0p7-NP-V08">
@@ -2023,6 +2032,7 @@ My song had been longer.
         <image name="bird.jpg" width="256" height="256"/>
         <image name="boxer.jpg" width="256" height="256"/>
         <image name="button-back" width="50" height="50"/>
+        <image name="button-bank" width="50" height="50"/>
         <image name="button-check" width="50" height="50"/>
         <image name="button-forward" width="50" height="50"/>
         <image name="button-home" width="50" height="50"/>
@@ -2035,7 +2045,7 @@ My song had been longer.
         <image name="horn.jpg" width="256" height="256"/>
         <image name="letter-icon-a.jpg" width="192" height="256"/>
         <image name="lion.jpg" width="256" height="256"/>
-        <image name="listen" width="569" height="610"/>
+        <image name="listen" width="466" height="500"/>
         <image name="logo-alphabet-letters" width="1649" height="1216"/>
         <image name="logo-brainy-phonics" width="1152" height="1152"/>
         <image name="logo-k-sightwords" width="1152" height="1152"/>

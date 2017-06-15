@@ -77,6 +77,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     var mode: SightWordsQuizMode = .allWords
     var remainingWords: [SightWord] = []
     var currentWord: SightWord?
+    var guessCount = 0
     
     var currentlyAnimating = false
     var timers = [Timer]()
@@ -90,6 +91,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     @IBOutlet weak var instructionsPill: UIView!
     @IBOutlet weak var instructionsImage: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var bankButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         self.view.layoutIfNeeded()
@@ -106,6 +108,8 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     }
     
     func setupForNewWord(animateTransition: Bool) {
+        guessCount = 0
+        
         if self.remainingWords.count < 4 {
             self.remainingWords = mode.allAvailableOptionWords(from: sightWordsManager).shuffled()
         }
@@ -215,7 +219,12 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.currentWord?.playAudio(using: self.sightWordsManager)
         }
         
-        Timer.scheduleAfter(2.5, addToArray: &self.timers) {
+        Timer.scheduleAfter(1.75, addToArray: &self.timers) {
+            let selectedWordViewCenter = view.superview!.convert(view.center, to: self.view)
+            self.playCoinAnimation(startingAt: selectedWordViewCenter)
+        }
+        
+        Timer.scheduleAfter(3.0, addToArray: &self.timers) {
             self.setupForNewWord(animateTransition: true)
             self.currentlyAnimating = false
         }
@@ -248,6 +257,43 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         
     }
     
+    func playCoinAnimation(startingAt origin: CGPoint) {
+        var coinImage: UIImage?
+        switch(self.guessCount) {
+        case 1:  coinImage = #imageLiteral(resourceName: "coin-gold")
+        case 2:  coinImage = #imageLiteral(resourceName: "coin-silver")
+        default: coinImage = nil
+        }
+        
+        if let coinImage = coinImage {
+            let coinView = UIImageView(image: coinImage)
+            coinView.frame.size = iPad() ? CGSize(width: 150, height: 150) : CGSize(width: 75, height: 75)
+            coinView.center = origin
+            coinView.alpha = 0.0
+            self.view.addSubview(coinView)
+            
+            self.view.bringSubview(toFront: bankButton)
+            
+            //animate coin into piggy bank
+            UIView.animate(withDuration: 0.1, animations: {
+                coinView.alpha = 1.0
+            })
+            
+            UIView.animate(withDuration: 0.55, delay: 0.0, usingSpringWithDamping: 1.0, animations: {
+                coinView.frame.size = CGSize(width: 40, height: 40)
+                coinView.center = self.bankButton.superview!.convert(self.bankButton.center, to: self.view)
+            })
+            
+            //pulse piggybank
+            UIView.animate(withDuration: 0.25, delay: 0.3, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+                self.bankButton.transform = CGAffineTransform(scaleX: 1.35, y: 1.35)
+            }, completion: nil)
+            
+            UIView.animate(withDuration: 0.45, delay: 0.7, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+                self.bankButton.transform = .identity
+            }, completion: nil)
+        }
+    }
     
     //MARK: - User Interaction
     
@@ -257,6 +303,9 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func bankButtonPressed(_ sender: Any) {
     }
     
     //MARK: Interactive Growing
@@ -280,6 +329,8 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         guard let sightWord = sightWordsManager.words.first(where: { $0.text == selectedText }) else {
             return
         }
+        
+        guessCount += 1
         
         if sightWord == self.currentWord {
             userSelectedCorrectWord(from: view)
