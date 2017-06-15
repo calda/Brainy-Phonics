@@ -260,12 +260,21 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     func playCoinAnimation(startingAt origin: CGPoint) {
         var coinImage: UIImage?
         switch(self.guessCount) {
-        case 1:  coinImage = #imageLiteral(resourceName: "coin-gold")
-        case 2:  coinImage = #imageLiteral(resourceName: "coin-silver")
-        default: coinImage = nil
+        case 1:
+            coinImage = #imageLiteral(resourceName: "coin-gold")
+            Player.current.sightWordCoins.gold += 1
+        case 2:
+            coinImage = #imageLiteral(resourceName: "coin-silver")
+            Player.current.sightWordCoins.silver += 1
+        default:
+            coinImage = nil
         }
         
         if let coinImage = coinImage {
+            
+            //save new coin
+            Player.current.save()
+            
             let coinView = UIImageView(image: coinImage)
             coinView.frame.size = iPad() ? CGSize(width: 150, height: 150) : CGSize(width: 75, height: 75)
             coinView.center = origin
@@ -306,18 +315,21 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     }
     
     @IBAction func bankButtonPressed(_ sender: Any) {
-        BankViewController.present(from: self, goldCount: 10, silverCount: 5)
-        self.timers.forEach{ $0.invalidate() }
-        UAHaltPlayback()
+        self.view.isUserInteractionEnabled = false
+        
+        BankViewController.present(
+            from: self,
+            goldCount: Player.current.sightWordCoins.gold,
+            silverCount: Player.current.sightWordCoins.silver,
+            onDismiss: {
+                self.view.isUserInteractionEnabled = true
+                self.animateForCurrentWord()
+        })
     }
     
     //MARK: Interactive Growing
     
     override func interactiveGrowShouldHappenFor(_ view: UIView) -> Bool {
-        guard self.presentedViewController == nil else {
-            return false
-        }
-        
         let hasBeenSelectedAlready = (view.alpha != 1.0)
         return !currentlyAnimating && !hasBeenSelectedAlready
     }

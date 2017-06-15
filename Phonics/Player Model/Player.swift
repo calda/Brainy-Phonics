@@ -19,10 +19,12 @@ class Player : NSObject, NSCoding {
     
     var id: String
     var puzzleProgress: [String : PuzzleProgress]
+    var sightWordCoins: (gold: Int, silver: Int)
     
     override init() {
         self.id = PHDefaultPlayerKey
         self.puzzleProgress = [:]
+        self.sightWordCoins = (0, 0)
     }
     
     
@@ -31,6 +33,8 @@ class Player : NSObject, NSCoding {
     private enum Key: String, NSCodingKey {
         case id = "Player.id"
         case puzzleProgress = "Player.puzzleProgress"
+        case sightWordGoldCoins = "Player.sightWordCoins.gold"
+        case sightWordSilverCoins = "Player.sightWordCoins.silver"
     }
     
     required init?(coder decoder: NSCoder) {
@@ -38,11 +42,17 @@ class Player : NSObject, NSCoding {
         self.id = id
         
         self.puzzleProgress = (decoder.value(for: Key.puzzleProgress) as? [String : PuzzleProgress]) ?? [:]
+        
+        let sightWordGoldCoins = (decoder.value(for: Key.sightWordGoldCoins) as? Int) ?? 0
+        let sightWordSilverCoins = (decoder.value(for: Key.sightWordSilverCoins) as? Int) ?? 0
+        self.sightWordCoins = (sightWordGoldCoins, sightWordSilverCoins)
     }
     
     func encode(with encoder: NSCoder) {
         encoder.setValue(self.id, for: Key.id)
         encoder.setValue(self.puzzleProgress, for: Key.puzzleProgress)
+        encoder.setValue(self.sightWordCoins.gold, for: Key.sightWordGoldCoins)
+        encoder.setValue(self.sightWordCoins.silver, for: Key.sightWordSilverCoins)
     }
     
     

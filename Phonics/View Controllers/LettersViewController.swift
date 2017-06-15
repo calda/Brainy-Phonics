@@ -65,6 +65,10 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         PuzzleCollectionViewController.present(with: difficulty, from: self)
     }
     
+    @IBAction func quizButtonPressed(_ sender: Any) {
+        QuizViewController.presentQuiz(customSound: nil, showingThreeWords: false, difficulty: self.difficulty, onController: self)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.view.isUserInteractionEnabled = false

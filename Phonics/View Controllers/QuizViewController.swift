@@ -43,7 +43,7 @@ class QuizViewController : InteractiveGrowViewController {
     
     //MARK: - Transition
     
-    static func presentQuiz(customSound: Sound, showingThreeWords: Bool, difficulty: Letter.Difficulty?, onController controller: UIViewController) {
+    static func presentQuiz(customSound: Sound?, showingThreeWords: Bool, difficulty: Letter.Difficulty?, onController controller: UIViewController) {
         let quiz = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "quiz") as! QuizViewController
         quiz.sound = customSound
         quiz.onlyShowThreeWords = showingThreeWords

@@ -25,12 +25,13 @@ class BankViewController : UIViewController {
     
     //MARK: - Presentation
     
-    static func present(from source: UIViewController, goldCount: Int, silverCount: Int) {
+    static func present(from source: UIViewController, goldCount: Int, silverCount: Int, onDismiss: @escaping () -> ()) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bank") as! BankViewController
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
         controller.totalGoldCount = goldCount
         controller.totalSilverCoint = silverCount
+        controller.onDismiss = onDismiss
         source.present(controller, animated: true, completion: nil)
     }
     
@@ -39,6 +40,7 @@ class BankViewController : UIViewController {
     
     var totalGoldCount = 0
     var totalSilverCoint = 0
+    var onDismiss: (() -> ())?
     
     @IBOutlet weak var noCoins: UIButton!
     @IBOutlet weak var coinCount: UILabel!
@@ -128,6 +130,7 @@ class BankViewController : UIViewController {
     }
     
     @IBAction func back(_ sender: AnyObject) {
+        onDismiss?()
         self.dismiss(animated: true, completion: nil)
         self.addingNewCoins = false
     }
