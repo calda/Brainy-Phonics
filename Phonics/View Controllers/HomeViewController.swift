@@ -61,6 +61,12 @@ class HomeViewController : InteractiveGrowViewController {
     
     //MARK: - User Interaction
     
+    override func interactiveGrowShouldHappenFor(_ view: UIView) -> Bool {
+        if view.transform != .identity { return true }
+        
+        return !UAIsAudioPlaying()
+    }
+    
     override func interactiveGrowScaleFor(_ view: UIView) -> CGFloat {
         return 1.1
     }

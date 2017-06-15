@@ -31,53 +31,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-nE-6dh">
-                                <rect key="frame" x="267" y="10" width="355" height="355"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZM9-zy-a6s">
+                                <rect key="frame" x="133.5" y="0.0" width="533.5" height="375"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mn5-je-8HX">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="172.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-nE-6dh">
+                                        <rect key="frame" x="99.5" y="20" width="335" height="335"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alphabet-letters" translatesAutoresizingMaskIntoConstraints="NO" id="yDG-3v-xWN">
-                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="172.5"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="EXg-2H-mxE">
-                                                <rect key="frame" x="182.5" y="0.0" width="172.5" height="172.5"/>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mn5-je-8HX">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="155"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alphabet-letters" translatesAutoresizingMaskIntoConstraints="NO" id="yDG-3v-xWN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="155"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="EXg-2H-mxE">
+                                                        <rect key="frame" x="175" y="0.0" width="160" height="155"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <variation key="heightClass=regular-widthClass=regular" spacing="55"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jOQ-dw-e5I">
+                                                <rect key="frame" x="0.0" y="180" width="335" height="155"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-prek-sight-words" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-tn-Ks6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="155"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-k-sightwords" translatesAutoresizingMaskIntoConstraints="NO" id="cgD-JQ-dcS">
+                                                        <rect key="frame" x="175" y="0.0" width="160" height="155"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <variation key="heightClass=regular-widthClass=regular" spacing="55"/>
+                                            </stackView>
                                         </subviews>
-                                        <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jOQ-dw-e5I">
-                                        <rect key="frame" x="0.0" y="182.5" width="355" height="172.5"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-prek-sight-words" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-tn-Ks6">
-                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="172.5"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-k-sightwords" translatesAutoresizingMaskIntoConstraints="NO" id="cgD-JQ-dcS">
-                                                <rect key="frame" x="182.5" y="0.0" width="172.5" height="172.5"/>
-                                            </imageView>
-                                        </subviews>
-                                        <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XHW-nE-6dh" secondAttribute="height" multiplier="1:1" id="7fT-nZ-j6n"/>
+                                        </constraints>
+                                        <variation key="heightClass=regular-widthClass=regular" spacing="65"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="XHW-nE-6dh" secondAttribute="height" multiplier="1:1" id="7fT-nZ-j6n"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XHW-nE-6dh" secondAttribute="bottom" constant="20" id="EOz-ei-z1x"/>
+                                    <constraint firstItem="XHW-nE-6dh" firstAttribute="centerY" secondItem="ZM9-zy-a6s" secondAttribute="centerY" id="Ezz-ID-kjM"/>
+                                    <constraint firstItem="XHW-nE-6dh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZM9-zy-a6s" secondAttribute="top" constant="20" id="QQV-s2-Nqm"/>
+                                    <constraint firstItem="XHW-nE-6dh" firstAttribute="centerX" secondItem="ZM9-zy-a6s" secondAttribute="centerX" id="gFW-4q-bOX"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XHW-nE-6dh" secondAttribute="trailing" constant="20" id="nhZ-oY-9Wt"/>
+                                    <constraint firstItem="XHW-nE-6dh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZM9-zy-a6s" secondAttribute="leading" constant="20" id="rXh-vh-V8O"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
-                            </stackView>
+                            </view>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow-right" translatesAutoresizingMaskIntoConstraints="NO" id="zaf-r1-Gqy">
-                                <rect key="frame" x="218" y="0.0" width="9" height="375"/>
+                                <rect key="frame" x="129.5" y="0.0" width="9" height="375"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6DV-0m-B50" userLabel="header">
-                                <rect key="frame" x="0.0" y="0.0" width="222" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="133.5" height="375"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="vfX-WC-CdO">
-                                        <rect key="frame" x="0.0" y="0.0" width="222" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="375"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6H-5P-XLz">
-                                        <rect key="frame" x="0.0" y="0.0" width="222" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="375"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-brainy-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="TpO-Wc-zDO">
-                                                <rect key="frame" x="22.5" y="98.5" width="178" height="178"/>
+                                                <rect key="frame" x="13.5" y="134" width="107.5" height="107"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="TpO-Wc-zDO" secondAttribute="height" multiplier="1:1" id="68g-jq-T7z"/>
                                                 </constraints>
@@ -112,22 +126,15 @@
                         <color key="backgroundColor" red="0.95999999999999996" green="0.95999999999999996" blue="0.95999999999999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="6DV-0m-B50" secondAttribute="bottom" id="4Tx-19-irS"/>
-                            <constraint firstAttribute="trailing" secondItem="XHW-nE-6dh" secondAttribute="trailing" constant="45" id="LDm-RQ-xFh">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
+                            <constraint firstItem="ZM9-zy-a6s" firstAttribute="top" secondItem="rCQ-mO-5BD" secondAttribute="top" id="NJS-Ma-ALb"/>
                             <constraint firstItem="zaf-r1-Gqy" firstAttribute="top" secondItem="rCQ-mO-5BD" secondAttribute="topMargin" id="SyS-28-N5P"/>
+                            <constraint firstItem="ZM9-zy-a6s" firstAttribute="leading" secondItem="6DV-0m-B50" secondAttribute="trailing" id="Tgu-vQ-wRj"/>
+                            <constraint firstAttribute="trailing" secondItem="ZM9-zy-a6s" secondAttribute="trailing" id="U7F-TO-VdK"/>
+                            <constraint firstAttribute="bottom" secondItem="ZM9-zy-a6s" secondAttribute="bottom" id="VKJ-SI-z17"/>
                             <constraint firstItem="6DV-0m-B50" firstAttribute="top" secondItem="rCQ-mO-5BD" secondAttribute="top" id="W7B-w7-XtA"/>
                             <constraint firstItem="egf-Se-oJ4" firstAttribute="top" secondItem="zaf-r1-Gqy" secondAttribute="bottom" id="ZqB-b7-nFZ"/>
                             <constraint firstItem="6DV-0m-B50" firstAttribute="leading" secondItem="rCQ-mO-5BD" secondAttribute="leading" id="aiS-RA-57R"/>
-                            <constraint firstItem="egf-Se-oJ4" firstAttribute="top" secondItem="XHW-nE-6dh" secondAttribute="bottom" constant="10" id="bSd-xo-H7c">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="XHW-nE-6dh" firstAttribute="top" secondItem="rCQ-mO-5BD" secondAttribute="top" constant="10" id="da4-lG-q7W">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="XHW-nE-6dh" firstAttribute="leading" secondItem="6DV-0m-B50" secondAttribute="trailing" constant="45" id="j6q-eJ-SYY">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
+                            <constraint firstItem="6DV-0m-B50" firstAttribute="width" secondItem="rCQ-mO-5BD" secondAttribute="width" multiplier="0.2" id="c5Y-VS-rLv"/>
                             <constraint firstItem="zaf-r1-Gqy" firstAttribute="leading" secondItem="6DV-0m-B50" secondAttribute="trailing" constant="-4" id="yc8-2x-1NU"/>
                         </constraints>
                     </view>
@@ -137,11 +144,11 @@
                         <outlet property="kindergartenSightWordsView" destination="cgD-JQ-dcS" id="hyx-MD-zvW"/>
                         <outlet property="phonicsView" destination="EXg-2H-mxE" id="D45-Rh-1gu"/>
                         <outlet property="prekSightWordsView" destination="4fC-tn-Ks6" id="CTR-9x-YwY"/>
-                        <outletCollection property="interactiveViews" destination="yDG-3v-xWN" collectionClass="NSMutableArray" id="wIc-HE-ZeO"/>
-                        <outletCollection property="interactiveViews" destination="EXg-2H-mxE" collectionClass="NSMutableArray" id="XcW-KI-gVD"/>
-                        <outletCollection property="interactiveViews" destination="4fC-tn-Ks6" collectionClass="NSMutableArray" id="wh0-dN-4nM"/>
-                        <outletCollection property="interactiveViews" destination="cgD-JQ-dcS" collectionClass="NSMutableArray" id="ac6-4b-vhf"/>
                         <outletCollection property="interactiveViews" destination="TpO-Wc-zDO" collectionClass="NSMutableArray" id="Z4G-Z3-jbZ"/>
+                        <outletCollection property="interactiveViews" destination="4fC-tn-Ks6" collectionClass="NSMutableArray" id="wh0-dN-4nM"/>
+                        <outletCollection property="interactiveViews" destination="yDG-3v-xWN" collectionClass="NSMutableArray" id="wIc-HE-ZeO"/>
+                        <outletCollection property="interactiveViews" destination="cgD-JQ-dcS" collectionClass="NSMutableArray" id="ac6-4b-vhf"/>
+                        <outletCollection property="interactiveViews" destination="EXg-2H-mxE" collectionClass="NSMutableArray" id="XcW-KI-gVD"/>
                         <segue destination="rgJ-6e-cRF" kind="show" identifier="blep" id="YyJ-Kh-uba"/>
                         <segue destination="gVI-GJ-uq9" kind="show" identifier="home to letters" id="84K-c1-bz7"/>
                     </connections>
