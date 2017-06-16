@@ -1926,7 +1926,7 @@
                                 </connections>
                             </button>
                             <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-lQ-4n1" customClass="PuzzleView" customModule="Phonics" customModuleProvider="target">
-                                <rect key="frame" x="80" y="49" width="207.5" height="277.5"/>
+                                <rect key="frame" x="80" y="19.5" width="253" height="337.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Nl-lQ-4n1" secondAttribute="height" multiplier="3:4" id="IF7-c5-3oR"/>
@@ -1939,7 +1939,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <textView verifyAmbiguity="ignoreSizes" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYT-3V-kl6">
-                                <rect key="frame" x="307.5" y="107.5" width="319.5" height="160"/>
+                                <rect key="frame" x="353" y="107.5" width="274" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="TQ5-xa-fBx"/>
@@ -2004,10 +2004,12 @@ My song had been longer.
                             <constraint firstItem="6cP-xu-h2z" firstAttribute="leading" secondItem="gtR-g8-a9n" secondAttribute="leading" constant="10" id="qH1-Db-xDS"/>
                             <constraint firstItem="LYT-3V-kl6" firstAttribute="leading" secondItem="1Nl-lQ-4n1" secondAttribute="trailing" constant="20" id="vgr-2z-9ey"/>
                             <constraint firstItem="LYT-3V-kl6" firstAttribute="leading" secondItem="1Nl-lQ-4n1" secondAttribute="trailing" constant="50" id="vs0-dC-HBA"/>
+                            <constraint firstItem="1Nl-lQ-4n1" firstAttribute="height" secondItem="gtR-g8-a9n" secondAttribute="height" multiplier="0.9" id="wEN-h5-WXS"/>
                             <constraint firstItem="ukz-HO-Gmk" firstAttribute="top" secondItem="6cP-xu-h2z" secondAttribute="bottom" constant="10" id="wgG-SO-fhL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="2SF-4F-dos"/>
                                 <exclude reference="N9I-a9-f64"/>
                                 <exclude reference="mvm-hy-jxK"/>
                                 <exclude reference="vs0-dC-HBA"/>
@@ -2015,6 +2017,7 @@ My song had been longer.
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
+                                <include reference="2SF-4F-dos"/>
                                 <include reference="N9I-a9-f64"/>
                                 <exclude reference="bX7-A6-kgo"/>
                                 <include reference="mvm-hy-jxK"/>
