@@ -1664,6 +1664,7 @@
 		2E383FC41E077CA000128351 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75C1D63A06900978DD6 /* Puzzle.swift */; };
 		2E383FC51E077CA200128351 /* PuzzlePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75D1D63A06900978DD6 /* PuzzlePiece.swift */; };
 		2E3D3FBF1EF25E7100AA0258 /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D3FBE1EF25E7100AA0258 /* BankViewController.swift */; };
+		2E3D3FC31EF3A7E500AA0258 /* sight words celebration.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FC21EF3A7E500AA0258 /* sight words celebration.mp3 */; };
 		2E4B00A51ED92EE300834D45 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B00A41ED92EE300834D45 /* HomeButton.swift */; };
 		2E4B00A81EDFE6BB00834D45 /* Kindergarten Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */; };
 		2E4B00A91EDFE6BB00834D45 /* Pre-K Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */; };
@@ -3893,6 +3894,7 @@
 		2E383FBF1E07454A00128351 /* JPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNG.h; sourceTree = "<group>"; };
 		2E383FC01E07454A00128351 /* JPNG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNG.m; sourceTree = "<group>"; };
 		2E3D3FBE1EF25E7100AA0258 /* BankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
+		2E3D3FC21EF3A7E500AA0258 /* sight words celebration.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sight words celebration.mp3"; sourceTree = "<group>"; };
 		2E4B00A41ED92EE300834D45 /* HomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Kindergarten Sight Words"; sourceTree = "<group>"; };
 		2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words"; sourceTree = "<group>"; };
@@ -7338,6 +7340,7 @@
 				2E88B5CB1EEFC50600A595EE /* phonics.mp3 */,
 				2E88B5CC1EEFC50600A595EE /* pre-k sight words.mp3 */,
 				2E88B5CD1EEFC50600A595EE /* secret child stuff.mp3 */,
+				2E3D3FC21EF3A7E500AA0258 /* sight words celebration.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -8758,6 +8761,7 @@
 				2E4B03101EE115EB00834D45 /* blew.jpg in Resources */,
 				2E1467CF1E46F15400BD6C2C /* puzzle-A-AU-row0-col0.jpng in Resources */,
 				2E1469381E46F15500BD6C2C /* puzzle-G-GR-row3-col1.jpng in Resources */,
+				2E3D3FC31EF3A7E500AA0258 /* sight words celebration.mp3 in Resources */,
 				2E4B04091EE115EC00834D45 /* nose.jpg in Resources */,
 				2E146BF91E46F15500BD6C2C /* puzzle-W-WH-row0-col0.jpng in Resources */,
 				2E1469FA1E46F15500BD6C2C /* puzzle-L-lll-row3-col0.jpng in Resources */,

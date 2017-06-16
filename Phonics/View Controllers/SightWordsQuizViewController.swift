@@ -225,8 +225,14 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         }
         
         Timer.scheduleAfter(3.0, addToArray: &self.timers) {
-            self.setupForNewWord(animateTransition: true)
             self.currentlyAnimating = false
+            
+            //celebration if over threshold
+            if Player.current.sightWordCoins.gold >= 50 {
+                self.presentBank()
+            } else {
+                self.setupForNewWord(animateTransition: true)
+            }
         }
     }
     
@@ -284,21 +290,21 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.view.bringSubview(toFront: bankButton)
             
             //animate coin into piggy bank
-            UIView.animate(withDuration: 0.1, animations: {
+            UIView.animate(withDuration: 0.125, animations: {
                 coinView.alpha = 1.0
             })
             
-            UIView.animate(withDuration: 0.55, delay: 0.0, usingSpringWithDamping: 1.0, animations: {
+            UIView.animate(withDuration: 0.95, delay: 0.0, usingSpringWithDamping: 1.0, animations: {
                 coinView.frame.size = CGSize(width: 40, height: 40)
                 coinView.center = self.bankButton.superview!.convert(self.bankButton.center, to: self.view)
             })
             
             //pulse piggybank
-            UIView.animate(withDuration: 0.25, delay: 0.2, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
-                self.bankButton.transform = CGAffineTransform(scaleX: 1.35, y: 1.35)
+            UIView.animate(withDuration: 0.25, delay: 0.5, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+                self.bankButton.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
             }, completion: nil)
             
-            UIView.animate(withDuration: 0.45, delay: 0.7, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+            UIView.animate(withDuration: 0.45, delay: 0.9, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
                 self.bankButton.transform = .identity
             }, completion: nil)
         }
@@ -315,15 +321,28 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     }
     
     @IBAction func bankButtonPressed(_ sender: Any) {
+        presentBank()
+    }
+    
+    func presentBank() {
+        let overThreshold = Player.current.sightWordCoins.gold >= 50
+        let celebrate = overThreshold && !Player.current.hasSeenSightWordsCelebration
+        
         self.view.isUserInteractionEnabled = false
         
         BankViewController.present(
             from: self,
             goldCount: Player.current.sightWordCoins.gold,
             silverCount: Player.current.sightWordCoins.silver,
+            playCelebration: celebrate,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
-                self.animateForCurrentWord()
+
+                if celebrate {
+                    self.setupForNewWord(animateTransition: true)
+                } else {
+                    self.animateForCurrentWord()
+                }
         })
     }
     

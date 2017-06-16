@@ -2061,15 +2061,15 @@ My song had been longer.
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sns-EN-bc9">
-                                        <rect key="frame" x="191.5" y="149.5" width="285" height="76"/>
+                                        <rect key="frame" x="225.5" y="149.5" width="217" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="8eg-Cd-9lf"/>
                                             <constraint firstAttribute="width" constant="61" id="Mz0-be-piZ"/>
                                             <constraint firstAttribute="height" constant="64" id="Uqo-Ae-aBv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="53"/>
-                                        <state key="normal" title="no coins 😟">
-                                            <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="no coins">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.42211579623287671" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="default">
@@ -2341,15 +2341,15 @@ My song had been longer.
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-un-1eE">
-                                <rect key="frame" x="20" y="300" width="252" height="60"/>
+                                <rect key="frame" x="10" y="308" width="142" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oea-oo-ure"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="0">
                                         <attributes>
-                                            <color key="NSColor" red="0.99265420436859131" green="0.86586689949035645" blue="0.3806612491607666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="DINCondensed-Bold"/>
+                                            <color key="NSColor" red="0.96267916096581352" green="0.82467483716375711" blue="0.29654248398391642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="62" name="ComicNeue-Bold"/>
                                             <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -2357,61 +2357,23 @@ My song had been longer.
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" red="0.99624025819999995" green="0.81428295370000003" blue="0.11515008660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="DINCondensed-Bold"/>
+                                            <font key="NSFont" size="62" name="ComicNeue-Bold"/>
                                             <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="+">
+                                    <fragment content="+ 0">
                                         <attributes>
-                                            <color key="NSColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="DINCondensed-Bold"/>
+                                            <color key="NSColor" red="0.86645316329656863" green="0.86645316329656863" blue="0.86645316329656863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="62" name="ComicNeue-Bold"/>
                                             <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.99624025819999995" green="0.81428295370000003" blue="0.11515008660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="DINCondensed-Bold"/>
-                                            <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="0">
-                                        <attributes>
-                                            <color key="NSColor" red="0.89983391759999998" green="0.89977270359999995" blue="0.89980852600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="DINCondensed-Bold"/>
-                                            <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.89983391759999998" green="0.89977270359999995" blue="0.89980852600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="75" name="DINCondensed-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="earned">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.9998849630355835" blue="0.99995571374893188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="35" name="DINCondensed-Bold"/>
-                                            <font key="NSOriginalFont" size="50" name="DINCondensed-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" total">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.9998849630355835" blue="0.99995571374893188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="35" name="DINCondensed-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.13103693180000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="shadowOffset" width="2" height="2"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.24531785102739725" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2423,11 +2385,11 @@ My song had been longer.
                             <constraint firstItem="ljW-L4-oty" firstAttribute="width" secondItem="kIM-ei-eXx" secondAttribute="width" id="GPx-Xe-chw"/>
                             <constraint firstItem="77X-M7-CPU" firstAttribute="top" secondItem="IOv-Nf-e4D" secondAttribute="bottom" id="IPb-WX-RAl"/>
                             <constraint firstItem="77X-M7-CPU" firstAttribute="top" secondItem="kIM-ei-eXx" secondAttribute="topMargin" id="PYG-Qt-MtN"/>
-                            <constraint firstItem="fcm-un-1eE" firstAttribute="leading" secondItem="kIM-ei-eXx" secondAttribute="leading" constant="20" id="TMH-Ui-TDx"/>
+                            <constraint firstItem="fcm-un-1eE" firstAttribute="leading" secondItem="kIM-ei-eXx" secondAttribute="leading" constant="10" id="TMH-Ui-TDx"/>
                             <constraint firstAttribute="trailing" secondItem="MSO-Eo-iNu" secondAttribute="trailing" id="TmJ-g5-HHY"/>
                             <constraint firstItem="ZHq-On-suR" firstAttribute="top" secondItem="MSO-Eo-iNu" secondAttribute="bottom" id="V3o-yt-tz8"/>
                             <constraint firstItem="77X-M7-CPU" firstAttribute="leading" secondItem="kIM-ei-eXx" secondAttribute="leading" id="fhz-cz-lpo"/>
-                            <constraint firstItem="ZHq-On-suR" firstAttribute="top" secondItem="fcm-un-1eE" secondAttribute="bottom" constant="15" id="gdy-o7-B98"/>
+                            <constraint firstItem="ZHq-On-suR" firstAttribute="top" secondItem="fcm-un-1eE" secondAttribute="bottom" constant="7" id="gdy-o7-B98"/>
                             <constraint firstItem="MSO-Eo-iNu" firstAttribute="leading" secondItem="kIM-ei-eXx" secondAttribute="leading" id="h96-f7-ajd"/>
                             <constraint firstItem="ljW-L4-oty" firstAttribute="height" secondItem="kIM-ei-eXx" secondAttribute="height" id="jrh-92-8fw"/>
                             <constraint firstItem="MSO-Eo-iNu" firstAttribute="top" secondItem="kIM-ei-eXx" secondAttribute="top" id="mi4-L1-7H5"/>
