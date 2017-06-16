@@ -122,7 +122,7 @@ class QuizViewController : InteractiveGrowViewController {
         else {
             let randomLetter = PHLetters.random()!
             self.currentLetter = PHContent[randomLetter]
-            self.currentSound = self.currentLetter.sounds(for: .standardDifficulty).random()
+            self.currentSound = self.currentLetter.sounds(for: difficulty ?? .standardDifficulty).random()
             self.answerWord = self.currentSound.allWords.random()
         }
         
