@@ -120,7 +120,7 @@ class LetterCell : UICollectionViewCell {
         guard let letter = PHContent[letter.uppercased()] else { return }
         
         //update image icon with correct image and aspect ratio
-        let letterIconImage = letter.icon
+        let letterIconImage = letter.icon(for: difficulty)
         let aspectRatioToUse = max(1, letterIconImage.size.height / letterIconImage.size.width)
         
         letterIcon.removeConstraints(letterIcon.constraints)

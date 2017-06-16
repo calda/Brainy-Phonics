@@ -1665,6 +1665,32 @@
 		2E383FC51E077CA200128351 /* PuzzlePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DE75D1D63A06900978DD6 /* PuzzlePiece.swift */; };
 		2E3D3FBF1EF25E7100AA0258 /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D3FBE1EF25E7100AA0258 /* BankViewController.swift */; };
 		2E3D3FC31EF3A7E500AA0258 /* sight words celebration.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FC21EF3A7E500AA0258 /* sight words celebration.mp3 */; };
+		2E3D3FDF1EF3B1FB00AA0258 /* easy-letter-icon-a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FC51EF3B1FB00AA0258 /* easy-letter-icon-a.jpg */; };
+		2E3D3FE01EF3B1FB00AA0258 /* easy-letter-icon-b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FC61EF3B1FB00AA0258 /* easy-letter-icon-b.jpg */; };
+		2E3D3FE11EF3B1FB00AA0258 /* easy-letter-icon-c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FC71EF3B1FB00AA0258 /* easy-letter-icon-c.jpg */; };
+		2E3D3FE21EF3B1FB00AA0258 /* easy-letter-icon-d.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FC81EF3B1FB00AA0258 /* easy-letter-icon-d.jpg */; };
+		2E3D3FE31EF3B1FB00AA0258 /* easy-letter-icon-e.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FC91EF3B1FB00AA0258 /* easy-letter-icon-e.jpg */; };
+		2E3D3FE41EF3B1FB00AA0258 /* easy-letter-icon-f.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FCA1EF3B1FB00AA0258 /* easy-letter-icon-f.jpg */; };
+		2E3D3FE51EF3B1FB00AA0258 /* easy-letter-icon-g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FCB1EF3B1FB00AA0258 /* easy-letter-icon-g.jpg */; };
+		2E3D3FE61EF3B1FB00AA0258 /* easy-letter-icon-h.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FCC1EF3B1FB00AA0258 /* easy-letter-icon-h.jpg */; };
+		2E3D3FE71EF3B1FB00AA0258 /* easy-letter-icon-i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FCD1EF3B1FB00AA0258 /* easy-letter-icon-i.jpg */; };
+		2E3D3FE81EF3B1FB00AA0258 /* easy-letter-icon-j.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FCE1EF3B1FB00AA0258 /* easy-letter-icon-j.jpg */; };
+		2E3D3FE91EF3B1FB00AA0258 /* easy-letter-icon-k.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FCF1EF3B1FB00AA0258 /* easy-letter-icon-k.jpg */; };
+		2E3D3FEA1EF3B1FB00AA0258 /* easy-letter-icon-l.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD01EF3B1FB00AA0258 /* easy-letter-icon-l.jpg */; };
+		2E3D3FEB1EF3B1FB00AA0258 /* easy-letter-icon-m.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD11EF3B1FB00AA0258 /* easy-letter-icon-m.jpg */; };
+		2E3D3FEC1EF3B1FB00AA0258 /* easy-letter-icon-n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD21EF3B1FB00AA0258 /* easy-letter-icon-n.jpg */; };
+		2E3D3FED1EF3B1FB00AA0258 /* easy-letter-icon-o.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD31EF3B1FB00AA0258 /* easy-letter-icon-o.jpg */; };
+		2E3D3FEE1EF3B1FB00AA0258 /* easy-letter-icon-p.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD41EF3B1FB00AA0258 /* easy-letter-icon-p.jpg */; };
+		2E3D3FEF1EF3B1FB00AA0258 /* easy-letter-icon-q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD51EF3B1FB00AA0258 /* easy-letter-icon-q.jpg */; };
+		2E3D3FF01EF3B1FB00AA0258 /* easy-letter-icon-r.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD61EF3B1FB00AA0258 /* easy-letter-icon-r.jpg */; };
+		2E3D3FF11EF3B1FB00AA0258 /* easy-letter-icon-s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD71EF3B1FB00AA0258 /* easy-letter-icon-s.jpg */; };
+		2E3D3FF21EF3B1FB00AA0258 /* easy-letter-icon-t.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD81EF3B1FB00AA0258 /* easy-letter-icon-t.jpg */; };
+		2E3D3FF31EF3B1FB00AA0258 /* easy-letter-icon-u.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FD91EF3B1FB00AA0258 /* easy-letter-icon-u.jpg */; };
+		2E3D3FF41EF3B1FB00AA0258 /* easy-letter-icon-v.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDA1EF3B1FB00AA0258 /* easy-letter-icon-v.jpg */; };
+		2E3D3FF51EF3B1FB00AA0258 /* easy-letter-icon-w.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDB1EF3B1FB00AA0258 /* easy-letter-icon-w.jpg */; };
+		2E3D3FF61EF3B1FB00AA0258 /* easy-letter-icon-x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDC1EF3B1FB00AA0258 /* easy-letter-icon-x.jpg */; };
+		2E3D3FF71EF3B1FB00AA0258 /* easy-letter-icon-y.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDD1EF3B1FB00AA0258 /* easy-letter-icon-y.jpg */; };
+		2E3D3FF81EF3B1FB00AA0258 /* easy-letter-icon-z.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDE1EF3B1FB00AA0258 /* easy-letter-icon-z.jpg */; };
 		2E4B00A51ED92EE300834D45 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B00A41ED92EE300834D45 /* HomeButton.swift */; };
 		2E4B00A81EDFE6BB00834D45 /* Kindergarten Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */; };
 		2E4B00A91EDFE6BB00834D45 /* Pre-K Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */; };
@@ -3895,6 +3921,32 @@
 		2E383FC01E07454A00128351 /* JPNG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNG.m; sourceTree = "<group>"; };
 		2E3D3FBE1EF25E7100AA0258 /* BankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
 		2E3D3FC21EF3A7E500AA0258 /* sight words celebration.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sight words celebration.mp3"; sourceTree = "<group>"; };
+		2E3D3FC51EF3B1FB00AA0258 /* easy-letter-icon-a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-a.jpg"; sourceTree = "<group>"; };
+		2E3D3FC61EF3B1FB00AA0258 /* easy-letter-icon-b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-b.jpg"; sourceTree = "<group>"; };
+		2E3D3FC71EF3B1FB00AA0258 /* easy-letter-icon-c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-c.jpg"; sourceTree = "<group>"; };
+		2E3D3FC81EF3B1FB00AA0258 /* easy-letter-icon-d.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-d.jpg"; sourceTree = "<group>"; };
+		2E3D3FC91EF3B1FB00AA0258 /* easy-letter-icon-e.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-e.jpg"; sourceTree = "<group>"; };
+		2E3D3FCA1EF3B1FB00AA0258 /* easy-letter-icon-f.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-f.jpg"; sourceTree = "<group>"; };
+		2E3D3FCB1EF3B1FB00AA0258 /* easy-letter-icon-g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-g.jpg"; sourceTree = "<group>"; };
+		2E3D3FCC1EF3B1FB00AA0258 /* easy-letter-icon-h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-h.jpg"; sourceTree = "<group>"; };
+		2E3D3FCD1EF3B1FB00AA0258 /* easy-letter-icon-i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-i.jpg"; sourceTree = "<group>"; };
+		2E3D3FCE1EF3B1FB00AA0258 /* easy-letter-icon-j.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-j.jpg"; sourceTree = "<group>"; };
+		2E3D3FCF1EF3B1FB00AA0258 /* easy-letter-icon-k.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-k.jpg"; sourceTree = "<group>"; };
+		2E3D3FD01EF3B1FB00AA0258 /* easy-letter-icon-l.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-l.jpg"; sourceTree = "<group>"; };
+		2E3D3FD11EF3B1FB00AA0258 /* easy-letter-icon-m.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-m.jpg"; sourceTree = "<group>"; };
+		2E3D3FD21EF3B1FB00AA0258 /* easy-letter-icon-n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-n.jpg"; sourceTree = "<group>"; };
+		2E3D3FD31EF3B1FB00AA0258 /* easy-letter-icon-o.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-o.jpg"; sourceTree = "<group>"; };
+		2E3D3FD41EF3B1FB00AA0258 /* easy-letter-icon-p.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-p.jpg"; sourceTree = "<group>"; };
+		2E3D3FD51EF3B1FB00AA0258 /* easy-letter-icon-q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-q.jpg"; sourceTree = "<group>"; };
+		2E3D3FD61EF3B1FB00AA0258 /* easy-letter-icon-r.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-r.jpg"; sourceTree = "<group>"; };
+		2E3D3FD71EF3B1FB00AA0258 /* easy-letter-icon-s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-s.jpg"; sourceTree = "<group>"; };
+		2E3D3FD81EF3B1FB00AA0258 /* easy-letter-icon-t.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-t.jpg"; sourceTree = "<group>"; };
+		2E3D3FD91EF3B1FB00AA0258 /* easy-letter-icon-u.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-u.jpg"; sourceTree = "<group>"; };
+		2E3D3FDA1EF3B1FB00AA0258 /* easy-letter-icon-v.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-v.jpg"; sourceTree = "<group>"; };
+		2E3D3FDB1EF3B1FB00AA0258 /* easy-letter-icon-w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-w.jpg"; sourceTree = "<group>"; };
+		2E3D3FDC1EF3B1FB00AA0258 /* easy-letter-icon-x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-x.jpg"; sourceTree = "<group>"; };
+		2E3D3FDD1EF3B1FB00AA0258 /* easy-letter-icon-y.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-y.jpg"; sourceTree = "<group>"; };
+		2E3D3FDE1EF3B1FB00AA0258 /* easy-letter-icon-z.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-z.jpg"; sourceTree = "<group>"; };
 		2E4B00A41ED92EE300834D45 /* HomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Kindergarten Sight Words"; sourceTree = "<group>"; };
 		2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words"; sourceTree = "<group>"; };
@@ -6839,6 +6891,7 @@
 		2E1462611E46F15200BD6C2C /* Words */ = {
 			isa = PBXGroup;
 			children = (
+				2E3D3FC41EF3B1FB00AA0258 /* Easy Letter Icons */,
 				2E4B00D61EE115E900834D45 /* Letter Icons */,
 				2E97A5421EEA661600860196 /* unicorn.jpg */,
 				2E4B00F11EE115E900834D45 /* afraid.jpg */,
@@ -7457,6 +7510,39 @@
 			path = "Word Sets";
 			sourceTree = "<group>";
 		};
+		2E3D3FC41EF3B1FB00AA0258 /* Easy Letter Icons */ = {
+			isa = PBXGroup;
+			children = (
+				2E3D3FC51EF3B1FB00AA0258 /* easy-letter-icon-a.jpg */,
+				2E3D3FC61EF3B1FB00AA0258 /* easy-letter-icon-b.jpg */,
+				2E3D3FC71EF3B1FB00AA0258 /* easy-letter-icon-c.jpg */,
+				2E3D3FC81EF3B1FB00AA0258 /* easy-letter-icon-d.jpg */,
+				2E3D3FC91EF3B1FB00AA0258 /* easy-letter-icon-e.jpg */,
+				2E3D3FCA1EF3B1FB00AA0258 /* easy-letter-icon-f.jpg */,
+				2E3D3FCB1EF3B1FB00AA0258 /* easy-letter-icon-g.jpg */,
+				2E3D3FCC1EF3B1FB00AA0258 /* easy-letter-icon-h.jpg */,
+				2E3D3FCD1EF3B1FB00AA0258 /* easy-letter-icon-i.jpg */,
+				2E3D3FCE1EF3B1FB00AA0258 /* easy-letter-icon-j.jpg */,
+				2E3D3FCF1EF3B1FB00AA0258 /* easy-letter-icon-k.jpg */,
+				2E3D3FD01EF3B1FB00AA0258 /* easy-letter-icon-l.jpg */,
+				2E3D3FD11EF3B1FB00AA0258 /* easy-letter-icon-m.jpg */,
+				2E3D3FD21EF3B1FB00AA0258 /* easy-letter-icon-n.jpg */,
+				2E3D3FD31EF3B1FB00AA0258 /* easy-letter-icon-o.jpg */,
+				2E3D3FD41EF3B1FB00AA0258 /* easy-letter-icon-p.jpg */,
+				2E3D3FD51EF3B1FB00AA0258 /* easy-letter-icon-q.jpg */,
+				2E3D3FD61EF3B1FB00AA0258 /* easy-letter-icon-r.jpg */,
+				2E3D3FD71EF3B1FB00AA0258 /* easy-letter-icon-s.jpg */,
+				2E3D3FD81EF3B1FB00AA0258 /* easy-letter-icon-t.jpg */,
+				2E3D3FD91EF3B1FB00AA0258 /* easy-letter-icon-u.jpg */,
+				2E3D3FDA1EF3B1FB00AA0258 /* easy-letter-icon-v.jpg */,
+				2E3D3FDB1EF3B1FB00AA0258 /* easy-letter-icon-w.jpg */,
+				2E3D3FDC1EF3B1FB00AA0258 /* easy-letter-icon-x.jpg */,
+				2E3D3FDD1EF3B1FB00AA0258 /* easy-letter-icon-y.jpg */,
+				2E3D3FDE1EF3B1FB00AA0258 /* easy-letter-icon-z.jpg */,
+			);
+			path = "Easy Letter Icons";
+			sourceTree = "<group>";
+		};
 		2E4B00D61EE115E900834D45 /* Letter Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -7724,6 +7810,7 @@
 				2E1464921E46F15300BD6C2C /* puzzle-S-SP-rhymeText.txt in Resources */,
 				2E146A751E46F15500BD6C2C /* puzzle-O-OI-row0-col2.jpng in Resources */,
 				2E4B03E71EE115EC00834D45 /* key.jpg in Resources */,
+				2E3D3FF61EF3B1FB00AA0258 /* easy-letter-icon-x.jpg in Resources */,
 				2E146A3D1E46F15500BD6C2C /* puzzle-N-nnn-row3-col2.jpng in Resources */,
 				2E146AE81E46F15500BD6C2C /* puzzle-P-PR-row0-col0.jpng in Resources */,
 				2E1468B01E46F15500BD6C2C /* puzzle-E-ER-row1-col1.jpng in Resources */,
@@ -7750,6 +7837,7 @@
 				2E146AB81E46F15500BD6C2C /* puzzle-O-short-row1-col1.jpng in Resources */,
 				2E1469281E46F15500BD6C2C /* puzzle-G-GL-row2-col1.jpng in Resources */,
 				2E4B030F1EE115EB00834D45 /* blanket.jpg in Resources */,
+				2E3D3FE21EF3B1FB00AA0258 /* easy-letter-icon-d.jpg in Resources */,
 				2E1469821E46F15500BD6C2C /* puzzle-I-IGH-row2-col0.jpng in Resources */,
 				2E4B04CA1EE115EC00834D45 /* window.jpg in Resources */,
 				2E14657B1E46F15400BD6C2C /* sound-YE.mp3 in Resources */,
@@ -7811,6 +7899,7 @@
 				2E4B04951EE115EC00834D45 /* throw.jpg in Resources */,
 				2E1468EF1E46F15500BD6C2C /* puzzle-E-short-row0-col2.jpng in Resources */,
 				2E1468261E46F15400BD6C2C /* puzzle-B-BL-row3-col0.jpng in Resources */,
+				2E3D3FF51EF3B1FB00AA0258 /* easy-letter-icon-w.jpg in Resources */,
 				2E0D52D91ED1676A00EF3706 /* words-I-ie.mp3 in Resources */,
 				2E1468321E46F15400BD6C2C /* puzzle-B-BR-row2-col2.jpng in Resources */,
 				2E4B04821EE115EC00834D45 /* swim.jpg in Resources */,
@@ -7838,6 +7927,7 @@
 				2E4B03411EE115EB00834D45 /* chair.jpg in Resources */,
 				2E1464C01E46F15300BD6C2C /* puzzle-E-schwa-rhyme.mp3 in Resources */,
 				2E146ACA1E46F15500BD6C2C /* puzzle-O-uh-row3-col0.jpng in Resources */,
+				2E3D3FEC1EF3B1FB00AA0258 /* easy-letter-icon-n.jpg in Resources */,
 				2E146B941E46F15500BD6C2C /* puzzle-T-the-row1-col0.jpng in Resources */,
 				2E146A141E46F15500BD6C2C /* puzzle-N-ND-row3-col0.jpng in Resources */,
 				2E146C181E46F15600BD6C2C /* puzzle-X-ks-row1-col2.jpng in Resources */,
@@ -8056,6 +8146,7 @@
 				2E4B048C1EE115EC00834D45 /* taxi.jpg in Resources */,
 				2E14646F1E46F15300BD6C2C /* puzzle-I-IGH-rhymeText.txt in Resources */,
 				2E146AC61E46F15500BD6C2C /* puzzle-O-uh-row1-col2.jpng in Resources */,
+				2E3D3FE11EF3B1FB00AA0258 /* easy-letter-icon-c.jpg in Resources */,
 				2E4B03EA1EE115EC00834D45 /* labrador retriever.jpg in Resources */,
 				2E4B03FE1EE115EC00834D45 /* moth.jpg in Resources */,
 				2E146A011E46F15500BD6C2C /* puzzle-M-mmm-row1-col0.jpng in Resources */,
@@ -8229,6 +8320,7 @@
 				2E88B5CE1EEFC50600A595EE /* alphabet letters.mp3 in Resources */,
 				2E4B03E01EE115EC00834D45 /* jewelry.jpg in Resources */,
 				2E88B5D51EEFC50600A595EE /* secret child stuff.mp3 in Resources */,
+				2E3D3FF11EF3B1FB00AA0258 /* easy-letter-icon-s.jpg in Resources */,
 				2E14687C1E46F15400BD6C2C /* puzzle-C-sss-row1-col1.jpng in Resources */,
 				2E146B121E46F15500BD6C2C /* puzzle-R-ruh-row1-col0.jpng in Resources */,
 				2E4B042D1EE115EC00834D45 /* question.jpg in Resources */,
@@ -8245,6 +8337,7 @@
 				2E146AD71E46F15500BD6C2C /* puzzle-O-uuh-row3-col0.jpng in Resources */,
 				2E4B036F1EE115EB00834D45 /* dish.jpg in Resources */,
 				2E4B04741EE115EC00834D45 /* stir.jpg in Resources */,
+				2E3D3FE61EF3B1FB00AA0258 /* easy-letter-icon-h.jpg in Resources */,
 				2E1464961E46F15300BD6C2C /* puzzle-S-zz-rhymeText.txt in Resources */,
 				2E14652E1E46F15400BD6C2C /* sound-G.mp3 in Resources */,
 				2E146BC01E46F15500BD6C2C /* puzzle-U-long-row2-col2.png in Resources */,
@@ -8264,6 +8357,7 @@
 				2E146B561E46F15500BD6C2C /* puzzle-S-sss-row2-col0.jpng in Resources */,
 				2E1464A51E46F15300BD6C2C /* puzzle-Y-yuh-rhymeText.txt in Resources */,
 				2E146BE91E46F15500BD6C2C /* puzzle-U-uu-row3-col1.jpng in Resources */,
+				2E3D3FF01EF3B1FB00AA0258 /* easy-letter-icon-r.jpg in Resources */,
 				2E1464CD1E46F15300BD6C2C /* puzzle-I-IL-rhyme.mp3 in Resources */,
 				2E146A571E46F15500BD6C2C /* puzzle-O-long-row3-col2.jpng in Resources */,
 				2E4B03681EE115EB00834D45 /* dark.jpg in Resources */,
@@ -8334,6 +8428,7 @@
 				2E146A9A1E46F15500BD6C2C /* puzzle-O-ow-row0-col0.jpng in Resources */,
 				2E1468211E46F15400BD6C2C /* puzzle-B-BL-row1-col1.jpng in Resources */,
 				2E4B04161EE115EC00834D45 /* pencil.jpg in Resources */,
+				2E3D3FDF1EF3B1FB00AA0258 /* easy-letter-icon-a.jpg in Resources */,
 				2E1468611E46F15400BD6C2C /* puzzle-C-CR-row1-col0.jpng in Resources */,
 				2E1467C61E46F15400BD6C2C /* puzzle-A-AR-row1-col1.jpng in Resources */,
 				2E146A741E46F15500BD6C2C /* puzzle-O-OI-row0-col1.jpng in Resources */,
@@ -8455,6 +8550,7 @@
 				2E4B046B1EE115EC00834D45 /* square.jpg in Resources */,
 				2E146A931E46F15500BD6C2C /* puzzle-O-OU-row2-col0.jpng in Resources */,
 				2E1467C81E46F15400BD6C2C /* puzzle-A-AR-row2-col0.jpng in Resources */,
+				2E3D3FF71EF3B1FB00AA0258 /* easy-letter-icon-y.jpg in Resources */,
 				2E0D530B1ED1676A00EF3706 /* words-T-the.mp3 in Resources */,
 				2E146C331E46F15600BD6C2C /* puzzle-Y-i-row2-col0.jpng in Resources */,
 				2E1468851E46F15400BD6C2C /* puzzle-D-DR-row0-col0.jpng in Resources */,
@@ -8515,6 +8611,7 @@
 				2E4B04CE1EE115EC00834D45 /* work.jpg in Resources */,
 				2E14683A1E46F15400BD6C2C /* puzzle-B-buh-row1-col0.jpng in Resources */,
 				2E4B034E1EE115EB00834D45 /* coat.jpg in Resources */,
+				2E3D3FED1EF3B1FB00AA0258 /* easy-letter-icon-o.jpg in Resources */,
 				2E146B6F1E46F15500BD6C2C /* puzzle-S-SW-row1-col2.jpng in Resources */,
 				2E0D52F41ED1676A00EF3706 /* words-O-ow.mp3 in Resources */,
 				2E14651B1E46F15400BD6C2C /* sound-DL.mp3 in Resources */,
@@ -8645,6 +8742,7 @@
 				2E146B371E46F15500BD6C2C /* puzzle-S-SL-row0-col1.jpng in Resources */,
 				2E4B037E1EE115EB00834D45 /* excavator.jpg in Resources */,
 				2E146AC91E46F15500BD6C2C /* puzzle-O-uh-row2-col2.jpng in Resources */,
+				2E3D3FEA1EF3B1FB00AA0258 /* easy-letter-icon-l.jpg in Resources */,
 				2E1469A91E46F15500BD6C2C /* puzzle-I-long-row2-col0.jpng in Resources */,
 				2E146ACE1E46F15500BD6C2C /* puzzle-O-uuh-row0-col0.jpng in Resources */,
 				2E4B04BC1EE115EC00834D45 /* waterfall.jpg in Resources */,
@@ -8727,6 +8825,7 @@
 				2E1468A71E46F15500BD6C2C /* puzzle-E-EA-row2-col2.jpng in Resources */,
 				2E0D52C01ED1676A00EF3706 /* words-C-CH.mp3 in Resources */,
 				2E4B032B1EE115EB00834D45 /* bunny.jpg in Resources */,
+				2E3D3FF21EF3B1FB00AA0258 /* easy-letter-icon-t.jpg in Resources */,
 				2E146A641E46F15500BD6C2C /* puzzle-O-OA-row3-col2.jpng in Resources */,
 				2E1468E71E46F15500BD6C2C /* puzzle-E-schwa-row2-col1.jpng in Resources */,
 				2E4B04C41EE115EC00834D45 /* whisper.jpg in Resources */,
@@ -8799,6 +8898,7 @@
 				2E4B03BA1EE115EC00834D45 /* golf club.jpg in Resources */,
 				2E146B351E46F15500BD6C2C /* puzzle-S-SK-spec.json in Resources */,
 				2E1468571E46F15400BD6C2C /* puzzle-C-CL-row2-col0.jpng in Resources */,
+				2E3D3FE41EF3B1FB00AA0258 /* easy-letter-icon-f.jpg in Resources */,
 				2E14691D1E46F15500BD6C2C /* puzzle-F-fuh-row3-col0.jpng in Resources */,
 				2E4B036A1EE115EB00834D45 /* daybreak.jpg in Resources */,
 				2E1467AE1E46F15400BD6C2C /* puzzle-A-AI-row2-col0.jpng in Resources */,
@@ -9019,6 +9119,7 @@
 				2E4B03981EE115EC00834D45 /* flute.jpg in Resources */,
 				2E14696A1E46F15500BD6C2C /* puzzle-I-ee-row2-col2.jpng in Resources */,
 				2E4B047B1EE115EC00834D45 /* suitcase.jpg in Resources */,
+				2E3D3FE91EF3B1FB00AA0258 /* easy-letter-icon-k.jpg in Resources */,
 				2E1468161E46F15400BD6C2C /* puzzle-A-short-row2-col0.jpng in Resources */,
 				2E146AFF1E46F15500BD6C2C /* puzzle-P-puh-row3-col1.jpng in Resources */,
 				2E1464C61E46F15300BD6C2C /* puzzle-G-GR-rhyme.mp3 in Resources */,
@@ -9262,6 +9363,7 @@
 				2E146C001E46F15500BD6C2C /* puzzle-W-WH-row2-col1.jpng in Resources */,
 				2E146B781E46F15500BD6C2C /* puzzle-S-zz-row0-col1.jpng in Resources */,
 				2E4B04721EE115EC00834D45 /* stew pot.jpg in Resources */,
+				2E3D3FF41EF3B1FB00AA0258 /* easy-letter-icon-v.jpg in Resources */,
 				2E1465441E46F15400BD6C2C /* sound-O-short.mp3 in Resources */,
 				2E1464EC1E46F15400BD6C2C /* puzzle-S-SH-rhyme.mp3 in Resources */,
 				2E4B04A11EE115EC00834D45 /* traffic light.jpg in Resources */,
@@ -9270,6 +9372,7 @@
 				2E146B2F1E46F15500BD6C2C /* puzzle-S-SK-row2-col0.jpng in Resources */,
 				2E146A291E46F15500BD6C2C /* puzzle-N-NK-row1-col1.jpng in Resources */,
 				2E1467E21E46F15400BD6C2C /* puzzle-A-AW-row2-col0.jpng in Resources */,
+				2E3D3FF31EF3B1FB00AA0258 /* easy-letter-icon-u.jpg in Resources */,
 				2E4B03D91EE115EC00834D45 /* hug.jpg in Resources */,
 				2E1465101E46F15400BD6C2C /* sound-AW.mp3 in Resources */,
 				2E146B761E46F15500BD6C2C /* puzzle-S-SW-spec.json in Resources */,
@@ -9285,6 +9388,7 @@
 				2E1464701E46F15300BD6C2C /* puzzle-I-IL-rhymeText.txt in Resources */,
 				2E4B02FE1EE115EB00834D45 /* ballet slippers.jpg in Resources */,
 				2E1469431E46F15500BD6C2C /* puzzle-G-guh-row2-col2.jpng in Resources */,
+				2E3D3FEF1EF3B1FB00AA0258 /* easy-letter-icon-q.jpg in Resources */,
 				2E14653C1E46F15400BD6C2C /* sound-K.mp3 in Resources */,
 				2E1469CC1E46F15500BD6C2C /* puzzle-J-juh-row0-col2.jpng in Resources */,
 				2E14654E1E46F15400BD6C2C /* sound-OW.mp3 in Resources */,
@@ -9377,6 +9481,7 @@
 				2E1464DB1E46F15300BD6C2C /* puzzle-O-ew-rhyme.mp3 in Resources */,
 				2E1465391E46F15400BD6C2C /* sound-ISH.mp3 in Resources */,
 				2E4B04811EE115EC00834D45 /* sweet.jpg in Resources */,
+				2E3D3FEB1EF3B1FB00AA0258 /* easy-letter-icon-m.jpg in Resources */,
 				2E1465551E46F15400BD6C2C /* sound-RD.mp3 in Resources */,
 				2E4B04961EE115EC00834D45 /* thumb.jpg in Resources */,
 				2E1468D41E46F15500BD6C2C /* puzzle-E-long-row0-col1.jpng in Resources */,
@@ -9395,6 +9500,7 @@
 				2E1469D21E46F15500BD6C2C /* puzzle-J-juh-row2-col2.jpng in Resources */,
 				2E1465411E46F15400BD6C2C /* sound-N.mp3 in Resources */,
 				2E146A9D1E46F15500BD6C2C /* puzzle-O-ow-row1-col0.jpng in Resources */,
+				2E3D3FE71EF3B1FB00AA0258 /* easy-letter-icon-i.jpg in Resources */,
 				2E4B03781EE115EB00834D45 /* drop.jpg in Resources */,
 				2E4B03B91EE115EC00834D45 /* gold.jpg in Resources */,
 				2E14696E1E46F15500BD6C2C /* puzzle-I-ee-spec.json in Resources */,
@@ -9406,6 +9512,7 @@
 				2E14696B1E46F15500BD6C2C /* puzzle-I-ee-row3-col0.jpng in Resources */,
 				2E4B04AD1EE115EC00834D45 /* tuba.jpg in Resources */,
 				2E1467A71E46F15400BD6C2C /* puzzle-A-ahh-spec.json in Resources */,
+				2E3D3FEE1EF3B1FB00AA0258 /* easy-letter-icon-p.jpg in Resources */,
 				2E4B03381EE115EB00834D45 /* carpet.jpg in Resources */,
 				2E1468DA1E46F15500BD6C2C /* puzzle-E-long-row2-col1.jpng in Resources */,
 				2E4B03A81EE115EC00834D45 /* frog.jpg in Resources */,
@@ -9447,6 +9554,7 @@
 				2E146B6D1E46F15500BD6C2C /* puzzle-S-SW-row1-col0.jpng in Resources */,
 				2E14699C1E46F15500BD6C2C /* puzzle-I-IR-row2-col0.jpng in Resources */,
 				2E0D530C1ED1676A00EF3706 /* words-T-TR.mp3 in Resources */,
+				2E3D3FE31EF3B1FB00AA0258 /* easy-letter-icon-e.jpg in Resources */,
 				2E146AC31E46F15500BD6C2C /* puzzle-O-uh-row0-col2.jpng in Resources */,
 				2E4B04641EE115EC00834D45 /* spider.jpg in Resources */,
 				2E1468F41E46F15500BD6C2C /* puzzle-E-short-row2-col1.jpng in Resources */,
@@ -9539,6 +9647,7 @@
 				2E1464781E46F15300BD6C2C /* puzzle-L-lll-rhymeText.txt in Resources */,
 				2E146ABC1E46F15500BD6C2C /* puzzle-O-short-row2-col2.jpng in Resources */,
 				2E146AA01E46F15500BD6C2C /* puzzle-O-ow-row2-col0.jpng in Resources */,
+				2E3D3FE51EF3B1FB00AA0258 /* easy-letter-icon-g.jpg in Resources */,
 				2E146B2A1E46F15500BD6C2C /* puzzle-S-SK-row0-col1.jpng in Resources */,
 				2E146AFD1E46F15500BD6C2C /* puzzle-P-puh-row2-col2.jpng in Resources */,
 				2E1464641E46F15300BD6C2C /* puzzle-E-short-rhymeText.txt in Resources */,
@@ -9593,6 +9702,7 @@
 				2E146C321E46F15600BD6C2C /* puzzle-Y-i-row1-col2.jpng in Resources */,
 				2E4B040F1EE115EC00834D45 /* owl.jpg in Resources */,
 				2E14646E1E46F15300BD6C2C /* puzzle-I-ie-rhymeText.txt in Resources */,
+				2E3D3FE01EF3B1FB00AA0258 /* easy-letter-icon-b.jpg in Resources */,
 				2E1468741E46F15400BD6C2C /* puzzle-C-kuh-row3-col0.jpng in Resources */,
 				2E4B031A1EE115EB00834D45 /* bowl.jpg in Resources */,
 				2E146A421E46F15500BD6C2C /* puzzle-O-ew-row1-col0.jpng in Resources */,
@@ -9804,8 +9914,10 @@
 				2E1465661E46F15400BD6C2C /* sound-T.mp3 in Resources */,
 				2E4B049C1EE115EC00834D45 /* toilet.jpg in Resources */,
 				2E1469401E46F15500BD6C2C /* puzzle-G-guh-row1-col2.jpng in Resources */,
+				2E3D3FE81EF3B1FB00AA0258 /* easy-letter-icon-j.jpg in Resources */,
 				2E146B261E46F15500BD6C2C /* puzzle-S-SH-row3-col1.jpng in Resources */,
 				2E1465011E46F15400BD6C2C /* puzzle-Y-i-rhyme.mp3 in Resources */,
+				2E3D3FF81EF3B1FB00AA0258 /* easy-letter-icon-z.jpg in Resources */,
 				2E1468301E46F15400BD6C2C /* puzzle-B-BR-row2-col0.jpng in Resources */,
 				2E146AC81E46F15500BD6C2C /* puzzle-O-uh-row2-col1.jpng in Resources */,
 				2E0D52C71ED1676A00EF3706 /* words-D-duh.mp3 in Resources */,
