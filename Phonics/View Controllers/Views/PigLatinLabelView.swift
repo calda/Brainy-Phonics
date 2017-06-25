@@ -8,17 +8,39 @@
 
 import UIKit
 
+enum PigLatinLabelViewDisplayMode {
+    case english, partialConstruction, fullConstruction, pigLatin
+    
+    var previous: PigLatinLabelViewDisplayMode? {
+        switch(self) {
+        case .english:
+            return nil
+        case .partialConstruction:
+            return .english
+        case .fullConstruction:
+            return .partialConstruction
+        case .pigLatin:
+            return .fullConstruction
+        }
+    }
+}
+
 class PigLatinLabelView: UIView {
     
     let stackView: UIStackView
     let word: PigLatinWord
+    let displayMode: PigLatinLabelViewDisplayMode
     let font: UIFont
     let highlightColor: UIColor
     
-    init(with word: PigLatinWord, font: UIFont, highlightColor: UIColor) {
+    init(with word: PigLatinWord,
+         displayMode: PigLatinLabelViewDisplayMode,
+         font: UIFont, highlightColor: UIColor)
+    {
         stackView = UIStackView()
         self.font = font
         self.word = word
+        self.displayMode = displayMode
         self.highlightColor = highlightColor
         super.init(frame: .zero)
         
@@ -33,11 +55,46 @@ class PigLatinLabelView: UIView {
     func setUpStackView() {
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 20.0
         stackView.constraintInCenterOfSuperview()
         
+        switch(displayMode) {
+        case .english:
+            configureStackViewForEnglishMode()
+        case .partialConstruction:
+            configureStackViewForPartialConstructionMode()
+        case .fullConstruction:
+            configureStackViewForFullConstructionMode()
+        case .pigLatin:
+            configureStackViewForPigLatinMode()
+        }
+    }
+        
+    func configureStackViewForEnglishMode() {
+        stackView.spacing = 5.0
         stackView.addArrangedSubview(buildFirstLetterLabel())
-        stackView.addArrangedSubview(buildOtherLettersLabel())
+        stackView.addArrangedSubview(buildLabel(for: word.otherLetters))
+    }
+    
+    func configureStackViewForPartialConstructionMode() {
+        stackView.spacing = 50.0
+        stackView.addArrangedSubview(buildLabel(for: word.otherLetters))
+        stackView.addArrangedSubview(buildFirstLetterLabel())
+    }
+    
+    func configureStackViewForFullConstructionMode() {
+        stackView.spacing = 15.0
+        stackView.addArrangedSubview(buildLabel(for: word.otherLetters))
+        stackView.addArrangedSubview(buildLabel(for: "-"))
+        stackView.addArrangedSubview(buildLabel(for: word.firstLetter))
+        stackView.addArrangedSubview(buildLabel(for: "-"))
+        stackView.addArrangedSubview(buildLabel(for: word.pigLatinEnding))
+    }
+    
+    func configureStackViewForPigLatinMode() {
+        stackView.spacing = 15.0
+        stackView.addArrangedSubview(buildLabel(for: word.otherLetters))
+        stackView.addArrangedSubview(buildLabel(for: "-"))
+        stackView.addArrangedSubview(buildLabel(for: word.firstLetter + word.pigLatinEnding))
     }
     
     func buildFirstLetterLabel() -> UILabel {
@@ -53,14 +110,13 @@ class PigLatinLabelView: UIView {
         return label
     }
     
-    func buildOtherLettersLabel() -> UILabel {
+    func buildLabel(for text: String) -> UILabel {
         let label = UILabel()
         label.font = font
-        label.text = word.otherLetters
+        label.text = text
         label.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         return label
     }
-    
 }
 
 

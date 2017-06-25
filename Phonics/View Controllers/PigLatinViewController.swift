@@ -13,7 +13,7 @@ import UIKit
 enum PigLatinSlide {
     case image(UIImage)
     case text(String)
-    case example(PigLatinWord)
+    case example(PigLatinWord, PigLatinLabelViewDisplayMode)
     
     private var targetImageWidth: CGFloat {
         return iPad() ? 600 : 400
@@ -34,8 +34,8 @@ enum PigLatinSlide {
             return BasicImageView(with: image, targetWidth: targetImageWidth)
         case .text(let text):
             return BasicLabelView(with: text, font: font)
-        case .example(let word):
-            return PigLatinLabelView(with: word, font: font, highlightColor: highlightColor)
+        case .example(let word, let mode):
+            return PigLatinLabelView(with: word, displayMode: mode, font: font, highlightColor: highlightColor)
         }
     }
 }
@@ -57,8 +57,11 @@ class PigLatinViewController: UIViewController {
     let slides: [TimeInterval : PigLatinSlide] = [
         0.0: .image(#imageLiteral(resourceName: "logo-secret-stuff")),
         2.0: .text("dog"),
-        4.0: .example(.dog),
-        6.0: .text("dog _ og-day")
+        4.0: .example(.dog, .english),
+        6.0: .example(.dog, .partialConstruction),
+        8.0: .example(.dog, .fullConstruction),
+        10.0: .example(.dog, .pigLatin),
+        12.0: .text("dog _ og-day")
     ]
     
     var timers = [Timer]()
