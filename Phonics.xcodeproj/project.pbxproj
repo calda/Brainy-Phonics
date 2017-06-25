@@ -1691,6 +1691,10 @@
 		2E3D3FF61EF3B1FB00AA0258 /* easy-letter-icon-x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDC1EF3B1FB00AA0258 /* easy-letter-icon-x.jpg */; };
 		2E3D3FF71EF3B1FB00AA0258 /* easy-letter-icon-y.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDD1EF3B1FB00AA0258 /* easy-letter-icon-y.jpg */; };
 		2E3D3FF81EF3B1FB00AA0258 /* easy-letter-icon-z.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D3FDE1EF3B1FB00AA0258 /* easy-letter-icon-z.jpg */; };
+		2E482FC91EFF54A000A41012 /* BasicLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E482FC81EFF54A000A41012 /* BasicLabelView.swift */; };
+		2E482FCB1EFF573600A41012 /* PigLatinLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E482FCA1EFF573600A41012 /* PigLatinLabelView.swift */; };
+		2E482FCD1EFF5B2F00A41012 /* PigLatinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E482FCC1EFF5B2F00A41012 /* PigLatinViewController.swift */; };
+		2E482FCF1EFF5BEE00A41012 /* BasicImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E482FCE1EFF5BEE00A41012 /* BasicImageView.swift */; };
 		2E4B00A51ED92EE300834D45 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B00A41ED92EE300834D45 /* HomeButton.swift */; };
 		2E4B00A81EDFE6BB00834D45 /* Kindergarten Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */; };
 		2E4B00A91EDFE6BB00834D45 /* Pre-K Sight Words in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */; };
@@ -3947,6 +3951,10 @@
 		2E3D3FDC1EF3B1FB00AA0258 /* easy-letter-icon-x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-x.jpg"; sourceTree = "<group>"; };
 		2E3D3FDD1EF3B1FB00AA0258 /* easy-letter-icon-y.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-y.jpg"; sourceTree = "<group>"; };
 		2E3D3FDE1EF3B1FB00AA0258 /* easy-letter-icon-z.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "easy-letter-icon-z.jpg"; sourceTree = "<group>"; };
+		2E482FC81EFF54A000A41012 /* BasicLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLabelView.swift; sourceTree = "<group>"; };
+		2E482FCA1EFF573600A41012 /* PigLatinLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PigLatinLabelView.swift; sourceTree = "<group>"; };
+		2E482FCC1EFF5B2F00A41012 /* PigLatinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PigLatinViewController.swift; sourceTree = "<group>"; };
+		2E482FCE1EFF5BEE00A41012 /* BasicImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicImageView.swift; sourceTree = "<group>"; };
 		2E4B00A41ED92EE300834D45 /* HomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		2E4B00A61EDFE6BB00834D45 /* Kindergarten Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Kindergarten Sight Words"; sourceTree = "<group>"; };
 		2E4B00A71EDFE6BB00834D45 /* Pre-K Sight Words */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Pre-K Sight Words"; sourceTree = "<group>"; };
@@ -7667,6 +7675,7 @@
 				2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */,
 				2EAAF06E1ED5545E00D2B13B /* SightWordsQuizViewController.swift */,
 				2E3D3FBE1EF25E7100AA0258 /* BankViewController.swift */,
+				2E482FCC1EFF5B2F00A41012 /* PigLatinViewController.swift */,
 				2E6DE2831D639A1B00978DD6 /* Views */,
 			);
 			path = "View Controllers";
@@ -7681,6 +7690,9 @@
 				2E6DE2861D639A1B00978DD6 /* WordView.xib */,
 				2E73FFDD1E2B292C0055AAAD /* SelectCornerRadiusView.swift */,
 				2E4B00A41ED92EE300834D45 /* HomeButton.swift */,
+				2E482FC81EFF54A000A41012 /* BasicLabelView.swift */,
+				2E482FCE1EFF5BEE00A41012 /* BasicImageView.swift */,
+				2E482FCA1EFF573600A41012 /* PigLatinLabelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -10021,6 +10033,8 @@
 				2EBB18AC1ED2BCFB0078D951 /* SentencesViewController.swift in Sources */,
 				2E5B33AB1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift in Sources */,
 				2E6DE7541D639A1C00978DD6 /* InterativeGrowViewController.swift in Sources */,
+				2E482FC91EFF54A000A41012 /* BasicLabelView.swift in Sources */,
+				2E482FCF1EFF5BEE00A41012 /* BasicImageView.swift in Sources */,
 				2EECD5661E0BBA4800C667DE /* Player.swift in Sources */,
 				2E6DE7501D639A1C00978DD6 /* UniversalAudio.swift in Sources */,
 				2E0D53F81ED267D900EF3706 /* SightWord.swift in Sources */,
@@ -10033,6 +10047,7 @@
 				2E6DE75E1D63A06900978DD6 /* Puzzle.swift in Sources */,
 				2E6DE7611D63A90100978DD6 /* PuzzleView.swift in Sources */,
 				2E3D3FBF1EF25E7100AA0258 /* BankViewController.swift in Sources */,
+				2E482FCD1EFF5B2F00A41012 /* PigLatinViewController.swift in Sources */,
 				2E80484C1ED29DEA001F4EF6 /* SightWordsViewController.swift in Sources */,
 				2E6DE7531D639A1C00978DD6 /* HomeViewController.swift in Sources */,
 				2E0D53F61ED2670F00EF3706 /* SightWordsManager.swift in Sources */,
@@ -10043,6 +10058,7 @@
 				2E383FC11E07454A00128351 /* JPNG.m in Sources */,
 				2E6DE75A1D639A1C00978DD6 /* WordView.swift in Sources */,
 				2E6DE7561D639A1C00978DD6 /* LetterViewController.swift in Sources */,
+				2E482FCB1EFF573600A41012 /* PigLatinLabelView.swift in Sources */,
 				2E0D53FC1ED2682B00EF3706 /* Sentence.swift in Sources */,
 				2E6DE74B1D639A1C00978DD6 /* Sound.swift in Sources */,
 			);
