@@ -37,22 +37,45 @@ class BasicLabelView: UIView {
 
 extension UIView {
     
-    func constraintInCenterOfSuperview(requireHugging: Bool = true) {
+    typealias Constraints = (
+        centerX: NSLayoutConstraint,
+        centerY: NSLayoutConstraint,
+        leading: NSLayoutConstraint,
+        trailing: NSLayoutConstraint,
+        top: NSLayoutConstraint,
+        bottom: NSLayoutConstraint
+    )
+    
+    @discardableResult
+    func constraintInCenterOfSuperview(requireHugging: Bool = true) -> Constraints? {
         guard let superview = superview else {
-            return
+            return nil
         }
         
-        self.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
-        self.centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
-        self.leadingAnchor.constraint(greaterThanOrEqualTo: superview.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(lessThanOrEqualTo: superview.trailingAnchor).isActive = true
-        self.topAnchor.constraint(greaterThanOrEqualTo: superview.topAnchor).isActive = true
-        self.bottomAnchor.constraint(lessThanOrEqualTo: superview.bottomAnchor).isActive = true
+        let centerX = self.centerXAnchor.constraint(equalTo: superview.centerXAnchor)
+        let centerY = self.centerYAnchor.constraint(equalTo: superview.centerYAnchor)
+        let leading = self.leadingAnchor.constraint(greaterThanOrEqualTo: superview.leadingAnchor)
+        let trailing = self.trailingAnchor.constraint(lessThanOrEqualTo: superview.trailingAnchor)
+        let top = self.topAnchor.constraint(greaterThanOrEqualTo: superview.topAnchor)
+        let bottom = self.bottomAnchor.constraint(lessThanOrEqualTo: superview.bottomAnchor)
+        
+        for constraint in [centerX, centerY, leading, trailing, top, bottom] {
+            constraint.isActive = true
+        }
         
         if requireHugging {
             self.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
             self.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
         }
+        
+        return (
+            centerX: centerX,
+            centerY: centerY,
+            leading: leading,
+            trailing: trailing,
+            top: top,
+            bottom: bottom
+        )
     }
     
 }

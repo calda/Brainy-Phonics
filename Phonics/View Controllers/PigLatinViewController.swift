@@ -55,13 +55,12 @@ struct PigLatinWord {
 class PigLatinViewController: UIViewController {
     
     let slides: [TimeInterval : PigLatinSlide] = [
-        0.0: .image(#imageLiteral(resourceName: "logo-secret-stuff")),
-        2.0: .text("dog"),
-        4.0: .example(.dog, .english),
-        6.0: .example(.dog, .partialConstruction),
-        8.0: .example(.dog, .fullConstruction),
-        10.0: .example(.dog, .pigLatin),
-        12.0: .text("dog _ og-day")
+        0.0: .example(.dog, .english),
+        2.0: .example(.dog, .prefix),
+        4.0: .example(.dog, .partialConstruction),
+        6.0: .example(.dog, .fullConstruction),
+        8.0: .example(.dog, .pigLatin),
+        10.0: .example(.dog, .sideBySide)
     ]
     
     var timers = [Timer]()
