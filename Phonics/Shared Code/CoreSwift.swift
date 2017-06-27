@@ -87,6 +87,23 @@ func pivotView(_ view: UIView, multiplier: CGFloat = 1.0) {
     }
 }
 
+extension UIView {
+    
+    func pulseToSize(size: CGFloat, growFor grow: TimeInterval, shrinkFor shrink: TimeInterval) {
+        
+        //animate
+        UIView.animate(withDuration: grow, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.allowUserInteraction], animations: {
+            self.transform = CGAffineTransform(scaleX: size, y: size)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: shrink, delay: grow, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.allowUserInteraction], animations: {
+            self.transform = .identity
+        }, completion: nil)
+        
+    }
+    
+}
+
 ///short-form function to run a block synchronously on the main queue
 func sync(_ closure: () -> ()) {
     DispatchQueue.main.sync(execute: closure)

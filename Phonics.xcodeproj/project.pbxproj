@@ -2255,6 +2255,7 @@
 		2E97A5431EEA661600860196 /* unicorn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E97A5421EEA661600860196 /* unicorn.jpg */; };
 		2EAAF06F1ED5545E00D2B13B /* SightWordsQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAAF06E1ED5545E00D2B13B /* SightWordsQuizViewController.swift */; };
 		2EBB18AC1ED2BCFB0078D951 /* SentencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */; };
+		2ECE60531F02351600A7DE52 /* pig latin content.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ECE60521F02351600A7DE52 /* pig latin content.mp3 */; };
 		2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */; };
 		2EECD55C1E0BB95E00C667DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EECD55B1E0BB95E00C667DE /* CoreData.framework */; };
 		2EECD5661E0BBA4800C667DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5621E0BBA4800C667DE /* Player.swift */; };
@@ -4510,6 +4511,7 @@
 		2E97A5421EEA661600860196 /* unicorn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unicorn.jpg; sourceTree = "<group>"; };
 		2EAAF06E1ED5545E00D2B13B /* SightWordsQuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightWordsQuizViewController.swift; sourceTree = "<group>"; };
 		2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentencesViewController.swift; sourceTree = "<group>"; };
+		2ECE60521F02351600A7DE52 /* pig latin content.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pig latin content.mp3"; sourceTree = "<group>"; };
 		2EDBFA2B1D5C0CE600C1451F /* PhonicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhonicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHContentTest.swift; sourceTree = "<group>"; };
 		2EDBFA2F1D5C0CE600C1451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -7399,6 +7401,7 @@
 				2E88B5C91EEFC50600A595EE /* incorrect.mp3 */,
 				2E88B5CA1EEFC50600A595EE /* kindergarten sight words.mp3 */,
 				2E88B5CB1EEFC50600A595EE /* phonics.mp3 */,
+				2ECE60521F02351600A7DE52 /* pig latin content.mp3 */,
 				2E88B5CC1EEFC50600A595EE /* pre-k sight words.mp3 */,
 				2E88B5CD1EEFC50600A595EE /* secret child stuff.mp3 */,
 				2E3D3FC21EF3A7E500AA0258 /* sight words celebration.mp3 */,
@@ -8374,6 +8377,7 @@
 				2E146A571E46F15500BD6C2C /* puzzle-O-long-row3-col2.jpng in Resources */,
 				2E4B03681EE115EB00834D45 /* dark.jpg in Resources */,
 				2E1464931E46F15300BD6C2C /* puzzle-S-sss-rhymeText.txt in Resources */,
+				2ECE60531F02351600A7DE52 /* pig latin content.mp3 in Resources */,
 				2E146AF31E46F15500BD6C2C /* puzzle-P-PR-row3-col2.jpng in Resources */,
 				2E14646B1E46F15300BD6C2C /* puzzle-G-juh-rhymeText.txt in Resources */,
 				2E4B04C11EE115EC00834D45 /* wheel.jpg in Resources */,

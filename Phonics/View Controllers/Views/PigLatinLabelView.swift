@@ -9,7 +9,7 @@
 import UIKit
 
 enum PigLatinLabelViewDisplayMode {
-    case english, prefix, partialConstruction, fullConstruction, pigLatin, sideBySide
+    case english, prefix, pulse, partialConstruction, fullConstruction, pigLatin, sideBySide
 }
 
 class PigLatinLabelView: UIView {
@@ -51,6 +51,8 @@ class PigLatinLabelView: UIView {
             configureStackViewForEnglishMode(centerConstraint: constraints.centerX)
         case .prefix:
             configureStackViewForPrefixMode(centerConstraint: constraints.centerX)
+        case .pulse:
+            configureStackViewForPulseMode()
         case .partialConstruction:
             configureStackViewForPartialConstructionMode()
         case .fullConstruction:
@@ -92,7 +94,7 @@ class PigLatinLabelView: UIView {
         stackView.addArrangedSubview(buildLabel(for: word.otherLetters))
         
         //animate
-        delay(0.15) {
+        delay(0.02) {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
                 self.stackView.spacing = 25.0
                 centerConstraint.constant = 0
@@ -121,15 +123,14 @@ class PigLatinLabelView: UIView {
         rightFirstLetterLabel.isHidden = true
         
         //animate
-        delay(0.15) {
+        delay(0.02) {
             leftFirstLetterlabel.alpha = 0.0
             rightFirstLetterLabel.alpha = 0.0
             
             let initialFirstLetterFrame = self.convert(leftFirstLetterlabel.bounds, from: leftFirstLetterlabel)
             
+            //TODO: this doesn't work in general -- just for dog????? 😤😒
             let finalFirstLetterFrame = CGRect(
-                //i'm not sure why this needs to be multiplied by two,
-                //but the stack view seems to be doing something unexpected with the initialFrame being too far to the left
                 x: initialFirstLetterFrame.origin.x + ((self.stackView.frame.width + 25) * 2) + initialFirstLetterFrame.width/2 - 1,
                 y: initialFirstLetterFrame.origin.y,
                 width: initialFirstLetterFrame.width,
@@ -144,11 +145,11 @@ class PigLatinLabelView: UIView {
                 temporaryLabel.frame.origin.x = finalFirstLetterFrame.origin.x
             }, completion: nil)
             
-            UIView.animate(withDuration: 0.35, delay: 0.0, options: [.curveEaseIn, .beginFromCurrentState, .allowAnimatedContent], animations: {
+            UIView.animate(withDuration: 0.35, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState, .allowAnimatedContent], animations: {
                 temporaryLabel.frame.origin.y = initialFirstLetterFrame.origin.y - 45
             }, completion: nil)
             
-            UIView.animate(withDuration: 0.35, delay: 0.35, options: [.curveEaseOut, .beginFromCurrentState, .allowAnimatedContent], animations: {
+            UIView.animate(withDuration: 0.35, delay: 0.35, options: [.curveEaseInOut, .beginFromCurrentState, .allowAnimatedContent], animations: {
                 temporaryLabel.frame.origin.y = finalFirstLetterFrame.origin.y
             }, completion: nil)
             
@@ -162,6 +163,21 @@ class PigLatinLabelView: UIView {
                 temporaryLabel.removeFromSuperview()
             })
         }
+    }
+    
+    //MARK: - Pulse
+    
+    func configureStackViewForPulseMode() {
+        //setup
+        let otherLettersLabel = buildLabel(for: word.otherLetters)
+        let firstLetterLabel = buildFirstLetterLabel()
+        
+        stackView.spacing = 50
+        stackView.addArrangedSubview(otherLettersLabel)
+        stackView.addArrangedSubview(firstLetterLabel)
+        
+        //animate
+        otherLettersLabel.pulseToSize(size: 1.2, growFor: 0.5, shrinkFor: 0.6)
     }
     
     //MARK: - Full Construction Mode
@@ -186,7 +202,7 @@ class PigLatinLabelView: UIView {
             view.alpha = 0.0
         }
         
-        delay(0.15) {
+        delay(0.02) {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
                 self.stackView.spacing = 10.0
                 
@@ -228,7 +244,7 @@ class PigLatinLabelView: UIView {
         paddingBetweenOtherLettersAndDash.isHidden = true
         firstLetterLabel.layer.backgroundColor = UIColor.clear.cgColor
         
-        delay(0.15) {
+        delay(0.02) {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
                 self.stackView.spacing = -7
                 
@@ -270,7 +286,7 @@ class PigLatinLabelView: UIView {
         firstLetterLabel.layer.backgroundColor = UIColor.clear.cgColor
         
         //animate
-        delay(0.15) {
+        delay(0.02) {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
                 englishLabel.isHidden = false
                 englishLabel.alpha = 1.0
