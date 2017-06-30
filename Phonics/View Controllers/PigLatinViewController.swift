@@ -153,7 +153,7 @@ class PigLatinViewController: UIViewController {
         242.07: .text("ood-gay!"),
         243.42: .text("errific-tay!"),
         245.00: .text("onderful-way!"),
-        246.32: .text("you-yay an-cay alk-tay ig-pay atin-lay!"),
+        246.32: .text("ou-yay an-cay alk-tay ig-pay atin-lay!"),
         251.46: .text("You can talk in pig latin!"),
         265.61: .funText("ood-gay uck-lay!"),
         267.77: .funText("Good luck!"),
