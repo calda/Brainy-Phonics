@@ -8,8 +8,16 @@
 
 import UIKit
 
+enum AnimationSetting {
+    case animated, notAnimated
+    
+    var shouldAnimate: Bool {
+        return self == .animated
+    }
+}
+
 enum PigLatinLabelViewDisplayMode {
-    case english, prefix, pulse, partialConstruction, fullConstruction, pigLatin, sideBySide
+    case english, prefix, pulse, partialConstruction, fullConstruction, pigLatin, sideBySide(AnimationSetting)
 }
 
 class PigLatinLabelView: UIView {
@@ -59,8 +67,8 @@ class PigLatinLabelView: UIView {
             configureStackViewForFullConstructionMode()
         case .pigLatin:
             configureStackViewForPigLatinMode()
-        case .sideBySide:
-            configureStackViewForSideBySideMode()
+        case .sideBySide(let animationSetting):
+            configureStackViewForSideBySideMode(animate: animationSetting.shouldAnimate)
         }
     }
     
@@ -257,7 +265,7 @@ class PigLatinLabelView: UIView {
     
     //MARK: - Side By Side mode
     
-    func configureStackViewForSideBySideMode() {
+    func configureStackViewForSideBySideMode(animate shouldAnimate: Bool) {
         //setup
         let englishLabel = buildLabel(for: word.firstLetter + word.otherLetters)
         let otherLettersLabel = buildLabel(for: word.otherLetters)
@@ -286,12 +294,19 @@ class PigLatinLabelView: UIView {
         firstLetterLabel.layer.backgroundColor = UIColor.clear.cgColor
         
         //animate
-        delay(0.02) {
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
-                englishLabel.isHidden = false
-                englishLabel.alpha = 1.0
-                paddingBetweenEnglishAndPigLatin.isHidden = false
-            }, completion: nil)
+        
+        let animations = {
+            englishLabel.isHidden = false
+            englishLabel.alpha = 1.0
+            paddingBetweenEnglishAndPigLatin.isHidden = false
+        }
+        
+        if shouldAnimate {
+            delay(0.02) {
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: animations, completion: nil)
+            }
+        } else {
+            animations()
         }
     }
     

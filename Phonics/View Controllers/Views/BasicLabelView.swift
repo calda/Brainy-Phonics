@@ -29,8 +29,10 @@ class BasicLabelView: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.constraintInCenterOfSuperview()
-        label.text = text.replacingOccurrences(of: "_", with: "    ")
+        label.text = text
         label.font = font
+        
+        label.numberOfLines = 0
     }
     
 }
