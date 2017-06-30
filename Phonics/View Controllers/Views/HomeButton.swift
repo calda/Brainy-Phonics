@@ -16,16 +16,20 @@ class HomeButton : UIButton {
     }
     
     func homeButtonPressed() {
-        HomeButton.returnToRootViewController()
+        HomeButton.returnToHomeViewController()
     }
     
-    static func returnToRootViewController() {
+    static func returnToHomeViewController() {
         guard let root = UIApplication.shared.windows.first?.rootViewController else {
+            return
+        }
+        
+        guard let home = root.presentedViewController as? HomeViewController else {
             return
         }
 
         UAHaltPlayback()
-        root.dismiss(animated: true, completion: nil) //doesn't have the best animation but it works
+        home.dismiss(animated: true, completion: nil) //doesn't have the best animation but it works
     }
     
 }

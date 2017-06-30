@@ -2257,6 +2257,7 @@
 		2EBB18AC1ED2BCFB0078D951 /* SentencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB18AB1ED2BCFB0078D951 /* SentencesViewController.swift */; };
 		2ECE60531F02351600A7DE52 /* pig latin content.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2ECE60521F02351600A7DE52 /* pig latin content.mp3 */; };
 		2EDBFA2E1D5C0CE600C1451F /* PHContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */; };
+		2EE55D681F06191C0039852F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE55D671F06191C0039852F /* LaunchViewController.swift */; };
 		2EECD55C1E0BB95E00C667DE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EECD55B1E0BB95E00C667DE /* CoreData.framework */; };
 		2EECD5661E0BBA4800C667DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5621E0BBA4800C667DE /* Player.swift */; };
 		2EECD5671E0BBA4800C667DE /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
@@ -4515,6 +4516,7 @@
 		2EDBFA2B1D5C0CE600C1451F /* PhonicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhonicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDBFA2D1D5C0CE600C1451F /* PHContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHContentTest.swift; sourceTree = "<group>"; };
 		2EDBFA2F1D5C0CE600C1451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE55D671F06191C0039852F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2EECD55B1E0BB95E00C667DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2EECD5621E0BBA4800C667DE /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleProgress.swift; sourceTree = "<group>"; };
@@ -7667,6 +7669,7 @@
 		2E6DE27C1D639A1B00978DD6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2EE55D671F06191C0039852F /* LaunchViewController.swift */,
 				2E6DE27D1D639A1B00978DD6 /* HomeViewController.swift */,
 				2E6DE27E1D639A1B00978DD6 /* InterativeGrowViewController.swift */,
 				2E6DE27F1D639A1B00978DD6 /* LettersViewController.swift */,
@@ -10041,6 +10044,7 @@
 				2E482FCF1EFF5BEE00A41012 /* BasicImageView.swift in Sources */,
 				2EECD5661E0BBA4800C667DE /* Player.swift in Sources */,
 				2E6DE7501D639A1C00978DD6 /* UniversalAudio.swift in Sources */,
+				2EE55D681F06191C0039852F /* LaunchViewController.swift in Sources */,
 				2E0D53F81ED267D900EF3706 /* SightWord.swift in Sources */,
 				2E6DE74E1D639A1C00978DD6 /* CoreSwift.swift in Sources */,
 				2EECD56A1E0BBF5F00C667DE /* NSCoding+Key.swift in Sources */,

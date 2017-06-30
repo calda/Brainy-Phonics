@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lDx-yU-Mr0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WGa-EW-DGV">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -153,12 +153,12 @@
                         <outletCollection property="interactiveViews" destination="tXD-R8-PsO" collectionClass="NSMutableArray" id="MAO-RD-rEG"/>
                         <segue destination="rgJ-6e-cRF" kind="show" identifier="blep" id="YyJ-Kh-uba"/>
                         <segue destination="gVI-GJ-uq9" kind="show" identifier="home to letters" id="84K-c1-bz7"/>
-                        <segue destination="361-Xv-9a3" kind="show" id="rrx-J6-b8f"/>
+                        <segue destination="361-Xv-9a3" kind="show" identifier="launch pig latin" id="rrx-J6-b8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGQ-qQ-txV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="-1511"/>
+            <point key="canvasLocation" x="1370" y="-714"/>
         </scene>
         <!--Letters View Controller-->
         <scene sceneID="iQk-xz-ewT">
@@ -1627,7 +1627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3C-vG-Z6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2568" y="-1558"/>
+            <point key="canvasLocation" x="2428" y="-714"/>
         </scene>
         <!--Sight Words Quiz View Controller-->
         <scene sceneID="nBH-0Z-8yr">
@@ -2256,31 +2256,31 @@ My song had been longer.
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin-gold-big" translatesAutoresizingMaskIntoConstraints="NO" id="hoT-LU-Gnh">
-                                                        <rect key="frame" x="106.5" y="108" width="107" height="107"/>
+                                                        <rect key="frame" x="106.5" y="108" width="107.5" height="107"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="hoT-LU-Gnh" secondAttribute="height" multiplier="1:1" id="3Cv-Yc-rhu"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin-gold-big" translatesAutoresizingMaskIntoConstraints="NO" id="CdD-Nb-OqG">
-                                                        <rect key="frame" x="213.5" y="108" width="106.5" height="107"/>
+                                                        <rect key="frame" x="214" y="108" width="106.5" height="107"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="CdD-Nb-OqG" secondAttribute="height" id="zyg-ow-uS8"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin-gold-big" translatesAutoresizingMaskIntoConstraints="NO" id="KHQ-1L-Bfs">
-                                                        <rect key="frame" x="320" y="108" width="107.5" height="107"/>
+                                                        <rect key="frame" x="320.5" y="108" width="107" height="107"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="KHQ-1L-Bfs" secondAttribute="height" multiplier="1:1" id="ZRI-KP-OxM"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin-5" translatesAutoresizingMaskIntoConstraints="NO" id="BXL-Eq-WJq">
-                                                        <rect key="frame" x="106.5" y="0.0" width="107" height="108"/>
+                                                        <rect key="frame" x="106.5" y="0.0" width="107.5" height="108"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin-20" translatesAutoresizingMaskIntoConstraints="NO" id="WMK-0T-0j5">
-                                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="108"/>
+                                                        <rect key="frame" x="214" y="0.0" width="106.5" height="108"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin-5" translatesAutoresizingMaskIntoConstraints="NO" id="PW9-6n-OVQ">
-                                                        <rect key="frame" x="320" y="0.0" width="107.5" height="108"/>
+                                                        <rect key="frame" x="320.5" y="0.0" width="107" height="108"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin-5" translatesAutoresizingMaskIntoConstraints="NO" id="WsU-Ju-Edz">
                                                         <rect key="frame" x="427.5" y="0.0" width="106.5" height="108"/>
@@ -2489,6 +2489,97 @@ My song had been longer.
             </objects>
             <point key="canvasLocation" x="2838" y="1282"/>
         </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="MFN-Px-5Hd">
+            <objects>
+                <viewController id="WGa-EW-DGV" customClass="LaunchViewController" customModule="Phonics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tvr-WA-ca1"/>
+                        <viewControllerLayoutGuide type="bottom" id="k12-s5-I8g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ehL-nT-HcQ">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow-right" translatesAutoresizingMaskIntoConstraints="NO" id="PNc-FJ-Wnf">
+                                <rect key="frame" x="62.5" y="0.0" width="9" height="375"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWr-AZ-Tys" userLabel="header">
+                                <rect key="frame" x="0.0" y="0.0" width="66.5" height="375"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="TZf-HM-Cx1">
+                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="375"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rV3-4D-CuH">
+                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="375"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050353167810000002" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.5447398671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rV3-4D-CuH" secondAttribute="trailing" id="4Kf-Jd-civ"/>
+                                    <constraint firstItem="rV3-4D-CuH" firstAttribute="top" secondItem="IWr-AZ-Tys" secondAttribute="top" id="4TR-tF-LrH"/>
+                                    <constraint firstItem="TZf-HM-Cx1" firstAttribute="leading" secondItem="IWr-AZ-Tys" secondAttribute="leading" id="9Ve-Gd-9if"/>
+                                    <constraint firstAttribute="bottom" secondItem="rV3-4D-CuH" secondAttribute="bottom" id="CRc-8r-A0E"/>
+                                    <constraint firstAttribute="bottom" secondItem="TZf-HM-Cx1" secondAttribute="bottom" id="LaA-7A-dCU"/>
+                                    <constraint firstItem="TZf-HM-Cx1" firstAttribute="top" secondItem="IWr-AZ-Tys" secondAttribute="top" id="MLP-dY-WGi"/>
+                                    <constraint firstItem="rV3-4D-CuH" firstAttribute="leading" secondItem="IWr-AZ-Tys" secondAttribute="leading" id="O53-vA-7W1"/>
+                                    <constraint firstAttribute="trailing" secondItem="TZf-HM-Cx1" secondAttribute="trailing" id="zH6-fd-PYX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFS-BV-Pe9">
+                                <rect key="frame" x="67" y="0.0" width="600" height="375"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-brainy-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="7bH-bi-UKO">
+                                        <rect key="frame" x="150" y="37.5" width="300" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7bH-bi-UKO" secondAttribute="height" multiplier="1:1" id="zHI-LC-d9r"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="7bH-bi-UKO" firstAttribute="centerX" secondItem="YFS-BV-Pe9" secondAttribute="centerX" id="49F-ME-YjG"/>
+                                    <constraint firstItem="7bH-bi-UKO" firstAttribute="width" secondItem="YFS-BV-Pe9" secondAttribute="width" multiplier="0.5" id="CZG-gN-RDU"/>
+                                    <constraint firstItem="7bH-bi-UKO" firstAttribute="width" secondItem="YFS-BV-Pe9" secondAttribute="width" multiplier="0.3" id="Ke3-FM-LL2"/>
+                                    <constraint firstItem="7bH-bi-UKO" firstAttribute="centerY" secondItem="YFS-BV-Pe9" secondAttribute="centerY" id="ssd-B3-snZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ke3-FM-LL2"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Ke3-FM-LL2"/>
+                                        <exclude reference="CZG-gN-RDU"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="IWr-AZ-Tys" firstAttribute="top" secondItem="ehL-nT-HcQ" secondAttribute="top" id="2On-mJ-Dy4"/>
+                            <constraint firstAttribute="bottom" secondItem="IWr-AZ-Tys" secondAttribute="bottom" id="9XE-8U-dHh"/>
+                            <constraint firstItem="PNc-FJ-Wnf" firstAttribute="leading" secondItem="IWr-AZ-Tys" secondAttribute="trailing" constant="-4" id="BgH-7S-cIK"/>
+                            <constraint firstItem="YFS-BV-Pe9" firstAttribute="leading" secondItem="IWr-AZ-Tys" secondAttribute="trailing" id="COg-io-aAK"/>
+                            <constraint firstItem="k12-s5-I8g" firstAttribute="top" secondItem="YFS-BV-Pe9" secondAttribute="bottom" id="MNn-cW-DZN"/>
+                            <constraint firstAttribute="trailing" secondItem="YFS-BV-Pe9" secondAttribute="trailing" id="NNM-nO-1qE"/>
+                            <constraint firstItem="IWr-AZ-Tys" firstAttribute="leading" secondItem="ehL-nT-HcQ" secondAttribute="leading" id="PKe-pI-1UI"/>
+                            <constraint firstItem="IWr-AZ-Tys" firstAttribute="width" secondItem="ehL-nT-HcQ" secondAttribute="width" multiplier="0.1" id="gEN-K9-0xy"/>
+                            <constraint firstItem="PNc-FJ-Wnf" firstAttribute="top" secondItem="ehL-nT-HcQ" secondAttribute="topMargin" id="imZ-PC-lQg"/>
+                            <constraint firstItem="k12-s5-I8g" firstAttribute="top" secondItem="PNc-FJ-Wnf" secondAttribute="bottom" id="k25-t4-LaM"/>
+                            <constraint firstItem="YFS-BV-Pe9" firstAttribute="top" secondItem="ehL-nT-HcQ" secondAttribute="topMargin" id="m5M-Ka-oaA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="lDx-yU-Mr0" kind="show" identifier="launch main screen" id="WGG-Zs-lzg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4y-MM-HSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1370" y="-1695"/>
+        </scene>
     </scenes>
     <resources>
         <image name="baby.jpg" width="256" height="256"/>
@@ -2515,6 +2606,7 @@ My song had been longer.
         <image name="lion.jpg" width="256" height="256"/>
         <image name="listen" width="466" height="500"/>
         <image name="logo-alphabet-letters" width="1453" height="1152"/>
+        <image name="logo-brainy-phonics" width="1152" height="1152"/>
         <image name="logo-k-sightwords" width="1152" height="1152"/>
         <image name="logo-phonics" width="1152" height="1013"/>
         <image name="logo-prek-sight-words" width="1152" height="1152"/>
