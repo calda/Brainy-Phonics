@@ -31,6 +31,8 @@ class BasicLabelView: UIView {
         label.constraintInCenterOfSuperview()
         label.text = text
         label.font = font
+        label.clipsToBounds = false
+        label.layer.masksToBounds = false
         
         label.numberOfLines = 0
     }

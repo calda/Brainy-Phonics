@@ -132,17 +132,17 @@ class PigLatinLabelView: UIView {
         
         //animate
         delay(0.02) {
-            leftFirstLetterlabel.alpha = 0.0
-            rightFirstLetterLabel.alpha = 0.0
+            self.layoutIfNeeded()
             
             let initialFirstLetterFrame = self.convert(leftFirstLetterlabel.bounds, from: leftFirstLetterlabel)
             
-            //TODO: this doesn't work in general -- just for dog????? 😤😒
-            let finalFirstLetterFrame = CGRect(
-                x: initialFirstLetterFrame.origin.x + ((self.stackView.frame.width + 25) * 2) + initialFirstLetterFrame.width/2 - 1,
-                y: initialFirstLetterFrame.origin.y,
-                width: initialFirstLetterFrame.width,
-                height: initialFirstLetterFrame.height)
+            //something about this animation is just awful -- i don't understand why it needs to work like this
+            //where does the 12 come from??????? 25/2??? i don't understand.
+            //but it works on iOS 10 / iOS 11 and iPhone 6 / iPad so I'm gonna call it good enough
+            let horizontalTranslation = self.frame.origin.x + self.stackView.frame.origin.x + otherLettersLabel.frame.width + 25 + 12
+            
+            leftFirstLetterlabel.alpha = 0.0
+            rightFirstLetterLabel.alpha = 0.0
             
             //animate temporary label in arc
             let temporaryLabel = self.buildFirstLetterLabel()
@@ -150,7 +150,7 @@ class PigLatinLabelView: UIView {
             temporaryLabel.frame = initialFirstLetterFrame
             
             UIView.animate(withDuration: 0.7, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState, .allowAnimatedContent], animations: {
-                temporaryLabel.frame.origin.x = finalFirstLetterFrame.origin.x
+                temporaryLabel.transform = CGAffineTransform(translationX: horizontalTranslation, y: 0)
             }, completion: nil)
             
             UIView.animate(withDuration: 0.35, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState, .allowAnimatedContent], animations: {
@@ -158,7 +158,7 @@ class PigLatinLabelView: UIView {
             }, completion: nil)
             
             UIView.animate(withDuration: 0.35, delay: 0.35, options: [.curveEaseInOut, .beginFromCurrentState, .allowAnimatedContent], animations: {
-                temporaryLabel.frame.origin.y = finalFirstLetterFrame.origin.y
+                temporaryLabel.frame.origin.y = initialFirstLetterFrame.origin.y
             }, completion: nil)
             
             UIView.animate(withDuration: 0.7, delay: 0.0, options: [.curveEaseInOut], animations: {

@@ -28,7 +28,7 @@ enum PigLatinSlide {
     }
     
     private var highlightColor: UIColor {
-        return #colorLiteral(red: 0.8082430079, green: 0.8745946267, blue: 0.9069760508, alpha: 1)
+        return #colorLiteral(red: 0.9069760508, green: 0.9069760508, blue: 0.9069760508, alpha: 1)
     }
     
     var view: UIView? {
