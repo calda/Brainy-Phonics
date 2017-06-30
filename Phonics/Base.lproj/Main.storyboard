@@ -31,41 +31,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZM9-zy-a6s">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZM9-zy-a6s" userLabel="Content View">
                                 <rect key="frame" x="66.5" y="0.0" width="600.5" height="375"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-nE-6dh">
-                                        <rect key="frame" x="50" y="20" width="510.5" height="335"/>
+                                        <rect key="frame" x="60" y="20" width="490.5" height="335"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mn5-je-8HX">
-                                                <rect key="frame" x="0.0" y="0.0" width="162" height="335"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mn5-je-8HX">
+                                                <rect key="frame" x="0.0" y="0.0" width="155" height="335"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alphabet-letters" translatesAutoresizingMaskIntoConstraints="NO" id="yDG-3v-xWN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="155"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="yDG-3v-xWN" secondAttribute="height" multiplier="1:1" id="Ikg-aP-f7h"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-prek-sight-words" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-tn-Ks6">
-                                                        <rect key="frame" x="0.0" y="180" width="162" height="155"/>
+                                                        <rect key="frame" x="0.0" y="180" width="155" height="155"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="4fC-tn-Ks6" secondAttribute="height" multiplier="1:1" id="7cv-kz-7WL"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="65"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jOQ-dw-e5I">
-                                                <rect key="frame" x="177" y="0.0" width="161.5" height="335"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jOQ-dw-e5I">
+                                                <rect key="frame" x="170" y="0.5" width="154.5" height="334"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="EXg-2H-mxE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="155"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="EXg-2H-mxE" secondAttribute="height" multiplier="1:1" id="jwc-96-BRv"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-k-sightwords" translatesAutoresizingMaskIntoConstraints="NO" id="cgD-JQ-dcS">
-                                                        <rect key="frame" x="0.0" y="180" width="161.5" height="155"/>
+                                                        <rect key="frame" x="0.0" y="179.5" width="154.5" height="154.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="cgD-JQ-dcS" secondAttribute="height" multiplier="1:1" id="8Z6-9P-qF3"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="65"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3o-Ew-kzz">
-                                                <rect key="frame" x="353.5" y="0.0" width="157" height="335"/>
+                                                <rect key="frame" x="339.5" y="0.0" width="151" height="335"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-secret-stuff" translatesAutoresizingMaskIntoConstraints="NO" id="tXD-R8-PsO">
-                                                        <rect key="frame" x="20" y="-408.5" width="137" height="1152"/>
+                                                        <rect key="frame" x="20" y="-408.5" width="131" height="1152"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,6 +154,7 @@
                     </view>
                     <connections>
                         <outlet property="alphabetLettersView" destination="yDG-3v-xWN" id="yZe-eZ-8rI"/>
+                        <outlet property="contentView" destination="ZM9-zy-a6s" id="x94-Ok-Zky"/>
                         <outlet property="kindergartenSightWordsView" destination="cgD-JQ-dcS" id="hyx-MD-zvW"/>
                         <outlet property="phonicsView" destination="EXg-2H-mxE" id="D45-Rh-1gu"/>
                         <outlet property="prekSightWordsView" destination="4fC-tn-Ks6" id="CTR-9x-YwY"/>
@@ -2541,20 +2554,8 @@ My song had been longer.
                                 <constraints>
                                     <constraint firstItem="7bH-bi-UKO" firstAttribute="centerX" secondItem="YFS-BV-Pe9" secondAttribute="centerX" id="49F-ME-YjG"/>
                                     <constraint firstItem="7bH-bi-UKO" firstAttribute="width" secondItem="YFS-BV-Pe9" secondAttribute="width" multiplier="0.5" id="CZG-gN-RDU"/>
-                                    <constraint firstItem="7bH-bi-UKO" firstAttribute="width" secondItem="YFS-BV-Pe9" secondAttribute="width" multiplier="0.3" id="Ke3-FM-LL2"/>
                                     <constraint firstItem="7bH-bi-UKO" firstAttribute="centerY" secondItem="YFS-BV-Pe9" secondAttribute="centerY" id="ssd-B3-snZ"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ke3-FM-LL2"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="Ke3-FM-LL2"/>
-                                        <exclude reference="CZG-gN-RDU"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

@@ -59,27 +59,15 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="p6A-cg-zah" firstAttribute="centerY" secondItem="op8-So-W28" secondAttribute="centerY" id="APG-rN-Re4"/>
                                     <constraint firstItem="p6A-cg-zah" firstAttribute="centerX" secondItem="op8-So-W28" secondAttribute="centerX" id="D3A-E2-YOl"/>
-                                    <constraint firstItem="p6A-cg-zah" firstAttribute="width" secondItem="op8-So-W28" secondAttribute="width" multiplier="0.3" id="KQZ-jt-ST4"/>
                                     <constraint firstItem="p6A-cg-zah" firstAttribute="width" secondItem="op8-So-W28" secondAttribute="width" multiplier="0.5" id="ySE-UJ-pM4"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="KQZ-jt-ST4"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="KQZ-jt-ST4"/>
-                                        <exclude reference="ySE-UJ-pM4"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.95999999999999996" green="0.95999999999999996" blue="0.95999999999999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="op8-So-W28" secondAttribute="trailing" id="1fe-fk-g3d"/>
                             <constraint firstAttribute="bottom" secondItem="tWM-LU-sc6" secondAttribute="bottom" id="59t-eE-yeq"/>

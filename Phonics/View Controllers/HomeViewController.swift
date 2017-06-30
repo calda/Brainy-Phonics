@@ -11,12 +11,14 @@ import UIKit
 
 class HomeViewController : InteractiveGrowViewController {
     
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var alphabetLettersView: UIImageView!
     @IBOutlet weak var phonicsView: UIImageView!
     @IBOutlet weak var prekSightWordsView: UIImageView!
     @IBOutlet weak var kindergartenSightWordsView: UIImageView!
     @IBOutlet weak var secretStuffView: UIImageView!
     
+    private var temporaryImageView: UIImageView?
     
     //MARK: - Content
     
@@ -56,6 +58,19 @@ class HomeViewController : InteractiveGrowViewController {
         }
     }
     
+    //MARK: - Setup
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //tear down any previous animations
+        temporaryImageView?.removeFromSuperview()
+        
+        for view in interactiveViews {
+            view.transform = .identity
+            view.alpha = 1.0
+        }
+        
+        self.view.isUserInteractionEnabled = true
+    }
     
     //MARK: - User Interaction
     
@@ -88,14 +103,68 @@ class HomeViewController : InteractiveGrowViewController {
         }
     }
     
+    //MARK: Animate selection
+    
     override func touchUpForInteractiveView(_ view: UIView) {
-        guard let launcher = launcher(for: view) else {
+        guard let launcher = launcher(for: view), let imageView = (view as? UIImageView) else {
             return
         }
         
+        self.view.isUserInteractionEnabled = false
+        
+        //animate
+        
+        UIView.animate(withDuration: 0.15, animations: {
+            for other in self.interactiveViews {
+                other.alpha = 0.00
+            }
+        })
+        
+        let newImageView = UIImageView(image: imageView.image, highlightedImage: nil)
+        newImageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(newImageView)
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.constraintInCenterOfSuperview()
+        newImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5).isActive = true
+        newImageView.heightAnchor.constraint(equalTo: newImageView.widthAnchor, multiplier: 1.0).isActive = true
+        
+        newImageView.alpha = 0.0
+        newImageView.transform = CGAffineTransform(translationX: 0, y: contentView.frame.height * 0.025)
+        
+        UIView.animate(withDuration: 0.55, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.0, options: [], animations: {
+            newImageView.transform = .identity
+            newImageView.alpha = 1.0
+        }, completion: nil)
+        
+        self.temporaryImageView = newImageView
+        
         UAWhenDonePlayingAudio {
-            launcher.onTapBlock?(self)
+            delay(1.0) {
+                launcher.onTapBlock?(self)
+            }
         }
+    }
+    
+    func animateImage(from origin: UIImageView, to destination: UIImageView, duration: TimeInterval) {
+        let originFrame = origin.convert(origin.bounds, to: self.view)
+        let destinationFrame = destination.convert(destination.bounds, to: self.view)
+        
+        let temporaryImageView = UIImageView(image: origin.image)
+        temporaryImageView.contentMode = .scaleAspectFit
+        self.view.addSubview(temporaryImageView)
+        temporaryImageView.frame = originFrame
+        
+        origin.alpha = 0.0
+        destination.alpha = 0.0
+        
+        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.85, initialSpringVelocity: 0.0, options: [], animations: {
+            temporaryImageView.frame = destinationFrame
+        }, completion: { _ in
+            temporaryImageView.removeFromSuperview()
+            origin.alpha = 1.0
+            destination.alpha = 1.0
+            destination.image = origin.image
+        })
     }
     
 }
