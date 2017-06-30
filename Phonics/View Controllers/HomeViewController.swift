@@ -11,15 +11,11 @@ import UIKit
 
 class HomeViewController : InteractiveGrowViewController {
     
-    
-    //TODO: create assets that are more appropriately sizes / don't rasterize poorly
-    
     @IBOutlet weak var alphabetLettersView: UIImageView!
     @IBOutlet weak var phonicsView: UIImageView!
     @IBOutlet weak var prekSightWordsView: UIImageView!
     @IBOutlet weak var kindergartenSightWordsView: UIImageView!
-    @IBOutlet weak var brainyPhonicsView: UIImageView!
-    
+    @IBOutlet weak var secretStuffView: UIImageView!
     
     
     //MARK: - Content
@@ -27,8 +23,6 @@ class HomeViewController : InteractiveGrowViewController {
     struct Launcher {
         let audioFileName: String
         let onTapBlock: ((UIViewController) -> ())?
-        
-        static let brainyPhonics = Launcher(audioFileName: "brainy phonics", onTapBlock: nil)
         
         static let alphabetLetters = Launcher(audioFileName: "alphabet letters", onTapBlock: { vc in
             LettersViewController.present(from: vc, with: .easyDifficulty)
@@ -45,15 +39,19 @@ class HomeViewController : InteractiveGrowViewController {
         static let kindergartenSightWords = Launcher(audioFileName: "kindergarten sight words", onTapBlock: { vc in
             SightWordsViewController.present(from: vc, using: PHContent.sightWordsKindergarten)
         })
+        
+        static let pigLatin = Launcher(audioFileName: "secret child stuff", onTapBlock: { vc in
+            PigLatinViewController.present(from: vc)
+        })
     }
     
     func launcher(for view: UIView) -> Launcher? {
         switch(view) {
-            case brainyPhonicsView: return .brainyPhonics
             case alphabetLettersView: return .alphabetLetters
             case phonicsView: return .phonics
             case prekSightWordsView: return .prekSightWords
             case kindergartenSightWordsView: return .kindergartenSightWords
+            case secretStuffView: return .pigLatin
             default: return nil
         }
     }

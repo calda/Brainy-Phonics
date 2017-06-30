@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 //MARK: - Content
 
 enum PigLatinSlide {
@@ -27,7 +28,7 @@ enum PigLatinSlide {
     }
     
     private var highlightColor: UIColor {
-        return #colorLiteral(red: 0.9069760508, green: 0.9069760508, blue: 0.9069760508, alpha: 1)
+        return #colorLiteral(red: 0.8082430079, green: 0.8745946267, blue: 0.9069760508, alpha: 1)
     }
     
     var view: UIView? {
@@ -63,6 +64,17 @@ struct PigLatinWord {
 //MARK: - PigLatinViewController
 
 class PigLatinViewController: UIViewController {
+    
+    
+    //MARK: Presentation
+    
+    static func present(from source: UIViewController) {
+        let pigLatin = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pig latin") as! PigLatinViewController
+        source.present(pigLatin, animated: true, completion: nil)
+    }
+    
+    
+    //MARK: Slides
     
     let slides: [TimeInterval : PigLatinSlide] = [
         0.0:    .image(#imageLiteral(resourceName: "logo-secret-stuff")),
@@ -153,10 +165,17 @@ class PigLatinViewController: UIViewController {
         279.49: .dismiss
     ]
     
+    
+    //MARK: Playback
+    
     var timers = [Timer]()
     @IBOutlet weak var contentView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
+        self.showSlide(.image(#imageLiteral(resourceName: "logo-secret-stuff")))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         let START_TIME: Double = 0
         
@@ -186,6 +205,11 @@ class PigLatinViewController: UIViewController {
         if case .dismiss = slide {
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UAHaltPlayback()
+        self.timers.forEach { $0.invalidate() }
     }
     
 }
