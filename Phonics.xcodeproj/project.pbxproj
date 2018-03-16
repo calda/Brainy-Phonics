@@ -7785,6 +7785,7 @@
 					};
 					2EDBFA2A1D5C0CE600C1451F = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = CT648UDKHF;
 						LastSwiftMigration = 0920;
 						TestTargetID = 2E584C021D04E79C003E3C87;
 					};
@@ -10276,6 +10277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CT648UDKHF;
 				INFOPLIST_FILE = PhonicsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.PhonicsTests;
@@ -10291,6 +10293,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CT648UDKHF;
 				INFOPLIST_FILE = PhonicsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.PhonicsTests;

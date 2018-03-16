@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="j28-zW-BXd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="j28-zW-BXd">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -50,10 +51,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="op8-So-W28">
-                                <rect key="frame" x="67" y="0.0" width="600" height="375"/>
+                                <rect key="frame" x="67" y="0.0" width="580" height="375"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-brainy-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="p6A-cg-zah">
-                                        <rect key="frame" x="150" y="37.5" width="300" height="300"/>
+                                        <rect key="frame" x="145" y="42.5" width="290" height="290"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="p6A-cg-zah" secondAttribute="height" multiplier="1:1" id="Gb1-iA-BIs"/>
                                         </constraints>
@@ -69,7 +70,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="op8-So-W28" secondAttribute="trailing" id="1fe-fk-g3d"/>
                             <constraint firstAttribute="bottom" secondItem="tWM-LU-sc6" secondAttribute="bottom" id="59t-eE-yeq"/>
                             <constraint firstItem="tWM-LU-sc6" firstAttribute="width" secondItem="THt-4P-0LQ" secondAttribute="width" multiplier="0.1" id="829-Vh-mtu"/>
                             <constraint firstItem="cCi-lf-qxV" firstAttribute="top" secondItem="THt-4P-0LQ" secondAttribute="topMargin" id="PKY-ZI-jVr"/>
@@ -77,6 +77,7 @@
                             <constraint firstItem="tWM-LU-sc6" firstAttribute="top" secondItem="THt-4P-0LQ" secondAttribute="top" id="cgA-wh-ite"/>
                             <constraint firstItem="op8-So-W28" firstAttribute="leading" secondItem="tWM-LU-sc6" secondAttribute="trailing" id="cgg-ah-85O"/>
                             <constraint firstItem="eRK-ko-XuJ" firstAttribute="top" secondItem="cCi-lf-qxV" secondAttribute="bottom" id="dyv-Xv-tXz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="op8-So-W28" secondAttribute="trailing" id="hJ0-fc-CGS"/>
                             <constraint firstItem="tWM-LU-sc6" firstAttribute="leading" secondItem="THt-4P-0LQ" secondAttribute="leading" id="nzZ-eU-I2v"/>
                             <constraint firstItem="op8-So-W28" firstAttribute="top" secondItem="THt-4P-0LQ" secondAttribute="topMargin" id="qpw-6M-eDl"/>
                             <constraint firstItem="eRK-ko-XuJ" firstAttribute="top" secondItem="op8-So-W28" secondAttribute="bottom" id="w4D-Cu-zvU"/>
