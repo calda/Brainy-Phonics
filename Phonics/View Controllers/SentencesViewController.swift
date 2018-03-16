@@ -92,7 +92,9 @@ class SentencesViewController : InteractiveGrowViewController {
         if iPad() {
             if let text = self.focusedSentenceTextField.attributedText?.mutableCopy() as? NSMutableAttributedString {
                 let fullRange = NSMakeRange(0, text.length)
-                text.addAttributes([NSFontAttributeName: self.focusedSentenceTextField.font.withSize(35)], range: fullRange)
+                text.addAttributes(
+                    [.font: self.focusedSentenceTextField.font.withSize(35)],
+                    range: fullRange)
                 self.focusedSentenceTextField.attributedText = text
             }
         }

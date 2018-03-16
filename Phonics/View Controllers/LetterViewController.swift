@@ -112,7 +112,7 @@ class LetterViewController : InteractiveGrowViewController {
         if !withAnimationDelay {
             self.playSoundAnimation()
         } else {
-            Timer.scheduleAfter(0.4, addToArray: &self.timers) { _ in
+            Timer.scheduleAfter(0.4, addToArray: &self.timers) { 
                 self.playSoundAnimation()
             }
         }
@@ -153,7 +153,7 @@ class LetterViewController : InteractiveGrowViewController {
         var startTime: TimeInterval = 0.3
         let timeBetween = 0.85
         
-        Timer.scheduleAfter(startTime, addToArray: &timers) { _ in
+        Timer.scheduleAfter(startTime, addToArray: &timers) { 
             let soundAudioInfo = self.sound.pronunciationTiming
             PHContent.playAudioForInfo(soundAudioInfo)
             self.playSoundAnimation(on: self.letterLabel, for: soundAudioInfo)
@@ -163,7 +163,7 @@ class LetterViewController : InteractiveGrowViewController {
         
         for (wordIndex, word) in self.sound.primaryWords.enumerated() {
             
-            Timer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
+            Timer.scheduleAfter(startTime, addToArray: &self.timers) { 
                 let wordView = self.wordViews[wordIndex]
                 wordView.word?.playAudio()
                 self.playSoundAnimation(on: wordView, for: wordView.word?.audioInfo)
@@ -172,7 +172,7 @@ class LetterViewController : InteractiveGrowViewController {
             startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
             
             if (word == self.sound.primaryWords.last) {
-                Timer.scheduleAfter(startTime, addToArray: &self.timers) { _ in
+                Timer.scheduleAfter(startTime, addToArray: &self.timers) { 
                     self.currentlyPlaying = false
                     self.showQuizButton()
                 }

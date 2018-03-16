@@ -60,7 +60,7 @@ class PuzzleDetailViewController : UIViewController {
                 self.prepareRhymeText(for: rhymeText)
             } else {
                 //center the puzzle and hide the rhyme text
-                self.puzzleViewCenterHorizontally.priority = UILayoutPriorityDefaultHigh
+                self.puzzleViewCenterHorizontally.priority = .defaultHigh
                 self.rhymeText.isHidden = true
                 self.puzzleView.layoutIfNeeded()
             }
@@ -151,14 +151,12 @@ class PuzzleDetailViewController : UIViewController {
     }
     
     func addHighlights(of color: UIColor, to attributedString: NSMutableAttributedString) {
-        let characters = Array(attributedString.string.characters)
-        
         var rangesToHighlight = [NSRange]()
         var startForRangeInProgress: Int? = nil
         var parenthesisCount = 0
         
         //find ranges to highlight (knowning that the parenthesis will be removed later)
-        for (index, character) in characters.enumerated() {
+        for (index, character) in attributedString.string.enumerated() {
             
             if character == Character("(") {
                 startForRangeInProgress = index - parenthesisCount
@@ -186,7 +184,7 @@ class PuzzleDetailViewController : UIViewController {
         
         //apply highlights
         for range in rangesToHighlight {
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+            attributedString.addAttribute(.foregroundColor, value: color, range: range)
         }
     }
     

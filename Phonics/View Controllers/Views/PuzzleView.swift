@@ -114,7 +114,7 @@ class PuzzleView : UIView {
                 //width
                 if let topCornerPiece = pieceAt(0, 0) {
                     let matchWidthConstraint = piece.widthAnchor.constraint(equalTo: topCornerPiece.widthAnchor)
-                    matchWidthConstraint.priority = 900
+                    matchWidthConstraint.priority = UILayoutPriority(rawValue: 900)
                     matchWidthConstraint.isActive = true
                 }
                 

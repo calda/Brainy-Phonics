@@ -126,16 +126,16 @@ func is4S() -> Bool {
 }
 
 ///Determines the height required to display the text in the given label
-func heightForText(_ text: String, width: CGFloat, attributes: [String : Any]?) -> CGFloat {
+func heightForText(_ text: String, width: CGFloat, attributes: [NSAttributedStringKey : Any]?) -> CGFloat {
     let context = NSStringDrawingContext()
     let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     
-    let rect = text.boundingRect(with: size,
-                                 options: [.usesLineFragmentOrigin,
-                                           .usesFontLeading,
-                                           .usesDeviceMetrics],
-                                 attributes: attributes,
-                                 context: context)
+    let rect = text.boundingRect(
+        with: size,
+        options: [.usesLineFragmentOrigin, .usesFontLeading, .usesDeviceMetrics],
+        attributes: attributes,
+        context: context)
+    
     return rect.height
 }
 
@@ -276,7 +276,7 @@ extension Array {
         for i in 0..<(list.count - 1) {
             let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
             if (i == j) { continue }
-            swap(&list[i], &list[j])
+            list.swapAt(i, j)
         }
         return list
     }
@@ -364,17 +364,7 @@ extension String {
     }
     
     func trimmingWhitespace() -> String {
-        var trimmedText = self
-        
-        while (trimmedText.hasPrefix(" ")) {
-            trimmedText = trimmedText.substring(from: trimmedText.characters.index(after: trimmedText.startIndex))
-        }
-        
-        while (trimmedText.hasSuffix(" ")) {
-            trimmedText = trimmedText.substring(to: trimmedText.characters.index(after: trimmedText.endIndex))
-        }
-        
-        return trimmedText
+        return self.trimmingCharacters(in: .whitespaces)
     }
     
     mutating func prepareForURL(isFullURL: Bool = false) {

@@ -35,18 +35,8 @@ struct Word: Equatable {
     }
     
     init?(text wordText: String?, pronunciation: String?, timedAudioInfo: AudioInfo?) {
-        
         guard let wordText = wordText else { return nil }
-        var text = wordText.lowercased()
-        
-        //remove padding spaces, if exist
-        while text.hasPrefix(" ") {
-            text = text.substring(from: text.characters.index(after: text.startIndex))
-        }
-        
-        while text.hasSuffix(" ") {
-            text = text.substring(to: text.characters.index(before: text.endIndex))
-        }
+        let text = wordText.lowercased().trimmingWhitespace()
         
         self.text = text
         self.pronunciation = pronunciation
@@ -74,7 +64,9 @@ struct Word: Equatable {
         
         let wordText = self.text.lowercased()
         var mutableWord = wordText
-        let attributedWord = NSMutableAttributedString(string: wordText, attributes: [NSForegroundColorAttributeName : UIColor.black])
+        let attributedWord = NSMutableAttributedString(
+            string: wordText,
+            attributes: [.foregroundColor : UIColor.black])
         let matchColor = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
         
         var matchIndex = 1
@@ -82,7 +74,7 @@ struct Word: Equatable {
         while mutableWord.contains(soundText) {
             let range = (mutableWord as NSString).range(of: soundText)
             if (explicitExclusions[wordText] != matchIndex) {
-                attributedWord.addAttributes([NSForegroundColorAttributeName : matchColor], range: range)
+                attributedWord.addAttributes([NSAttributedStringKey.foregroundColor : matchColor], range: range)
             }
             
             let replacement = String(repeating: "_", count: soundText.length)
@@ -140,9 +132,8 @@ struct Word: Equatable {
         guard let audioFile = try? AVAudioFile(forReading: url) else { return }
         
         //get raw data for sounds
-        let buf = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: 900000)
+        guard let buf = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: 900000) else { return }
         try? audioFile.read(into: buf)
-        
         let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
         
         //average together 100 audio frames in little buckets

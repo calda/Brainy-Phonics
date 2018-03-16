@@ -42,7 +42,8 @@ class WordView : UINibView {
             }
             
             let priority: LabelPriority = showingText ? .show : .hide
-            labelBottom.priority = priority.rawValue
+            labelBottom.priority = UILayoutPriority(
+                rawValue: priority.rawValue)
             
             self.label.superview?.layoutIfNeeded()
             self.label.alpha = showingText ? 1.0 : 0.0
@@ -92,7 +93,9 @@ class WordView : UINibView {
         if iPad() {
             if let text = self.label.attributedText?.mutableCopy() as? NSMutableAttributedString {
                 let fullRange = NSMakeRange(0, text.length)
-                text.addAttributes([NSFontAttributeName: self.label.font.withSize(35)], range: fullRange)
+                text.addAttributes(
+                    [.font: self.label.font.withSize(35)],
+                    range: fullRange)
                 self.label.attributedText = text
             }
         }

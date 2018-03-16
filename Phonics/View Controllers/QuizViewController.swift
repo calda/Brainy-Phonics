@@ -67,12 +67,16 @@ class QuizViewController : InteractiveGrowViewController {
         }
         
         if self.onlyShowThreeWords {
-            enum TopLeftLeadingPriority : UILayoutPriority {
+            enum TopLeftLeadingPriority: Float {
                 case centerView = 850
                 case leftAlignView = 950
+                
+                var priority: UILayoutPriority {
+                    return UILayoutPriority(rawValue: self.rawValue)
+                }
             }
             
-            self.topLeftWordLeading.priority = TopLeftLeadingPriority.centerView.rawValue
+            self.topLeftWordLeading.priority = TopLeftLeadingPriority.centerView.priority
             self.fourthWord.removeFromSuperview()
             self.interactiveViews.remove(at: self.interactiveViews.index(of: self.fourthWord)!)
             self.wordViews.remove(at: self.wordViews.index(of: self.fourthWord)!)
@@ -132,7 +136,7 @@ class QuizViewController : InteractiveGrowViewController {
         let blacklistedLetters = currentSound.blacklistedLetters
         let possibleWords = allWords.filter{ word in
             
-            for character in blacklistedSound.characters {
+            for character in blacklistedSound {
                 if word.pronunciation?.contains("\(character)") == true {
                     return false
                 }

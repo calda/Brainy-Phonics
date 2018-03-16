@@ -163,7 +163,7 @@ class BankViewController : UIViewController {
         
     }
     
-    func spawnCoinFromTimer(_ timer: Timer) {
+    @objc func spawnCoinFromTimer(_ timer: Timer) {
         if let image = timer.userInfo as? UIImage {
             spawnCoin(with: image)
         }

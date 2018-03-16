@@ -68,8 +68,8 @@ extension UIView {
         }
         
         if requireHugging {
-            self.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
-            self.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+            self.setContentHuggingPriority(.required, for: .vertical)
+            self.setContentHuggingPriority(.required, for: .horizontal)
         }
         
         return (

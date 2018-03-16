@@ -125,7 +125,7 @@ class LetterCell : UICollectionViewCell {
         
         letterIcon.removeConstraints(letterIcon.constraints)
         let newConstraint = letterIcon.heightAnchor.constraint(equalTo: letterIcon.widthAnchor, multiplier: aspectRatioToUse)
-        newConstraint.priority = 900
+        newConstraint.priority = UILayoutPriority(rawValue: 900)
         newConstraint.isActive = true
         
         letterIcon.image = letterIconImage

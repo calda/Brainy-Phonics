@@ -318,7 +318,7 @@ class PigLatinLabelView: UIView {
         label.text = word.firstLetter
         label.layer.backgroundColor = highlightColor.cgColor
         
-        label.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        label.setContentHuggingPriority(.required, for: .vertical)
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
         
@@ -329,7 +329,7 @@ class PigLatinLabelView: UIView {
         let label = UILabel()
         label.font = font
         label.text = text
-        label.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }
     

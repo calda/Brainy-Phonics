@@ -15,7 +15,7 @@ class HomeButton : UIButton {
         self.addTarget(self, action: #selector(homeButtonPressed), for: [.touchUpInside])
     }
     
-    func homeButtonPressed() {
+    @objc func homeButtonPressed() {
         HomeButton.returnToHomeViewController()
     }
     

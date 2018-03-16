@@ -35,7 +35,7 @@ class BasicImageView: UIView {
         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.0).isActive = true
         
         let widthConstraint = imageView.widthAnchor.constraint(equalToConstant: targetWidth)
-        widthConstraint.priority = 900
+        widthConstraint.priority = UILayoutPriority(rawValue: 900)
         widthConstraint.isActive = true
     }
     

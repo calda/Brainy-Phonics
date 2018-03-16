@@ -23,8 +23,9 @@ public struct Sentence {
     var attributedText: NSAttributedString {
         var processingSentence = self.text.lowercased()
         let matchWord = self.highlightWord.lowercased()
-        let attributedSentence = NSMutableAttributedString(string: self.text,
-                                                           attributes: [NSForegroundColorAttributeName : UIColor.black])
+        let attributedSentence = NSMutableAttributedString(
+                string: self.text,
+                attributes: [.foregroundColor : UIColor.black])
         
         let matchColor = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
         
@@ -40,7 +41,9 @@ public struct Sentence {
                     rangeInActualSentence = NSMakeRange(0, rangeInActualSentence.length - difference)
                 }
                 
-                attributedSentence.addAttributes([NSForegroundColorAttributeName : matchColor], range: rangeInActualSentence)
+                attributedSentence.addAttributes(
+                    [.foregroundColor : matchColor],
+                    range: rangeInActualSentence)
                 
                 let replacement = String(repeating: "_", count: matchString.length)
                 processingSentence = (processingSentence as NSString).replacingCharacters(in: range, with: replacement)

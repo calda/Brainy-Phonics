@@ -62,7 +62,7 @@ struct Sound: Equatable {
     }
     
     var blacklistedLetters: [String] {
-        var blacklist = self.displayString.lowercased().characters.map { "\($0)" }
+        var blacklist = self.displayString.lowercased().map { "\($0)" }
         
         let additionalBlacklists = [
             "g" : ["j"],
@@ -103,8 +103,8 @@ struct Sound: Equatable {
         let audioFile = try! AVAudioFile(forReading: url!)
         
         //get raw data for sounds
-        let buf = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: 900000)
-        try! audioFile.read(into: buf)
+        guard let buf = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: 900000) else { return }
+        try? audioFile.read(into: buf)
         let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
         
         //average together 100 audio frames in little buckets
@@ -161,7 +161,7 @@ struct Sound: Equatable {
         }
         
         //print without the last ", "
-        print(csvLine.substring(to: csvLine.index(csvLine.endIndex, offsetBy: -2)))
+        print(csvLine[...csvLine.index(csvLine.endIndex, offsetBy: -2)])
     }
     
     //finds the longest common substring of the sound's words' IPA spellings
