@@ -75,7 +75,7 @@ struct Puzzle {
         
         //reduce [[PuzzlePiece?]] to [[PuzzlePiece]]
         self.pieces = pieces.map { pieceRow in
-            return pieceRow.flatMap{ $0 }
+            return pieceRow.compactMap{ $0 }
         }
     }
     

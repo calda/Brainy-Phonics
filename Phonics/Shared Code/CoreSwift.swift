@@ -102,6 +102,18 @@ extension UIView {
         
     }
     
+    var safeAreaInsetsIfAvailable: UIEdgeInsets {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaInsets
+        } else {
+            return .zero
+        }
+    }
+    
+    var frameInsetByMargins: CGRect {
+        return UIEdgeInsetsInsetRect(self.frame, layoutMargins)
+    }
+    
 }
 
 ///short-form function to run a block synchronously on the main queue

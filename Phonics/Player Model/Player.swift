@@ -33,7 +33,7 @@ class Player : NSObject, NSCoding {
     
     //MARK: - NSCoding
     
-    private enum Key: String, NSCodingKey {
+    enum Key: String, NSCodingKey {
         case id = "Player.id"
         case puzzleProgress = "Player.puzzleProgress"
         case sightWordGoldCoins = "Player.sightWordCoins.gold"

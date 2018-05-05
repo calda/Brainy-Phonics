@@ -169,7 +169,7 @@ struct Sound: Equatable {
     //unfortunately our words are not precise enough to be 100%
     //IPA is hard
     func generatePronunciation() -> String {
-        let pronunciations = self.primaryWords.flatMap{ $0.pronunciation }
+        let pronunciations = self.primaryWords.compactMap{ $0.pronunciation }
         
         var common = pronunciations[0]
         for pronunciation in pronunciations {

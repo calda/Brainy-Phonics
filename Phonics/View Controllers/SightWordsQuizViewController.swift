@@ -50,7 +50,7 @@ enum SightWordsQuizMode {
             availableWords.popLast(),
             availableWords.popLast(),
             availableWords.popLast()
-        ].flatMap{ $0 }
+        ].compactMap{ $0 }
     }
     
 }

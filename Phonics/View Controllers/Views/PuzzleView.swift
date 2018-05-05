@@ -73,8 +73,8 @@ class PuzzleView : UIView {
         
         guard let puzzle = self.puzzle else { return }
         
-        let emptyColumn = [PuzzlePieceView!](repeating: nil, count: puzzle.colCount)
-        var pieceViews = [[PuzzlePieceView!]](repeating: emptyColumn, count: puzzle.rowCount)
+        let emptyColumn = [PuzzlePieceView?](repeating: nil, count: puzzle.colCount)
+        var pieceViews = [[PuzzlePieceView?]](repeating: emptyColumn, count: puzzle.rowCount)
         
         //create subviews
         puzzle.pieces.forEach { row in

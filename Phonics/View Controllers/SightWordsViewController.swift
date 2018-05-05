@@ -62,8 +62,7 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let totalWidth = UIScreen.main.bounds.width - 90
-        let width = totalWidth / 3
+        let width = (self.view.frameInsetByMargins.width - 50) / 3
         return CGSize(width: width, height: width * 0.85)
     }
     

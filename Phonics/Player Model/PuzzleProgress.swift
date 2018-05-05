@@ -71,7 +71,7 @@ class PuzzleProgress: NSObject, NSCoding {
     
     //MARK: - NSCoding
     
-    private enum Key: String, NSCodingKey {
+    enum Key: String, NSCodingKey {
         case puzzleName = "PuzzleProgress.puzzleName"
         case ownedPieces = "PuzzleProgress.ownedPieces"
     }

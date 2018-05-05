@@ -102,13 +102,13 @@ class PHContentManager {
                                 timedAudioInfo: soundInfo[text] ?? audioTimings["Words/\(text)"]?[text])
                 }
                 
-                let primaryWords = [line[3], line[4], line[5]].flatMap(wordForString)
+                let primaryWords = [line[3], line[4], line[5]].compactMap(wordForString)
                 
                 var quizWords = [Word]()
                 let quizWordsString = line[6]
                 if !quizWordsString.isEmpty && !quizWordsString.isWhitespace() {
                     let quizWordsArray = quizWordsString.components(separatedBy: ",")
-                    quizWords = quizWordsArray.flatMap{ wordForString($0.trimmingWhitespace()) }
+                    quizWords = quizWordsArray.compactMap{ wordForString($0.trimmingWhitespace()) }
                 }
                 
                 let sound = Sound(sourceLetter: letter,
