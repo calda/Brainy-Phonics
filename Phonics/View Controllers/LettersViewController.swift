@@ -43,7 +43,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     //MARK: - Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if difficulty == .standardDifficulty {
+        if difficulty == .easyDifficulty {
             return PHLetters.count
         }
         
@@ -52,7 +52,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "letter", for: indexPath) as! LetterCell
-        if self.difficulty == .standardDifficulty {
+        if self.difficulty == .easyDifficulty {
             cell.decorateForLetter(PHLetters[indexPath.item], difficulty: difficulty)
         } else {
             let phonic = phonics[indexPath.item]
@@ -108,7 +108,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         }
         
         //play audio for selection
-        if self.difficulty == .standardDifficulty {
+        if self.difficulty == .easyDifficulty {
             guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
             letter.playAudio()
             afterAudio(letter: letter)
@@ -141,37 +141,30 @@ class LetterCell : UICollectionViewCell {
         
     }
     
-    func decorateForLetter(_ letter: String, difficulty: Letter.Difficulty, sound: Sound? = nil) {
+    func decorateForLetter(_ letterText: String, difficulty: Letter.Difficulty, sound: Sound? = nil) {
         cardView.layer.cornerRadius = cardView.frame.height * 0.1
         
-        //will added
-        if difficulty == .standardDifficulty {
-            letterLabel.text = letter.uppercased() + letter.lowercased()  //same as before
-        } else {
-            //phonics
-            letterLabel.text = letter.lowercased()
-            letterLabel.textColor = sound?.color
-        }
-        
-        guard let firstLetter = letter.first,
+        guard let firstLetter = letterText.first,
             let letter = PHContent[String(firstLetter).uppercased()] else { return }
         
-        
-        if difficulty == .standardDifficulty {
+        //decorates differently for either phonics or alphabet letters
+        if difficulty == .easyDifficulty {
+            //alphabet letters
+            letterLabel.text = letterText.uppercased() + letterText.lowercased()
+            
             let letterIconImage = letter.icon(for: difficulty)
             decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
         } else {
-            //phonics
-            if let imageName = sound?.primaryWords[0].text {
-                if imageName == "three" {
-                    print(imageName)
-                }
-                if let letterIconImage = UIImage(named: "\(imageName).jpg") {
-                    
-                    decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
-                }
+            //phonics table of contents
+            letterLabel.text = letterText.lowercased()
+            letterLabel.textColor = sound?.color
+            
+            //phonic displays image of first primary word
+            if let imageName = sound?.primaryWords[0].text, let letterIconImage = UIImage(named: "\(imageName).jpg") {
+                decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
             }
         }
+        
     }
     
     //update image icon with correct image and aspect ratio
