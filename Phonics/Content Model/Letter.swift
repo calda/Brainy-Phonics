@@ -9,8 +9,8 @@
 struct Letter: Equatable {
     
     enum Difficulty {
-        case easyDifficulty //only show the first sound
-        case standardDifficulty //show all sounds
+        case easyDifficulty //only show the first sound. Alphabet Letters.
+        case standardDifficulty //show all sounds. Phonics.
         
         var color: UIColor {
             switch(self) {

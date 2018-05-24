@@ -96,8 +96,10 @@ class Player : NSObject, NSCoding {
         
         guard let player = NSKeyedUnarchiver.unarchiveObject(with: data) as? Player else {
             print("FAILED TO UNARCHIVE PLAYER")
+        
             return nil
         }
+        
         
         return player
     }

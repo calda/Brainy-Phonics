@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LettersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
@@ -18,6 +19,8 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     static func present(from source: UIViewController, with difficulty: Letter.Difficulty) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardId) as! LettersViewController
         controller.difficulty = difficulty
+        controller.phonics = PHContent.allPhonicsSorted()
+        
         source.present(controller, animated: true, completion: nil)
     }
     
@@ -26,6 +29,10 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var collectionView: UICollectionView!
     var difficulty: Letter.Difficulty!
+    var phonics: [Sound]!
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
@@ -36,12 +43,21 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     //MARK: - Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PHLetters.count
+        if difficulty == .standardDifficulty {
+            return PHLetters.count
+        }
+        
+        return phonics.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "letter", for: indexPath) as! LetterCell
-        cell.decorateForLetter(PHLetters[indexPath.item], difficulty: difficulty)
+        if self.difficulty == .standardDifficulty {
+            cell.decorateForLetter(PHLetters[indexPath.item], difficulty: difficulty)
+        } else {
+            let phonic = phonics[indexPath.item]
+            cell.decorateForLetter(phonic.displayString, difficulty: difficulty, sound: phonic)
+        }
         return cell
     }
     
@@ -79,21 +95,31 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
             cell?.transform = CGAffineTransform(scaleX: 1.075, y: 1.075)
         }, completion: nil)
         
+        func afterAudio(letter: Letter) {
+            UAWhenDonePlayingAudio {
+                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+                    cell?.transform = CGAffineTransform.identity
+                    
+                    LetterViewController.present(for: letter, with: self.difficulty, inController: self)
+                    self.view.isUserInteractionEnabled = true
+                    
+                }, completion: nil)
+            }
+        }
+        
         //play audio for selection
-        guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
-        letter.playAudio()
-         
-        UAWhenDonePlayingAudio {
-            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
-                cell?.transform = CGAffineTransform.identity
-                
-                LetterViewController.present(for: letter, with: self.difficulty, inController: self)
-                self.view.isUserInteractionEnabled = true
-                
-            }, completion: nil)
+        if self.difficulty == .standardDifficulty {
+            guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
+            letter.playAudio()
+            afterAudio(letter: letter)
+        } else {
+            //phonics
+            let sound = phonics[indexPath.item]
+            sound.playAudio(withWords: false)
+            let letter = Letter(text: phonics[indexPath.item].sourceLetter, sounds: [sound])
+            afterAudio(letter: letter)
         }
     }
-
 }
 
 
@@ -111,16 +137,45 @@ class LetterCell : UICollectionViewCell {
         super.awakeFromNib()
         cardView.layer.masksToBounds = true
         cardView.clipsToBounds = true
+        
+        
     }
     
-    func decorateForLetter(_ letter: String, difficulty: Letter.Difficulty) {
+    func decorateForLetter(_ letter: String, difficulty: Letter.Difficulty, sound: Sound? = nil) {
         cardView.layer.cornerRadius = cardView.frame.height * 0.1
-        letterLabel.text = letter.uppercased() + letter.lowercased()
         
-        guard let letter = PHContent[letter.uppercased()] else { return }
+        //will added
+        if difficulty == .standardDifficulty {
+            letterLabel.text = letter.uppercased() + letter.lowercased()  //same as before
+        } else {
+            //phonics
+            letterLabel.text = letter.lowercased()
+            letterLabel.textColor = sound?.color
+        }
         
-        //update image icon with correct image and aspect ratio
-        let letterIconImage = letter.icon(for: difficulty)
+        guard let firstLetter = letter.first,
+            let letter = PHContent[String(firstLetter).uppercased()] else { return }
+        
+        
+        if difficulty == .standardDifficulty {
+            let letterIconImage = letter.icon(for: difficulty)
+            decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
+        } else {
+            //phonics
+            if let imageName = sound?.primaryWords[0].text {
+                if imageName == "three" {
+                    print(imageName)
+                }
+                if let letterIconImage = UIImage(named: "\(imageName).jpg") {
+                    
+                    decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
+                }
+            }
+        }
+    }
+    
+    //update image icon with correct image and aspect ratio
+    func decorateIcon(letterIconImage: UIImage, letter: Letter, difficulty: Letter.Difficulty) {
         let aspectRatioToUse = max(1, letterIconImage.size.height / letterIconImage.size.width)
         
         letterIcon.removeConstraints(letterIcon.constraints)
@@ -144,5 +199,7 @@ class LetterCell : UICollectionViewCell {
         
         checkmark.alpha = (totalNumberOfPieces == totalNumberOfOwnedPieces) ? 1.0 : 0.0
     }
+    
+    
     
 }
