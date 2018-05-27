@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 let PHLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
 let PHContent = PHContentManager()
 
 typealias FileName = String
@@ -21,6 +22,8 @@ typealias AudioInfo = (fileName: String, wordStart: Double, wordDuration: Double
 class PHContentManager {
     
     let letters: [String : Letter]
+    let sounds: [Sound]
+    
     let sightWordsPreK: SightWordsManager
     let sightWordsKindergarten: SightWordsManager
     
@@ -68,8 +71,9 @@ class PHContentManager {
         return pronunciations
     }
     
-    static func parseLetters(audioTimings: [FileName : [WordName : AudioInfo]], wordPronunciations: [WordName : Pronunciation], soundPronunciations: [SoundID : Pronunciation]) -> [String : Letter] {
-        guard let letterLines = linesForCSV("Sound List") else { return [:] }
+    //returns the dictionary of Letters and array of Sounds
+    static func parseLetters(audioTimings: [FileName : [WordName : AudioInfo]], wordPronunciations: [WordName : Pronunciation], soundPronunciations: [SoundID : Pronunciation]) -> ([String : Letter], [Sound]) {
+        guard let letterLines = linesForCSV("Sound List") else { return ([:], []) }
         
         //put each line in a bucket for its letter
         var linesPerLetter = [String : [[String]]]()
@@ -82,6 +86,7 @@ class PHContentManager {
         }
         
         var letters = [String : Letter]()
+        var allSounds = [Sound]()
         
         //process each line in context of the correct letter
         for letter in PHLetters {
@@ -111,7 +116,24 @@ class PHContentManager {
                     quizWords = quizWordsArray.compactMap{ wordForString($0.trimmingWhitespace()) }
                 }
                 
-                let sound = Sound(sourceLetter: letter,
+                //parse color for each Sound
+                let colorString = line[7].trimmingWhitespace()
+                var color: UIColor
+                switch colorString {
+                case "orange":
+                    color = UIColor(red: 247/255, green: 107/255, blue: 0/255, alpha: 1.0) /* #f76b00 */
+                case "green":
+                    color = UIColor(red: 35/255, green: 191/255, blue: 0/255, alpha: 1.0) /* #23bf00 */
+                case "purple":
+                    color = UIColor(red: 237/255, green: 0/255, blue: 217/255, alpha: 1.0) /* #ed00d9 */
+                case "blue":
+                    color = UIColor(red: 0/255, green: 143/255, blue: 239/255, alpha: 1.0) /* #008fef */
+                default:
+                    color = .black
+                }
+                
+                
+                let sound = Sound(color: color, sourceLetter: letter,
                                   soundId: soundId,
                                   ipaPronunciation: ipaPronunciation,
                                   displayString: displayString,
@@ -121,12 +143,14 @@ class PHContentManager {
                                   pronunciationTiming: soundInfo[soundId])
                 
                 sounds.append(sound)
+                allSounds.append(sound)
             }
             
             letters[letter] = Letter(text: letter, sounds: sounds)
         }
         
-        return letters
+        
+        return (letters, allSounds)
     }
     
     
@@ -136,7 +160,7 @@ class PHContentManager {
         let audioTimings = PHContentManager.parseAudioTimings()
         let wordPronunciations = PHContentManager.parsePronunciationsFile(named: "Word Pronunciations")
         let soundPronunciations = PHContentManager.parsePronunciationsFile(named: "Sound Pronunciations")
-        self.letters = PHContentManager.parseLetters(audioTimings: audioTimings,
+        (self.letters, self.sounds) = PHContentManager.parseLetters(audioTimings: audioTimings,
                                                      wordPronunciations: wordPronunciations,
                                                      soundPronunciations: soundPronunciations)
         
@@ -179,6 +203,11 @@ class PHContentManager {
     return self.allSounds(with: difficulty).sorted(by: { left, right in
             return left.displayString.compare(right.displayString) == .orderedAscending
         })
+    }
+    
+    //phonics sorted according to CSV and chart ordering
+    var allPhonicsSorted: [Sound] {
+        return sounds
     }
     
     var allWords: [Word] {

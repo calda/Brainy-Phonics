@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WGa-EW-DGV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WGa-EW-DGV">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -36,19 +36,19 @@
                                 <rect key="frame" x="81.333333333333314" y="0.0" width="730.66666666666674" height="354"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-nE-6dh">
-                                        <rect key="frame" x="138.33333333333331" y="20.333333333333343" width="462.99999999999994" height="313.33333333333326"/>
+                                        <rect key="frame" x="139.66666666666671" y="20.333333333333343" width="460.33333333333326" height="313.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mn5-je-8HX">
-                                                <rect key="frame" x="0.0" y="0.0" width="145" height="313.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="313.33333333333331"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alphabet-letters" translatesAutoresizingMaskIntoConstraints="NO" id="yDG-3v-xWN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="144.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="144.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="yDG-3v-xWN" secondAttribute="height" multiplier="1:1" priority="999" id="Ikg-aP-f7h"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-prek-sight-words" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-tn-Ks6">
-                                                        <rect key="frame" x="0.0" y="169.33333333333331" width="145" height="144"/>
+                                                        <rect key="frame" x="0.0" y="169.33333333333331" width="144.33333333333334" height="144"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="4fC-tn-Ks6" secondAttribute="height" multiplier="1:1" id="7cv-kz-7WL"/>
                                                         </constraints>
@@ -57,16 +57,16 @@
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="65"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jOQ-dw-e5I">
-                                                <rect key="frame" x="160" y="0.0" width="144.33333333333337" height="313.33333333333331"/>
+                                                <rect key="frame" x="159.33333333333331" y="0.33333333333334281" width="143.33333333333331" height="312.66666666666663"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="EXg-2H-mxE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="144.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="143.33333333333334" height="144"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="EXg-2H-mxE" secondAttribute="height" multiplier="1:1" priority="999" id="jwc-96-BRv"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-k-sightwords" translatesAutoresizingMaskIntoConstraints="NO" id="cgD-JQ-dcS">
-                                                        <rect key="frame" x="0.0" y="169.33333333333331" width="144.33333333333334" height="144"/>
+                                                        <rect key="frame" x="0.0" y="169" width="143.33333333333334" height="143.66666666666663"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="cgD-JQ-dcS" secondAttribute="height" multiplier="1:1" priority="999" id="8Z6-9P-qF3"/>
                                                         </constraints>
@@ -75,10 +75,10 @@
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="65"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3o-Ew-kzz">
-                                                <rect key="frame" x="319.33333333333337" y="0.0" width="143.66666666666663" height="313.33333333333331"/>
+                                                <rect key="frame" x="317.66666666666663" y="0.0" width="142.66666666666663" height="313.33333333333331"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-secret-stuff" translatesAutoresizingMaskIntoConstraints="NO" id="tXD-R8-PsO">
-                                                        <rect key="frame" x="20" y="-419.66666666666663" width="124" height="1152.3333333333333"/>
+                                                        <rect key="frame" x="20" y="-419.66666666666663" width="123" height="1152.3333333333333"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -207,17 +207,11 @@
                                                     <rect key="frame" x="9" y="6" width="223" height="154"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-65-8dj">
-                                                            <rect key="frame" x="26" y="21.000000000000007" width="171.66666666666666" height="103.66666666666669"/>
+                                                            <rect key="frame" x="24.666666666666671" y="21.000000000000007" width="174.33333333333331" height="103.66666666666669"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" image="letter-icon-a.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-Rj-ZGY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="103.66666666666667"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="PDG-Rj-ZGY" secondAttribute="height" multiplier="1:1" priority="900" id="rQA-Gk-AU5"/>
-                                                                    </constraints>
-                                                                </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Aa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
-                                                                    <rect key="frame" x="115.00000000000001" y="0.0" width="56.666666666666671" height="103.66666666666667"/>
-                                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="103.66666666666667"/>
+                                                                    <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="50"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <size key="shadowOffset" width="1" height="1"/>
@@ -225,6 +219,12 @@
                                                                         <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="65"/>
                                                                     </variation>
                                                                 </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" image="letter-icon-a.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-Rj-ZGY">
+                                                                    <rect key="frame" x="74.333333333333343" y="0.0" width="100" height="103.66666666666667"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="PDG-Rj-ZGY" secondAttribute="height" multiplier="1:1" priority="900" id="rQA-Gk-AU5"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <variation key="heightClass=regular-widthClass=regular" spacing="25"/>
                                                         </stackView>
@@ -383,7 +383,7 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-BJ-uKI" userLabel="checkmark">
-                                                <rect key="frame" x="152.33333333333331" y="80.333333333333329" width="30" height="30"/>
+                                                <rect key="frame" x="152.33333333333331" y="80" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Kg-g2-goa"/>
                                                     <constraint firstAttribute="width" constant="30" id="cg1-SV-LXF"/>
@@ -992,7 +992,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-IG-hzZ">
-                                                    <rect key="frame" x="60.666666666666657" y="73.666666666666671" width="19" height="37"/>
+                                                    <rect key="frame" x="61" y="73" width="19" height="37"/>
                                                     <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="37"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1286,7 +1286,7 @@
                                         <rect key="frame" x="182" y="20" width="250" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="big" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sit-ud-vO3">
-                                                <rect key="frame" x="94.333333333333314" y="21.333333333333336" width="62" height="50.000000000000007"/>
+                                                <rect key="frame" x="94" y="21" width="62" height="50"/>
                                                 <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1398,33 +1398,33 @@
                                                 <rect key="frame" x="212" y="0.0" width="362" height="212.33333333333334"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zvY-CI-fvN">
-                                                        <rect key="frame" x="32" y="10.000000000000014" width="299.66666666666669" height="192.33333333333337"/>
+                                                        <rect key="frame" x="35.666666666666686" y="10.000000000000014" width="292.33333333333331" height="192.33333333333337"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="The boxer dog is ">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="25" name="ComicNeue-Bold"/>
+                                                                    <font key="NSFont" metaFont="system" size="25"/>
                                                                 </attributes>
                                                             </fragment>
                                                             <fragment content="big">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.79653090238571167" green="0.25258737802505493" blue="0.29931744933128357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" size="25" name="ComicNeue-Bold"/>
+                                                                    <font key="NSFont" metaFont="system" size="25"/>
                                                                 </attributes>
                                                             </fragment>
                                                             <fragment content=". The boxer dog is ">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="25" name="ComicNeue-Bold"/>
+                                                                    <font key="NSFont" metaFont="system" size="25"/>
                                                                 </attributes>
                                                             </fragment>
                                                             <fragment content="big">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.79652999999999996" green="0.25258999999999998" blue="0.29931999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" size="25" name="ComicNeue-Bold"/>
+                                                                    <font key="NSFont" metaFont="system" size="25"/>
                                                                 </attributes>
                                                             </fragment>
                                                             <fragment content=".">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="25" name="ComicNeue-Bold"/>
+                                                                    <font key="NSFont" metaFont="system" size="25"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1713,7 +1713,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="207.66666666666666" height="85"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="big" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-Na-OTN">
-                                                                        <rect key="frame" x="83.666666666666657" y="28" width="40.333333333333343" height="30"/>
+                                                                        <rect key="frame" x="83.999999999999972" y="26.666666666666686" width="40.333333333333343" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1740,7 +1740,7 @@
                                                                 <rect key="frame" x="0.0" y="100" width="207.66666666666666" height="84.666666666666686"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H8t-dQ-Ndc">
-                                                                        <rect key="frame" x="80.999999999999972" y="27.333333333333343" width="45" height="30"/>
+                                                                        <rect key="frame" x="81.333333333333343" y="27.000000000000028" width="45" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1776,7 +1776,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="207.66666666666666" height="85"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cLk-FR-xwF">
-                                                                        <rect key="frame" x="72.333333333333371" y="28" width="63" height="30"/>
+                                                                        <rect key="frame" x="72.333333333333371" y="26.666666666666686" width="63" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1803,7 +1803,7 @@
                                                                 <rect key="frame" x="0.0" y="100" width="207.66666666666666" height="84.666666666666686"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="came" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RaZ-Dz-E39">
-                                                                        <rect key="frame" x="66.333333333333371" y="27.333333333333343" width="73.666666666666686" height="30"/>
+                                                                        <rect key="frame" x="67.666666666666629" y="27.000000000000028" width="73.666666666666686" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -2016,7 +2016,7 @@ My song had been longer.
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="18" name="HelveticaNeue-Medium"/>
-                                            <font key="NSOriginalFont" size="16" name="SFUIText-Medium"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="16"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="10" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2033,7 +2033,7 @@ My song had been longer.
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="30" name="HelveticaNeue-Medium"/>
-                                                <font key="NSOriginalFont" size="16" name="SFUIText-Medium"/>
+                                                <font key="NSOriginalFont" metaFont="system" size="16"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacing="25" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -2409,7 +2409,7 @@ My song had been longer.
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-un-1eE">
-                                <rect key="frame" x="74" y="287" width="154" height="60"/>
+                                <rect key="frame" x="73.999999999999986" y="287" width="141.66666666666663" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oea-oo-ure"/>
                                 </constraints>
@@ -2417,7 +2417,7 @@ My song had been longer.
                                     <fragment content="0">
                                         <attributes>
                                             <color key="NSColor" red="0.96267916096581352" green="0.82467483716375711" blue="0.29654248398391642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="ComicNeue-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="62"/>
                                             <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -2425,7 +2425,7 @@ My song had been longer.
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" red="0.99624025819999995" green="0.81428295370000003" blue="0.11515008660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="ComicNeue-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="62"/>
                                             <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -2433,7 +2433,7 @@ My song had been longer.
                                     <fragment content="+ 0">
                                         <attributes>
                                             <color key="NSColor" red="0.86645316329656863" green="0.86645316329656863" blue="0.86645316329656863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="62" name="ComicNeue-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="62"/>
                                             <font key="NSOriginalFont" size="75" name="DINCondensed-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.1499999999999999" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -2467,9 +2467,9 @@ My song had been longer.
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="IPb-WX-RAl"/>
                                 <exclude reference="3qu-PQ-vue"/>
                                 <exclude reference="tcy-Ou-pS4"/>
-                                <exclude reference="IPb-WX-RAl"/>
                                 <exclude reference="54l-MX-BBE"/>
                             </mask>
                         </variation>
@@ -2615,6 +2615,6 @@ My song had been longer.
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ud5-hW-UDI"/>
-        <segue reference="MD5-X8-6gl"/>
+        <segue reference="PLU-mT-sCU"/>
     </inferredMetricsTieBreakers>
 </document>

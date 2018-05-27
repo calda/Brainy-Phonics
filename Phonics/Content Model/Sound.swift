@@ -15,6 +15,8 @@ struct Sound: Equatable {
     
     //MARK: - Properties
     
+    var color: UIColor //the color code (purple, orange, black, etc) denoting flat, long, etc
+
     let sourceLetter: String
     let soundId: String
     let ipaPronunciation: String?
@@ -113,7 +115,7 @@ struct Sound: Equatable {
             let start = i * 100;
             let end = start + 100;
             var sum: Float = 0.0
-            
+     
             for j in start..<end {
                 sum += abs(floatArray[j])
             }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LettersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
@@ -27,6 +28,8 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var collectionView: UICollectionView!
     var difficulty: Letter.Difficulty!
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
         self.collectionView.backgroundColor = self.difficulty.color
@@ -36,12 +39,21 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     //MARK: - Collection View Data Source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PHLetters.count
+        if difficulty == .easyDifficulty {
+            return PHLetters.count
+        }
+        
+        return PHContent.allPhonicsSorted.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "letter", for: indexPath) as! LetterCell
-        cell.decorateForLetter(PHLetters[indexPath.item], difficulty: difficulty)
+        if self.difficulty == .easyDifficulty {
+            cell.decorateForLetter(PHLetters[indexPath.item], difficulty: difficulty)
+        } else {
+            let phonic = PHContent.allPhonicsSorted[indexPath.item]
+            cell.decorateForLetter(phonic.displayString, difficulty: difficulty, sound: phonic)
+        }
         return cell
     }
     
@@ -79,21 +91,31 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
             cell?.transform = CGAffineTransform(scaleX: 1.075, y: 1.075)
         }, completion: nil)
         
+        func afterAudio(letter: Letter) {
+            UAWhenDonePlayingAudio {
+                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
+                    cell?.transform = CGAffineTransform.identity
+                    
+                    LetterViewController.present(for: letter, with: self.difficulty, inController: self)
+                    self.view.isUserInteractionEnabled = true
+                    
+                }, completion: nil)
+            }
+        }
+        
         //play audio for selection
-        guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
-        letter.playAudio()
-         
-        UAWhenDonePlayingAudio {
-            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
-                cell?.transform = CGAffineTransform.identity
-                
-                LetterViewController.present(for: letter, with: self.difficulty, inController: self)
-                self.view.isUserInteractionEnabled = true
-                
-            }, completion: nil)
+        if self.difficulty == .easyDifficulty {
+            guard let letter = PHContent[PHLetters[indexPath.item]] else { return }
+            letter.playAudio()
+            afterAudio(letter: letter)
+        } else {
+            //phonics
+            let sound = PHContent.allPhonicsSorted[indexPath.item]
+            sound.playAudio(withWords: false)
+            let letter = Letter(text: PHContent.allPhonicsSorted[indexPath.item].sourceLetter, sounds: [sound])
+            afterAudio(letter: letter)
         }
     }
-
 }
 
 
@@ -105,22 +127,42 @@ class LetterCell : UICollectionViewCell {
     @IBOutlet weak var progressBar: ProgressBar!
     @IBOutlet weak var checkmark: UIButton!
     
-    static var backgroundThread = DispatchQueue(label: "LetterCellBackground", qos: .background)
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         cardView.layer.masksToBounds = true
         cardView.clipsToBounds = true
+        
+        
     }
     
-    func decorateForLetter(_ letter: String, difficulty: Letter.Difficulty) {
+    func decorateForLetter(_ letterText: String, difficulty: Letter.Difficulty, sound: Sound? = nil) {
         cardView.layer.cornerRadius = cardView.frame.height * 0.1
-        letterLabel.text = letter.uppercased() + letter.lowercased()
         
-        guard let letter = PHContent[letter.uppercased()] else { return }
+        guard let firstLetter = letterText.first,
+            let letter = PHContent[String(firstLetter).uppercased()] else { return }
         
-        //update image icon with correct image and aspect ratio
-        let letterIconImage = letter.icon(for: difficulty)
+        //decorates differently for either phonics or alphabet letters
+        if difficulty == .easyDifficulty {
+            //alphabet letters
+            letterLabel.text = letterText.uppercased() + letterText.lowercased()
+            
+            let letterIconImage = letter.icon(for: difficulty)
+            decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
+        } else {
+            //phonics table of contents
+            letterLabel.text = letterText.lowercased()
+            letterLabel.textColor = sound?.color
+            
+            //phonic displays image of first primary word
+            if let imageName = sound?.primaryWords[0].text, let letterIconImage = UIImage(named: "\(imageName).jpg") {
+                decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty, sound: sound)
+            }
+        }
+        
+    }
+    
+    //update image icon with correct image and aspect ratio
+    func decorateIcon(letterIconImage: UIImage, letter: Letter, difficulty: Letter.Difficulty, sound: Sound? = nil) {
         let aspectRatioToUse = max(1, letterIconImage.size.height / letterIconImage.size.width)
         
         letterIcon.removeConstraints(letterIcon.constraints)
@@ -131,18 +173,28 @@ class LetterCell : UICollectionViewCell {
         letterIcon.image = letterIconImage
         layoutIfNeeded()
         
-        //update progress bar
-        let totalNumberOfPieces = 12 * letter.sounds(for: difficulty).count
+        //update progress bar. There are 12 pieces in a puzzle, One puzzle per sound.
+        let totalNumberOfPieces = 12 * (difficulty == .standardDifficulty ? 1 : letter.sounds(for: difficulty).count)
         
-        let totalNumberOfOwnedPieces = letter.sounds(for: difficulty).reduce(0) { previousResult, sound in
+        let totalNumberOfOwnedPieces: Int
+        if difficulty == .standardDifficulty {
+            guard let sound = sound else {return}
             let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
-            return previousResult + (progress?.numberOfOwnedPieces ?? 0)
+            totalNumberOfOwnedPieces = progress?.numberOfOwnedPieces ?? 0
+        } else {
+            totalNumberOfOwnedPieces = letter.sounds(for: difficulty).reduce(0) { previousResult, sound in
+                let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
+                return previousResult + (progress?.numberOfOwnedPieces ?? 0)
+            }
         }
+        
         
         progressBar.totalNumberOfSegments = totalNumberOfPieces
         progressBar.numberOfFilledSegments = totalNumberOfOwnedPieces
         
-        checkmark.alpha = (totalNumberOfPieces == totalNumberOfOwnedPieces) ? 1.0 : 0.0
+        checkmark.isHidden = totalNumberOfPieces == totalNumberOfOwnedPieces
     }
+    
+    
     
 }
