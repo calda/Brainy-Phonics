@@ -121,15 +121,13 @@ class PHContentManager {
                 var color: UIColor
                 switch colorString {
                 case "orange":
-                    color = .orange
+                    color = UIColor(red: 247/255, green: 107/255, blue: 0/255, alpha: 1.0) /* #f76b00 */
                 case "green":
-                    color = .green
+                    color = UIColor(red: 35/255, green: 191/255, blue: 0/255, alpha: 1.0) /* #23bf00 */
                 case "purple":
-                    color = .purple
-                case "red":
-                    color = .red
+                    color = UIColor(red: 237/255, green: 0/255, blue: 217/255, alpha: 1.0) /* #ed00d9 */
                 case "blue":
-                    color = .cyan //mimics blue
+                    color = UIColor(red: 0/255, green: 143/255, blue: 239/255, alpha: 1.0) /* #008fef */
                 default:
                     color = .black
                 }
@@ -208,7 +206,7 @@ class PHContentManager {
     }
     
     //phonics sorted according to CSV and chart ordering
-    func allPhonicsSorted() -> [Sound] {
+    var allPhonicsSorted: [Sound] {
         return sounds
     }
     

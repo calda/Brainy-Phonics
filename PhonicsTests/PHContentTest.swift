@@ -67,6 +67,7 @@ class PHContentTest: XCTestCase {
             
             //ignore certain images
             if imageName.hasPrefix("letter-icon-") { continue }
+            if imageName.hasPrefix("easy-letter-icon-") { continue }
             
             let hasMatchingWord = allWords.contains(where: { $0.text == imageName })
             XCTAssert(hasMatchingWord, "\(imageName).jpg is unused.")

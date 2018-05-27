@@ -19,8 +19,6 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     static func present(from source: UIViewController, with difficulty: Letter.Difficulty) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: storyboardId) as! LettersViewController
         controller.difficulty = difficulty
-        controller.phonics = PHContent.allPhonicsSorted()
-        
         source.present(controller, animated: true, completion: nil)
     }
     
@@ -29,8 +27,6 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var collectionView: UICollectionView!
     var difficulty: Letter.Difficulty!
-    var phonics: [Sound]!
-    
     
     
     
@@ -47,7 +43,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
             return PHLetters.count
         }
         
-        return phonics.count
+        return PHContent.allPhonicsSorted.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,7 +51,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         if self.difficulty == .easyDifficulty {
             cell.decorateForLetter(PHLetters[indexPath.item], difficulty: difficulty)
         } else {
-            let phonic = phonics[indexPath.item]
+            let phonic = PHContent.allPhonicsSorted[indexPath.item]
             cell.decorateForLetter(phonic.displayString, difficulty: difficulty, sound: phonic)
         }
         return cell
@@ -114,9 +110,9 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
             afterAudio(letter: letter)
         } else {
             //phonics
-            let sound = phonics[indexPath.item]
+            let sound = PHContent.allPhonicsSorted[indexPath.item]
             sound.playAudio(withWords: false)
-            let letter = Letter(text: phonics[indexPath.item].sourceLetter, sounds: [sound])
+            let letter = Letter(text: PHContent.allPhonicsSorted[indexPath.item].sourceLetter, sounds: [sound])
             afterAudio(letter: letter)
         }
     }
@@ -130,8 +126,6 @@ class LetterCell : UICollectionViewCell {
     @IBOutlet weak var letterIcon: UIImageView!
     @IBOutlet weak var progressBar: ProgressBar!
     @IBOutlet weak var checkmark: UIButton!
-    
-    static var backgroundThread = DispatchQueue(label: "LetterCellBackground", qos: .background)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -161,14 +155,14 @@ class LetterCell : UICollectionViewCell {
             
             //phonic displays image of first primary word
             if let imageName = sound?.primaryWords[0].text, let letterIconImage = UIImage(named: "\(imageName).jpg") {
-                decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
+                decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty, sound: sound)
             }
         }
         
     }
     
     //update image icon with correct image and aspect ratio
-    func decorateIcon(letterIconImage: UIImage, letter: Letter, difficulty: Letter.Difficulty) {
+    func decorateIcon(letterIconImage: UIImage, letter: Letter, difficulty: Letter.Difficulty, sound: Sound? = nil) {
         let aspectRatioToUse = max(1, letterIconImage.size.height / letterIconImage.size.width)
         
         letterIcon.removeConstraints(letterIcon.constraints)
@@ -179,18 +173,26 @@ class LetterCell : UICollectionViewCell {
         letterIcon.image = letterIconImage
         layoutIfNeeded()
         
-        //update progress bar
-        let totalNumberOfPieces = 12 * letter.sounds(for: difficulty).count
+        //update progress bar. There are 12 pieces in a puzzle, One puzzle per sound.
+        let totalNumberOfPieces = 12 * (difficulty == .standardDifficulty ? 1 : letter.sounds(for: difficulty).count)
         
-        let totalNumberOfOwnedPieces = letter.sounds(for: difficulty).reduce(0) { previousResult, sound in
+        let totalNumberOfOwnedPieces: Int
+        if difficulty == .standardDifficulty {
+            guard let sound = sound else {return}
             let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
-            return previousResult + (progress?.numberOfOwnedPieces ?? 0)
+            totalNumberOfOwnedPieces = progress?.numberOfOwnedPieces ?? 0
+        } else {
+            totalNumberOfOwnedPieces = letter.sounds(for: difficulty).reduce(0) { previousResult, sound in
+                let progress = Player.current.progress(forPuzzleNamed: sound.puzzleName)
+                return previousResult + (progress?.numberOfOwnedPieces ?? 0)
+            }
         }
+        
         
         progressBar.totalNumberOfSegments = totalNumberOfPieces
         progressBar.numberOfFilledSegments = totalNumberOfOwnedPieces
         
-        checkmark.alpha = (totalNumberOfPieces == totalNumberOfOwnedPieces) ? 1.0 : 0.0
+        checkmark.isHidden = totalNumberOfPieces == totalNumberOfOwnedPieces
     }
     
     
