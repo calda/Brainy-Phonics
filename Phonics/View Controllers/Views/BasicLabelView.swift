@@ -15,6 +15,7 @@ class BasicLabelView: UIView {
     init(with text: String, font: UIFont) {
         label = UILabel()
         super.init(frame: .zero)
+        
         translatesAutoresizingMaskIntoConstraints = false
         setUpLabel(with: text, font: font)
     }
@@ -29,6 +30,7 @@ class BasicLabelView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.constraintInCenterOfSuperview()
         label.text = text
+        label.font = font
         label.clipsToBounds = false
         label.layer.masksToBounds = false
         

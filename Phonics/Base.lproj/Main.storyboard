@@ -1602,7 +1602,7 @@
                                 <rect key="frame" x="81.333333333333314" y="37.666666666666657" width="649.33333333333348" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ig-pay atin-lay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZO-zZ-jnw">
-                                        <rect key="frame" x="190.33333333333337" y="130" width="269" height="40"/>
+                                        <rect key="frame" x="197.33333333333337" y="126.6666666666667" width="255" height="46.666666666666671"/>
                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

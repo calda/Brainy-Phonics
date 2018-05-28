@@ -7771,7 +7771,7 @@
 				TargetAttributes = {
 					2E584C021D04E79C003E3C87 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = FZ89A5SZ7C;
+						DevelopmentTeam = 3VAGH3GY35;
 						LastSwiftMigration = 0920;
 					};
 					2EDBFA2A1D5C0CE600C1451F = {
@@ -10229,7 +10229,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				DEVELOPMENT_TEAM = 3VAGH3GY35;
 				INFOPLIST_FILE = "$(SRCROOT)/Phonics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -10251,7 +10251,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZ89A5SZ7C;
+				DEVELOPMENT_TEAM = 3VAGH3GY35;
 				INFOPLIST_FILE = "$(SRCROOT)/Phonics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -31,7 +31,6 @@ enum PigLatinSlide {
         default:
             fontSize = iPad() ? 60 : 45
         }
-        
         return UIFont(name: "ComicNeue-Bold", size: fontSize) ?? .systemFont(ofSize: fontSize)
     }
     
