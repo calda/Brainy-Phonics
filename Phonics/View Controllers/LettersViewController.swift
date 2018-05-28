@@ -192,7 +192,7 @@ class LetterCell : UICollectionViewCell {
         progressBar.totalNumberOfSegments = totalNumberOfPieces
         progressBar.numberOfFilledSegments = totalNumberOfOwnedPieces
         
-        checkmark.isHidden = totalNumberOfPieces == totalNumberOfOwnedPieces
+        checkmark.isHidden = totalNumberOfPieces != totalNumberOfOwnedPieces
     }
     
     
