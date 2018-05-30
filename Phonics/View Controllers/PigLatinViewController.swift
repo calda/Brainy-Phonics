@@ -14,6 +14,7 @@ import UIKit
 enum PigLatinSlide {
     case image(UIImage)
     case text(String)
+    case number(String)
     case funText(String)
     case example(PigLatinWord, PigLatinLabelViewDisplayMode)
     case dismiss
@@ -23,7 +24,13 @@ enum PigLatinSlide {
     }
     
     private var font: UIFont {
-        let fontSize: CGFloat = iPad() ? 60 : 45
+        let fontSize: CGFloat
+        switch(self) {
+        case .number(_):
+            fontSize = iPad() ? 133 : 100
+        default:
+            fontSize = iPad() ? 60 : 45
+        }
         return UIFont(name: "ComicNeue-Bold", size: fontSize) ?? .systemFont(ofSize: fontSize)
     }
     
@@ -36,6 +43,8 @@ enum PigLatinSlide {
         case .image(let image):
             return BasicImageView(with: image, targetWidth: targetImageWidth)
         case .text(let text):
+            return BasicLabelView(with: text, font: font)
+        case .number(let text):
             return BasicLabelView(with: text, font: font)
         case .example(let word, let mode):
             return PigLatinLabelView(with: word, displayMode: mode, font: font, highlightColor: highlightColor)
@@ -75,9 +84,11 @@ class PigLatinViewController: UIViewController {
     
     
     //MARK: Slides
-    
+    //todo make times exact- will need mp3 file.
     let slides: [TimeInterval : PigLatinSlide] = [
         0.0:    .image(#imageLiteral(resourceName: "logo-secret-stuff")),
+        6.0:    .image(#imageLiteral(resourceName: "Grouped-Pig-Latin")),
+        12.50:  .image(#imageLiteral(resourceName: "eight_kids")),
         22.15:  .example(.dog, .english),
         24.61:  .example(.dog, .prefix),
         28.00:  .example(.dog, .partialConstruction),
@@ -94,8 +105,7 @@ class PigLatinViewController: UIViewController {
         71.88:  .example(.cat, .sideBySide(.animated)),
         77.15:  .example(.boy, .sideBySide(.notAnimated)),
         81.40:  .example(.girl, .sideBySide(.notAnimated)),
-        86.27:  .text(""),
-        92.90:  .text("mother"),
+        86.27:  .text("mother"),
         96.19:  .text("other-may"),
         97.98:  .text("mother"),
         101.64: .text("other-may"),
@@ -131,25 +141,24 @@ class PigLatinViewController: UIViewController {
         158.26: .text("es-yay ou-yay an-cay alk-tay ig-pay atin-lay!"),
         159.35: .text("ood-gay ob-jay!"),
         161.70: .text("Good job!"),
-        163.62: .text(""),
-        168.40: .text("o    u    a    e    i"),
+        163.62: .text("o    u    a    e    i"),
         185.02: .text("is"),
         188.10: .text("is-ay"),
         189.34: .text("am"),
         192.20: .text("am-ay"),
         193.57: .text("I am a good talker."),
         198.50: .text("I-ay am-ay a-ay ood-gay alker-tay."),
-        204.20: .text(""),
-        211.39: .text("1"),
-        213.98: .text("2"),
-        217.06: .text("3"),
-        220.06: .text("4"),
-        223.14: .text("5"),
-        226.65: .text("6"),
-        230.32: .text("7"),
-        233.17: .text("8"),
-        236.17: .text("9"),
-        239.21: .text("10"),
+        204.20: .number("1    2    3"),
+        211.39: .number("1"),
+        213.98: .number("2"),
+        217.06: .number("3"),
+        220.06: .number("4"),
+        223.14: .number("5"),
+        226.65: .number("6"),
+        230.32: .number("7"),
+        233.17: .number("8"),
+        236.17: .number("9"),
+        239.21: .number("10"),
         242.07: .text("ood-gay!"),
         243.42: .text("errific-tay!"),
         245.00: .text("onderful-way!"),
