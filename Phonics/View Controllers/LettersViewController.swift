@@ -26,6 +26,9 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     //MARK: - Setup
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var sidebarColorView: UIView!
+    
     var difficulty: Letter.Difficulty!
     
     
@@ -33,6 +36,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
         self.collectionView.backgroundColor = self.difficulty.color
+        self.sidebarColorView.backgroundColor = self.difficulty.color
     }
     
     
@@ -58,7 +62,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.view.frameInsetByMargins.width - 50) / 3
+        let width = (self.view.frameInsetByMargins.width - 110) / 3
         return CGSize(width: width, height: width * 0.75)
     }
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="j28-zW-BXd">
-    <device id="retina4_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="j28-zW-BXd">
+    <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -21,20 +21,20 @@
                         <viewControllerLayoutGuide type="bottom" id="eRK-ko-XuJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="THt-4P-0LQ">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow-right" translatesAutoresizingMaskIntoConstraints="NO" id="cCi-lf-qxV">
-                                <rect key="frame" x="62.5" y="0.0" width="9" height="375"/>
+                                <rect key="frame" x="77.333333333333329" y="0.0" width="9" height="354"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-LU-sc6" userLabel="header">
-                                <rect key="frame" x="0.0" y="0.0" width="66.5" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="375"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="yYL-vd-hVo">
-                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="375"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohD-jq-8u7">
-                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="375"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050353167810000002" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
@@ -51,10 +51,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="op8-So-W28">
-                                <rect key="frame" x="67" y="0.0" width="580" height="375"/>
+                                <rect key="frame" x="81.666666666666686" y="0.0" width="666.33333333333326" height="354"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-brainy-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="p6A-cg-zah">
-                                        <rect key="frame" x="145" y="42.5" width="290" height="290"/>
+                                        <rect key="frame" x="166.66666666666669" y="10.333333333333343" width="333" height="333.33333333333326"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="p6A-cg-zah" secondAttribute="height" multiplier="1:1" id="Gb1-iA-BIs"/>
                                         </constraints>

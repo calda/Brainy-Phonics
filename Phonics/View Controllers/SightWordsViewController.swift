@@ -25,11 +25,13 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
     var sightWordsManager: SightWordsManager!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var sidebarColorView: UIView!
     
     //MARK: - Setup
     
     override func viewDidLoad() {
         self.view.backgroundColor = self.sightWordsManager.category.color
+        sidebarColorView.backgroundColor = self.sightWordsManager.category.color
     }
     
     /*override func viewDidAppear(_ animated: Bool) {
@@ -62,7 +64,7 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.view.frameInsetByMargins.width - 50) / 3
+        let width = (self.view.frameInsetByMargins.width - 110) / 3
         return CGSize(width: width, height: width * 0.85)
     }
     
