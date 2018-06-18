@@ -2507,9 +2507,9 @@ My song had been longer.
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="IPb-WX-RAl"/>
                                 <exclude reference="3qu-PQ-vue"/>
                                 <exclude reference="tcy-Ou-pS4"/>
+                                <exclude reference="IPb-WX-RAl"/>
                                 <exclude reference="54l-MX-BBE"/>
                             </mask>
                         </variation>
