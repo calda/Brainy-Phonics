@@ -465,3 +465,25 @@ extension Timer {
     }
     
 }
+
+extension UIImage {
+    
+    //pass in the path without extension of an image, and a reduced-size image may be returned.
+    static func thumbnail(for imagePath: String, maxSize: CGFloat = 100) -> UIImage? {
+        if let url = Bundle.phonicsBundle?.url(forResource: imagePath, withExtension: ""),
+            let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil) {
+            
+            let options: [NSString: Any] = [
+                kCGImageSourceThumbnailMaxPixelSize: maxSize,
+                kCGImageSourceCreateThumbnailFromImageAlways: true
+            ]
+            
+            if let thumbnail = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary) {
+                return UIImage(cgImage: thumbnail)
+            }
+        }
+        
+        return nil
+    }
+    
+}

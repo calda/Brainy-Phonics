@@ -145,22 +145,15 @@ class LetterCell : UICollectionViewCell {
         guard let firstLetter = letterText.first,
             let letter = PHContent[String(firstLetter).uppercased()] else { return }
         
-        //decorates differently for either phonics or alphabet letters
         if difficulty == .easyDifficulty {
             //alphabet letters
             letterLabel.text = letterText.uppercased() + letterText.lowercased()
-            
-            let letterIconImage = letter.icon(for: difficulty)
-            decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty)
-        } else {
+            decorateIcon(letterIconImage: letter.thumbnail, letter: letter, difficulty: difficulty)
+        } else if let sound = sound {
             //phonics table of contents
             letterLabel.text = letterText.lowercased()
-            letterLabel.textColor = sound?.color
-            
-            //phonic displays image of first primary word
-            if let imageName = sound?.primaryWords[0].text, let letterIconImage = UIImage(named: "\(imageName).jpg") {
-                decorateIcon(letterIconImage: letterIconImage, letter: letter, difficulty: difficulty, sound: sound)
-            }
+            letterLabel.textColor = sound.color
+            decorateIcon(letterIconImage: sound.thumbnail, letter: letter, difficulty: difficulty, sound: sound)
         }
         
     }

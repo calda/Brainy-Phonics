@@ -136,11 +136,11 @@ class SightWordCell : UICollectionViewCell {
         }
         
         self.leftImageView.update(on: SightWordCell.backgroundThread, withImage: {
-            return sightWord.sentence1.image
+            return sightWord.sentence1.thumbnail
         }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
         
         self.rightImageView.update(on: SightWordCell.backgroundThread, withImage: {
-            return sightWord.sentence2.image
+            return sightWord.sentence2.thumbnail
         }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
     }
 }
