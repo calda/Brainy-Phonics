@@ -4,20 +4,20 @@
     "row3-col2" : {
       "rightNub" : "none",
       "bottomNub" : "none",
-      "topNub" : "inside",
+      "topNub" : "outside",
       "leftNub" : "outside"
     },
     "row1-col2" : {
       "rightNub" : "none",
       "bottomNub" : "inside",
       "topNub" : "outside",
-      "leftNub" : "inside"
+      "leftNub" : "outside"
     },
     "row1-col1" : {
-      "rightNub" : "outside",
-      "bottomNub" : "outside",
-      "topNub" : "outside",
-      "leftNub" : "outside"
+      "rightNub" : "inside",
+      "bottomNub" : "inside",
+      "topNub" : "inside",
+      "leftNub" : "inside"
     },
     "row0-col2" : {
       "rightNub" : "none",
@@ -26,9 +26,9 @@
       "leftNub" : "inside"
     },
     "row2-col0" : {
-      "rightNub" : "outside",
-      "bottomNub" : "outside",
-      "topNub" : "outside",
+      "rightNub" : "inside",
+      "bottomNub" : "inside",
+      "topNub" : "inside",
       "leftNub" : "none"
     },
     "row0-col0" : {
@@ -38,38 +38,38 @@
       "leftNub" : "none"
     },
     "row1-col0" : {
-      "rightNub" : "inside",
-      "bottomNub" : "inside",
+      "rightNub" : "outside",
+      "bottomNub" : "outside",
       "topNub" : "inside",
       "leftNub" : "none"
     },
     "row2-col1" : {
       "rightNub" : "outside",
       "bottomNub" : "inside",
-      "topNub" : "inside",
-      "leftNub" : "inside"
+      "topNub" : "outside",
+      "leftNub" : "outside"
     },
     "row3-col1" : {
       "rightNub" : "inside",
       "bottomNub" : "none",
       "topNub" : "outside",
-      "leftNub" : "outside"
+      "leftNub" : "inside"
     },
     "row0-col1" : {
       "rightNub" : "outside",
-      "bottomNub" : "inside",
+      "bottomNub" : "outside",
       "topNub" : "none",
       "leftNub" : "inside"
     },
     "row3-col0" : {
-      "rightNub" : "inside",
+      "rightNub" : "outside",
       "bottomNub" : "none",
-      "topNub" : "inside",
+      "topNub" : "outside",
       "leftNub" : "none"
     },
     "row2-col2" : {
       "rightNub" : "none",
-      "bottomNub" : "outside",
+      "bottomNub" : "inside",
       "topNub" : "outside",
       "leftNub" : "inside"
     }

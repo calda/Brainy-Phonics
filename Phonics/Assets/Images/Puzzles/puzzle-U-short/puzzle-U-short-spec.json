@@ -4,30 +4,30 @@
     "row3-col2" : {
       "rightNub" : "none",
       "bottomNub" : "none",
-      "topNub" : "outside",
-      "leftNub" : "outside"
+      "topNub" : "inside",
+      "leftNub" : "inside"
     },
     "row1-col2" : {
       "rightNub" : "none",
-      "bottomNub" : "outside",
-      "topNub" : "inside",
-      "leftNub" : "outside"
-    },
-    "row1-col1" : {
-      "rightNub" : "inside",
-      "bottomNub" : "outside",
+      "bottomNub" : "inside",
       "topNub" : "outside",
       "leftNub" : "inside"
     },
+    "row1-col1" : {
+      "rightNub" : "outside",
+      "bottomNub" : "outside",
+      "topNub" : "outside",
+      "leftNub" : "outside"
+    },
     "row0-col2" : {
       "rightNub" : "none",
-      "bottomNub" : "outside",
+      "bottomNub" : "inside",
       "topNub" : "none",
-      "leftNub" : "inside"
+      "leftNub" : "outside"
     },
     "row2-col0" : {
       "rightNub" : "outside",
-      "bottomNub" : "outside",
+      "bottomNub" : "inside",
       "topNub" : "outside",
       "leftNub" : "none"
     },
@@ -38,7 +38,7 @@
       "leftNub" : "none"
     },
     "row1-col0" : {
-      "rightNub" : "outside",
+      "rightNub" : "inside",
       "bottomNub" : "inside",
       "topNub" : "inside",
       "leftNub" : "none"
@@ -50,13 +50,13 @@
       "leftNub" : "inside"
     },
     "row3-col1" : {
-      "rightNub" : "inside",
+      "rightNub" : "outside",
       "bottomNub" : "none",
       "topNub" : "outside",
       "leftNub" : "inside"
     },
     "row0-col1" : {
-      "rightNub" : "outside",
+      "rightNub" : "inside",
       "bottomNub" : "inside",
       "topNub" : "none",
       "leftNub" : "outside"
@@ -64,17 +64,17 @@
     "row3-col0" : {
       "rightNub" : "outside",
       "bottomNub" : "none",
-      "topNub" : "inside",
+      "topNub" : "outside",
       "leftNub" : "none"
     },
     "row2-col2" : {
       "rightNub" : "none",
-      "bottomNub" : "inside",
-      "topNub" : "inside",
+      "bottomNub" : "outside",
+      "topNub" : "outside",
       "leftNub" : "outside"
     }
   },
-  "pixelsTall" : 662,
+  "pixelsTall" : 576,
   "rows" : 4,
-  "pixelsWide" : 497
+  "pixelsWide" : 432
 }
