@@ -52,13 +52,14 @@ struct Letter: Equatable {
         return true
     }
     
-    func icon(for difficulty: Difficulty) -> UIImage {
-        switch(difficulty) {
-        case .standardDifficulty:
-            return UIImage(named: "letter-icon-\(text.lowercased()).jpg")!
-        case .easyDifficulty:
-            return UIImage(named: "easy-letter-icon-\(text.lowercased()).jpg")!
+    var thumbnail : UIImage {
+        let imageName = "easy-letter-icon-\(text.lowercased()).jpg"
+        
+        if let thumbnail = UIImage.thumbnail(for: imageName) {
+            return thumbnail
         }
+        
+        return UIImage(named: imageName)!
     }
     
     var audioInfo: AudioInfo? {

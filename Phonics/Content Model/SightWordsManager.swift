@@ -63,6 +63,8 @@ class SightWordsManager {
         let audioFiles = (try? FileManager.default.contentsOfDirectory(atPath: audioFolder)) ?? []
         let imageFiles = (try? FileManager.default.contentsOfDirectory(atPath: imageFolder)) ?? []
         
+        
+        
         self.words = SightWordsManager.buildSightWords(fromAudio: audioFiles, andImages: imageFiles, for: category)
     }
     

@@ -16,9 +16,21 @@ public struct Sentence {
     var audioFileName: String
     var imageFileName: String
     
+    
+    var thumbnail: UIImage {
+
+        if let thumbnail = UIImage.thumbnail(for: imageFileName) {
+            return thumbnail
+        }
+        
+        return UIImage(named: imageFileName)!
+    }
+    
+    
     var image: UIImage {
         return UIImage(named: imageFileName)!
     }
+    
     
     var attributedText: NSAttributedString {
         var processingSentence = self.text.lowercased()
@@ -63,4 +75,9 @@ public struct Sentence {
         return attributedSentence
     }
     
+    
 }
+
+
+
+

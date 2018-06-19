@@ -34,6 +34,16 @@ struct Sound: Equatable {
         return words
     }
     
+    var thumbnail: UIImage {
+        let imageName = primaryWords[0].text + ".jpg"
+        
+        if let thumbnail = UIImage.thumbnail(for: imageName) {
+            return thumbnail
+        }
+        
+        return UIImage(named: imageName)!
+    }
+    
     
     //MARK: - Puzzle and Rhyme
     
