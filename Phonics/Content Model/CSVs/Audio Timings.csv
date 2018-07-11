@@ -34,7 +34,7 @@ words-H-SH,SH=0.1269/0.6394,shoes=3.0657/0.8662,shovel=6.2154/0.5056,fish=8.8979
 words-H-TH,TH=0.2448/0.2448,three=2.6031/0.4920,throne=5.3537/0.6145,moth=8.0498/0.492
 words-H-WH,WH=0.1836/0.4943,whistle=1.9047/0.4943,wheelchair=3.5646/1.1133,whale=6.0136/0.482
 words-X-zz,zz=0.0589/0.5170,xylophone=2.8253/0.755
-words-X-ks,ks=0.0907/0.3900,fox=5.4535/0.5283,taxi=8.2108/0.5034,axe=10.827/0.333
+words-X-ks,ks=0.0400/0.3900,fox=3.000/0.5283,taxi=6.000/0.5034,axe=8.500/0.333
 words-A-long,A=0.0612/0.4444,long=2.5873/0.5283,ape=5.1609/0.3333,tail=7.7913/0.5011,jay=10.414/0.446
 words-A-schwa,schwa=0.1111/0.3038,canoe=2.5487/0.5170,zebra=5.2653/0.4671,sofa=7.9591/0.467
 words-A-ahh,ahh=0.1043/0.4807,swan=2.0748/0.7052,father=4.1179/0.6462,squash=6.2244/1.043
@@ -54,6 +54,8 @@ words-I-long,long=0.0453/0.4648,I=2.5850/0.4852,ice=5.1496/0.5691,tie=7.9002/0.4
 words-I-schwa,schwa=0.0657/0.3968,rabbit=1.6598/0.6439,pencil=3.6848/0.7006,family=5.9523/0.553
 words-I-short,short=0.0544/0.3310,hit=2.5260/0.2834,mittens=4.9637/0.7392,fish=7.8616/0.453
 words-I-IG,IG=0.0340/0.3968,pig=2.7029/0.4376,dig=5.3242/0.4603,wig=7.9569/0.424
+words-I-ie,ie=0.0226/0.4285
+words-I-ee,ee=0.0226/0.4285
 words-I-IL,IL=0.0226/0.4285,spill=2.6190/0.5124,drill=5.2902/0.4988,silver=7.9138/0.562
 words-I-IR,IR=0.0476/0.4285,girl=2.6666/0.4580,bird=5.2358/0.4376,birthday cake=7.7641/0.641
 words-I-IT,IT=0.0385/0.2494,hit=2.6553/0.2018,sit=5.1950/0.4081,mittens=7.8412/0.777
@@ -216,6 +218,7 @@ Words/draw,draw=0.1678/0.3900
 Words/laundress,laundress=0.1587/0.6371
 Words/cauldron,cauldron=0.1587/0.5260
 Words/juggler,juggler=0.1269/0.4467
+Words/jelly-jars,jelly-jars=0.1269/1.0000
 Words/jellyfish,jellyfish=0.1179/0.5986
 Words/life jacket,life jacket=0.0839/0.5578
 Words/jewelry,jewelry=0.1133/0.9931

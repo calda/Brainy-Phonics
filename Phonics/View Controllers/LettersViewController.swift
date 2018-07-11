@@ -115,7 +115,6 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         } else {
             //phonics
             let sound = PHContent.allPhonicsSorted[indexPath.item]
-            sound.playAudio(withWords: false)
             let letter = Letter(text: PHContent.allPhonicsSorted[indexPath.item].sourceLetter, sounds: [sound])
             afterAudio(letter: letter)
         }

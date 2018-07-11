@@ -47,14 +47,23 @@ struct Word: Equatable {
     func attributedText(forSound sound: Sound, ofLetter letter: Letter) -> NSAttributedString {
         
         // [Word : OccurenceOfSoundToExclude]
-        let explicitExclusions: [String : Int] = [
-            "eagle" : 2,
-            "skis" : 1,
-            "footstool" : 2,
-            "dune buggy" : 2,
-            "ice cream" : 2
+        let explicitExclusions: [String : [Int]] = [
+            "eagle" : [2],
+            "skis" : [1],
+            "footstool" : [2],
+            "dune buggy" : [2],
+            "ice cream" : [2],
+            "excavator" : [2],
+            "balance beam" : [1, 3],
+            "tricycle" : [2],
+            "unicycle" : [2],
+            "motorcycle" : [2],
+            "pretzel" : [2],
+            "robot" : [2],
+            "volcano" : [1],
+            "seagulls" : [2]
         ]
-        
+        //balance beam
         var soundText = sound.displayString
         if soundText.hasPrefix("\(letter.text)\(letter.text.lowercased())") {
             soundText = letter.text
@@ -62,7 +71,12 @@ struct Word: Equatable {
         
         soundText = soundText.lowercased()
         
-        let wordText = self.text.lowercased()
+        var wordText = self.text.lowercased()
+        
+        if wordText == "saint bernard" {
+            wordText = "Saint Bernard"
+        }
+        
         var mutableWord = wordText
         let attributedWord = NSMutableAttributedString(
             string: wordText,
@@ -73,7 +87,11 @@ struct Word: Equatable {
         
         while mutableWord.contains(soundText) {
             let range = (mutableWord as NSString).range(of: soundText)
-            if (explicitExclusions[wordText] != matchIndex) {
+            if let exlusion = explicitExclusions[wordText] {
+                if !exlusion.contains(matchIndex) {
+                    attributedWord.addAttributes([NSAttributedStringKey.foregroundColor : matchColor], range: range)
+                }
+            } else {
                 attributedWord.addAttributes([NSAttributedStringKey.foregroundColor : matchColor], range: range)
             }
             

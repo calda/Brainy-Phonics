@@ -84,21 +84,26 @@ class BankViewController : UIViewController {
             coinImages[i].image = nil
         }
         
-        let gold = totalGoldCount + Int(Double(totalSilverCount) * 0.5)
+        var gold = totalGoldCount + Int(Double(totalSilverCount) * 0.5)
         let silver = (totalSilverCount.isOdd) ? 1 : 0
         
         //calculate coins
-        var coin20 = max(0, Int(gold / 20))
-        let coin5 = max(0, (gold - (coin20 * 20)) / 5)
-        let coinGold = max(0, gold - (coin20 * 20) - (coin5 * 5))
+        let trucks = gold / 125
+        gold %= 125
+        let bags = gold / 25
+        gold %= 25
+        let coin20 = gold / 20
+        gold %= 20
+        let coin5 = gold / 5
+        gold %= 5
+        let coinGold = gold
         let coinSilver = silver
         
         if coin20 > 7 {
             //too many to display
             availableCoinsView.isHidden = true
             coinPile.isHidden = false
-        }
-        else {
+        } else {
             availableCoinsView.isHidden = false
             coinPile.isHidden = true
         }
@@ -111,6 +116,12 @@ class BankViewController : UIViewController {
         }
         
         var current = 0
+        for _ in 0 ..< trucks {
+            setImage(&current, "money-truck")
+        }
+        for _ in 0 ..< bags {
+            setImage(&current, "bag-of-coins")
+        }
         for _ in 0 ..< coin20 {
             setImage(&current, "coin-20")
         }

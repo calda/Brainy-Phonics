@@ -126,8 +126,6 @@ class PHContentManager {
                     color = UIColor(red: 35/255, green: 191/255, blue: 0/255, alpha: 1.0) /* #23bf00 */
                 case "purple":
                     color = UIColor(red: 237/255, green: 0/255, blue: 217/255, alpha: 1.0) /* #ed00d9 */
-                case "blue":
-                    color = UIColor(red: 0/255, green: 143/255, blue: 239/255, alpha: 1.0) /* #008fef */
                 default:
                     color = .black
                 }

@@ -20,7 +20,7 @@ class PuzzleDetailViewController : UIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var repeatButton: UIButton!
-    
+ 
     var oldPuzzleView: UIView!
     var puzzleShadow: UIView!
     var animationImage: UIImageView!
@@ -135,18 +135,7 @@ class PuzzleDetailViewController : UIViewController {
         self.addHighlights(of: redHighlightColor, to: attributedText)
         rhymeText.attributedText = attributedText
         
-        //update height for
-        let idealHeight = heightForText(text, width: rhymeText.frame.width, attributes: attributes) + 10
-        let maxPossibleHeight = self.view.frame.height - 50 // 50 = padding on top/bottom
-        
-        if idealHeight < maxPossibleHeight {
-            rhymeTextHeight.constant = idealHeight
-            rhymeText.isUserInteractionEnabled = false
-        } else {
-            rhymeTextHeight.constant = maxPossibleHeight
-            rhymeText.isUserInteractionEnabled = true
-        }
-        
+        rhymeTextHeight.constant = self.view.frame.height - 50 // 50 = padding on top/bottom
         rhymeText.layoutIfNeeded()
     }
     
@@ -221,11 +210,29 @@ class PuzzleDetailViewController : UIViewController {
         let audioName = sound.rhymeAudioName
         PHPlayer.play(audioName, ofType: "mp3")
         self.repeatButton.isEnabled = false
-        
         UAWhenDonePlayingAudio {
             self.repeatButton.isEnabled = true
         }
     }
+    
+    @IBAction func bankTapped(_ sender: UIButton) {
+        UAHaltPlayback()
+        
+        let overThreshold = Player.current.sightWordCoins.gold >= 50
+        let celebrate = overThreshold && !Player.current.hasSeenSightWordsCelebration
+
+        self.view.isUserInteractionEnabled = false
+
+        BankViewController.present(
+            from: self,
+            goldCount: Player.current.sightWordCoins.gold,
+            silverCount: Player.current.sightWordCoins.silver,
+            playCelebration: celebrate,
+            onDismiss: {
+                self.view.isUserInteractionEnabled = true
+        })
+    }
+    
     
     
     //MARK: - Save Image to Disk
