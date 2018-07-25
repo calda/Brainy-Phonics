@@ -95,12 +95,11 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
             cell?.transform = CGAffineTransform(scaleX: 1.075, y: 1.075)
         }, completion: nil)
         
-        func afterAudio(letter: Letter) {
+        func afterAudio(letter: Letter, initialSound: Sound? = nil) {
             UAWhenDonePlayingAudio {
                 UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [], animations: {
                     cell?.transform = CGAffineTransform.identity
-                    
-                    LetterViewController.present(for: letter, with: self.difficulty, inController: self)
+                    LetterViewController.present(for: letter, with: self.difficulty, inController: self, initialSound: initialSound)
                     self.view.isUserInteractionEnabled = true
                     
                 }, completion: nil)
@@ -115,8 +114,9 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         } else {
             //phonics
             let sound = PHContent.allPhonicsSorted[indexPath.item]
-            let letter = Letter(text: PHContent.allPhonicsSorted[indexPath.item].sourceLetter, sounds: [sound])
-            afterAudio(letter: letter)
+//            let letter = Letter(text: PHContent.allPhonicsSorted[indexPath.item].sourceLetter, sounds: [sound])
+            guard let letter = PHContent[sound.sourceLetter] else { return }
+            afterAudio(letter: letter, initialSound: sound)
         }
     }
 }

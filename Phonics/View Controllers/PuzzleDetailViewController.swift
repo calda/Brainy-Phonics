@@ -45,6 +45,11 @@ class PuzzleDetailViewController : UIViewController {
         source.present(puzzleDetail, animated: false, completion: nil)
     }
     
+    override func viewDidLayoutSubviews() {
+        //without this it auto scrolls to bottom
+        rhymeText.setContentOffset(.zero, animated: false)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.view.layoutIfNeeded()
         updateAccessoryViews(visible: false)

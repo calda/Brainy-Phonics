@@ -14,22 +14,22 @@ words-E-ER,ER=0.0362/0.3968,boxer=2.5736/0.5532,catcher=5.3265/0.4761,teeter-tot
 words-E-ET,ET=0.0997/0.1950,net=2.7029/0.3809,pet=5.4376/0.2108,rocket=7.9478/0.376
 words-E-LE,LE=0.0294/0.4285,tricycle=1.7687/0.8843,whale=3.9546/0.6077,poodle=5.7074/0.578
 words-U-long,long=0.0544/0.4444,unicycle=1.2/1.28,binoculars=3.09/1.29,unicorn=4.88/1.22
-words-U-uu,uu=0.0687/0.4625,blue=1.46/0.6416,tuba=2.7/0.7,dune buggy=3.9/1.1
+words-U-uu,uu=0.0687/0.4625,blue=1.46/0.6416
 words-U-short,short=0.0204/0.3673,bug=2.5034/0.4263,bucket=5.2834/0.4126,chipmunk=7.9478/0.564
 words-U-UG,UG=0.0204/0.4036,hug=2.6303/0.3945,bug=5.1224/0.4489,plug=7.7346/0.376
 words-U-UL,UL=0.0612/0.4603,bull=2.7165/0.4285,bulldog=5.3129/0.6916,seagull=8.2426/0.628
 words-U-UM,UM=0.0294/0.4625,jump=2.5736/0.3356,trumpet=5.1655/0.5328,drum=7.9342/0.521
 words-U-UN,UN=0.0/0.4421,nun=2.7823/0.6734,bunny=5.8163/0.5419,chipmunk=8.6689/0.689
-words-U-UR,UR=0.0158/0.4829,turtle=2.6281/0.4603,purse=5.2222/0.5623,surfboard=7.8956/0.501
+words-U-UR,UR=0.0158/0.4829,purse=5.2222/0.5623,surfboard=7.8956/0.501
 words-U-US,US=0.0272/0.5192,bus=2.8594/0.5306,cactus=5.5419/0.7755,walrus=8.5487/0.839
 words-U-UT,UT=0.0385/0.1859,cut=2.5192/0.2539,nuts=5.0294/0.4104,butterfly=7.6530/0.487
-words-U-OU,OU=0.0317/0.5827,mouth=2.7981/0.3990,cloud=5.5555/0.5124,mouse=8.2539/0.591
-words-Y-yuh,Y=0.1111/0.4512,yuh=2.6938/0.4217,yellow=5.2902/0.5034,yo-yo=8.0/0.5351,crayons=10.687/0.757
+words-U-OU,OU=0.0317/0.5827,cloud=5.5555/0.5124,mouse=8.2539/0.591
+words-Y-yuh,Y=0.1111/0.4512,yuh=2.6938/0.4217,yellow=5.2902/0.5034,yo-yo=8.0/0.5351
 words-Y-i,i=0.1111/0.4467,cry=2.7936/0.4036,fly=5.3038/0.4535,sky=8.0521/0.344
 words-Y-e,e=0.0362/0.3197,baby=2.5215/0.5260,candy=5.2199/0.5374,sleepy=8.0408/0.489
 words-Y-LY,LY=0.0929/0.4557,silly=2.7142/0.5736,hilly=5.3696/0.4761,jellyfish=8.0385/0.755
 words-H-huh,huh=0.1836/0.3968,hug=2.9002/0.5079,hard hat=5.6485/0.7687,greyhound=8.7233/1.015
-words-H-CH,CH=0.0181/0.4580,chipmunk=2.5646/0.5283,chimney=5.2131/0.5510,catch=7.8843/0.560
+words-H-CH,CH=0.0181/0.4580,chipmunk=2.5646/0.5283,chimney=5.2131/0.5510
 words-H-SH,SH=0.1269/0.6394,shoes=3.0657/0.8662,shovel=6.2154/0.5056,fish=8.8979/0.521
 words-H-TH,TH=0.2448/0.2448,three=2.6031/0.4920,throne=5.3537/0.6145,moth=8.0498/0.492
 words-H-WH,WH=0.1836/0.4943,whistle=1.9047/0.4943,wheelchair=3.5646/1.1133,whale=6.0136/0.482
@@ -51,7 +51,7 @@ words-D-LD,LD=0.0476/0.6462,old=2.8231/0.4943,cold=5.6530/0.5192,gold=8.4852/0.4
 words-D-ND,ND=0.0702/0.6507,hand=2.8571/0.5124,sandbox=5.6417/0.8299,panda=8.6734/0.473
 words-D-RD,RD=0.0702/0.5011,hard hat=2.7188/0.5306,skateboard=5.3900/0.7777,lizard=8.4716/0.587
 words-I-long,long=0.0453/0.4648,I=2.5850/0.4852,ice=5.1496/0.5691,tie=7.9002/0.4535,life jacket=10.435/0.752
-words-I-schwa,schwa=0.0657/0.3968,rabbit=1.6598/0.6439,pencil=3.6848/0.7006,family=5.9523/0.553
+words-I-schwa,schwa=0.0657/0.3968,rabbit=1.6598/0.6439,pencil=3.6848/0.7006
 words-I-short,short=0.0544/0.3310,hit=2.5260/0.2834,mittens=4.9637/0.7392,fish=7.8616/0.453
 words-I-IG,IG=0.0340/0.3968,pig=2.7029/0.4376,dig=5.3242/0.4603,wig=7.9569/0.424
 words-I-ie,ie=0.0226/0.4285
@@ -71,18 +71,18 @@ words-R-CR,CR=0.1496/0.2879,crab=2.7346/0.5034,crane=5.4807/0.5170,cradle=8.2086
 words-R-DR,DR=0.0975/0.4081,drink=2.6054/0.3492,drop=5.1247/0.2653,drill=7.5124/0.408
 words-R-ER,ER=0.0362/0.3968,car=2.5736/0.5532,chair=5.3265/0.4761,horse=8.0385/0.702
 words-R-FR,FR=0.0657/0.4104,frog=2.6258/0.4444,frisbee=5.2176/0.4920,frying pan=7.8480/0.675
-words-R-GR,GR=0.0385/0.5034,grape=2.6575/0.2947,grass=5.0975/0.5510,angry=7.7687/0.537
+words-R-GR,GR=0.0385/0.5034,grape=2.6575/0.2947,angry=7.7687/0.537
 words-R-IR,IR=0.0476/0.4285,girl=2.6666/0.4580,bird=5.2358/0.4376,birthday cake=7.7641/0.641
 words-R-OR,OR=0.0272/0.4716,fork=2.7142/0.3151,storm=5.3174/0.5555,corn=8.0612/0.535
 words-R-PR,PR=0.0204/0.3922,proud=2.5918/0.5918,pretzel=5.4126/0.7165,present=8.2607/0.712
 words-R-TR,TR=0.0272/0.4149,tricycle=2.7755/0.8866,tree=5.9818/0.5260,firetruck=8.9682/0.789
-words-R-UR,UR=0.0158/0.4829,turtle=2.6281/0.4603,purse=5.2222/0.5623,surfboard=7.8956/0.501
-words-G-guh,G=0.1224/0.3356,guh=2.6893/0.3333,goose=5.2585/0.4784,goat=7.9705/0.3242,flag=10.480/0.414
+words-R-UR,UR=0.0158/0.4829,purse=5.2222/0.5623,surfboard=7.8956/0.501
+words-G-guh,G=0.1224/0.3356,guh=2.6893/0.3333,goat=7.9705/0.3242,flag=10.480/0.414
 words-G-juh,juh=0.1020/0.4172,giraffe=2.7641/0.2970,gingerbread man=5.2380/0.9795,fridge=8.3401/0.430
-words-G-GL,GL=0.1836/0.5283,gloves=2.8390/0.5532,glass=5.5079/0.5963,juggler=8.2993/0.582
+words-G-GL,GL=0.1836/0.5283,gloves=2.8390/0.5532,glass=5.5079/0.5963
 words-G-GR,GR=0.0385/0.5034,grape=2.6575/0.2947,grass=5.0975/0.5510,angry=7.7687/0.537
 words-G-IG,IG=0.0340/0.3968,pig=2.7029/0.4376,dig=5.3242/0.4603,wig=7.9569/0.424
-words-G-NG,NG=0.0317/0.5487,king=2.7777/0.4784,sing=5.5850/0.4557,finger=8.1564/0.503
+words-G-NG,NG=0.0317/0.5487,sing=5.5850/0.4557,finger=8.1564/0.503
 words-G-UG,UG=0.0204/0.4036,hug=2.6303/0.3945,bug=5.1224/0.4489,plug=7.7346/0.376
 words-P-puh,P=0.1315/0.3106,puh=2.6235/0.2086,puppy=4.9478/0.3968,penguin=7.5510/0.5714,carpet=10.321/0.324
 words-P-PL,PL=0.1541/0.1768,plug=2.6349/0.4421,playground=5.3038/0.7346,airplane=8.2018/0.580
@@ -94,20 +94,20 @@ words-O-ew,ew=0.0340/0.4716,spoon=2.7369/0.6054,raccoons=5.5759/1.0476,boots=8.8
 words-O-short,short=0.0589/0.4761,ostrich=2.6553/0.6870,pot=5.4467/0.2993,trolley=7.9251/0.446
 words-O-OR,OR=0.0272/0.4716,fork=2.7142/0.3151,storm=5.3174/0.5555,corn=8.0612/0.535
 words-O-OT,OT=0.0566/0.2063,pot=2.5918/0.1791,hot=5.1088/0.2312,robot=7.6099/0.403
-words-O-OU,OU=0.0317/0.5827,mouth=2.7981/0.3990,cloud=5.5555/0.5124,mouse=8.2539/0.591
+words-O-OU,OU=0.0317/0.5827,cloud=5.5555/0.5124,mouse=8.2539/0.591
 words-O-OV,OV=0.0158/0.3333,oven=2.5215/0.3832,love=5.0929/0.5170,glove=7.7732/0.498
 words-O-ohw,ohw=0.0226/0.4376,rainbow=2.5600/0.7845,snow=5.8480/0.5124,bow and arrow=8.4943/0.979
-words-O-ow,ow=0.0249/0.4557,owl=2.5464/0.4716,cow=5.2086/0.4308,town=7.8095/0.485
-words-L-lll,L=0.0317/0.3854,lll=2.4897/0.5170,love=5.1814/0.4308,leaf=7.7528/0.5238,bell=10.390/0.365
+words-O-ow,ow=0.0249/0.4557,owl=2.5464/0.4716,cow=5.2086/0.4308
+words-L-lll,L=0.0317/0.3854,lll=2.4897/0.5170,leaf=7.7528/0.5238,bell=10.390/0.365
 words-L-LD,LD=0.0634/0.3786,old=2.7052/0.6190,cold=5.4761/0.5351,gold=8.2970/0.464
 words-L-LE,LE=0.0294/0.4285,tricycle=1.7687/0.8843,whale=3.9546/0.6077,poodle=5.7074/0.578
 words-L-LY,LY=0.0929/0.4557,silly=2.7142/0.5736,hilly=5.3696/0.4761,jellyfish=8.0385/0.755
 words-L-AL,AL=0.1315/0.4149,ball=2.6077/0.4897,fall=5.2517/0.4399,walnuts=7.7619/0.621
 words-L-BL,BL=0.0680/0.3424,blue=2.5374/0.5056,blanket=5.1360/0.6009,bloodhound=8.1020/0.671
-words-L-CL,CL=0.0544/0.5192,clown=2.7346/0.4625,clam=5.3877/0.3968,climb=8.0181/0.396
+words-L-CL,CL=0.0544/0.5192,clam=5.3877/0.3968,climb=8.0181/0.396
 words-L-DL,DL=0.0634/0.3786,saddle=2.7052/0.6190,poodle=5.4761/0.5351,fiddle=8.2970/0.464
 words-L-FL,FL=0.2108/0.1882,fly=2.6848/0.4580,flower=5.5034/0.6349,flag=8.5034/0.462
-words-L-GL,GL=0.1836/0.5283,gloves=2.8390/0.5532,glass=5.5079/0.5963,juggler=8.2993/0.582
+words-L-GL,GL=0.1836/0.5283,gloves=2.8390/0.5532,glass=5.5079/0.5963
 words-L-IL,IL=0.0226/0.4285,spill=2.6190/0.5124,drill=5.2902/0.4988,silver=7.9138/0.562
 words-L-PL,PL=0.1541/0.1768,plug=2.6349/0.4421,playground=5.3038/0.7346,airplane=8.2018/0.580
 words-L-RL,RL=0.0521/0.6371,girl=2.8208/0.6122,pearl=5.8049/0.6530,curl=8.7755/0.498
@@ -117,12 +117,12 @@ words-W-wuh,W=0.1564/0.5079,wuh=2.7596/0.3537,wagon=5.2290/0.5079,wolf=7.8956/0.
 words-W-WH,WH=0.1836/0.4943,whistle=1.9047/0.4943,wheelchair=3.5646/1.1133,whale=6.0136/0.482
 words-W-aw,aw=0.0793/0.4217,saw=2.8390/0.3628,hawk=5.3968/0.3129,draw=7.9546/0.430
 words-W-OW,OW=0.0226/0.4376,rainbow=2.5600/0.7845,snow=5.8480/0.5124,bow and arrow=8.4943/0.979
-words-W-OWW,OWW=0.0249/0.4557,owl=2.5464/0.4716,cow=5.2086/0.4308,town=7.8095/0.485
+words-W-OWW,OWW=0.0249/0.4557,owl=2.5464/0.4716,cow=5.2086/0.4308
 words-W-SW,SW=0.2789/0.7551,sweet=3.2766/0.4580,swing=6.0090/0.5510,swan=8.6938/0.569
 words-C-kuh,C=0.1723/0.3038,kuh=2.5510/0.1678,cat=4.8616/0.3401,canary=7.3696/0.6485,cake=10.192/0.251
 words-C-sss,sss=0.1133/0.8412,celery=3.1564/0.6190,face=5.9274/0.5147,balance=8.5260/0.623
-words-C-CH,CH=0.0181/0.4580,chipmunk=2.5646/0.5283,chimney=5.2131/0.5510,catch=7.8843/0.560
-words-C-CL,CL=0.0544/0.5192,clown=2.7346/0.4625,clam=5.3877/0.3968,climb=8.0181/0.396
+words-C-CH,CH=0.0181/0.4580,chipmunk=2.5646/0.5283,chimney=5.2131/0.5510
+words-C-CL,CL=0.0544/0.5192,clam=5.3877/0.3968,climb=8.0181/0.396
 words-C-CR,CR=0.1496/0.2879,crab=2.7346/0.5034,crane=5.4807/0.5170,cradle=8.2086/0.390
 words-C-SC,SC=0.2766/0.2222,scarf=2.8888/0.3696,schoolbus=5.6893/0.6417,scratch=8.6507/0.419
 words-V-vv,V=0.1768/0.5464,vv=3.0294/0.4195,volcano=5.6621/0.7256,van=8.6031/0.5487,beaver=11.174/0.666
@@ -137,14 +137,14 @@ words-T-AT,AT=0.0045/0.3537,cat=1.5668/0.3242,hat=3.0929/0.3333,bat=4.6031/0.351
 words-T-ET,ET=0.0997/0.1950,net=2.7029/0.3809,pet=5.4376/0.2108,rocket=7.9478/0.376
 words-T-IT,IT=0.0385/0.2494,hit=2.6553/0.2018,sit=5.1950/0.4081,mittens=7.8412/0.777
 words-T-OT,OT=0.0566/0.2063,pot=2.5918/0.1791,hot=5.1088/0.2312,robot=7.6099/0.403
-words-T-ST,ST=0.1247/0.3696,stilts=2.7732/0.6439,steal=6.0068/0.4580,statue=8.8571/0.684
+words-T-ST,ST=0.1247/0.3696,stilts=2.7732/0.6439,steal=6.0068/0.4580
 words-T-UT,UT=0.0385/0.1859,cut=2.5192/0.2539,nuts=5.0294/0.4104,butterfly=7.6530/0.487
 words-B-buh,B=0.0385/0.3968,buh=2.5691/0.2834,boy=4.9659/0.4784,bubble=7.4829/0.4399,frisbee=10.015/0.435
 words-B-BL,BL=0.0680/0.3424,blue=2.5374/0.5056,blanket=5.1360/0.6009,bloodhound=8.1020/0.671
 words-B-BR,BR=0.0136/0.2925,bridge=2.4058/0.5827,break=5.2244/0.4081,brush=8.0498/0.544
 words-N-nnn,N=0.0702/0.4512,nnn=2.6575/0.4557,nose=5.1972/0.8775,nail=8.1541/0.6281,lion=10.882/0.682
 words-N-ND,ND=0.0702/0.6507,hand=2.8571/0.5124,sandbox=5.6417/0.8299,panda=8.6734/0.473
-words-N-NG,NG=0.0317/0.5487,king=2.7777/0.4784,sing=5.5850/0.4557,finger=8.1564/0.503
+words-N-NG,NG=0.0317/0.5487
 words-N-an,an=0.0385/0.4444,man=2.6009/0.5759,hand=5.3832/0.4444,candy=8.0408/0.492
 words-N-RN,RN=0.0634/0.5623,barn=2.7437/0.5396,corn=5.4512/0.5170,horn=8.0476/0.510
 words-N-SN,SN=0.1904/0.3151,snail=2.7369/0.4648,snake=5.4739/0.3582,snow=8.0702/0.444
@@ -158,7 +158,7 @@ words-S-SK,SK=0.1859/0.3219,skunk=2.8276/0.4467,skate=5.8594/0.3809,basket=8.410
 words-S-SL,SL=0.2539/0.4263,sled=3.2380/0.6281,slippers=6.2403/0.6802,slide=9.3265/0.535
 words-S-SN,SN=0.1904/0.3151,snail=2.7369/0.4648,snake=5.4739/0.3582,snow=8.0702/0.444
 words-S-SP,SP=0.3333/0.2108,spider=2.9954/0.4965,spoon=5.7097/0.5736,spill=8.7573/0.412
-words-S-ST,ST=0.1247/0.3696,stilts=2.7732/0.6439,steal=6.0068/0.4580,statue=8.8571/0.684
+words-S-ST,ST=0.1247/0.3696,stilts=2.7732/0.6439,steal=6.0068/0.4580
 words-S-SW,SW=0.2789/0.7551,sweet=3.2766/0.4580,swing=6.0090/0.5510,swan=8.6938/0.569
 words-S-US,US=0.0272/0.5192,bus=2.8594/0.5306,cactus=5.5419/0.7755,walrus=8.5487/0.839
 words-F-fuh,F=0.0294/0.3560,fuh=2.8594/0.3990,fox=5.4557/0.5034,fish=8.2675/0.4580,sofa=10.839/0.501
@@ -169,7 +169,7 @@ words-A-AI,AI=0.0430/0.4875,tail=1.4172/0.6689,nail=2.6371/0.6530,rainbow=3.8299
 words-A-AU,AU=0.0952/0.3582,daughter=1.1950/0.5873,laundress=2.3469/0.6371,sauce pan=3.6326/0.673
 words-A-AY,AY=0.1043/0.2947,jay=1.5668/0.3650,crayons=3.1247/0.7891,playground=4.8299/0.417
 words-N-ND,ND=0.0929/0.5510,hand=1.4104/0.5736,sandbox=2.7210/0.7369,panda=4.0566/0.569
-words-N-NG,NG=0.1133/0.5986,king=1.9002/0.4693,sing=3.6689/0.4648,finger=5.4965/0.553
+words-N-NG,NG=0.1133/0.5986
 words-N-NK,NK=0.0770/0.4013,skunk=1.4512/0.2458,monkey=2.7052/0.4648,drink=3.9546/0.206
 words-E-schwa,schwa=0.0544/0.3718,camel=1.2607/0.5192,hatchet=2.6870/0.1405,kitten=3.5056/0.102
 words-E-EW,EW=0.0566/0.4557,flew=1.8639/0.4217,screws=3.7551/0.5555,stew pot=5.4104/0.446
@@ -271,7 +271,7 @@ Words/clam,clam=0.1700/0.4603
 Words/mouse,mouse=0.0385/0.5396
 Words/moth,moth=0.0612/0.4308
 Words/man,man=0.0249/0.5941
-Words/mouth,mouth=0.0979/0.7062
+Words/mouth,mouth=0.5/0.7062
 Words/camel,camel=0.1201/0.4467
 Words/grizzly bear,grizzly bear=0.1179/0.6371
 Words/zipper,zipper=0.0181/0.5873
@@ -280,7 +280,7 @@ Words/hazelnuts,hazelnuts=0.0816/1.2947
 Words/saw,saw=0.2335/0.3197
 Words/glass,glass=0.0249/0.6553
 Words/sofa,sofa=0.1972/0.4444
-Words/grass,grass=0.3437/0.8354
+Words/grass,grass=0.1437/0.6354
 Words/seagulls,seagulls=0.0793/1.0340
 Words/question,question=0.1292/0.5215
 Words/purse,purse=0.0362/0.4965
@@ -457,7 +457,7 @@ Words/plug,plug=0.1451/0.4399
 Words/rug,rug=0.0476/0.4467
 Words/plum,plum=0.3875/0.5083
 Words/golf club,golf club=0.0226/0.8526
-Words/dune buggy,dune buggy=0.1587/0.6734
+Words/dune buggy,dune buggy=0.9/0.8
 Words/tissue,tissue=0.0385/0.6394
 Words/fruits,fruits=0.2494/0.4580
 Words/burn,burn=0.1065/0.4308
@@ -551,3 +551,13 @@ Words/square,square=0.2857/0.4807
 Words/t-square,t-square=0.1405/0.5147
 Words/badminton racquet,badminton racquet=0.0453/1.4829
 Words/carpenter's square,carpenter's square=0.2131/1.1496
+Words/love,love=0.1000/0.5
+Words/catch,catch=0.1/0.6
+Words/clown,clown=0.9/0.5
+Words/family,family=0.6/0.5
+Words/goose,goose=0.6/0.5
+Words/king,king=0.1/0.5
+Words/statue,statue=0.5/0.7
+Words/town,town=0.64/0.7
+Words/tuba,tuba=0.1/0.5
+Words/turtle,turtle=0.2/0.6
