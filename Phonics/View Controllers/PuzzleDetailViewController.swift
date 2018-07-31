@@ -12,6 +12,7 @@ class PuzzleDetailViewController : UIViewController {
     
     @IBOutlet weak var puzzleView: PuzzleView!
     @IBOutlet weak var puzzleViewCenterHorizontally: NSLayoutConstraint!
+    @IBOutlet weak var bankBottomMargin: NSLayoutConstraint!
     
     @IBOutlet weak var rhymeText: UITextView!
     @IBOutlet weak var rhymeTextHeight: NSLayoutConstraint!
@@ -20,7 +21,8 @@ class PuzzleDetailViewController : UIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var repeatButton: UIButton!
- 
+    @IBOutlet weak var bankButton: UIButton!
+    
     var oldPuzzleView: UIView!
     var puzzleShadow: UIView!
     var animationImage: UIImageView!
@@ -54,7 +56,7 @@ class PuzzleDetailViewController : UIViewController {
         self.view.layoutIfNeeded()
         updateAccessoryViews(visible: false)
         self.puzzleView.alpha = 0.0
-        
+        self.bankBottomMargin.constant = repeatButton.alpha == 0 ? 10 : 70
         if let puzzle = self.sound.puzzle {
             self.puzzleView.puzzleName = self.sound.puzzleName
             
@@ -200,7 +202,7 @@ class PuzzleDetailViewController : UIViewController {
             guard let oldPuzzleView = self.oldPuzzleView else { return }
             let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
             self.animationImage.frame = translatedFrame
-            
+            self.bankButton.isHidden = true
             self.updateAccessoryViews(visible: false)
         
         }, completion: { _ in
@@ -217,6 +219,7 @@ class PuzzleDetailViewController : UIViewController {
         self.repeatButton.isEnabled = false
         UAWhenDonePlayingAudio {
             self.repeatButton.isEnabled = true
+            self.bankBottomMargin.constant = 70
         }
     }
     

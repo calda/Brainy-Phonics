@@ -330,7 +330,9 @@ class QuizViewController : InteractiveGrowViewController {
         if wordView.word == answerWord {
             if attempts == 1 {
                 index -= 1
-                remainingAnswerWordPool.remove(at: index)
+                if remainingAnswerWordPool != nil {
+                    remainingAnswerWordPool.remove(at: index)
+                }
             }
             correctWordSelected(wordView)
         } else {
