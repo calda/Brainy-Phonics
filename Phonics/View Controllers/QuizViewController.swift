@@ -166,22 +166,6 @@ class QuizViewController : InteractiveGrowViewController {
         }
         
         
-        //wills code checking for number images
-        for word in allWords {
-            let list = [
-                "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "zero", "eleven", "twelve", "thirteen", "fifteen", "twenty",
-                "thirty", "fifty", "hundred", "thousand", "illion"
-            ]
-            for item in list {
-                if word.text.contains(item) {
-                    print("NUMBER")
-                    print(word)
-                }
-            }
-        }
-        
-        
-        
         var selectedWords: [Word] = [answerWord]
         while selectedWords.count != wordViews.count {
             if let candidateWord = possibleWords.random(), !selectedWords.contains(candidateWord) {
@@ -326,7 +310,11 @@ class QuizViewController : InteractiveGrowViewController {
     
     func wordViewSelected(_ wordView: WordView) {
         self.attempts += 1
-        wordView.superview?.bringSubview(toFront: wordView)
+        
+        // DELETED - may be necessary to avoid clipping, but does not seem to.
+        // deleting this is necessary to avoid "jumping" the words superview
+        // wordView.superview?.bringSubview(toFront: wordView)
+        
         if wordView.word == answerWord {
             if attempts == 1 {
                 index -= 1
