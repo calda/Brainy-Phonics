@@ -15,19 +15,19 @@
     },
     "row1-col1" : {
       "rightNub" : "outside",
-      "bottomNub" : "inside",
-      "topNub" : "outside",
+      "bottomNub" : "outside",
+      "topNub" : "inside",
       "leftNub" : "inside"
     },
     "row0-col2" : {
       "rightNub" : "none",
       "bottomNub" : "outside",
       "topNub" : "none",
-      "leftNub" : "inside"
+      "leftNub" : "outside"
     },
     "row2-col0" : {
-      "rightNub" : "inside",
-      "bottomNub" : "inside",
+      "rightNub" : "outside",
+      "bottomNub" : "outside",
       "topNub" : "outside",
       "leftNub" : "none"
     },
@@ -44,37 +44,37 @@
       "leftNub" : "none"
     },
     "row2-col1" : {
-      "rightNub" : "outside",
-      "bottomNub" : "outside",
-      "topNub" : "outside",
-      "leftNub" : "outside"
+      "rightNub" : "inside",
+      "bottomNub" : "inside",
+      "topNub" : "inside",
+      "leftNub" : "inside"
     },
     "row3-col1" : {
       "rightNub" : "outside",
       "bottomNub" : "none",
-      "topNub" : "inside",
-      "leftNub" : "outside"
+      "topNub" : "outside",
+      "leftNub" : "inside"
     },
     "row0-col1" : {
-      "rightNub" : "outside",
-      "bottomNub" : "inside",
+      "rightNub" : "inside",
+      "bottomNub" : "outside",
       "topNub" : "none",
       "leftNub" : "inside"
     },
     "row3-col0" : {
-      "rightNub" : "inside",
+      "rightNub" : "outside",
       "bottomNub" : "none",
-      "topNub" : "outside",
+      "topNub" : "inside",
       "leftNub" : "none"
     },
     "row2-col2" : {
       "rightNub" : "none",
       "bottomNub" : "inside",
       "topNub" : "inside",
-      "leftNub" : "inside"
+      "leftNub" : "outside"
     }
   },
-  "pixelsTall" : 576,
+  "pixelsTall" : 533,
   "rows" : 4,
-  "pixelsWide" : 432
+  "pixelsWide" : 399
 }

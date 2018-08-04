@@ -1,7 +1,7 @@
 //
 // letter, sound ID, display string, word1, word2, word3, "quiz word1, quizWord2", color
 //
-A,long,A,ape,tail,jay,"skate, suitcase, crayons, baby, grape, playground, crane, cradle, face, whale", black
+A,long,A,ape,tail,jay,"skate, suitcase, crayons, baby, grapes, playground, crane, cradle, face, whale", black
 A,short,A,bat,cat,wagon,"axe, taxi, wagon, clam, hamster, raccoons, camel, rabbit, cactus, statue", green
 A,ahh,A,swan,father,squash,"saw, swan, fall, hawk, walnuts, fall, draw, walrus, ball", purple
 A,schwa,A,canoe,zebra,sofa,"afraid, excavator, gazelle, balance beam", orange
@@ -19,10 +19,10 @@ C,sss,C,celery,face,balance,"ice, pencil, tricycle, unicycle, ice cream, sauce p
 C,CH,CH,chipmunk,chimney,catch,"catcher, chair, hatchet, wheelchair, ostrich, chainsaw", black
 C,CL,CL,clown,clam,climb,"cloud, claw hammer, clam, cleats, clarinet, hedge clippers, four-leaf clover", black
 C,CR,CR,crab,crane,cradle,"crayons, cry, scratch, ice cream, cranberries, screws", black
-D,duh,D,dog,dozer,sled,"dig, cloud, dark, slide, window, garden,bed, bulldog, spider, proud", black
+D,duh,D,dog,dozer,sled,"dig, cloud, dark, slide, window, garden, bed, bulldog, spider, proud", black
 D,DR,DR,drink,drop,drill,"drum, draw, laundress, cauldron", black
-E,long,E,key,zebra,tree,"monkey, frisbee, trolley, queen, chimney, jeep, sleepy, sweet, three, wheelchair", blue
-E,short,E,elf,bed,net,"sled, yellow, penguin, jellyfish, bell, pretzel, present, question", green
+E,long,E,key,zebra,tree,"monkey, frisbee, trolley, queen, chimney, jeep, sleepy, sweet, three, wheelchair", black
+E,short,E,elf,bed,net,"sled, yellow, jelly-jars, jellyfish, bell, pretzel, present, question", green
 E,schwa,E,camel,hatchet,kitten,"oven, carpet, shovel, squirrel, mittens, quiet", orange
 E,EA,EA,eat,eagle,leaf,"beaver, seagulls, steal, ice cream, beagle, teapot, guinea pig, peas, green beans, balance beam", black
 E,ER,ER,boxer,catcher,teeter-totter,"flower, dozer, hamster, juggler, beaver, butterfly, silver, finger, feather, spider", black
@@ -34,7 +34,7 @@ F,FR,FR,frog,frisbee,frying pan,"fridge, front loader, afraid, fridge, frog pads
 G,guh,G,goose,goat,flag,"garden, wagon, girl, kangaroo, hug, gold, eagle, penguin, bulldog, seagulls", black
 G,juh,G,giraffe,gingerbread man,fridge,"bridge, fringe, hedge clippers, syringe, bandage", green
 G,GL,GL,gloves,glass,juggler,"globe, glow, sunglasses, glum, spyglass", black
-G,GR,GR,grape,grass,angry,"greyhound, playground, green beans, grizzly bear, grasshopper, grandmother, grandfather, grandfather clock", black
+G,GR,GR,grapes,grass,angry,"greyhound, playground, green beans, grizzly bear, grasshopper, grandmother, grandfather, grandfather clock", black
 H,huh,H,hug,hard hat,greyhound,"hawk, hamster, horn, hilly, hatchet, bloodhound, hand, hat, hot, hit", black
 I,long,I,ice,climb,life jacket,"lion, slide, tricycle, spider, ice cream, bride, diving, five", black
 I,short,I,mittens,hit,fish,"lizard, window, frisbee, slippers, chimney, swing, fiddle, unicycle, sing, ostrich", green
@@ -42,7 +42,7 @@ I,schwa,I,rabbit,pencil,family,"", orange
 I,ee,IE,collie,cookies,strawberries,"beanie cap, groceries, labrador retriever, blackberries, diesel truck", black
 I,ie,IE,tie,quiet,pie,"flies, spies, butterflies, cries, pie man, bow tie", green
 I,IGH,IGH,light,frightened,nightgown,"lightning, night, flashlight, fight, flight", black
-I,IL,IL,spill,drill,silver,"hilly, armadillo, stilts, silly, pencil, family", black
+I,IL,IL,spill,drill,silver,"hilly, armadillo, stilts, silly, pencil", black
 I,IR,IR,bird,girl,birthday cake,"giraffe, thirsty, circle, stir, shirt", black
 J,juh,J,jump,jay,jeep,"juggler, jellyfish, life jacket, jewelry, jack in the box, judge", black
 K,kuh,K,kangaroo,kayak,key,"king, hawk, kitten, chipmunk, drink, fork, monkey, blanket", black
@@ -51,7 +51,7 @@ L,LE,LE,poodle,whale,tricycle,"whistle, turtle, unicycle, tricycle, saddle, crad
 M,mmm,M,monkey,mole,hamster,"mother, clam, mouse, hamster, moth, man, chimney, mouth, camel, jump", black
 N,nnn,N,nose,nail,lion,"nuts, van, net, penguin, clown, kitten, onion, queen, swan, canary", black
 N,ND,ND,hand,sandbox,panda,"candy, greyhound, playground, bloodhound, candlestick, dandelion, sandal, sandwich, dachshund, grandfather", black
-N,NG,NG,king,sing,finger,"swing, lightning, angry, fishing net, flying carpet, dancing", black
+N,NG,NG,king,finger,sing,"swing, lightning, angry, fishing net, flying carpet, dancing", black
 N,NK,NK,skunk,monkey,drink,"chipmunk, blanket, pink, bunk bed, monkey bars, tank truck, monkey wrench", black
 O,long,O,old,mole,polar bear,"yo-yo, nose, sofa, gold, dozer, toe, throne, armadillo, volcano, robot", black
 O,short,O,ostrich,pot,trolley,"fox, hot, boxer, drop, sandbox, rocket, moth, frog, trolley, crayon", green
@@ -69,7 +69,7 @@ P,puh,P,puppy,penguin,carpet,"panda, poodle, jeep, pig, slippers, pearl, sleepy,
 P,PL,PL,plug,playground,airplane,"plum, guitar player, snow plow, plug", black
 P,PR,PR,proud,pretzel,present,"sprinkler, proposing, spray", black
 Q,qwuh,Q,queen,question,squirrel,"squash, quiet, tennis racquet, square, t-square, flying squirrel, badminton racquet, carpenter's square", black
-R,ruh,R,raccoons,robot,grapes,"rainbow, rabbit, bow and arrows, rocket, polar bear, rake, squirrel, firetruck,walrus, throne", black
+R,rrr,R,raccoons,robot,grapes,"rainbow, rabbit, bow and arrows, rocket, polar bear, rake, squirrel, firetruck,walrus, throne", black
 S,sss,S,suitcase,whistle,saint bernard,"saw, sing, glass, sofa, grass, seagulls, question, sandbox, purse, squirrel", black
 S,zz,S,dogs,skis,poison,"nose, present, raccoons, Frisbee, boots, gloves, crayons, walnuts, binoculars", green
 S,SH,SH,shoes,shovel,fish,"brush, jellyfish, squash, fishing net, eyelash, sheep, starfish, flashlight, dish, cushion", black
@@ -81,7 +81,7 @@ S,SW,SW,sweet,swing,swan,"swim, sweet potato, street sweeper, swimming", black
 T,tttt,T,toe,traffic light,hat,"teeter-totter, turtle, goat, tail, tuba, utility knife, tie, light, town, sweet", black
 T,the,TH,father,mother,feather,"clothes, weather, grandfather clock, tetherball, brother, grandmother", black
 T,th,TH,throne,three,moth,"mouth, birthday cake, path, throw, thumb", green
-T,TR,TR,tricycle,tree,firetruck,"trumpet, trolley, ostrich, tank, truck, troubles, boat trailer, trombone, triangle, tree stump, trowel, troll", black
+T,TR,TR,tricycle,tree,firetruck,"trumpet, trolley, ostrich, tank truck, troubles, boat trailer, trombone, triangle, tree stump, trowel, troll", black
 U,long,U,unicycle,binoculars,unicorn,"statue, cucumber, ambulance, SUV, music", black
 U,uu,U,tuba,blue,dune buggy,"flute, suit, tissue, fruits, suitcase, dune buggy, blue, tuba", green
 U,short,U,bug,bucket,chipmunk,"cut, brush, bubble, firetruck, plug, rug, plum, golf club, judge, jump", orange

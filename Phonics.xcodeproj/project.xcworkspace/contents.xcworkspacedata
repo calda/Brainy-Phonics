@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:puzzle-G-GR"
+      name = "puzzle-G-GR">
+   </Group>
    <FileRef
-      location = "self:/Users/cal/Documents/Xcode/Phonics/Phonics.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

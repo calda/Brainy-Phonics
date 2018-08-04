@@ -45,7 +45,6 @@ class LetterViewController : InteractiveGrowViewController {
     
     
     //MARK: - Presentation
-    
     static func present(for letter: Letter, with difficulty: Letter.Difficulty, inController other: UIViewController, initialSound: Sound? = nil) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "letter") as! LetterViewController
         controller.letter = letter
@@ -72,10 +71,8 @@ class LetterViewController : InteractiveGrowViewController {
         self.buttonArea.backgroundColor = difficulty.color
         
         //easy difficulty only has one sound per letter
-        if difficulty == .easyDifficulty {
-            self.nextSoundButton.isHidden = true
-            self.previousSoundButton.isHidden = true
-        }
+        self.nextSoundButton.isHidden = difficulty == .easyDifficulty
+        self.previousSoundButton.isHidden = difficulty == .easyDifficulty
     }
     
     override func viewWillDisappear(_ animated: Bool) {

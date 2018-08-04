@@ -20,6 +20,7 @@ class PuzzleDetailViewController : UIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var repeatButton: UIButton!
+    @IBOutlet weak var bankButton: UIButton!
     
     var oldPuzzleView: UIView!
     var puzzleShadow: UIView!
@@ -45,11 +46,24 @@ class PuzzleDetailViewController : UIViewController {
         source.present(puzzleDetail, animated: false, completion: nil)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if rhymeText.contentSize.height > view.frame.height - 100 {
+            rhymeTextHeight.constant = self.view.frame.height - 50 // 50 = padding on top/bottom
+            rhymeText.setContentOffset(.zero, animated: false)
+        }
+        rhymeText.layoutIfNeeded()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         self.view.layoutIfNeeded()
+        
+//        rhymeText.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
+
         updateAccessoryViews(visible: false)
         self.puzzleView.alpha = 0.0
-        
         if let puzzle = self.sound.puzzle {
             self.puzzleView.puzzleName = self.sound.puzzleName
             
@@ -69,6 +83,7 @@ class PuzzleDetailViewController : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         
         //create image and then animate
         guard let oldPuzzleView = self.oldPuzzleView else { return }
@@ -120,9 +135,6 @@ class PuzzleDetailViewController : UIViewController {
     //MARK: - Rhyme
     
     func prepareRhymeText(for text: String) {
-        //move down to prepare for animation
-        rhymeText.transform = CGAffineTransform(translationX: 0, y: 50)
-        
         rhymeText.clipsToBounds = false
         rhymeText.layer.masksToBounds = false
         self.repeatButton.isHidden = false
@@ -130,23 +142,11 @@ class PuzzleDetailViewController : UIViewController {
         //build attributed string
         let attributes = rhymeText.attributedText.attributes(at: 0, effectiveRange: nil)
         let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
-        
+
         let redHighlightColor = UIColor(hue: 1.0, saturation: 1.0, brightness: 0.73, alpha: 1.0)
         self.addHighlights(of: redHighlightColor, to: attributedText)
         rhymeText.attributedText = attributedText
-        
-        //update height for
-        let idealHeight = heightForText(text, width: rhymeText.frame.width, attributes: attributes) + 10
-        let maxPossibleHeight = self.view.frame.height - 50 // 50 = padding on top/bottom
-        
-        if idealHeight < maxPossibleHeight {
-            rhymeTextHeight.constant = idealHeight
-            rhymeText.isUserInteractionEnabled = false
-        } else {
-            rhymeTextHeight.constant = maxPossibleHeight
-            rhymeText.isUserInteractionEnabled = true
-        }
-        
+        view.bringSubview(toFront: rhymeText)
         rhymeText.layoutIfNeeded()
     }
     
@@ -155,7 +155,7 @@ class PuzzleDetailViewController : UIViewController {
         var startForRangeInProgress: Int? = nil
         var parenthesisCount = 0
         
-        //find ranges to highlight (knowning that the parenthesis will be removed later)
+        //find ranges to highlight (knowing that the parenthesis will be removed later)
         for (index, character) in attributedString.string.enumerated() {
             
             if character == Character("(") {
@@ -206,7 +206,7 @@ class PuzzleDetailViewController : UIViewController {
             guard let oldPuzzleView = self.oldPuzzleView else { return }
             let translatedFrame = self.view.convert(oldPuzzleView.bounds, from: oldPuzzleView)
             self.animationImage.frame = translatedFrame
-            
+            self.bankButton.isHidden = true
             self.updateAccessoryViews(visible: false)
         
         }, completion: { _ in
@@ -221,11 +221,29 @@ class PuzzleDetailViewController : UIViewController {
         let audioName = sound.rhymeAudioName
         PHPlayer.play(audioName, ofType: "mp3")
         self.repeatButton.isEnabled = false
-        
         UAWhenDonePlayingAudio {
             self.repeatButton.isEnabled = true
         }
     }
+    
+    @IBAction func bankTapped(_ sender: UIButton) {
+        UAHaltPlayback()
+        
+        let overThreshold = Player.current.sightWordCoins.gold >= 50
+        let celebrate = overThreshold && !Player.current.hasSeenSightWordsCelebration
+
+        self.view.isUserInteractionEnabled = false
+
+        BankViewController.present(
+            from: self,
+            goldCount: Player.current.sightWordCoins.gold,
+            silverCount: Player.current.sightWordCoins.silver,
+            playCelebration: celebrate,
+            onDismiss: {
+                self.view.isUserInteractionEnabled = true
+        })
+    }
+    
     
     
     //MARK: - Save Image to Disk
@@ -236,6 +254,13 @@ class PuzzleDetailViewController : UIViewController {
             Puzzle.save(image: image, asPuzzleNamed: sound.puzzleName)
         }
     }
+    
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        var topCorrect : CGFloat = (rhymeText.frame.height - rhymeText.contentSize.height);
+//        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect / 2
+//        rhymeText.contentOffset = CGPoint(x: 0, y: -topCorrect)
+//    }
+    
 }
 
 
@@ -258,6 +283,7 @@ extension UIView {
     }
     
 }
+
 
 
 

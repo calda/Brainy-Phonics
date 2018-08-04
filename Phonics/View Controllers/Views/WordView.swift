@@ -58,9 +58,7 @@ class WordView : UINibView {
             UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8) {
                 self.showingText = showingText
             }
-        }
-        
-        else {
+        } else {
             self.showingText = showingText
         }
         

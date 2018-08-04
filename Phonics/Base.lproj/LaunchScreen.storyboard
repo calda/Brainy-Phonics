@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,20 +51,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="op8-So-W28">
                                 <rect key="frame" x="81.666666666666686" y="0.0" width="666.33333333333326" height="354"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-brainy-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="p6A-cg-zah">
-                                        <rect key="frame" x="166.66666666666669" y="10.333333333333343" width="333" height="333.33333333333326"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="p6A-cg-zah" secondAttribute="height" multiplier="1:1" id="Gb1-iA-BIs"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="p6A-cg-zah" firstAttribute="centerY" secondItem="op8-So-W28" secondAttribute="centerY" id="APG-rN-Re4"/>
-                                    <constraint firstItem="p6A-cg-zah" firstAttribute="centerX" secondItem="op8-So-W28" secondAttribute="centerX" id="D3A-E2-YOl"/>
-                                    <constraint firstItem="p6A-cg-zah" firstAttribute="width" secondItem="op8-So-W28" secondAttribute="width" multiplier="0.5" id="ySE-UJ-pM4"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,7 +77,6 @@
     </scenes>
     <resources>
         <image name="gradient" width="1000" height="523"/>
-        <image name="logo-brainy-phonics" width="1152" height="1152"/>
         <image name="shadow-right" width="9" height="598"/>
     </resources>
 </document>

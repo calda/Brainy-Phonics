@@ -35,6 +35,7 @@ class QuizViewController : InteractiveGrowViewController {
     var timers = [Timer]()
     var state: QuizState = .waiting
     var attempts = 0
+    var index = 0 //the index of the previous word in the total array
     
     enum QuizState {
         case waiting, playingQuestion, transitioning
@@ -58,8 +59,9 @@ class QuizViewController : InteractiveGrowViewController {
         if let sound = self.sound {
             totalAnswerWordPool = sound.allWords
             
-            //start initially with the three "simple" words
-            remainingAnswerWordPool = sound.primaryWords
+            //this starts out the same as Total,
+            //but will have values removed if correct on first try
+            remainingAnswerWordPool = sound.allWords
         }
         
         if let difficulty = self.difficulty {
@@ -95,46 +97,43 @@ class QuizViewController : InteractiveGrowViewController {
     
     func setupForRandomSoundFromPool() {
         let isFirst = (currentSound == nil)
-        self.attempts = 0
+        attempts = 0
         
-        //if there is one specific sound, 
+        
         if let sound = self.sound {
+            //if there is one specific sound
+            
             self.currentSound = sound
             self.currentLetter = PHContent[self.currentSound.sourceLetter]!
             
-            //refill word pool if necessary
-            if self.remainingAnswerWordPool.count == 0 {
-                self.remainingAnswerWordPool = self.totalAnswerWordPool
-                
-                //remove previous word from pool so the same word never plays twice
-                if let previousWord = self.answerWord,
-                   let index = self.remainingAnswerWordPool.index(of: previousWord) {
-                    self.remainingAnswerWordPool.remove(at: index)
-                }
+            if remainingAnswerWordPool.isEmpty {
+                //start over from beginning, just in case.
+                remainingAnswerWordPool = totalAnswerWordPool
             }
             
-            self.answerWord = self.remainingAnswerWordPool.random()
-            
-            //remove word from pool of remaining words
-            if let answerWord = self.answerWord {
-                let index = self.remainingAnswerWordPool.index(of: answerWord)
-                self.remainingAnswerWordPool.remove(at: index!)
+            if index >= remainingAnswerWordPool.count {
+                //loop from beginning again, but avoiding any First-Try's
+                index = 0
             }
-        }
-        
-        //if global quiz
-        else {
+            
+            answerWord = remainingAnswerWordPool[index]
+            index += 1
+            
+        } else {
+            //if global quiz
+            
             let randomLetter = PHLetters.random()!
             self.currentLetter = PHContent[randomLetter]
             self.currentSound = self.currentLetter.sounds(for: difficulty ?? .standardDifficulty).random()
             self.answerWord = self.currentSound.allWords.random()
         }
         
-        
+        //get other (wrong) word choices
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation ?? currentSound.displayString.lowercased()
-        let blacklistedLetters = currentSound.blacklistedLetters
-        let possibleWords = allWords.filter{ word in
+        let additionalBlacklist = currentSound.blacklist
+        
+        let possibleWords = allWords.filter { word in
             
             for character in blacklistedSound {
                 if word.pronunciation?.contains("\(character)") == true {
@@ -142,14 +141,30 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
             
-            for letter in blacklistedLetters {
-                if word.text.lowercased().contains(letter) {
+            for blacklist in additionalBlacklist {
+                if word.text.lowercased().contains(blacklist) {
                     return false
+                }
+            }
+            
+            if let sound = sound, sound.soundId == "schwa" && sound.displayString.lowercased() == "i" {
+                //special case: remove hatchet, basket,
+                //and any other two- syllable word in which the vowel in the second syllable is a, e, i, or u.
+                var vowels = 0
+                for letter in word.text {
+                    if (letter == "a" || letter == "e" || letter == "i" || letter == "u")
+                        || (letter == "o" && vowels == 0) {
+                        vowels += 1
+                        if vowels > 1 {
+                            return false
+                        }
+                    }
                 }
             }
             
             return true
         }
+        
         
         var selectedWords: [Word] = [answerWord]
         while selectedWords.count != wordViews.count {
@@ -295,9 +310,18 @@ class QuizViewController : InteractiveGrowViewController {
     
     func wordViewSelected(_ wordView: WordView) {
         self.attempts += 1
-        wordView.superview?.bringSubview(toFront: wordView)
-
+        
+        // DELETED - may be necessary to avoid clipping, but does not seem to.
+        // deleting this is necessary to avoid "jumping" the words superview
+        // wordView.superview?.bringSubview(toFront: wordView)
+        
         if wordView.word == answerWord {
+            if attempts == 1 {
+                index -= 1
+                if remainingAnswerWordPool != nil {
+                    remainingAnswerWordPool.remove(at: index)
+                }
+            }
             correctWordSelected(wordView)
         } else {
             wordView.setShowingText(true, animated: true)
