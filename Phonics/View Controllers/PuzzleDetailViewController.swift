@@ -47,12 +47,21 @@ class PuzzleDetailViewController : UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        //without this it auto scrolls to bottom
-        rhymeText.setContentOffset(.zero, animated: false)
+        super.viewDidLayoutSubviews()
+        
+        if rhymeText.contentSize.height > view.frame.height - 100 {
+            rhymeTextHeight.constant = self.view.frame.height - 50 // 50 = padding on top/bottom
+            rhymeText.setContentOffset(.zero, animated: false)
+        }
+        rhymeText.layoutIfNeeded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.view.layoutIfNeeded()
+        
+//        rhymeText.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
+
         updateAccessoryViews(visible: false)
         self.puzzleView.alpha = 0.0
         if let puzzle = self.sound.puzzle {
@@ -74,6 +83,7 @@ class PuzzleDetailViewController : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         
         //create image and then animate
         guard let oldPuzzleView = self.oldPuzzleView else { return }
@@ -125,9 +135,6 @@ class PuzzleDetailViewController : UIViewController {
     //MARK: - Rhyme
     
     func prepareRhymeText(for text: String) {
-        //move down to prepare for animation
-        rhymeText.transform = CGAffineTransform(translationX: 0, y: 50)
-        
         rhymeText.clipsToBounds = false
         rhymeText.layer.masksToBounds = false
         self.repeatButton.isHidden = false
@@ -135,12 +142,11 @@ class PuzzleDetailViewController : UIViewController {
         //build attributed string
         let attributes = rhymeText.attributedText.attributes(at: 0, effectiveRange: nil)
         let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
-        
+
         let redHighlightColor = UIColor(hue: 1.0, saturation: 1.0, brightness: 0.73, alpha: 1.0)
         self.addHighlights(of: redHighlightColor, to: attributedText)
         rhymeText.attributedText = attributedText
-        
-        rhymeTextHeight.constant = self.view.frame.height - 50 // 50 = padding on top/bottom
+        view.bringSubview(toFront: rhymeText)
         rhymeText.layoutIfNeeded()
     }
     
@@ -149,7 +155,7 @@ class PuzzleDetailViewController : UIViewController {
         var startForRangeInProgress: Int? = nil
         var parenthesisCount = 0
         
-        //find ranges to highlight (knowning that the parenthesis will be removed later)
+        //find ranges to highlight (knowing that the parenthesis will be removed later)
         for (index, character) in attributedString.string.enumerated() {
             
             if character == Character("(") {
@@ -248,6 +254,13 @@ class PuzzleDetailViewController : UIViewController {
             Puzzle.save(image: image, asPuzzleNamed: sound.puzzleName)
         }
     }
+    
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        var topCorrect : CGFloat = (rhymeText.frame.height - rhymeText.contentSize.height);
+//        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect / 2
+//        rhymeText.contentOffset = CGPoint(x: 0, y: -topCorrect)
+//    }
+    
 }
 
 
@@ -270,6 +283,7 @@ extension UIView {
     }
     
 }
+
 
 
 
